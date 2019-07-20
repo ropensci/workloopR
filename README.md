@@ -8,6 +8,9 @@ Import and analysis of work loop and isometric data in muscle physiology
   <!-- badges: start -->
   [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/vbaliga/workloopR?branch=master&svg=true)](https://ci.appveyor.com/project/vbaliga/workloopR)
   <!-- badges: end -->
+  <!-- badges: start -->
+  [![Travis build status](https://travis-ci.org/vbaliga/workloopR.svg?branch=master)](https://travis-ci.org/vbaliga/workloopR)
+  <!-- badges: end -->
 
 
 
