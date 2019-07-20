@@ -7,6 +7,11 @@ r:
   - release
   - devel
 cache: packages
-
-r_build_args: "--no-build-vignettes --no-manual"
+r_packages:
+  - dplyr
+  - ggplot2
+  - magrittr
+  - purrr
+  - tidyr
+  - viridis
 r_check_args: "--no-build-vignettes --no-manual --as-cran"
