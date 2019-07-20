@@ -5,7 +5,10 @@ names(test_data)<-c("Stim","Force","Position")
 test_workloop<-as_muscle_stim(test_data,"workloop",1000)
 
 test_that("transformation functions work", {
+  expect_error(fix_GR(1),"should be of class `muscle_stim`")
+  expect_error(fix_GR(test_workloop,"a"),"must be numeric")
   expect_equal(attr(fix_GR(test_workloop,5),"gear_ratio"),5)
+  expect_error(invert_position(1),"should be of class `muscle_stim`")
   expect_true(attr(invert_position(test_workloop),"position_inverted"))
   expect_equal(invert_position(test_workloop)$Position,c(-5,-6))
 })

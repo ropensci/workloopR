@@ -271,4 +271,3 @@ fix_GR<-function(x,
       attr(x,"amplitude")<-attr(x,"amplitude")*(1/GR)
   return(x)
 }
-

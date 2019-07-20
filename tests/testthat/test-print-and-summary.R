@@ -24,6 +24,7 @@ test_that("summarizing works for basic experiment types", {
   expect_output(summary(workloop_example),"# Workloop Data:.*File ID: workloop.ddf.*Cycle Frequency: 28Hz.*L0-to-L0")
   expect_output(summary(tetanus_example),"# Tetanus Data:.*data.frame Columns:.*Stimulus Length: 0.081s")
   expect_output(summary(twitch_example),"# Twitch Data:.*Stimulus Offset: 0.1s")
+  expect_output(summary(invert_position(workloop_example)),"Position is inverted")
 })
 
 test_that("summarizing works for transformed and analyzed objects",{

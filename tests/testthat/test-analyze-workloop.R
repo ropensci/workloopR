@@ -29,6 +29,7 @@ test_that("analyze_workloop stops when it should", {
   expect_error(analyze_workloop(1),"Input data should be of class")
   expect_error(analyze_workloop(workloop_example),"The Cycle column")
   expect_error(analyze_workloop(selected_cycles,F,"a"),"Gear ratio")
+  expect_error(analyze_workloop(selected_cycles,F,1,"b"),"Velocity multiplier")
 })
 
 test_that("simplified analyze_workloop output is accurate",{
