@@ -8,10 +8,4 @@ r:
   - devel
 cache: packages
 
-r_packages:
-  - dplyr
-  - ggplot2
-  - magrittr
-  - purrr
-  - tidyr
-  - viridis
+r_check_args: "--no-build-vignettes"
