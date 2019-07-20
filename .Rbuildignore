@@ -7,3 +7,4 @@
 images
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^appveyor\.yml$
