@@ -6,7 +6,7 @@ test_that("read_ddf stops when it should", {
   expect_error(read_ddf(system.file("CITATION",package = 'workloopR')),"DMC Datafile")
   expect_error(read_ddf("invalid_exp.ddf"),"Could not parse experiment type")
   expect_warning(read_ddf("bad_units.ddf"),"Non-standard units detected")
-  #expect_warning(read_ddf("non-numeric.ddf"),"includes non-numeric data")
+  expect_warning(read_ddf("non-numeric.ddf"),"includes non-numeric data")
 })
 
 workloop_example<-read_ddf(system.file("extdata","workloop.ddf",package = 'workloopR'))
