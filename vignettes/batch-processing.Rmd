@@ -36,9 +36,7 @@ This vignette will rely heavily on the `purrr:map()` family of functions for rec
 packages <-
   c("workloopR",
     "magrittr",
-    "purrr",
-    "ggplot2",
-    "viridis")
+    "purrr")
 
 ## Now load or install&load all
 package.check <- lapply(
@@ -148,4 +146,3 @@ Analysis can similarly be run recursively. `isometric_timing()` in particular re
 non_ddf_list %>%
   map_dfr(isometric_timing)
 ```
-

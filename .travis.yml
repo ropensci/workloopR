@@ -7,4 +7,11 @@ r:
   - release
   - devel
 cache: packages
-latex: false
+
+r_packages:
+  - dplyr
+  - ggplot2
+  - magrittr
+  - purrr
+  - tidyr
+  - viridis
