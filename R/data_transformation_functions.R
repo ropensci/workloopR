@@ -1,7 +1,7 @@
 # custom functions
 # all written by Vikram B. Baliga (vbaliga@zoology.ubc.ca) and Shreeram
 # Senthivasan
-# last updated: 2019-07-15
+# last updated: 2019-07-19
 
 
 ############################### select cycles ###############################
@@ -267,7 +267,8 @@ fix_GR<-function(x,
 
   attr(x,"gear_ratio")<-attr(x,"gear_ratio")*GR
   if("workloop" %in% class(x))
-    if(!is.na(attr(x,"amplitude"))) attr(x,"amplitude")<-attr(x,"amplitude")*(1/GR)
+    if(!is.na(attr(x,"amplitude")))
+      attr(x,"amplitude")<-attr(x,"amplitude")*(1/GR)
   return(x)
 }
 

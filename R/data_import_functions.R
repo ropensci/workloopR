@@ -158,7 +158,8 @@ summary.workloop<-function(object,...){
   cat(paste0("Amplitude: ",
              attr(object,"amplitude"),
              attr(object,"units")[grep("Position",colnames(object))],"\n\n"))
-  if(attr(object,"position_inverted")) cat("\nPlease note that Position is inverted!\n\n")
+  if(attr(object,"position_inverted"))
+    cat("\nPlease note that Position is inverted!\n\n")
 }
 
 #' @export

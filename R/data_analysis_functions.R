@@ -1,7 +1,7 @@
 # custom functions
 # all written by Vikram B. Baliga (vbaliga@zoology.ubc.ca) and Shreeram
 # Senthivasan
-# last updated: 2019-07-15
+# last updated: 2019-07-19
 
 
 ############################ trapezoidal integration ###########################
@@ -314,8 +314,8 @@ analyze_workloop<-function(x,
 #' @return A \code{data.frame} that additionally contains:
 #' \item{Time_Corrected_Work }{Time corrected work output, transformed from
 #'  \code{$Mean_Work}}
-#' \item{Time_Corrected_Power }{Time corrected net power output, transformed from
-#'  \code{$Mean_Power}}
+#' \item{Time_Corrected_Power }{Time corrected net power output, transformed
+#' from \code{$Mean_Power}}
 #'
 #' And new attributes:
 #' \item{power_difference }{Difference in mass-specific net power output

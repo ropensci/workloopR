@@ -32,9 +32,9 @@ The work loop technique ([Josephson 1985](https://jeb.biologists.org/content/114
 
 ### Example
 
-`workloopR` offers the ability to import, transform, and then analyze a data file. For example, with a work loop file:
+`workloopR` offers the ability to import, transform, and then analyze a data file. Here is an example using a work loop file included within the package:
 
-```{r a_p_single_file}
+```r
 library(workloopR)
 
 ## import the workloop.ddf file included in workloopR
@@ -44,10 +44,16 @@ wl_dat <-read_ddf(system.file("extdata", "workloop.ddf", package = 'workloopR'))
 wl_selected <- select_cycles(wl_dat, cycle_def = "p2p", keep_cycles = 3:5)
 
 ## apply a gear ratio correction, run the analysis function, 
-## and get the full object
+## and then get the full object
 wl_analyzed <- analyze_workloop(wl_selected, GR = 2)
 ## for brevity, the print() method for this object produces a simple output
 wl_analyzed
+```
+	File ID: workloop.ddf
+	Cycles: 3 cycles kept out of 6
+	Mean Work: 0.00308 J
+	Mean Power: 0.08474 W
+```r
 ## but see the structure for the full output, e.g.
 #str(wl_analyzed)
 
@@ -55,6 +61,10 @@ wl_analyzed
 wl_analyzed_simple <- analyze_workloop(wl_selected, simplify = TRUE, GR = 2)
 wl_analyzed_simple
 ```
+	  Cycle        Work  Net_Power
+	a     A 0.002785397 0.07639783
+	b     B 0.003147250 0.08661014
+	c     C 0.003305744 0.09122522
 
 
 
@@ -84,14 +94,14 @@ We also include functions for batch processing files (e.g. multiple files from a
 
 ## Vignettes
 
-Vignettes include:
+Vignettes included within the package:
 
 - Introduction to workloopR
 - Importing data from non .ddf sources
 - Working with isometric experiments in workloopR
 - Analyzing work loop experiments in workloopR
 - Batch processing
-- Plotting
+- Plotting data in workloopR
 
 Please see below for an overview of the ``workloopR`` package with recommended functions and vignettes. 
 
