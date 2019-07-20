@@ -545,14 +545,10 @@ rescale_data<-
            sample_frequency,
            rename_cols,
            skip_cols){
-    rescaled<-mapply(function(raw,offset,scale){
-                       if(!is.numeric(raw))
-                         return(raw)
-                       else
-                         (raw+offset)*scale},
-                     dataz[unitz$Channel],
-                     unitz$Offset,
-                     unitz$Scale)
+    rescaled<-mapply(function(raw,offset,scale)(raw+offset)*scale,
+                        dataz[unitz$Channel],
+                        unitz$Offset,
+                        unitz$Scale)
 
     rescaled<-data.frame(Time=(1:nrow(dataz))/sample_frequency,
                   rescaled,
