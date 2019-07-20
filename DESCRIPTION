@@ -15,8 +15,8 @@ Author: Vikram B. Baliga [cre, aut] (<https://orcid.org/0000-0002-9367-8974>),
     Shreeram Senthivasan [aut] (<https://orcid.org/0000-0002-7118-9547>)
 Maintainer: Vikram B. Baliga <vbaliga87@gmail.com>
 Description: Import and analyses of data from muscle physiology experiments. As the package's title suggests, our initial motivation was to provide functions to analyze work loops. Over the course of developing the package, we expanded this goal to cover additional types of experiments that are often complementary to the work loop technique. Accordingly, there are three currently supported experiment types: work loop, simple twitch, and tetanus.
-URL: <http://github.com/vbaliga/workloopR>
-BugReports: http://github.com/vbaliga/workloopR/issues
+URL: <https://github.com/vbaliga/workloopR>
+BugReports: https://github.com/vbaliga/workloopR/issues
 Imports:
     pracma (>= 2.0.7),
     signal (>= 0.7-6)

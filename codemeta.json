@@ -112,7 +112,7 @@
     }
   ],
   "codeRepository": "https://github.com/vbaliga/workloopr",
-  "fileSize": "8511.13KB",
+  "fileSize": "860.363KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -133,5 +133,7 @@
       "url": "https://github.com/vbaliga/workloopR"
     }
   ],
-  "issueTracker": "<https://github.com/vbaliga/workloopR/issues>"
+  "issueTracker": "https://github.com/vbaliga/workloopR/issues",
+  "readme": "https://github.com/vbaliga/workloopR/blob/master/README.md",
+  "contIntegration": ["https://ci.appveyor.com/project/vbaliga/workloopR", "https://travis-ci.org/vbaliga/workloopR"]
 }

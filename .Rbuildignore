@@ -9,3 +9,4 @@ images
 ^\.Rproj\.user$
 ^appveyor\.yml$
 ^\.travis\.yml$
+^codemeta\.json$
