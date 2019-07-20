@@ -1,0 +1,151 @@
+---
+title: "Batch Processing"
+author: "Shreeram Senthivasan"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Batch Processing}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Many of the functions in the `workloopR` package are built to facilitate batch processing of workloop and related data files. This vignette will start with an overview of how the functions were intended to be used for batch processing and then provide specific examples.
+
+## Conceptual overview
+
+We generally expect a single file to store data from a single experimental trial, whereas directories hold data from all the trials of a single experiment. Accordingly, the `muscle_stim` objects created and used by most of the `workloopR` functions are intended to hold data from a single trial of a workloop or related experiment. Lists are then used to package together trials from a single experiment. This also lends itself to using recursion to transform and analyze all data from a single experiment.
+
+In broad strokes, there are three ways that batch processing has been worked into `workloopR` functions. First, some functions like the `*_dir()` family of import functions and `summarize_wl_trials()` specifically generate or require lists of `muscle_stim` objects. Second, the first argument of all other functions are the objects being manipulated, which can help clean up recursion using the `purrr::map()` family of functions. Finally, some functions return summarized data as single rows of a data.frame that can easily be binded together to generate a summary table.
+
+## Load packages and data
+
+This vignette will rely heavily on the `purrr:map()` family of functions for recursion, though it should be mentioned that the `base::apply()` family of functions would work as well.
+
+```{r package_loading, message=FALSE, warning=FALSE}
+## If a package is installed, it will be loaded. If any are not, the missing
+## package(s) will be installed from CRAN and then loaded.
+
+## First specify the packages of interest
+packages <-
+  c("workloopR",
+    "magrittr",
+    "purrr",
+    "ggplot2",
+    "viridis")
+
+## Now load or install&load all
+package.check <- lapply(
+  packages,
+  FUN = function(x) {
+    if (!require(x, character.only = TRUE)) {
+      install.packages(x, dependencies = TRUE,
+                       repos = "http://cran.us.r-project.org")
+      library(x, character.only = TRUE)
+    }
+  }
+)
+```
+
+## Necessarily-multi-trial functions
+
+### `*_dir()` functions
+
+Both `read_ddf()` and `read_analyze_wl()` have alternatives suffixed by `_dir()` to read in multiple files from a directory. Both take a path to the directory and an optional regular expression to filter files by and return a list of `muscle_stim` objects or `analyzed_workloop` objects, respectively.
+
+```{r}
+workloop_trials_list<-
+  system.file(
+    "extdata/wl_duration_trials",
+    package = 'workloopR') %>%
+  read_ddf_dir
+
+workloop_trials_list[1:2]
+```
+
+The `sort_by` argument can be used to rearrange this list by any attribute of the read-in objects. By default, the objects are sorted by their modification time. Other arguments of `read_ddf()` and `read_analyze_wl()` can also be passed to their `*_dir()` alternatives as named arguments.
+
+```{r}
+analyzed_wl_list<-
+  system.file(
+    "extdata/wl_duration_trials",
+    package = 'workloopR') %>%
+  read_analyze_wl_dir(sort_by = 'file_id',
+                      phase_from_peak = T,
+                      cycle_def = 'lo',
+                      keep_cycles = 3)
+
+analyzed_wl_list[1:2]
+```
+
+### Summarizing workloop trials
+
+In a series of workloop trials, it can useful to see how mean power and work change as you vary different experimental parameters. To facilitate this, `summarize_wl_trials()` specifically takes a list of `analyzed_workloop` objects and returns a `data.frame` of this information. We will explore ways of generating lists of analyzed workloops without using `read_analyze_wl_dir()` in the following section.
+
+```{r}
+analyzed_wl_list %>%
+  summarize_wl_trials
+```
+
+## Manual recursion examples
+
+### Batch import for non-ddf data
+
+One of the more realistic use cases for manual recursion is for importing data from multiple related trials that are not stored in ddf format. As with importing individual non-ddf data sources, we start by reading the data into a data.frame, only now we want a list of data.frames. In this example, we will read in csv files and stitch them into a list using `purrr::map()`
+
+```{r}
+non_ddf_list<-
+  # Generate a vector of file names
+  system.file(
+    "extdata/twitch_csv",
+    package = 'workloopR') %>%
+  list.files(full.names = T) %>%
+  # Read into a list of data.frames
+  map(read.csv) %>%
+  # Coerce into a workloop object
+  map(as_muscle_stim, type = "twitch")
+```
+
+### Data transformation and analysis
+
+Applying a constant transformation to a list of `muscle_stim` objects is fairly straightforward using `purrr::map()`.
+
+```{r}
+non_ddf_list<-
+  non_ddf_list %>%
+  map(~{
+    attr(.x,"stimulus_width")<-0.2
+    attr(.x,"stimulus_offset")<-0.1
+    return(.x)
+  }) %>%
+  map(fix_GR,2)
+```
+
+Applying a non-constant transformation like setting a unique file ID can be done using `purrr::map2()`.
+
+```{r}
+file_ids<-paste0("0",1:4,"-twitch.csv")
+
+non_ddf_list<-
+  non_ddf_list %>%
+  map2(file_ids, ~{
+    attr(.x,"file_id")<-.y
+    return(.x)
+  })
+
+non_ddf_list
+```
+
+Analysis can similarly be run recursively. `isometric_timing()` in particular returns a single row of a data.frame with timings and forces for key points in an isometric dataset. Here we can use `purrr::map_dfr()` to bind the rows together for neatness.
+
+```{r}
+non_ddf_list %>%
+  map_dfr(isometric_timing)
+```
+

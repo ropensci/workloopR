@@ -1,0 +1,26 @@
+DMCv5.3 Data File
+Sample Frequency (Hz): 10000
+Reference Area: NaN sq. mm
+Reference Force: NaN mN
+Reference Length: NaN mm
+Calibration Data:
+Channel	AI0	AI1	AI2	AI3	AI4	AI5	AI6	AI7	AO0	AO1
+Units	mm	mN	TTL						mm	mN
+Scale (units/V)	0.000000	0.000000	0.000000	0.000000	0.000000	0.000000	0.000000	0.000000	0.000000	0.000000
+Offset (volts)	0.000000	0.000000	0.000000	0.000000	0.000000	0.000000	0.000000	0.000000	0.000000	0.000000
+TADs	0.000000	0.000000	0.000000	0.000000	0.000000	0.000000	0.000000	0.000000	0.000000	0.000000
+Test Comments:
+
+
+Protocol Array:
+
+0.000000	Stimulus-Strange	Stimulator	.012, 300, 0.2, 4, 28	
+0.010000	Sine Wave	Length Out	28,3.15,6	
+0.000000	Stimulus-Oddity	Stimulator	0,0,0,0,0	
+0.100000	Stop			
+
+
+Test Data in Volts:
+
+Sample	AI0	AI1	AI2	AI3	AI4	AI5	AI6	AI7	AO0	AO1	Stim
+0	0.000000	0.000000	-0.000000	-0.000000	-0.000000	-0.000000	0.000000	0.000000	0.000000	0.000000	0

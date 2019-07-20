@@ -1,0 +1,9 @@
+.*\.json
+.*\.md
+.*\.Rproj
+.*\.pdf
+.*\.bib
+.*\.git
+images
+^.*\.Rproj$
+^\.Rproj\.user$
