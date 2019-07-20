@@ -65,6 +65,6 @@ test_that("read_ddf_dir reads in attributes correctly",{
 context("pulling metadata")
 
 test_that("get wl metadata pulls return is correct dimensions", {
-  #expect_equal(names(get_wl_metadata(".")), c("size","isdir","mode","mtime","ctime","atime","uid","gid","uname","grname","exp_names"))
+  expect_true(all(c("size","isdir","mode","mtime","ctime","atime","exp_names") %in% names(get_wl_metadata("."))))
   expect_equal(nrow(get_wl_metadata(".")),4)
 })
