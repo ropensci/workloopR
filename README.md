@@ -6,13 +6,14 @@ Import and analysis of work loop and isometric data in muscle physiology
 
 
   <!-- badges: start -->
-  [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/vbaliga/workloopR?branch=master&svg=true)](https://ci.appveyor.com/project/vbaliga/workloopR)  [![Travis build status](https://travis-ci.org/vbaliga/workloopR.svg?branch=master)](https://travis-ci.org/vbaliga/workloopR)
+[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)  [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/vbaliga/workloopR?branch=master&svg=true)](https://ci.appveyor.com/project/vbaliga/workloopR)  [![Travis build status](https://travis-ci.org/vbaliga/workloopR.svg?branch=master)](https://travis-ci.org/vbaliga/workloopR)
   <!-- badges: end -->
 
 
 
 
 ## Installation
+We are not (yet) on CRAN but the package can be installed via:
 ``` r
 #install.packages("devtools") # if devtools is not installed
 devtools::install_github("vbaliga/workloopR")
