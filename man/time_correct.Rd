@@ -14,8 +14,8 @@ time_correct(x)
 A \code{data.frame} that additionally contains:
 \item{Time_Corrected_Work }{Time corrected work output, transformed from
  \code{$Mean_Work}}
-\item{Time_Corrected_Power }{Time corrected net power output, transformed from
- \code{$Mean_Power}}
+\item{Time_Corrected_Power }{Time corrected net power output, transformed
+from \code{$Mean_Power}}
 
 And new attributes:
 \item{power_difference }{Difference in mass-specific net power output

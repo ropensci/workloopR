@@ -52,8 +52,8 @@ in expanding our data import functions to accomodate filetypes other than
 \seealso{
 Useful links:
 \itemize{
-  \item \url{<https://github.com/vbaliga/workloopR>}
-  \item Report bugs at \url{https://github.com/vbaliga/workloopR/issues}
+  \item \url{<http://github.com/vbaliga/workloopR>}
+  \item Report bugs at \url{http://github.com/vbaliga/workloopR/issues}
 }
 
 }
