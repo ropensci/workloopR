@@ -2,7 +2,7 @@
 % Please edit documentation in R/data_analysis_functions.R
 \name{isometric_timing}
 \alias{isometric_timing}
-\title{Compute timing of twitch kinetics}
+\title{Compute timing and magnitude of force in isometric trials}
 \usage{
 isometric_timing(x, rising = c(10, 90), relaxing = c(90, 50))
 }

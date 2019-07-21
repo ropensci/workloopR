@@ -2,7 +2,7 @@
 % Please edit documentation in R/data_import_functions.R
 \name{read_ddf}
 \alias{read_ddf}
-\title{Import work loop or isometric data}
+\title{Import work loop or isometric data from .ddf files}
 \usage{
 read_ddf(filename, file_id = NA, rename_cols = list(c(2, 3),
   c("Position", "Force")), skip_cols = 4:11, phase_from_peak = FALSE,
@@ -84,7 +84,8 @@ contact us with any issues or requests.
 library(workloopR)
 
 # import the workloop.ddf file included in workloopR
-wl_dat <-read_ddf(system.file("extdata", "workloop.ddf", package = 'workloopR'))
+wl_dat <-read_ddf(system.file("extdata", "workloop.ddf",
+                              package = 'workloopR'))
 
 # or import your own file
 #my_dat <- read_ddf("./my/file/path/myfile.ddf")

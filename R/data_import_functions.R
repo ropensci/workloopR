@@ -1,7 +1,7 @@
 # custom functions
 # all written by Vikram B. Baliga (vbaliga@zoology.ubc.ca) and Shreeram
 # Senthivasan
-# last updated: 2019-07-19
+# last updated: 2019-07-20
 
 
 ########################## workloop object functions ###########################
@@ -10,7 +10,7 @@
 
 # Top level class for all objects created by read_ddf
 #' @noRd
-muscle_stim<-
+muscle_stim <-
   function(data,
            units,
            sample_frequency,
@@ -21,31 +21,36 @@ muscle_stim<-
            file_id,
            mtime,
            ...){
-    attr(data,"units")<-units
-    attr(data,"sample_frequency")<-sample_frequency
-    attr(data,"header")<-header
-    attr(data,"units_table")<-units_table
-    attr(data,"protocol_table")<-protocol_table
-    attr(data,"stim_table")<-stim_table
-    attr(data,"stimulus_pulses")<-stim_table$pulses[1]
-    attr(data,"stimulus_offset")<-stim_table$offset[1]
-    attr(data,"stimulus_width")<-stim_table$width[1]
-    attr(data,"gear_ratio")<-1
-    attr(data,"file_id")<-file_id
-    attr(data,"mtime")<-mtime
-    class(data)<-c(class(data),"muscle_stim","data.frame")
+    attr(data, "units") <- units
+    attr(data, "sample_frequency") <- sample_frequency
+    attr(data, "header") <- header
+    attr(data, "units_table") <- units_table
+    attr(data, "protocol_table") <- protocol_table
+    attr(data, "stim_table") <- stim_table
+    attr(data, "stimulus_pulses") <- stim_table$pulses[1]
+    attr(data, "stimulus_offset") <- stim_table$offset[1]
+    attr(data, "stimulus_width") <- stim_table$width[1]
+    attr(data, "gear_ratio") <- 1
+    attr(data, "file_id") <- file_id
+    attr(data, "mtime") <- mtime
+    class(data) <- c(class(data), "muscle_stim", "data.frame")
     data
   }
 
 # Classes for specific trial type
 #' @noRd
-workloop<-
-  function(data,stim_table,cycle_table,sample_frequency,phase_from_peak,...){
-    attr(data,"stimulus_frequency")<-stim_table$frequency[1]
-    attr(data,"cycle_frequency")<-cycle_table$frequency[1]
-    attr(data,"total_cycles")<-cycle_table$total_cycles[1]
-    attr(data,"cycle_def")<-"lo"
-    attr(data,"amplitude")<-cycle_table$amplitude[1]
+workloop <-
+  function(data,
+           stim_table,
+           cycle_table,
+           sample_frequency,
+           phase_from_peak,
+           ...) {
+    attr(data, "stimulus_frequency") <- stim_table$frequency[1]
+    attr(data, "cycle_frequency") <- cycle_table$frequency[1]
+    attr(data, "total_cycles") <- cycle_table$total_cycles[1]
+    attr(data, "cycle_def") <- "lo"
+    attr(data, "amplitude") <- cycle_table$amplitude[1]
 
     # Calculate Phase
     phase<-(which.max(data$Stim)-which.max(data$Position))/sample_frequency*stim_table$cycle_frequency[1]
@@ -96,7 +101,7 @@ print_muscle_stim_header<-function(x,include_time=TRUE){
 # Print method
 
 #' @export
-print.muscle_stim<-function(x,n=6,...){
+print.muscle_stim <- function(x, n = 6, ...){
   print_muscle_stim_header(x)
   cat(paste0("File ID: ",attr(x,"file_id"),"\n\n"))
   class(x)<-"data.frame"
@@ -106,7 +111,7 @@ print.muscle_stim<-function(x,n=6,...){
 }
 
 #' @export
-print.analyzed_workloop<-function(x,n=6,...){
+print.analyzed_workloop <- function(x, n = 6, ...){
   cat(paste0("File ID: ",
              attr(x,"file_id")))
   cat(paste0("\nCycles: ",
@@ -124,7 +129,7 @@ print.analyzed_workloop<-function(x,n=6,...){
 # Summary method
 
 #' @export
-summary.muscle_stim<-function(object,...){
+summary.muscle_stim <- function(object, ...){
   print_muscle_stim_header(object,...)
   cat(paste0("\nFile ID: ",attr(object,"file_id")))
   cat(paste0("\nMod Time (mtime): ",attr(object,"mtime")))
@@ -140,7 +145,7 @@ summary.muscle_stim<-function(object,...){
 }
 
 #' @export
-summary.workloop<-function(object,...){
+summary.workloop <- function(object, ...){
   NextMethod()
   cat(paste0("\nCycle Frequency: ",attr(object,"cycle_frequency"),"Hz\n"))
   cat(paste0("Total Cycles (",
@@ -163,13 +168,13 @@ summary.workloop<-function(object,...){
 }
 
 #' @export
-summary.tetanus<-function(object,...){
+summary.tetanus <- function(object, ...){
   NextMethod()
   cat(paste0("Stimulus Length: ",attr(object,"stimulus_length"),"s\n\n"))
 }
 
 #' @export
-summary.analyzed_workloop<-function(object, ...){
+summary.analyzed_workloop <- function(object, ...){
   summary(object[[1]],include_time=FALSE)
   cat("\n")
   print(attr(object,"summary"))
@@ -246,12 +251,18 @@ summary.analyzed_workloop<-function(object, ...){
 #' \code{\link{read_ddf}}
 #'
 #' @export
-as_muscle_stim<-function(x,type,sample_frequency,...){
+as_muscle_stim <- function(x,
+                           type,
+                           sample_frequency,
+                           ...){
   # Check for missing information
   if(missing(type))stop("Please specify the experiment type! The type argument should be one of: workloop, tetanus, or twitch.")
-  if(!(type %in% c("workloop","tetanus","twitch"))|length(type)!=1) stop("Invalid experiment type! The type argument should be one of: workloop, tetanus, or twitch.")
-  if(!all(c("Position","Force","Stim") %in% names(x))) stop("Couldn't find one or more of the following necessary columns: Position, Force, Stim. Please ensure that the columns match the naming conventions.")
-  if(missing(sample_frequency)&!("Time" %in% names(x))) stop("Insufficient information to infer the sampling frequency. Please provide a value for the sample_frequency argument or include a column named `Time` in the dataframe.")
+  if(!(type %in% c("workloop","tetanus","twitch"))|length(type)!=1)
+    stop("Invalid experiment type! The type argument should be one of: workloop, tetanus, or twitch.")
+  if(!all(c("Position","Force","Stim") %in% names(x)))
+    stop("Couldn't find one or more of the following necessary columns: Position, Force, Stim. Please ensure that the columns match the naming conventions.")
+  if(missing(sample_frequency)&!("Time" %in% names(x)))
+    stop("Insufficient information to infer the sampling frequency. Please provide a value for the sample_frequency argument or include a column named `Time` in the dataframe.")
 
   # Consolidate time / sample frequency information
   if(!missing(sample_frequency))
@@ -260,14 +271,41 @@ as_muscle_stim<-function(x,type,sample_frequency,...){
     sample_frequency<-1/(x$Time[2]-x$Time[1])
 
   # Generate a list of acceptable attributes given experiment type
-  valid_args<-c("units","header","units_table","protocol_table","stim_table","stimulus_pulses","stimulus_offset","stimulus_width","gear_ratio","file_id","mtime")
-  switch(type,
-         "workloop"=valid_args<-c(valid_args,"stimulus_frequency","cycle_frequency","total_cycles","cycle_def","amplitude","phase","position_inverted"),
-         "tetanus"=valid_args<-c(valid_args,"stimulus_frequency","stimulus_length"))
+  valid_args <-
+    c(
+      "units",
+      "header",
+      "units_table",
+      "protocol_table",
+      "stim_table",
+      "stimulus_pulses",
+      "stimulus_offset",
+      "stimulus_width",
+      "gear_ratio",
+      "file_id",
+      "mtime"
+    )
+  switch(
+    type,
+    "workloop" = valid_args <-
+      c(
+        valid_args,
+        "stimulus_frequency",
+        "cycle_frequency",
+        "total_cycles",
+        "cycle_def",
+        "amplitude",
+        "phase",
+        "position_inverted"
+      ),
+    "tetanus" = valid_args <-
+      c(valid_args, "stimulus_frequency", "stimulus_length")
+  )
 
   # Check for invalid attributes and assign valids
   args<-list(...)
-  if(!all(names(args) %in% valid_args)) warning("One or more provided attributes do not match known attributes. These will attributes will not be assigned.")
+  if(!all(names(args) %in% valid_args))
+    warning("One or more provided attributes do not match known attributes. These will attributes will not be assigned.")
   for(i in intersect(names(args),valid_args))
     attr(x,i)<-args[[i]]
   for(i in setdiff(valid_args,names(args)))
@@ -288,7 +326,7 @@ as_muscle_stim<-function(x,type,sample_frequency,...){
 
 ########################## read_ddf files - work loops #########################
 
-#' Import work loop or isometric data
+#' Import work loop or isometric data from .ddf files
 #'
 #' \code{read_ddf} reads in workloop, twitch, or tetanus experiment data from
 #' .ddf files.
@@ -363,18 +401,19 @@ as_muscle_stim<-function(x,type,sample_frequency,...){
 #' library(workloopR)
 #'
 #' # import the workloop.ddf file included in workloopR
-#' wl_dat <-read_ddf(system.file("extdata", "workloop.ddf", package = 'workloopR'))
+#' wl_dat <-read_ddf(system.file("extdata", "workloop.ddf",
+#'                               package = 'workloopR'))
 #'
 #' # or import your own file
 #' #my_dat <- read_ddf("./my/file/path/myfile.ddf")
 #'
 #' @export
-read_ddf<-
+read_ddf <-
   function(filename,
-           file_id=NA,
-           rename_cols=list(c(2,3),c("Position","Force")),
-           skip_cols=4:11,
-           phase_from_peak=FALSE,
+           file_id = NA,
+           rename_cols = list(c(2, 3), c("Position", "Force")),
+           skip_cols = 4:11,
+           phase_from_peak = FALSE,
            ...)
   {
     # Import and checks
@@ -463,8 +502,8 @@ read_ddf<-
 
 #' Import a batch of work loop or isometric data files from a directory
 #'
-#' Uses \code{read_ddf()} to read in workloop, twitch, or tetanus experiment data
-#'  from multiple .ddf files.
+#' Uses \code{read_ddf()} to read in workloop, twitch, or tetanus experiment
+#' data from multiple .ddf files.
 #'
 #' @param filepath Path where files are stored. Should be in the same folder.
 #' @param pattern Regex pattern for identifying relevant files in the filepath.
@@ -477,8 +516,8 @@ read_ddf<-
 #'
 #' @return A list of objects of class \code{workloop}, \code{twitch}, or
 #' \code{tetanus}, all of which inherit class \code{muscle_stim}. These objects
-#' behave like \code{data.frames} in most situations but also store metadata from
-#' the ddf as attributes.
+#' behave like \code{data.frames} in most situations but also store metadata
+#' from the ddf as attributes.
 #'
 #' Each \code{muscle_stim} object's columns contain:
 #' \item{Time}{Time}
@@ -518,7 +557,10 @@ read_ddf<-
 #' #my_dat <- read_ddf_dir("./my/file/path/")
 #'
 #' @export
-read_ddf_dir<-function(filepath,pattern="*.ddf",sort_by="mtime",...){
+read_ddf_dir <- function(filepath,
+                         pattern = "*.ddf",
+                         sort_by = "mtime",
+                         ...){
   # Generate list of filenames
   filename_list<-list.files(path=filepath,pattern=pattern,full.names=TRUE)
   if(length(filename_list)==0) stop("No files matching the pattern found at the given directory!")
@@ -536,7 +578,7 @@ read_ddf_dir<-function(filepath,pattern="*.ddf",sort_by="mtime",...){
   ms_list
 }
 
-############################ rescale data matrix ############################
+############################# rescale data matrix ##############################
 # Rescales data in ddf files using the scale and offset parameters
 #' @noRd
 rescale_data<-
@@ -565,7 +607,7 @@ rescale_data<-
     rescaled[,-skip_cols]
   }
 
-######################### read_ddf files - workloop #########################
+########################## read_ddf files - workloop ###########################
 #' @noRd
 read_wl.ddf<-
   function(raw_data,
@@ -608,7 +650,7 @@ read_wl.ddf<-
   }
 
 
-########################## read_ddf files - twitch ##########################
+############################ read_ddf files - twitch ###########################
 #' @noRd
 read_twitch.ddf<-
   function(raw_data,
@@ -685,7 +727,7 @@ read_tetanus.ddf<-
 
 ###################### work loop reading and data extraction ###################
 
-#' All-in-one import function
+#' All-in-one import function for work loop files
 #'
 #' \code{read_analyze_wl()} is an all-in-one function to read in a work loop
 #' file, select cycles, and compute work and power output.
@@ -725,6 +767,9 @@ read_tetanus.ddf<-
 #' @inherit analyze_workloop return
 #' @inheritSection analyze_workloop Warning
 #'
+#' @references Josephson RK. 1985. Mechanical Power output from Striated Muscle
+#'  during Cyclic Contraction. Journal of Experimental Biology 114: 493-512.
+#'
 #' @author Vikram B. Baliga
 #'
 #' @family data analyses
@@ -748,7 +793,8 @@ read_tetanus.ddf<-
 #' \code{\link{analyze_workloop}}
 #'
 #' @export
-read_analyze_wl<-function(filename,...){
+read_analyze_wl <- function(filename,
+                            ...){
   valid_args<-c("file_id","rename_cols","skip_cols","phase_from_peak","cycle_def","keep_cycles","bworth_order","bworth_freq","simplify","GR","M","vel_bf")
   arg_names<-names(list(...))
   if(!all(arg_names %in% valid_args)) warning("One or more provided attributes do not match known attributes. These will attributes will not be assigned.")
@@ -805,7 +851,8 @@ read_analyze_wl<-function(filename,...){
 #' #my_meta <- get_wl_metadata("./my/file/path/")
 #'
 #' @export
-get_wl_metadata<-function(filepath,pattern="*.ddf"){
+get_wl_metadata <- function(filepath,
+                            pattern = "*.ddf"){
   exp_list<-file.info(list.files(path=filepath,pattern=pattern,
                                  full.names=TRUE,recursive=TRUE))
   exp_list$exp_names<-rownames(exp_list)
@@ -845,6 +892,9 @@ get_wl_metadata<-function(filepath,pattern="*.ddf"){
 #'
 #' @inheritSection analyze_workloop Warning
 #'
+#' @references Josephson RK. 1985. Mechanical Power output from Striated Muscle
+#'  during Cyclic Contraction. Journal of Experimental Biology 114: 493-512.
+#'
 #' @seealso
 #' \code{\link{read_analyze_wl}},
 #' \code{\link{get_wl_metadata}},
@@ -871,7 +921,10 @@ get_wl_metadata<-function(filepath,pattern="*.ddf"){
 #' #my_analyzed_wls <- read_analyze_wl_dir("./my/file/path/")
 #'
 #' @export
-read_analyze_wl_dir<-function(filepath,pattern="*.ddf",sort_by="mtime",...){
+read_analyze_wl_dir <- function(filepath,
+                                pattern = "*.ddf",
+                                sort_by = "mtime",
+                                ...){
   # Generate list of filenames
   filename_list<-list.files(path=filepath,pattern=pattern,full.names=TRUE)
   if(length(filename_list)==0) stop("No files matching the pattern found at the given directory!")
@@ -889,7 +942,7 @@ read_analyze_wl_dir<-function(filepath,pattern="*.ddf",sort_by="mtime",...){
 
 ######################### summarize sequence of work loops #####################
 
-#' Summarize workloop files
+#' Summarize work loop files
 #'
 #' Summarize important info from work loop files stored in the same folder
 #' (e.g. a sequence of trials in an experiment) including experimental
@@ -916,6 +969,9 @@ read_analyze_wl_dir<-function(filepath,pattern="*.ddf",sort_by="mtime",...){
 #' \item{mtime }{Time at which file's contents were last changed (\code{mtime})}
 #' \item{Mean_Work }{Mean work output from the selected cycles}
 #' \item{Mean_Power }{Net power output from the selected cycles}
+#'
+#' @references Josephson RK. 1985. Mechanical Power output from Striated Muscle
+#'  during Cyclic Contraction. Journal of Experimental Biology 114: 493-512.
 #'
 #' @seealso
 #' \code{\link{read_analyze_wl_dir}},
@@ -947,7 +1003,7 @@ read_analyze_wl_dir<-function(filepath,pattern="*.ddf",sort_by="mtime",...){
 #'
 #'
 #' @export
-summarize_wl_trials<-function(wl_list){
+summarize_wl_trials <- function(wl_list){
   if(class(wl_list)[[1]]!="list")
      stop("Please provide a list of analyzed workloop objects")
   if(!all(sapply(wl_list,function(x) 'analyzed_workloop' %in% class(x))))

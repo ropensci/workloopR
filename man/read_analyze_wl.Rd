@@ -2,7 +2,7 @@
 % Please edit documentation in R/data_import_functions.R
 \name{read_analyze_wl}
 \alias{read_analyze_wl}
-\title{All-in-one import function}
+\title{All-in-one import function for work loop files}
 \usage{
 read_analyze_wl(filename, ...)
 }
@@ -126,6 +126,10 @@ wl_dat <- read_analyze_wl(system.file("extdata", "workloop.ddf",
                           GR = 2, cycle_def = "p2p")
 
 
+}
+\references{
+Josephson RK. 1985. Mechanical Power output from Striated Muscle
+ during Cyclic Contraction. Journal of Experimental Biology 114: 493-512.
 }
 \seealso{
 \code{\link{read_ddf}},

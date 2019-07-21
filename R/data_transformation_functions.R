@@ -1,14 +1,14 @@
 # custom functions
 # all written by Vikram B. Baliga (vbaliga@zoology.ubc.ca) and Shreeram
 # Senthivasan
-# last updated: 2019-07-19
+# last updated: 2019-07-20
 
 
 ############################### select cycles ###############################
 
-#' Select cycles from a workloop object
+#' Select cycles from a work loop object
 #'
-#' Retain data from a workloop experiment based on position cycle
+#' Retain data from a work loop experiment based on position cycle
 #'
 #' @param x A \code{workloop} object (see Details for how it should be
 #' organized)
@@ -81,12 +81,12 @@
 #' \code{\link{read_analyze_wl_dir}}
 #'
 #' @export
-select_cycles<-function(x,
-                        cycle_def,
-                        keep_cycles=4:6,
-                        bworth_order=2,
-                        bworth_freq=0.05,
-                        ...)
+select_cycles <- function(x,
+                          cycle_def,
+                          keep_cycles = 4:6,
+                          bworth_order = 2,
+                          bworth_freq = 0.05,
+                          ...)
 {
   if(!any(class(x) == "workloop"))
     stop("Input data should be of class `workloop`")
@@ -114,9 +114,12 @@ select_cycles<-function(x,
 
   switch(cycle_def,
     # L0-to-Lo assumes position cycle starts and ends on an L0
-    "lo"={splits<-round((peaks$start+peaks$peak)/2)      # Most L0 are found by averaging indices of a peak and previous trough
-          splits[1]<-peaks$start[1]                      # The first L0 is the lowest point before first peak
-          splits[length(splits)]<-peaks$peak[nrow(peaks)]# The last L0 is the last peak
+    # Most L0 are found by averaging indices of a peak and previous trough
+    "lo"={splits<-round((peaks$start+peaks$peak)/2)
+    # The first L0 is the lowest point before first peak
+          splits[1]<-peaks$start[1]
+    # The last L0 is the last peak
+          splits[length(splits)]<-peaks$peak[nrow(peaks)]
           splits<-c(0,splits,nrow(x))},
     "p2p"=splits<-c(0,peaks$peak,nrow(x)),
     "t2t"=splits<-c(0,peaks$start,utils::tail(peaks$end,1),nrow(x)),
@@ -185,7 +188,7 @@ select_cycles<-function(x,
 #' max(wl_fixed$Position)/min(wl_dat$Position) # -1
 #'
 #' @export
-invert_position<-function(x)
+invert_position <- function(x)
 {
   if(!any(class(x) == "muscle_stim"))
     stop("Input data should be of class `muscle_stim`")
@@ -248,8 +251,8 @@ invert_position<-function(x)
 #' \code{\link{read_analyze_wl_dir}}
 #'
 #' @export
-fix_GR<-function(x,
-                 GR=1)
+fix_GR <- function(x,
+                   GR = 1)
 {
   # Check that x is correct type of object
   if (!any(class(x) == "muscle_stim"))

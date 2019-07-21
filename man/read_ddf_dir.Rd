@@ -20,8 +20,8 @@ files.}
 \value{
 A list of objects of class \code{workloop}, \code{twitch}, or
 \code{tetanus}, all of which inherit class \code{muscle_stim}. These objects
-behave like \code{data.frames} in most situations but also store metadata from
-the ddf as attributes.
+behave like \code{data.frames} in most situations but also store metadata
+from the ddf as attributes.
 
 Each \code{muscle_stim} object's columns contain:
 \item{Time}{Time}
@@ -45,8 +45,8 @@ trajectory)}
  that it makes sense!}
 }
 \description{
-Uses \code{read_ddf()} to read in workloop, twitch, or tetanus experiment data
- from multiple .ddf files.
+Uses \code{read_ddf()} to read in workloop, twitch, or tetanus experiment
+data from multiple .ddf files.
 }
 \details{
 Read in a .ddf file that contains data from an experiment. If

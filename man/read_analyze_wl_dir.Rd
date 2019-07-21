@@ -61,6 +61,10 @@ analyzed_wls <- read_analyze_wl_dir(system.file("extdata/wl_duration_trials",
 #my_analyzed_wls <- read_analyze_wl_dir("./my/file/path/")
 
 }
+\references{
+Josephson RK. 1985. Mechanical Power output from Striated Muscle
+ during Cyclic Contraction. Journal of Experimental Biology 114: 493-512.
+}
 \seealso{
 \code{\link{read_analyze_wl}},
 \code{\link{get_wl_metadata}},

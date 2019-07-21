@@ -2,7 +2,7 @@
 % Please edit documentation in R/data_import_functions.R
 \name{summarize_wl_trials}
 \alias{summarize_wl_trials}
-\title{Summarize workloop files}
+\title{Summarize work loop files}
 \usage{
 summarize_wl_trials(wl_list)
 }
@@ -54,6 +54,10 @@ summarized_wls <- summarize_wl_trials(analyzed_wls)
 #my_summaries <- summarize_wl_trials(my_meta)
 
 
+}
+\references{
+Josephson RK. 1985. Mechanical Power output from Striated Muscle
+ during Cyclic Contraction. Journal of Experimental Biology 114: 493-512.
 }
 \seealso{
 \code{\link{read_analyze_wl_dir}},

@@ -2,7 +2,7 @@
 % Please edit documentation in R/data_analysis_functions.R
 \name{analyze_workloop}
 \alias{analyze_workloop}
-\title{Analyze work loop file to compute work and power output}
+\title{Analyze work loop object to compute work and power output}
 \usage{
 analyze_workloop(x, simplify = FALSE, GR = 1, M = -1,
   vel_bf = 0.05, ...)
@@ -124,7 +124,8 @@ attribute \code{units}.
 library(workloopR)
 
 # import the workloop.ddf file included in workloopR
-wl_dat <-read_ddf(system.file("extdata", "workloop.ddf", package = 'workloopR'))
+wl_dat <-read_ddf(system.file("extdata", "workloop.ddf",
+                              package = 'workloopR'))
 
 # select cycles 3 through 5 via the peak-to-peak definition
 wl_selected <- select_cycles(wl_dat, cycle_def = "p2p", keep_cycles = 3:5)
@@ -141,6 +142,10 @@ summary(wl_analyzed)
 # run the analysis but get the simplified version
 wl_analyzed_simple <- analyze_workloop(wl_selected, simplify = TRUE, GR = 2)
 
+}
+\references{
+Josephson RK. 1985. Mechanical Power output from Striated Muscle
+ during Cyclic Contraction. Journal of Experimental Biology 114: 493-512.
 }
 \seealso{
 \code{\link{read_ddf}},

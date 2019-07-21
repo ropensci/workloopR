@@ -2,7 +2,7 @@
 % Please edit documentation in R/data_transformation_functions.R
 \name{select_cycles}
 \alias{select_cycles}
-\title{Select cycles from a workloop object}
+\title{Select cycles from a work loop object}
 \usage{
 select_cycles(x, cycle_def, keep_cycles = 4:6, bworth_order = 2,
   bworth_freq = 0.05, ...)
@@ -34,7 +34,7 @@ point is associated with. Finally, all attributes from the input
 record which cycles from the original data were retained.
 }
 \description{
-Retain data from a workloop experiment based on position cycle
+Retain data from a work loop experiment based on position cycle
 }
 \details{
 \code{select_cycles()} subsets data from a workloop trial by
