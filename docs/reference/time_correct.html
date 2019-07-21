@@ -216,21 +216,22 @@ mtime). A similar correction procedure is applied to work.</p>
                             <span class='kw'>package</span><span class='kw'>=</span><span class='st'>"workloopR"</span>))$<span class='no'>mtime</span>
 
 <span class='co'># now time correct</span>
-<span class='no'>timecor_wls</span> <span class='kw'>&lt;-</span> <span class='fu'>time_correct</span>(<span class='no'>summarized_wls</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: '-' not meaningful for factors</span></div><div class='output co'>#&gt; <span class='warning'>Warning: '-' not meaningful for factors</span></div><div class='output co'>#&gt; <span class='warning'>Warning: '-' not meaningful for factors</span></div><div class='output co'>#&gt; <span class='warning'>Warning: '-' not meaningful for factors</span></div><div class='output co'>#&gt; <span class='warning'>Warning: '-' not meaningful for factors</span></div><div class='input'><span class='no'>timecor_wls</span></div><div class='output co'>#&gt;         File_ID Cycle_Frequency Amplitude Phase Stimulus_Pulses
+<span class='no'>timecor_wls</span> <span class='kw'>&lt;-</span> <span class='fu'>time_correct</span>(<span class='no'>summarized_wls</span>)
+<span class='no'>timecor_wls</span></div><div class='output co'>#&gt;         File_ID Cycle_Frequency Amplitude Phase Stimulus_Pulses
 #&gt; 1 01_4pulse.ddf              28      3.15  0.64               4
 #&gt; 2 02_2pulse.ddf              28      3.15  0.36               2
 #&gt; 3 03_6pulse.ddf              28      3.15  0.08               6
 #&gt; 4 04_4pulse.ddf              28      3.15  0.36               4
-#&gt;   Stimulus_Frequency            mtime     Mean_Work   Mean_Power
-#&gt; 1                300 2014-08-25 17:56  0.0028362363  0.078967198
-#&gt; 2                300 2014-08-25 17:59  0.0009686570  0.026247519
-#&gt; 3                300 2014-08-25 18:04 -0.0001310863 -0.004017894
-#&gt; 4                300 2014-08-25 18:07  0.0024082708  0.066959552
-#&gt;   Time_Corrected_Work Time_Corrected_Power
-#&gt; 1                  NA                   NA
-#&gt; 2                  NA                   NA
-#&gt; 3                  NA                   NA
-#&gt; 4                  NA                   NA</div><div class='input'>
+#&gt;   Stimulus_Frequency      mtime     Mean_Work   Mean_Power Time_Corrected_Work
+#&gt; 1                300 1409014596  0.0028362363  0.078967198        0.0028362363
+#&gt; 2                300 1409014778  0.0009686570  0.026247519        0.0010905501
+#&gt; 3                300 1409015053 -0.0001310863 -0.004017894        0.0001749861
+#&gt; 4                300 1409015235  0.0024082708  0.066959552        0.0028362363
+#&gt;   Time_Corrected_Power
+#&gt; 1          0.078967198
+#&gt; 2          0.029667538
+#&gt; 3          0.004569734
+#&gt; 4          0.078967198</div><div class='input'>
 # or on your own directory
 #my_meta <- read_analyze_wl_dir("./my/file/path/")
 #my_summaries <- summarize_wl_trials(my_meta)
