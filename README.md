@@ -5,7 +5,7 @@ workloopR <img src="images/workloopR_icon_300dpi.png" align="right" width="150px
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)  [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/vbaliga/workloopR?branch=master&svg=true)](https://ci.appveyor.com/project/vbaliga/workloopR)  [![Travis build status](https://travis-ci.org/vbaliga/workloopR.svg?branch=master)](https://travis-ci.org/vbaliga/workloopR)
   <!-- badges: end -->
 
-Import and analysis of work loop and isometric data in muscle physiology
+Analysis of work loops and other data from muscle physiology experiments in R
 
 
 

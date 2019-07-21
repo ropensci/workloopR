@@ -1,5 +1,5 @@
 ---
-title: 'workloopR: Analysis of muscle work loops in R'
+title: 'workloopR: Analysis of work loops and other data from muscle physiology experiments in R'
 tags:
   - R
   - muscle physiology
