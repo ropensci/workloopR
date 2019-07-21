@@ -159,10 +159,10 @@
 <a class="sourceLine" id="cb2-14" title="14"><span class="co">#&gt; 3 03_6pulse.ddf              28      3.15  0.08               6</span></a>
 <a class="sourceLine" id="cb2-15" title="15"><span class="co">#&gt; 4 04_4pulse.ddf              28      3.15  0.36               4</span></a>
 <a class="sourceLine" id="cb2-16" title="16"><span class="co">#&gt;   Stimulus_Frequency      mtime     Mean_Work   Mean_Power</span></a>
-<a class="sourceLine" id="cb2-17" title="17"><span class="co">#&gt; 1                300 1563689297  0.0028362363  0.078967198</span></a>
-<a class="sourceLine" id="cb2-18" title="18"><span class="co">#&gt; 2                300 1563689297  0.0009686570  0.026247519</span></a>
-<a class="sourceLine" id="cb2-19" title="19"><span class="co">#&gt; 3                300 1563689297 -0.0001310863 -0.004017894</span></a>
-<a class="sourceLine" id="cb2-20" title="20"><span class="co">#&gt; 4                300 1563689297  0.0024082708  0.066959552</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-17" title="17"><span class="co">#&gt; 1                300 1563728902  0.0028362363  0.078967198</span></a>
+<a class="sourceLine" id="cb2-18" title="18"><span class="co">#&gt; 2                300 1563728902  0.0009686570  0.026247519</span></a>
+<a class="sourceLine" id="cb2-19" title="19"><span class="co">#&gt; 3                300 1563728902 -0.0001310863 -0.004017894</span></a>
+<a class="sourceLine" id="cb2-20" title="20"><span class="co">#&gt; 4                300 1563728902  0.0024082708  0.066959552</span></a></code></pre></div>
 <p>Sections below will give more specific overviews.</p>
 </div>
 <div id="data-import" class="section level2">
@@ -182,7 +182,7 @@
 <a class="sourceLine" id="cb3-9" title="9"><span class="co">#&gt; # Workloop Data: 3 channels recorded over 0.3244s</span></a>
 <a class="sourceLine" id="cb3-10" title="10"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb3-11" title="11"><span class="co">#&gt; File ID: workloop.ddf</span></a>
-<a class="sourceLine" id="cb3-12" title="12"><span class="co">#&gt; Mod Time (mtime): 2019-07-20 23:08:16</span></a>
+<a class="sourceLine" id="cb3-12" title="12"><span class="co">#&gt; Mod Time (mtime): 2019-07-21 10:08:21</span></a>
 <a class="sourceLine" id="cb3-13" title="13"><span class="co">#&gt; Sample Frequency: 10000Hz</span></a>
 <a class="sourceLine" id="cb3-14" title="14"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb3-15" title="15"><span class="co">#&gt; data.frame Columns: </span></a>
@@ -249,7 +249,7 @@
 <div id="data-from-files-that-are-not-of--ddf-format" class="section level2">
 <h2 class="hasAnchor">
 <a href="#data-from-files-that-are-not-of--ddf-format" class="anchor"></a>Data from files that are not of .ddf format</h2>
-<p>Data that are read from other file formats can be constructed into <code>muscle_stim</code> objects via <code><a href="../reference/as_muscle_stim.html">as_muscle_stim()</a></code>. Should you need to do this, please refer to our vignette “TITLE HERE” for an overview.</p>
+<p>Data that are read from other file formats can be constructed into <code>muscle_stim</code> objects via <code><a href="../reference/as_muscle_stim.html">as_muscle_stim()</a></code>. Should you need to do this, please refer to our vignette “Importing data from non .ddf sources” for an overview.</p>
 </div>
 <div id="transformations-and-corrections-to-data" class="section level2">
 <h2 class="hasAnchor">
@@ -276,7 +276,7 @@
 <h2 class="hasAnchor">
 <a href="#data-analyical-functions" class="anchor"></a>Data analyical functions</h2>
 <p>Core analytical functions include <code><a href="../reference/analyze_workloop.html">analyze_workloop()</a></code> for work loop files and <code><a href="../reference/isometric_timing.html">isometric_timing()</a></code> for twitches. <code><a href="../reference/analyze_workloop.html">analyze_workloop()</a></code> computes instantaneous velocity, net work, instantaneous power, and net power for work loop experiments on a per-cycle basis. <code><a href="../reference/isometric_timing.html">isometric_timing()</a></code> provides summarization of twitch kinetics.</p>
-<p>To see more details about these functions, please refer to “TITLE HERE” for work loop analyses and “Working with twitch files in workloopR” for twitches.</p>
+<p>To see more details about these functions, please refer to “Analyzing work loop experiments in workloopR” for work loop analyses and “Working with twitch files in workloopR” for twitches.</p>
 <p>Some functions are readily available for batch processing of files. The <code><a href="../reference/read_analyze_wl_dir.html">read_analyze_wl_dir()</a></code> function allows for the batch import, cycle selection, gear ratio correction, and ultimately work &amp; power computation for all work loop experiment files within a specified directory. The <code><a href="../reference/get_wl_metadata.html">get_wl_metadata()</a></code> and <code><a href="../reference/summarize_wl_trials.html">summarize_wl_trials()</a></code> functions organize scanned files by recency (according to their time of last modification: ‘mtime’) and then report work and power output in the order that trials were run.</p>
 <p>This ultimately allows for the <code><a href="../reference/time_correct.html">time_correct()</a></code> function to correct for degradation of the muscle (according to power &amp; work) over time, assuming that the first and final trials are identical in experimental parameters. If these parameters are not idendical, we advise against using this function.</p>
 </div>

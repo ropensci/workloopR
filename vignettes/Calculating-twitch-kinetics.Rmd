@@ -132,6 +132,7 @@ twitch_rising_custom <-
 twitch_rising_custom
 ```
 
+
 ### Tetanus trials
 
 The `isometric_timing()` function can also work on `tetanus` objects that have been imported via `read_ddf()`. Should a `tetanus` object be used, the set points for relaxing are automatically set to `relaxing = c()`, which excludes this argument from producing anything. Instead, the timing & magnitude of force at stimulation, peak force, and specifed points of the rising phase are returned. The idea of 'relaxation' is simply ignored. 
@@ -148,7 +149,6 @@ tetanus_analyzed <-
 
 tetanus_analyzed
 ```
-
 
 
 ## Computing intervals

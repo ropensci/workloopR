@@ -16,11 +16,13 @@ knitr::opts_chunk$set(
 )
 ```
 
+
 ## Welcome to workloopR
 
 In this vignette, we'll provide an overview of core functions in `workloopR`. Other vignettes within the package give more details with respect to specific use-cases. Examples with code can also be found within each function's Help doc.
 
 `workloopR` (pronounced "work looper") provides functions for the import, transformation, and analysis of muscle physiology experiments. As you may have guessed, the initial motivation was to provide functions to analyze work loop experiments in R, but we have expanded this goal to cover additional types of experiments that are often involved in work loop procedures. There are three currently supported experiment types: work loop, simple twitch, and tetanus.
+
 
 ## Analytical pipelines
 
@@ -111,7 +113,7 @@ attr(wl_dat, "sample_frequency")
 
 ## Data from files that are not of .ddf format
 
-Data that are read from other file formats can be constructed into `muscle_stim` objects via `as_muscle_stim()`. Should you need to do this, please refer to our vignette "TITLE HERE" for an overview.
+Data that are read from other file formats can be constructed into `muscle_stim` objects via `as_muscle_stim()`. Should you need to do this, please refer to our vignette "Importing data from non .ddf sources" for an overview.
 
 
 ## Transformations and corrections to data
@@ -134,15 +136,17 @@ max(wl_fixed$Position)/max(wl_dat$Position) #1.832262 / 3.664524 = 0.5
 
 Another 'transformational' function is `select_cycles()`, which subsets cycles within a work loop experiment. This is a necessary step prior to analyses of work loop data: data are labeled by cycle for use with `analyze_workloop()`.
 
+
 ## Data analyical functions
 
 Core analytical functions include `analyze_workloop()` for work loop files and `isometric_timing()` for twitches. `analyze_workloop()` computes instantaneous velocity, net work, instantaneous power, and net power for work loop experiments on a per-cycle basis. `isometric_timing()` provides summarization of twitch kinetics.
 
-To see more details about these functions, please refer to "TITLE HERE" for work loop analyses and "Working with twitch files in workloopR" for twitches.
+To see more details about these functions, please refer to "Analyzing work loop experiments in workloopR" for work loop analyses and "Working with twitch files in workloopR" for twitches.
 
 Some functions are readily available for batch processing of files. The `read_analyze_wl_dir()` function allows for the batch import, cycle selection, gear ratio correction, and ultimately work & power computation for all work loop experiment files within a specified directory. The `get_wl_metadata()` and `summarize_wl_trials()` functions organize scanned files by recency (according to their time of last modification: 'mtime') and then report work and power output in the order that trials were run.
 
 This ultimately allows for the `time_correct()` function to correct for degradation of the muscle (according to power & work) over time, assuming that the first and final trials are identical in experimental parameters. If these parameters are not idendical, we advise against using this function.
+
 
 ## Thanks for reading!
 

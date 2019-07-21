@@ -20,6 +20,7 @@ knitr::opts_chunk$set(
 
 Should your data be stored in another file format, you can use the `as_muscle_stim()` function to generate your own `muscle_stim` objects. These `muscle_stim` objects are used by nearly all other `workloopR` functions and are formatted in a very specific way. This helps ensure that other functions can interpret data & metadata correctly and also perform internal checks.
 
+
 ## Load packages
 
 Before running through anything, we'll ensure we have the packages we need.
@@ -46,6 +47,7 @@ package.check <- lapply(
   }
 )
 ```
+
 
 ## Data
 
@@ -79,6 +81,7 @@ my_data <- data.frame(Time = Time,
 head(my_data)
 ```
 
+
 ## Assemble via `as_muscle_stim()`
 It is absolutely crucial that the columns be named "Time", "Position", "Force", and "Stim" (all case-sensitive). Otherwise, `as_muscle_stim()` will not interpret data correctly.
 
@@ -99,6 +102,7 @@ ggplot(my_muscle_stim, aes(x = Time, y = Position)) +
   ggtitle("Time course of length change") +
   theme_bw()
 ```
+
 
 ### Attributes
 
@@ -123,6 +127,7 @@ attr(my_muscle_stim, "file_id")
 
 ```
 
+
 ### Possible attributes
 
 Here is a list of all possible attributes that can be filled. 
@@ -136,3 +141,7 @@ To see how each should be formatted, (e.g. which ones take numeric values vs. ch
 str(attributes(workloop_dat))
 ```
 
+
+## Thanks for reading!
+
+Please feel free to contact either Vikram or Shree with suggestions or code development requests. We are especially interested in expanding our data import functions to accomodate filetypes other than .ddf in future versions of `workloopR`.

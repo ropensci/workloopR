@@ -18,11 +18,13 @@ knitr::opts_chunk$set(
 
 Many of the functions in the `workloopR` package are built to facilitate batch processing of workloop and related data files. This vignette will start with an overview of how the functions were intended to be used for batch processing and then provide specific examples.
 
+
 ## Conceptual overview
 
 We generally expect a single file to store data from a single experimental trial, whereas directories hold data from all the trials of a single experiment. Accordingly, the `muscle_stim` objects created and used by most of the `workloopR` functions are intended to hold data from a single trial of a workloop or related experiment. Lists are then used to package together trials from a single experiment. This also lends itself to using recursion to transform and analyze all data from a single experiment.
 
 In broad strokes, there are three ways that batch processing has been worked into `workloopR` functions. First, some functions like the `*_dir()` family of import functions and `summarize_wl_trials()` specifically generate or require lists of `muscle_stim` objects. Second, the first argument of all other functions are the objects being manipulated, which can help clean up recursion using the `purrr::map()` family of functions. Finally, some functions return summarized data as single rows of a data.frame that can easily be binded together to generate a summary table.
+
 
 ## Load packages and data
 
@@ -51,7 +53,9 @@ package.check <- lapply(
 )
 ```
 
+
 ## Necessarily-multi-trial functions
+
 
 ### `*_dir()` functions
 
@@ -82,6 +86,7 @@ analyzed_wl_list<-
 analyzed_wl_list[1:2]
 ```
 
+
 ### Summarizing workloop trials
 
 In a series of workloop trials, it can useful to see how mean power and work change as you vary different experimental parameters. To facilitate this, `summarize_wl_trials()` specifically takes a list of `analyzed_workloop` objects and returns a `data.frame` of this information. We will explore ways of generating lists of analyzed workloops without using `read_analyze_wl_dir()` in the following section.
@@ -91,7 +96,9 @@ analyzed_wl_list %>%
   summarize_wl_trials
 ```
 
+
 ## Manual recursion examples
+
 
 ### Batch import for non-ddf data
 
@@ -109,6 +116,7 @@ non_ddf_list<-
   # Coerce into a workloop object
   map(as_muscle_stim, type = "twitch")
 ```
+
 
 ### Data transformation and analysis
 

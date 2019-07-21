@@ -112,7 +112,7 @@
     }
   ],
   "codeRepository": "https://github.com/vbaliga/workloopR",
-  "fileSize": "860.967KB",
+  "fileSize": "865.076KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -129,7 +129,7 @@
           "familyName": "Senthivasan"
         }
       ],
-      "name": "workloopR: Analysis of Muscle Work Loops",
+      "name": "workloopR: Analysis of Work Loops and Other Data from Muscle Physiology Experiments",
       "url": "https://github.com/vbaliga/workloopR"
     }
   ],

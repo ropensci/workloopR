@@ -153,6 +153,7 @@ Again, running `select_cycles()` beforehand was necessary, so we will switch to 
 
 Within `analyze_workloop()`, the `GR =` option allows for the gear ratio to be corrected if it hasn't been already. But because we already ran `fix_GR()` to correct the gear ratio to 2, we will not need to use it here again. So, this for this argument, we will use `GR = 1`, which keeps the data as they are. Please take care to ensure that you do not overcorrect for gear ratio by setting it multiple times. Doing so induces multiplicative changes. E.g. setting `GR = 3` on an object and then setting `GR = 3` again produces a gear ratio correction of 9.
 
+
 ### Using the default `simplify = FALSE` version
 
 The argument `simplify = ` affects the output of the `analyze_workloop()` function. We'll first take a look at the organization of the "full" version, i.e. keeping the default `simplify = FALSE`.
@@ -220,6 +221,7 @@ str(workloop_analyzed_simple)
 ```
 
 Here, work (in W) and net power (in J) are simply returned in a `data.frame` that is organized by cycle. No other attributes are stored.
+
 
 ## More on cycle definitions in `select_cycles()`
 

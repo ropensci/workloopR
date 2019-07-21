@@ -154,7 +154,8 @@ Recommended functions and vignettes:
 
 The currently preferred way to cite (but subject to change):
 
-Baliga VB, Senthivasan S (2019). _workloopR: Analysis of Muscle Work Loops_. R package version
+Baliga VB, Senthivasan S (2019). _workloopR: Analysis of Work Loops and Other Data from Muscle
+Physiology Experiments_. R package version
 19.07.19, <URL: https://github.com/vbaliga/workloopR>.
 
 

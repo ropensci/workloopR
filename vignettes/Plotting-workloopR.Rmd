@@ -1,6 +1,6 @@
 ---
 title: "Plotting data in workloopR"
-author: "Vikram B. Baliga"
+author: "Shreeram Senthivasan"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
@@ -17,6 +17,7 @@ knitr::opts_chunk$set(
 ```
 
 Let's take a look at plotting data stored in objects created by `workloopR`!
+
 
 ## Loading packages and data
 
@@ -47,7 +48,9 @@ package.check <- lapply(
 )
 ```
 
+
 ## Plotting `workloop` objects
+
 
 ### Working with single files
 
@@ -152,6 +155,7 @@ workloop_dat %>%
   theme(legend.position = "bottom", legend.direction = "horizontal")
 ```
 
+
 ### Working with single files
 
 Working with multiple files is a little trickier as multiple the data are stored in separate `data.frame`s organized into a list. The easiest way to deal with this issue is to add a column specifying the file id and concatenating the data together. Refer to the Batch Processing vignette for more information on working with multiple files.
@@ -188,7 +192,9 @@ multi_workloop_dat %>%
   theme(legend.position = "bottom", legend.direction = "horizontal")
 ```
 
+
 ## Plotting isometric objects
+
 
 ### Working with single files
 
@@ -223,5 +229,6 @@ ggplot() +
   theme_bw() +
   theme(legend.position = "bottom", legend.direction = "horizontal")
 ```
+
 
 ### Working with multiple files
