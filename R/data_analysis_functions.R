@@ -74,7 +74,8 @@ trapezoidal_integration <- function(x,
 #' basis.
 #'
 #' @param x A \code{workloop} object of class \code{muscle_stim} that has been
-#' passed through \code{select_cycles}. See Details.
+#' passed through
+#' \code{select_cycles}. See Details.
 #' @param simplify Logical. If \code{FALSE}, the full analyzed workloop
 #' object is returned. If \code{TRUE} a simpler table of net work and power
 #' (by cycle) is returned.

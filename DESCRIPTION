@@ -1,6 +1,6 @@
 Package: workloopR
 Type: Package
-Title: Analysis of Work Loops and Other Data From Muscle Physiology Experiments
+Title: Analysis of Work Loops and Other Data from Muscle Physiology Experiments
 Version: 19.07.20
 Authors@R: c(
     person("Vikram B.", "Baliga",

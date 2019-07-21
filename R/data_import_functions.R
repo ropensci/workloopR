@@ -213,17 +213,23 @@ summary.analyzed_workloop <- function(object, ...){
 #'
 #' Additional arguments can be provided via \code{...}. For all experiment
 #' types, the following attributes are appropriate: \cr
-#' "units","header","units_table","protocol_table","stim_table",
-#' "stimulus_pulses","stimulus_offset","stimulus_width","gear_ratio",
+#' "units","header", "units_table",
+#' "protocol_table", "stim_table",
+#' "stimulus_pulses", "stimulus_offset",
+#' "stimulus_width", "gear_ratio",
 #' "file_id", or "mtime".
 #'
 #' Please ensure that further attributes are appropriate to your experiment
 #' type.
 #'
-#' For workloops, these include: "stimulus_frequency","cycle_frequency",
-#' "total_cycles","cycle_def","amplitude","phase", and "position_inverted"
+#' For workloops, these include:
+#' "stimulus_frequency", "cycle_frequency",
+#' "total_cycles", "cycle_def",
+#' "amplitude", "phase",
+#' and "position_inverted"
 #'
-#' For twitches or tetanic trials: "stimulus_frequency","stimulus_length"
+#' For twitches or tetanic trials:
+#' "stimulus_frequency", and "stimulus_length"
 #'
 #'
 #' @inherit read_ddf return
@@ -346,10 +352,9 @@ as_muscle_stim <- function(x,
 #'
 #' @details Read in a .ddf file that contains data from an experiment. If
 #' position and force do not correspond to columns 2 and 3 (respectively),
-#' replace "2" and "3" within \code{rename_cols = list(c(2, 3), c("Position",
-#' "Force"))} accordingly. Similarly, \code{skip_cols = 4:11} should be adjusted
-#'  if more than 11 columns are present and/or columns 4:11 contain important
-#'  data.
+#' replace "2" and "3" within \code{rename_cols} accordingly. Similarly,
+#' \code{skip_cols = 4:11} should be adjusted if more than 11 columns are
+#' present and/or columns 4:11 contain important data.
 #'
 #' Please note that there is no correction for gear ratio or further
 #' manipulation of data. See \code{fix_GR} to adjust gear ratio. Gear ratio can
@@ -735,7 +740,8 @@ read_tetanus.ddf<-
 #' @param filename A .ddf file that contains data from a
 #' single workloop experiment
 #' @param ... Additional arguments to be passed to \code{read_ddf()},
-#' \code{select_cycles()}, or \code{analyze_workloop()}.
+#' \code{select_cycles()},
+#' or \code{analyze_workloop()}.
 #'
 #' @details Please be careful with units! See Warnings below. This function
 #' combines \code{read_ddf()} with \code{select_cycles()} and then ultimately
@@ -821,7 +827,8 @@ read_analyze_wl <- function(filename,
 #' format. Runs \code{file.info} from base R to extract info from files.
 #'
 #' This function is not truly considered to be part of the batch analysis
-#' pipeline; see \code{read_analyze_wl_dir()} for a similar function that not
+#' pipeline;
+#' see \code{read_analyze_wl_dir()} for a similar function that not
 #' only grabs metadata but also imports & analyzes files. Instead,
 #' \code{get_wl_metadata()} is meant to be a handy function to investigate
 #' metadata issues that arise if running \code{read_analyze_wl_dir()} goes awry.

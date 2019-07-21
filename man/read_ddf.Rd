@@ -61,10 +61,9 @@ trajectory)}
 \details{
 Read in a .ddf file that contains data from an experiment. If
 position and force do not correspond to columns 2 and 3 (respectively),
-replace "2" and "3" within \code{rename_cols = list(c(2, 3), c("Position",
-"Force"))} accordingly. Similarly, \code{skip_cols = 4:11} should be adjusted
- if more than 11 columns are present and/or columns 4:11 contain important
- data.
+replace "2" and "3" within \code{rename_cols} accordingly. Similarly,
+\code{skip_cols = 4:11} should be adjusted if more than 11 columns are
+present and/or columns 4:11 contain important data.
 
 Please note that there is no correction for gear ratio or further
 manipulation of data. See \code{fix_GR} to adjust gear ratio. Gear ratio can

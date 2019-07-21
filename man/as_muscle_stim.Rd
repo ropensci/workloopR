@@ -68,17 +68,23 @@ stimulus) or 1 (stimulus ocurrence).
 
 Additional arguments can be provided via \code{...}. For all experiment
 types, the following attributes are appropriate: \cr
-"units","header","units_table","protocol_table","stim_table",
-"stimulus_pulses","stimulus_offset","stimulus_width","gear_ratio",
+"units","header", "units_table",
+"protocol_table", "stim_table",
+"stimulus_pulses", "stimulus_offset",
+"stimulus_width", "gear_ratio",
 "file_id", or "mtime".
 
 Please ensure that further attributes are appropriate to your experiment
 type.
 
-For workloops, these include: "stimulus_frequency","cycle_frequency",
-"total_cycles","cycle_def","amplitude","phase", and "position_inverted"
+For workloops, these include:
+"stimulus_frequency", "cycle_frequency",
+"total_cycles", "cycle_def",
+"amplitude", "phase",
+and "position_inverted"
 
-For twitches or tetanic trials: "stimulus_frequency","stimulus_length"
+For twitches or tetanic trials:
+"stimulus_frequency", and "stimulus_length"
 }
 \examples{
 

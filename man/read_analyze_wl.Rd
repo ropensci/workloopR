@@ -11,7 +11,8 @@ read_analyze_wl(filename, ...)
 single workloop experiment}
 
 \item{...}{Additional arguments to be passed to \code{read_ddf()},
-\code{select_cycles()}, or \code{analyze_workloop()}.}
+\code{select_cycles()},
+or \code{analyze_workloop()}.}
 }
 \value{
 The function returns a \code{list} of class \code{analyzed_workloop}

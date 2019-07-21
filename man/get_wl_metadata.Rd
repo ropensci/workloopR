@@ -21,7 +21,8 @@ stored in one folder, use this function to obtain metadata in a list
 format. Runs \code{file.info} from base R to extract info from files.
 
 This function is not truly considered to be part of the batch analysis
-pipeline; see \code{read_analyze_wl_dir()} for a similar function that not
+pipeline;
+see \code{read_analyze_wl_dir()} for a similar function that not
 only grabs metadata but also imports & analyzes files. Instead,
 \code{get_wl_metadata()} is meant to be a handy function to investigate
 metadata issues that arise if running \code{read_analyze_wl_dir()} goes awry.
