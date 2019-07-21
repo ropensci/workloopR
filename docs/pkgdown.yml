@@ -1,0 +1,11 @@
+pandoc: 2.7.2
+pkgdown: 1.3.0.9100
+pkgdown_sha: e3cee56df1eaa875b86171427a3a0eb3d5157b71
+articles:
+  Analyzing-workloops: Analyzing-workloops.html
+  batch-processing: batch-processing.html
+  Calculating-twitch-kinetics: Calculating-twitch-kinetics.html
+  Introduction-to-workloopR: Introduction-to-workloopR.html
+  non-ddf-sources: non-ddf-sources.html
+  Plotting-workloopR: Plotting-workloopR.html
+
