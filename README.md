@@ -142,8 +142,7 @@ For an overview, please also see our "Introduction to workloopR" vignette
 
 
 
-
-**Plotting**: Although we do not provide plotting functions, all resultant objects are designed to be friendly to visualization via either base-R plotting or tidyverse functions. Plase see the "Plotting data in workloopR" vignette.
+**Plotting**: Although we do not provide plotting functions, all resultant objects are designed to be friendly to visualization via either base-R plotting or `tidyverse` functions. Plase see the "Plotting data in workloopR" vignette.
 
 
 
