@@ -66,7 +66,7 @@ workloop_trials_list<-
   system.file(
     "extdata/wl_duration_trials",
     package = 'workloopR') %>%
-  read_ddf_dir(phase_from_peak = TRUE)
+  read_ddf_dir
 
 workloop_trials_list[1:2]
 ```
@@ -79,7 +79,7 @@ analyzed_wl_list<-
     "extdata/wl_duration_trials",
     package = 'workloopR') %>%
   read_analyze_wl_dir(sort_by = 'file_id',
-                      phase_from_peak = TRUE,
+                      phase_from_peak = T,
                       cycle_def = 'lo',
                       keep_cycles = 3)
 

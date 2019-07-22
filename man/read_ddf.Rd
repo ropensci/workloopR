@@ -84,8 +84,7 @@ library(workloopR)
 
 # import the workloop.ddf file included in workloopR
 wl_dat <-read_ddf(system.file("extdata", "workloop.ddf",
-                              package = 'workloopR'),
-                  phase_from_peak = TRUE)
+                              package = 'workloopR'))
 
 # or import your own file
 #my_dat <- read_ddf("./my/file/path/myfile.ddf")

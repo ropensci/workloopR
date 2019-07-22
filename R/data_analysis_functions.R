@@ -187,8 +187,7 @@ trapezoidal_integration <- function(x,
 #'
 #' # import the workloop.ddf file included in workloopR
 #' wl_dat <-read_ddf(system.file("extdata", "workloop.ddf",
-#'                               package = 'workloopR'),
-#'                   phase_from_peak = TRUE)
+#'                               package = 'workloopR'))
 #'
 #' # select cycles 3 through 5 via the peak-to-peak definition
 #' wl_selected <- select_cycles(wl_dat, cycle_def = "p2p", keep_cycles = 3:5)
@@ -345,7 +344,6 @@ analyze_workloop <- function(x,
 #' # batch read and analyze files included with workloopR
 #' analyzed_wls <- read_analyze_wl_dir(system.file("extdata/wl_duration_trials",
 #'                                                 package = 'workloopR'),
-#'                                     phase_from_peak = TRUE,
 #'                                     cycle_def = "p2p", keep_cycles = 2:4)
 #'
 #' # now summarize

@@ -126,8 +126,7 @@ library(workloopR)
 
 # import the workloop.ddf file included in workloopR
 wl_dat <-read_ddf(system.file("extdata", "workloop.ddf",
-                              package = 'workloopR'),
-                  phase_from_peak = TRUE)
+                              package = 'workloopR'))
 
 # select cycles 3 through 5 via the peak-to-peak definition
 wl_selected <- select_cycles(wl_dat, cycle_def = "p2p", keep_cycles = 3:5)

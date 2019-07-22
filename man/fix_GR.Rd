@@ -37,8 +37,7 @@ library(workloopR)
 
 # import the workloop.ddf file included in workloopR
 wl_dat <-read_ddf(system.file("extdata", "workloop.ddf",
-                              package = 'workloopR'),
-                  phase_from_peak = TRUE)
+                              package = 'workloopR'))
 
 # apply a gear ratio correction of 2
 # this will multiply Force by 2 and divide Position by 2

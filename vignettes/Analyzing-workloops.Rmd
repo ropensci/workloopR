@@ -65,7 +65,7 @@ workloop_dat <-
     "extdata",
     "workloop.ddf",
     package = 'workloopR') %>%
-  read_ddf(phase_from_peak = TRUE) %>%
+  read_ddf() %>%
   fix_GR(GR = 2)
 
 summary(workloop_dat)
