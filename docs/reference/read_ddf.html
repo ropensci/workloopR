@@ -243,7 +243,8 @@ contact us with any issues or requests.</p>
 
 <span class='co'># import the workloop.ddf file included in workloopR</span>
 <span class='no'>wl_dat</span> <span class='kw'>&lt;-</span><span class='fu'>read_ddf</span>(<span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"extdata"</span>, <span class='st'>"workloop.ddf"</span>,
-                              <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>'workloopR'</span>))
+                              <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>'workloopR'</span>),
+                  <span class='kw'>phase_from_peak</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='co'># or import your own file</span>
 <span class='co'>#my_dat &lt;- read_ddf("./my/file/path/myfile.ddf")</span></div></pre>

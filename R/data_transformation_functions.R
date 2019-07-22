@@ -64,7 +64,8 @@
 #'
 #' # import the workloop.ddf file included in workloopR
 #' wl_dat <-read_ddf(system.file("extdata", "workloop.ddf",
-#'                               package = 'workloopR'))
+#'                               package = 'workloopR'),
+#'                   phase_from_peak = TRUE)
 #'
 #' # select cycles 3 through 5 via the peak-to-peak definition
 #' wl_selected <- select_cycles(wl_dat, cycle_def = "p2p", keep_cycles = 3:5)
@@ -179,7 +180,8 @@ select_cycles <- function(x,
 #'
 #' # import the workloop.ddf file included in workloopR
 #' wl_dat <-read_ddf(system.file("extdata", "workloop.ddf",
-#'                               package = 'workloopR'))
+#'                               package = 'workloopR'),
+#'                   phase_from_peak = TRUE)
 #'
 #' # invert the sign of Position
 #' wl_fixed <- invert_position(wl_dat)
@@ -235,7 +237,8 @@ invert_position <- function(x)
 #'
 #' # import the workloop.ddf file included in workloopR
 #' wl_dat <-read_ddf(system.file("extdata", "workloop.ddf",
-#'                               package = 'workloopR'))
+#'                               package = 'workloopR'),
+#'                   phase_from_peak = TRUE)
 #'
 #' # apply a gear ratio correction of 2
 #' # this will multiply Force by 2 and divide Position by 2

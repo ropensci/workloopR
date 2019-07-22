@@ -124,6 +124,7 @@ library(workloopR)
 # a gear ratio correction of 2 and cycle definition of peak-to-peak
 wl_dat <- read_analyze_wl(system.file("extdata", "workloop.ddf",
                                       package = 'workloopR'),
+                          phase_from_peak = TRUE,
                           GR = 2, cycle_def = "p2p")
 
 
