@@ -62,7 +62,7 @@ workloop_dat<-
     "extdata",
     "workloop.ddf",
     package = 'workloopR') %>%
-  read_ddf() %>%
+  read_ddf(phase_from_peak = TRUE) %>%
   fix_GR(2)
 ```
 
@@ -165,7 +165,7 @@ multi_workloop_dat<-
   system.file(
     "extdata/wl_duration_trials",
     package = 'workloopR') %>%
-  read_ddf_dir() %>%
+  read_ddf_dir(phase_from_peak = TRUE) %>%
   map(fix_GR, 2) %>%
   map(select_cycles,'p2p', 4) %>%
   map(analyze_workloop)
@@ -232,3 +232,35 @@ ggplot() +
 
 
 ### Working with multiple files
+
+We can also overlay data from multiple isometric trials to see how force evolves across trials. Please see the Batch Processing vignette for more details on how to work with multiple files.
+
+```{r iso_multi}
+multi_twitch_dat<-
+  system.file(
+    "extdata/twitch_csv",
+    package = 'workloopR') %>%
+  list.files(full.names = T) %>%
+  map(read.csv) %>%
+  map2(c("2mA","3mA","4mA","5mA"), ~as_muscle_stim(.x, type = 'twitch', file_id = .y))
+
+# Next we want another data.frame of label data
+multi_label_dat<-
+  multi_twitch_dat %>%
+  map_dfr(isometric_timing) %>%
+  select(file_id, ends_with("peak")) %>%
+  mutate(label = paste0(round(force_peak),"mV"))
+
+# Once again we want the data in a single data.frame with a column for which trial it came from
+multi_twitch_dat %>%
+  map_dfr(~mutate(.x, file_id = attr(.x, "file_id"))) %>%
+  ggplot(aes(x = Time, y = Force, colour = file_id)) +
+  geom_line() +
+  geom_text(aes(time_peak, force_peak, label = label), hjust=-0.7, data = multi_label_dat) +
+  labs(y = "Force (mN)", x = "Time (sec)", colour = "Stimulation Current") +
+  ggtitle("Force development across twitch trials") +
+  theme_bw() +
+  theme(legend.position = "bottom", legend.direction = "horizontal")
+
+```
+
