@@ -136,7 +136,7 @@ non_ddf_list<-
 Applying a non-constant transformation like setting a unique file ID can be done using `purrr::map2()`.
 
 ```{r}
-file_ids<-paste0("0",1:4,"-twitch.csv")
+file_ids<-paste0("0",1:4,"-",2:5,"mA-twitch.csv")
 
 non_ddf_list<-
   non_ddf_list %>%
