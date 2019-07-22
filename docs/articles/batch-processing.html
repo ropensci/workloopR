@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Batch Processing • workloopR</title>
+<title>Batch processing • workloopR</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Batch Processing">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Batch processing">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -57,7 +57,7 @@
       <a href="../articles/Analyzing-workloops.html">Analyzing work loop experiments in workloopR</a>
     </li>
     <li>
-      <a href="../articles/batch-processing.html">Batch Processing</a>
+      <a href="../articles/batch-processing.html">Batch processing</a>
     </li>
     <li>
       <a href="../articles/Calculating-twitch-kinetics.html">Working with isometric experiments in workloopR</a>
@@ -94,7 +94,7 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>Batch Processing</h1>
+      <h1>Batch processing</h1>
                         <h4 class="author">Shreeram Senthivasan</h4>
             
             <h4 class="date">2019-07-22</h4>
@@ -116,7 +116,7 @@
 <div id="load-packages-and-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#load-packages-and-data" class="anchor"></a>Load packages and data</h2>
-<p>This vignette will rely heavily on the <code>purrr:map()</code> family of functions for recursion, though it should be mentioned that the <code><a href="https://rdrr.io/r/base/apply.html">base::apply()</a></code> family of functions would work as well.</p>
+<p>This vignette will rely heavily on the <code><a href="https://purrr.tidyverse.org/reference/map.html">purrr::map()</a></code> family of functions for recursion, though it should be mentioned that the <code><a href="https://rdrr.io/r/base/apply.html">base::apply()</a></code> family of functions would work as well.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="co">## If a package is installed, it will be loaded. If any are not, the missing</span></a>
 <a class="sourceLine" id="cb1-2" title="2"><span class="co">## package(s) will be installed from CRAN and then loaded.</span></a>
 <a class="sourceLine" id="cb1-3" title="3"></a>
@@ -213,10 +213,10 @@
 <a class="sourceLine" id="cb4-6" title="6"><span class="co">#&gt; 3 03_6pulse.ddf              28      3.15 -24.92               6</span></a>
 <a class="sourceLine" id="cb4-7" title="7"><span class="co">#&gt; 4 04_4pulse.ddf              28      3.15 -24.64               4</span></a>
 <a class="sourceLine" id="cb4-8" title="8"><span class="co">#&gt;   Stimulus_Frequency      mtime     Mean_Work  Mean_Power</span></a>
-<a class="sourceLine" id="cb4-9" title="9"><span class="co">#&gt; 1                300 1563817367  0.0027387056 0.078427135</span></a>
-<a class="sourceLine" id="cb4-10" title="10"><span class="co">#&gt; 2                300 1563817367  0.0009849216 0.027832717</span></a>
-<a class="sourceLine" id="cb4-11" title="11"><span class="co">#&gt; 3                300 1563817367 -0.0002192395 0.004323004</span></a>
-<a class="sourceLine" id="cb4-12" title="12"><span class="co">#&gt; 4                300 1563817367  0.0022793831 0.065468837</span></a></code></pre></div>
+<a class="sourceLine" id="cb4-9" title="9"><span class="co">#&gt; 1                300 1563819223  0.0027387056 0.078427135</span></a>
+<a class="sourceLine" id="cb4-10" title="10"><span class="co">#&gt; 2                300 1563819223  0.0009849216 0.027832717</span></a>
+<a class="sourceLine" id="cb4-11" title="11"><span class="co">#&gt; 3                300 1563819223 -0.0002192395 0.004323004</span></a>
+<a class="sourceLine" id="cb4-12" title="12"><span class="co">#&gt; 4                300 1563819223  0.0022793831 0.065468837</span></a></code></pre></div>
 </div>
 </div>
 <div id="manual-recursion-examples" class="section level2">
@@ -250,7 +250,7 @@
 <a class="sourceLine" id="cb6-7" title="7">  }) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb6-8" title="8"><span class="st">  </span><span class="kw">map</span>(fix_GR,<span class="dv">2</span>)</a></code></pre></div>
 <p>Applying a non-constant transformation like setting a unique file ID can be done using <code><a href="https://purrr.tidyverse.org/reference/map2.html">purrr::map2()</a></code>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">file_ids&lt;-<span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="st">"0"</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,<span class="st">"-twitch.csv"</span>)</a>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">file_ids&lt;-<span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="st">"0"</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,<span class="st">"-"</span>,<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>,<span class="st">"mA-twitch.csv"</span>)</a>
 <a class="sourceLine" id="cb7-2" title="2"></a>
 <a class="sourceLine" id="cb7-3" title="3">non_ddf_list&lt;-</a>
 <a class="sourceLine" id="cb7-4" title="4"><span class="st">  </span>non_ddf_list <span class="op">%&gt;%</span></a>
@@ -262,7 +262,7 @@
 <a class="sourceLine" id="cb7-10" title="10">non_ddf_list</a>
 <a class="sourceLine" id="cb7-11" title="11"><span class="co">#&gt; [[1]]</span></a>
 <a class="sourceLine" id="cb7-12" title="12"><span class="co">#&gt; # Twitch Data: 3 channels recorded over 0.4001s</span></a>
-<a class="sourceLine" id="cb7-13" title="13"><span class="co">#&gt; File ID: 01-twitch.csv</span></a>
+<a class="sourceLine" id="cb7-13" title="13"><span class="co">#&gt; File ID: 01-2mA-twitch.csv</span></a>
 <a class="sourceLine" id="cb7-14" title="14"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb7-15" title="15"><span class="co">#&gt;    Time  Position   Force Stim</span></a>
 <a class="sourceLine" id="cb7-16" title="16"><span class="co">#&gt; 1 1e-04 -3.002651 474.262    0</span></a>
@@ -275,7 +275,7 @@
 <a class="sourceLine" id="cb7-23" title="23"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb7-24" title="24"><span class="co">#&gt; [[2]]</span></a>
 <a class="sourceLine" id="cb7-25" title="25"><span class="co">#&gt; # Twitch Data: 3 channels recorded over 0.4001s</span></a>
-<a class="sourceLine" id="cb7-26" title="26"><span class="co">#&gt; File ID: 02-twitch.csv</span></a>
+<a class="sourceLine" id="cb7-26" title="26"><span class="co">#&gt; File ID: 02-3mA-twitch.csv</span></a>
 <a class="sourceLine" id="cb7-27" title="27"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb7-28" title="28"><span class="co">#&gt;    Time  Position   Force Stim</span></a>
 <a class="sourceLine" id="cb7-29" title="29"><span class="co">#&gt; 1 1e-04 -3.002489 476.520    0</span></a>
@@ -288,7 +288,7 @@
 <a class="sourceLine" id="cb7-36" title="36"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb7-37" title="37"><span class="co">#&gt; [[3]]</span></a>
 <a class="sourceLine" id="cb7-38" title="38"><span class="co">#&gt; # Twitch Data: 3 channels recorded over 0.4001s</span></a>
-<a class="sourceLine" id="cb7-39" title="39"><span class="co">#&gt; File ID: 03-twitch.csv</span></a>
+<a class="sourceLine" id="cb7-39" title="39"><span class="co">#&gt; File ID: 03-4mA-twitch.csv</span></a>
 <a class="sourceLine" id="cb7-40" title="40"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb7-41" title="41"><span class="co">#&gt;    Time  Position   Force Stim</span></a>
 <a class="sourceLine" id="cb7-42" title="42"><span class="co">#&gt; 1 1e-04 -3.002651 451.037    0</span></a>
@@ -301,7 +301,7 @@
 <a class="sourceLine" id="cb7-49" title="49"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb7-50" title="50"><span class="co">#&gt; [[4]]</span></a>
 <a class="sourceLine" id="cb7-51" title="51"><span class="co">#&gt; # Twitch Data: 3 channels recorded over 0.4001s</span></a>
-<a class="sourceLine" id="cb7-52" title="52"><span class="co">#&gt; File ID: 04-twitch.csv</span></a>
+<a class="sourceLine" id="cb7-52" title="52"><span class="co">#&gt; File ID: 04-5mA-twitch.csv</span></a>
 <a class="sourceLine" id="cb7-53" title="53"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb7-54" title="54"><span class="co">#&gt;    Time  Position   Force Stim</span></a>
 <a class="sourceLine" id="cb7-55" title="55"><span class="co">#&gt; 1 1e-04 -3.002327 446.521    0</span></a>
@@ -314,21 +314,21 @@
 <p>Analysis can similarly be run recursively. <code><a href="../reference/isometric_timing.html">isometric_timing()</a></code> in particular returns a single row of a data.frame with timings and forces for key points in an isometric dataset. Here we can use <code><a href="https://purrr.tidyverse.org/reference/map.html">purrr::map_dfr()</a></code> to bind the rows together for neatness.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">non_ddf_list <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb8-2" title="2"><span class="st">  </span><span class="kw">map_dfr</span>(isometric_timing)</a>
-<a class="sourceLine" id="cb8-3" title="3"><span class="co">#&gt;         file_id time_stim force_stim time_peak force_peak time_rising_10</span></a>
-<a class="sourceLine" id="cb8-4" title="4"><span class="co">#&gt; 1 01-twitch.csv    0.1002    480.391    0.1153    654.258         0.1049</span></a>
-<a class="sourceLine" id="cb8-5" title="5"><span class="co">#&gt; 2 02-twitch.csv    0.1002    461.682    0.1149    748.772         0.1050</span></a>
-<a class="sourceLine" id="cb8-6" title="6"><span class="co">#&gt; 3 03-twitch.csv    0.1002    450.069    0.1145    799.416         0.1049</span></a>
-<a class="sourceLine" id="cb8-7" title="7"><span class="co">#&gt; 4 04-twitch.csv    0.1002    448.134    0.1141    824.899         0.1048</span></a>
-<a class="sourceLine" id="cb8-8" title="8"><span class="co">#&gt;   force_rising_10 time_rising_90 force_rising_90 time_relaxing_90</span></a>
-<a class="sourceLine" id="cb8-9" title="9"><span class="co">#&gt; 1         497.810         0.1118         637.484           0.1216</span></a>
-<a class="sourceLine" id="cb8-10" title="10"><span class="co">#&gt; 2         492.326         0.1109         720.708           0.1207</span></a>
-<a class="sourceLine" id="cb8-11" title="11"><span class="co">#&gt; 3         488.778         0.1106         764.901           0.1201</span></a>
-<a class="sourceLine" id="cb8-12" title="12"><span class="co">#&gt; 4         488.778         0.1107         787.803           0.1198</span></a>
-<a class="sourceLine" id="cb8-13" title="13"><span class="co">#&gt;   force_relaxing_90 time_relaxing_50 force_relaxing_50</span></a>
-<a class="sourceLine" id="cb8-14" title="14"><span class="co">#&gt; 1           637.807           0.1348           567.486</span></a>
-<a class="sourceLine" id="cb8-15" title="15"><span class="co">#&gt; 2           721.031           0.1325           605.872</span></a>
-<a class="sourceLine" id="cb8-16" title="16"><span class="co">#&gt; 3           764.901           0.1314           624.904</span></a>
-<a class="sourceLine" id="cb8-17" title="17"><span class="co">#&gt; 4           788.126           0.1311           636.517</span></a></code></pre></div>
+<a class="sourceLine" id="cb8-3" title="3"><span class="co">#&gt;             file_id time_stim force_stim time_peak force_peak</span></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="co">#&gt; 1 01-2mA-twitch.csv    0.1002    480.391    0.1153    654.258</span></a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="co">#&gt; 2 02-3mA-twitch.csv    0.1002    461.682    0.1149    748.772</span></a>
+<a class="sourceLine" id="cb8-6" title="6"><span class="co">#&gt; 3 03-4mA-twitch.csv    0.1002    450.069    0.1145    799.416</span></a>
+<a class="sourceLine" id="cb8-7" title="7"><span class="co">#&gt; 4 04-5mA-twitch.csv    0.1002    448.134    0.1141    824.899</span></a>
+<a class="sourceLine" id="cb8-8" title="8"><span class="co">#&gt;   time_rising_10 force_rising_10 time_rising_90 force_rising_90</span></a>
+<a class="sourceLine" id="cb8-9" title="9"><span class="co">#&gt; 1         0.1049         497.810         0.1118         637.484</span></a>
+<a class="sourceLine" id="cb8-10" title="10"><span class="co">#&gt; 2         0.1050         492.326         0.1109         720.708</span></a>
+<a class="sourceLine" id="cb8-11" title="11"><span class="co">#&gt; 3         0.1049         488.778         0.1106         764.901</span></a>
+<a class="sourceLine" id="cb8-12" title="12"><span class="co">#&gt; 4         0.1048         488.778         0.1107         787.803</span></a>
+<a class="sourceLine" id="cb8-13" title="13"><span class="co">#&gt;   time_relaxing_90 force_relaxing_90 time_relaxing_50 force_relaxing_50</span></a>
+<a class="sourceLine" id="cb8-14" title="14"><span class="co">#&gt; 1           0.1216           637.807           0.1348           567.486</span></a>
+<a class="sourceLine" id="cb8-15" title="15"><span class="co">#&gt; 2           0.1207           721.031           0.1325           605.872</span></a>
+<a class="sourceLine" id="cb8-16" title="16"><span class="co">#&gt; 3           0.1201           764.901           0.1314           624.904</span></a>
+<a class="sourceLine" id="cb8-17" title="17"><span class="co">#&gt; 4           0.1198           788.126           0.1311           636.517</span></a></code></pre></div>
 </div>
 </div>
   </div>

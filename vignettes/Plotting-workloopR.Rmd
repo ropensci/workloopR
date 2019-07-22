@@ -131,7 +131,7 @@ workloop_dat<-
   select_cycles('p2p', 2:5)
 ```
 
-Now let's plot some workloops!
+Now let's plot some work loops!
 
 ```{r analyze_workloop}
 # Let's start with a single cycle using colour to indicate time
@@ -140,17 +140,17 @@ workloop_dat %>%
   ggplot(aes(x = Position, y = Force)) +
   geom_path(aes(colour = Time)) +
   labs(y = "Force (mN)", x = "Position (mm)", colour = "Time (sec)") +
-  ggtitle("Single workloop") +
+  ggtitle("Single work loop") +
   theme_bw() +
   theme(legend.position = "bottom", legend.direction = "horizontal")
 
-# Now let's see how the workloop changes across cycles
+# Now let's see how the work loop changes across cycles
 # We can use arrows to indicate direction through time
 workloop_dat %>%
   ggplot(aes(x = Position, y = Force)) +
   geom_path(aes(colour = Cycle), arrow=arrow()) +
   labs(y = "Force (mN)", x = "Position (mm)", colour = "Cycle index") +
-  ggtitle("Workloops by cycle index") +
+  ggtitle("Work loops by cycle index") +
   theme_bw() +
   theme(legend.position = "bottom", legend.direction = "horizontal")
 ```
@@ -158,7 +158,7 @@ workloop_dat %>%
 
 ### Working with single files
 
-Working with multiple files is a little trickier as multiple the data are stored in separate `data.frame`s organized into a list. The easiest way to deal with this issue is to add a column specifying the file id and concatenating the data together. Refer to the Batch Processing vignette for more information on working with multiple files.
+Working with multiple files is a little trickier as multiple the data are stored in separate `data.frame`s organized into a list. The easiest way to deal with this issue is to add a column specifying the file id and concatenating the data together. Refer to the "Batch processing" vignette for more information on working with multiple files.
 
 ```{r multifile}
 multi_workloop_dat<-
@@ -233,7 +233,7 @@ ggplot() +
 
 ### Working with multiple files
 
-We can also overlay data from multiple isometric trials to see how force evolves across trials. Please see the Batch Processing vignette for more details on how to work with multiple files.
+We can also overlay data from multiple isometric trials to see how force evolves across trials. Please see the "Batch processing" vignette for more details on how to work with multiple files.
 
 ```{r iso_multi}
 multi_twitch_dat<-
@@ -264,3 +264,4 @@ multi_twitch_dat %>%
 
 ```
 
+Please note that these twitch trials have differing values of initial force, so actual force developments are not identical to peak forces.

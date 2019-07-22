@@ -57,7 +57,7 @@
       <a href="../articles/Analyzing-workloops.html">Analyzing work loop experiments in workloopR</a>
     </li>
     <li>
-      <a href="../articles/batch-processing.html">Batch Processing</a>
+      <a href="../articles/batch-processing.html">Batch processing</a>
     </li>
     <li>
       <a href="../articles/Calculating-twitch-kinetics.html">Working with isometric experiments in workloopR</a>
@@ -147,7 +147,7 @@
 <a class="sourceLine" id="cb2-3" title="3">    <span class="st">"extdata"</span>,</a>
 <a class="sourceLine" id="cb2-4" title="4">    <span class="st">"workloop.ddf"</span>,</a>
 <a class="sourceLine" id="cb2-5" title="5">    <span class="dt">package =</span> <span class="st">'workloopR'</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb2-6" title="6"><span class="st">  </span><span class="kw"><a href="../reference/read_ddf.html">read_ddf</a></span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="st">  </span><span class="kw"><a href="../reference/read_ddf.html">read_ddf</a></span>(<span class="dt">phase_from_peak =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb2-7" title="7"><span class="st">  </span><span class="kw"><a href="../reference/fix_GR.html">fix_GR</a></span>(<span class="dv">2</span>)</a></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="co"># To overlay position and force, we need them to be on comparable scales</span></a>
 <a class="sourceLine" id="cb3-2" title="2"><span class="co"># We will then use two y-axis to make the units clear</span></a>
@@ -204,25 +204,25 @@
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">workloop_dat&lt;-</a>
 <a class="sourceLine" id="cb5-2" title="2"><span class="st">  </span>workloop_dat <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb5-3" title="3"><span class="st">  </span><span class="kw"><a href="../reference/select_cycles.html">select_cycles</a></span>(<span class="st">'p2p'</span>, <span class="dv">2</span><span class="op">:</span><span class="dv">5</span>)</a></code></pre></div>
-<p>Now let’s plot some workloops!</p>
+<p>Now let’s plot some work loops!</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="co"># Let's start with a single cycle using colour to indicate time</span></a>
 <a class="sourceLine" id="cb6-2" title="2">workloop_dat <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb6-3" title="3"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span>(Cycle <span class="op">==</span><span class="st"> 'a'</span>) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb6-4" title="4"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Position, <span class="dt">y =</span> Force)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb6-5" title="5"><span class="st">  </span><span class="kw">geom_path</span>(<span class="kw">aes</span>(<span class="dt">colour =</span> Time)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb6-6" title="6"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">"Force (mN)"</span>, <span class="dt">x =</span> <span class="st">"Position (mm)"</span>, <span class="dt">colour =</span> <span class="st">"Time (sec)"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb6-7" title="7"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Single workloop"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-7" title="7"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Single work loop"</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb6-8" title="8"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb6-9" title="9"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"bottom"</span>, <span class="dt">legend.direction =</span> <span class="st">"horizontal"</span>)</a></code></pre></div>
 <p><img src="Plotting-workloopR_files/figure-html/analyze_workloop-1.png" width="700"></p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"></a>
-<a class="sourceLine" id="cb7-2" title="2"><span class="co"># Now let's see how the workloop changes across cycles</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="co"># Now let's see how the work loop changes across cycles</span></a>
 <a class="sourceLine" id="cb7-3" title="3"><span class="co"># We can use arrows to indicate direction through time</span></a>
 <a class="sourceLine" id="cb7-4" title="4">workloop_dat <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb7-5" title="5"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Position, <span class="dt">y =</span> Force)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb7-6" title="6"><span class="st">  </span><span class="kw">geom_path</span>(<span class="kw">aes</span>(<span class="dt">colour =</span> Cycle), <span class="dt">arrow=</span><span class="kw">arrow</span>()) <span class="op">+</span></a>
 <a class="sourceLine" id="cb7-7" title="7"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">"Force (mN)"</span>, <span class="dt">x =</span> <span class="st">"Position (mm)"</span>, <span class="dt">colour =</span> <span class="st">"Cycle index"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-8" title="8"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Workloops by cycle index"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-8" title="8"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Work loops by cycle index"</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb7-9" title="9"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb7-10" title="10"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"bottom"</span>, <span class="dt">legend.direction =</span> <span class="st">"horizontal"</span>)</a></code></pre></div>
 <p><img src="Plotting-workloopR_files/figure-html/analyze_workloop-2.png" width="700"></p>
@@ -230,12 +230,12 @@
 <div id="working-with-single-files-1" class="section level3">
 <h3 class="hasAnchor">
 <a href="#working-with-single-files-1" class="anchor"></a>Working with single files</h3>
-<p>Working with multiple files is a little trickier as multiple the data are stored in separate <code>data.frame</code>s organized into a list. The easiest way to deal with this issue is to add a column specifying the file id and concatenating the data together. Refer to the Batch Processing vignette for more information on working with multiple files.</p>
+<p>Working with multiple files is a little trickier as multiple the data are stored in separate <code>data.frame</code>s organized into a list. The easiest way to deal with this issue is to add a column specifying the file id and concatenating the data together. Refer to the “Batch processing” vignette for more information on working with multiple files.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">multi_workloop_dat&lt;-</a>
 <a class="sourceLine" id="cb8-2" title="2"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(</a>
 <a class="sourceLine" id="cb8-3" title="3">    <span class="st">"extdata/wl_duration_trials"</span>,</a>
 <a class="sourceLine" id="cb8-4" title="4">    <span class="dt">package =</span> <span class="st">'workloopR'</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb8-5" title="5"><span class="st">  </span><span class="kw"><a href="../reference/read_ddf_dir.html">read_ddf_dir</a></span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="st">  </span><span class="kw"><a href="../reference/read_ddf_dir.html">read_ddf_dir</a></span>(<span class="dt">phase_from_peak =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb8-6" title="6"><span class="st">  </span><span class="kw">map</span>(fix_GR, <span class="dv">2</span>) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb8-7" title="7"><span class="st">  </span><span class="kw">map</span>(select_cycles,<span class="st">'p2p'</span>, <span class="dv">4</span>) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb8-8" title="8"><span class="st">  </span><span class="kw">map</span>(analyze_workloop)</a>
@@ -305,6 +305,34 @@
 <div id="working-with-multiple-files" class="section level3">
 <h3 class="hasAnchor">
 <a href="#working-with-multiple-files" class="anchor"></a>Working with multiple files</h3>
+<p>We can also overlay data from multiple isometric trials to see how force evolves across trials. Please see the “Batch processing” vignette for more details on how to work with multiple files.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">multi_twitch_dat&lt;-</a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(</a>
+<a class="sourceLine" id="cb11-3" title="3">    <span class="st">"extdata/twitch_csv"</span>,</a>
+<a class="sourceLine" id="cb11-4" title="4">    <span class="dt">package =</span> <span class="st">'workloopR'</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb11-5" title="5"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span>(<span class="dt">full.names =</span> T) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb11-6" title="6"><span class="st">  </span><span class="kw">map</span>(read.csv) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb11-7" title="7"><span class="st">  </span><span class="kw">map2</span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"2mA"</span>,<span class="st">"3mA"</span>,<span class="st">"4mA"</span>,<span class="st">"5mA"</span>), <span class="op">~</span><span class="kw"><a href="../reference/as_muscle_stim.html">as_muscle_stim</a></span>(.x, <span class="dt">type =</span> <span class="st">'twitch'</span>, <span class="dt">file_id =</span> .y))</a>
+<a class="sourceLine" id="cb11-8" title="8"></a>
+<a class="sourceLine" id="cb11-9" title="9"><span class="co"># Next we want another data.frame of label data</span></a>
+<a class="sourceLine" id="cb11-10" title="10">multi_label_dat&lt;-</a>
+<a class="sourceLine" id="cb11-11" title="11"><span class="st">  </span>multi_twitch_dat <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb11-12" title="12"><span class="st">  </span><span class="kw">map_dfr</span>(isometric_timing) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb11-13" title="13"><span class="st">  </span><span class="kw">select</span>(file_id, <span class="kw">ends_with</span>(<span class="st">"peak"</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb11-14" title="14"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">label =</span> <span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/Round.html">round</a></span>(force_peak),<span class="st">"mV"</span>))</a>
+<a class="sourceLine" id="cb11-15" title="15"></a>
+<a class="sourceLine" id="cb11-16" title="16"><span class="co"># Once again we want the data in a single data.frame with a column for which trial it came from</span></a>
+<a class="sourceLine" id="cb11-17" title="17">multi_twitch_dat <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb11-18" title="18"><span class="st">  </span><span class="kw">map_dfr</span>(<span class="op">~</span><span class="kw">mutate</span>(.x, <span class="dt">file_id =</span> <span class="kw"><a href="https://rdrr.io/r/base/attr.html">attr</a></span>(.x, <span class="st">"file_id"</span>))) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb11-19" title="19"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Time, <span class="dt">y =</span> Force, <span class="dt">colour =</span> file_id)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-20" title="20"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-21" title="21"><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(time_peak, force_peak, <span class="dt">label =</span> label), <span class="dt">hjust=</span><span class="op">-</span><span class="fl">0.7</span>, <span class="dt">data =</span> multi_label_dat) <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-22" title="22"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">"Force (mN)"</span>, <span class="dt">x =</span> <span class="st">"Time (sec)"</span>, <span class="dt">colour =</span> <span class="st">"Stimulation Current"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-23" title="23"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Force development across twitch trials"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-24" title="24"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-25" title="25"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"bottom"</span>, <span class="dt">legend.direction =</span> <span class="st">"horizontal"</span>)</a></code></pre></div>
+<p><img src="Plotting-workloopR_files/figure-html/iso_multi-1.png" width="700"></p>
+<p>Please note that these twitch trials have differing values of initial force, so actual force developments are not identical to peak forces.</p>
 </div>
 </div>
   </div>

@@ -2,7 +2,7 @@ workloopR <img src="images/workloopR_icon_300dpi.png" align="right" width="150px
 =======================================================================================
 
   <!-- badges: start -->
-[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)  [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/vbaliga/workloopR?branch=master&svg=true)](https://ci.appveyor.com/project/vbaliga/workloopR)  [![Travis build status](https://travis-ci.org/vbaliga/workloopR.svg?branch=master)](https://travis-ci.org/vbaliga/workloopR)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)  [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/vbaliga/workloopR?branch=master&svg=true)](https://ci.appveyor.com/project/vbaliga/workloopR)  [![Travis build status](https://travis-ci.org/vbaliga/workloopR.svg?branch=master)](https://travis-ci.org/vbaliga/workloopR)
   <!-- badges: end -->
 
 Analysis of work loops and other data from muscle physiology experiments in R
@@ -87,6 +87,7 @@ For an overview, please also see our "Introduction to workloopR" vignette
   wl_dat
   str(wl_dat)
   names(attributes(wl_dat))
+  ```
 ```
   
   
@@ -100,7 +101,7 @@ For an overview, please also see our "Introduction to workloopR" vignette
   ## we'll use gear ratio = 2
   ## this multiples Force by 2 and divides Position by 2
   wl_fixed <- fix_GR(wl_dat, GR = 2)
-  ```
+```
 
   
 
