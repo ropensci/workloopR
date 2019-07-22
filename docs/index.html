@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">workloopR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">19.7.20</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -120,16 +120,18 @@
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(workloopR)</a>
 <a class="sourceLine" id="cb2-2" title="2"></a>
 <a class="sourceLine" id="cb2-3" title="3"><span class="co">## import the workloop.ddf file included in workloopR</span></a>
-<a class="sourceLine" id="cb2-4" title="4">wl_dat &lt;-<span class="st"> </span><span class="kw"><a href="reference/read_ddf.html">read_ddf</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"extdata"</span>, <span class="st">"workloop.ddf"</span>, <span class="dt">package =</span> <span class="st">'workloopR'</span>))</a>
-<a class="sourceLine" id="cb2-5" title="5"></a>
-<a class="sourceLine" id="cb2-6" title="6"><span class="co">## select cycles 3 through 5 using a peak-to-peak definition</span></a>
-<a class="sourceLine" id="cb2-7" title="7">wl_selected &lt;-<span class="st"> </span><span class="kw"><a href="reference/select_cycles.html">select_cycles</a></span>(wl_dat, <span class="dt">cycle_def =</span> <span class="st">"p2p"</span>, <span class="dt">keep_cycles =</span> <span class="dv">3</span><span class="op">:</span><span class="dv">5</span>)</a>
-<a class="sourceLine" id="cb2-8" title="8"></a>
-<a class="sourceLine" id="cb2-9" title="9"><span class="co">## apply a gear ratio correction, run the analysis function, </span></a>
-<a class="sourceLine" id="cb2-10" title="10"><span class="co">## and then get the full object</span></a>
-<a class="sourceLine" id="cb2-11" title="11">wl_analyzed &lt;-<span class="st"> </span><span class="kw"><a href="reference/analyze_workloop.html">analyze_workloop</a></span>(wl_selected, <span class="dt">GR =</span> <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb2-12" title="12"><span class="co">## for brevity, the print() method for this object produces a simple output</span></a>
-<a class="sourceLine" id="cb2-13" title="13">wl_analyzed</a></code></pre></div>
+<a class="sourceLine" id="cb2-4" title="4">wl_dat &lt;-<span class="st"> </span><span class="kw"><a href="reference/read_ddf.html">read_ddf</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"extdata"</span>, <span class="st">"workloop.ddf"</span>, </a>
+<a class="sourceLine" id="cb2-5" title="5">                               <span class="dt">package =</span> <span class="st">'workloopR'</span>),</a>
+<a class="sourceLine" id="cb2-6" title="6">                  <span class="dt">phase_from_peak =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb2-7" title="7"></a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="co">## select cycles 3 through 5 using a peak-to-peak definition</span></a>
+<a class="sourceLine" id="cb2-9" title="9">wl_selected &lt;-<span class="st"> </span><span class="kw"><a href="reference/select_cycles.html">select_cycles</a></span>(wl_dat, <span class="dt">cycle_def =</span> <span class="st">"p2p"</span>, <span class="dt">keep_cycles =</span> <span class="dv">3</span><span class="op">:</span><span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb2-10" title="10"></a>
+<a class="sourceLine" id="cb2-11" title="11"><span class="co">## apply a gear ratio correction, run the analysis function, </span></a>
+<a class="sourceLine" id="cb2-12" title="12"><span class="co">## and then get the full object</span></a>
+<a class="sourceLine" id="cb2-13" title="13">wl_analyzed &lt;-<span class="st"> </span><span class="kw"><a href="reference/analyze_workloop.html">analyze_workloop</a></span>(wl_selected, <span class="dt">GR =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb2-14" title="14"><span class="co">## for brevity, the print() method for this object produces a simple output</span></a>
+<a class="sourceLine" id="cb2-15" title="15">wl_analyzed</a></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">File ID<span class="op">:</span><span class="st"> </span>workloop.ddf</a>
 <a class="sourceLine" id="cb3-2" title="2">Cycles<span class="op">:</span><span class="st"> </span><span class="dv">3</span> cycles kept out of <span class="dv">6</span></a>
 <a class="sourceLine" id="cb3-3" title="3">Mean Work<span class="op">:</span><span class="st"> </span><span class="fl">0.00308</span> J</a>
@@ -155,12 +157,13 @@
 <p>Example:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="co">## import the workloop.ddf file included in workloopR</span></a>
 <a class="sourceLine" id="cb6-2" title="2">wl_dat &lt;-<span class="st"> </span><span class="kw"><a href="reference/read_ddf.html">read_ddf</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"extdata"</span>, <span class="st">"workloop.ddf"</span>, </a>
-<a class="sourceLine" id="cb6-3" title="3">                               <span class="dt">package =</span> <span class="st">'workloopR'</span>))</a>
-<a class="sourceLine" id="cb6-4" title="4"></a>
-<a class="sourceLine" id="cb6-5" title="5"><span class="co">## see how the muscle_stim object is organized</span></a>
-<a class="sourceLine" id="cb6-6" title="6">wl_dat</a>
-<a class="sourceLine" id="cb6-7" title="7"><span class="kw"><a href="https://rdrr.io/r/utils/str.html">str</a></span>(wl_dat)</a>
-<a class="sourceLine" id="cb6-8" title="8"><span class="kw"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/attributes.html">attributes</a></span>(wl_dat))</a></code></pre></div>
+<a class="sourceLine" id="cb6-3" title="3">                               <span class="dt">package =</span> <span class="st">'workloopR'</span>),</a>
+<a class="sourceLine" id="cb6-4" title="4">                  <span class="dt">phase_from_peak =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb6-5" title="5"></a>
+<a class="sourceLine" id="cb6-6" title="6"><span class="co">## see how the muscle_stim object is organized</span></a>
+<a class="sourceLine" id="cb6-7" title="7">wl_dat</a>
+<a class="sourceLine" id="cb6-8" title="8"><span class="kw"><a href="https://rdrr.io/r/utils/str.html">str</a></span>(wl_dat)</a>
+<a class="sourceLine" id="cb6-9" title="9"><span class="kw"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/attributes.html">attributes</a></span>(wl_dat))</a></code></pre></div>
 </li>
 </ul>
 <p><strong>Data transformations &amp; corrections</strong>: Prior to analyses, data can be transformed or corrected. Should data have been recorded incorrectly, the gear ratio of the motor arm and/or the direction of the muscle’s length change can be adjusted. Before analyzing work loop data, cycles within the work loop can be labeled (according to various definitions of what constitutes a “cycle”), which allows calculation of metrics on a per-cycle basis.</p>
@@ -197,8 +200,9 @@
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="co">## batch read and analyze files included with workloopR</span></a>
 <a class="sourceLine" id="cb9-2" title="2">analyzed_wls &lt;-<span class="st"> </span><span class="kw"><a href="reference/read_analyze_wl_dir.html">read_analyze_wl_dir</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"extdata/wl_duration_trials"</span>,</a>
 <a class="sourceLine" id="cb9-3" title="3">                                                <span class="dt">package =</span> <span class="st">'workloopR'</span>),</a>
-<a class="sourceLine" id="cb9-4" title="4">                                    <span class="dt">cycle_def =</span> <span class="st">"p2p"</span>, <span class="dt">keep_cycles =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">4</span>,</a>
-<a class="sourceLine" id="cb9-5" title="5">                                    <span class="dt">GR =</span> <span class="dv">2</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb9-4" title="4">                                    <span class="dt">phase_from_peak =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb9-5" title="5">                                    <span class="dt">cycle_def =</span> <span class="st">"p2p"</span>, <span class="dt">keep_cycles =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">4</span>,</a>
+<a class="sourceLine" id="cb9-6" title="6">                                    <span class="dt">GR =</span> <span class="dv">2</span>)</a></code></pre></div>
 </li>
 </ul>
 <p><strong>Plotting</strong>: Although we do not provide plotting functions, all resultant objects are designed to be friendly to visualization via either base-R plotting or tidyverse functions. Plase see the “Plotting data in workloopR” vignette.</p>

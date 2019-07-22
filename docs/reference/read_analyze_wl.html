@@ -67,7 +67,7 @@ file, select cycles, and compute work and power output." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">workloopR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">19.7.20</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -294,6 +294,7 @@ attribute <code>units</code>.</p>
 <span class='co'># a gear ratio correction of 2 and cycle definition of peak-to-peak</span>
 <span class='no'>wl_dat</span> <span class='kw'>&lt;-</span> <span class='fu'>read_analyze_wl</span>(<span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"extdata"</span>, <span class='st'>"workloop.ddf"</span>,
                                       <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>'workloopR'</span>),
+                          <span class='kw'>phase_from_peak</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
                           <span class='kw'>GR</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>cycle_def</span> <span class='kw'>=</span> <span class='st'>"p2p"</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

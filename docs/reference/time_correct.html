@@ -66,7 +66,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">workloopR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">19.7.20</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -202,6 +202,7 @@ mtime). A similar correction procedure is applied to work.</p>
 <span class='co'># batch read and analyze files included with workloopR</span>
 <span class='no'>analyzed_wls</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='read_analyze_wl_dir.html'>read_analyze_wl_dir</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"extdata/wl_duration_trials"</span>,
                                                 <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>'workloopR'</span>),
+                                    <span class='kw'>phase_from_peak</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
                                     <span class='kw'>cycle_def</span> <span class='kw'>=</span> <span class='st'>"p2p"</span>, <span class='kw'>keep_cycles</span> <span class='kw'>=</span> <span class='fl'>2</span>:<span class='fl'>4</span>)
 
 <span class='co'># now summarize</span>
@@ -217,11 +218,11 @@ mtime). A similar correction procedure is applied to work.</p>
 
 <span class='co'># now time correct</span>
 <span class='no'>timecor_wls</span> <span class='kw'>&lt;-</span> <span class='fu'>time_correct</span>(<span class='no'>summarized_wls</span>)
-<span class='no'>timecor_wls</span></div><div class='output co'>#&gt;         File_ID Cycle_Frequency Amplitude Phase Stimulus_Pulses
-#&gt; 1 01_4pulse.ddf              28      3.15  0.64               4
-#&gt; 2 02_2pulse.ddf              28      3.15  0.36               2
-#&gt; 3 03_6pulse.ddf              28      3.15  0.08               6
-#&gt; 4 04_4pulse.ddf              28      3.15  0.36               4
+<span class='no'>timecor_wls</span></div><div class='output co'>#&gt;         File_ID Cycle_Frequency Amplitude  Phase Stimulus_Pulses
+#&gt; 1 01_4pulse.ddf              28      3.15 -24.36               4
+#&gt; 2 02_2pulse.ddf              28      3.15 -24.64               2
+#&gt; 3 03_6pulse.ddf              28      3.15 -24.92               6
+#&gt; 4 04_4pulse.ddf              28      3.15 -24.64               4
 #&gt;   Stimulus_Frequency      mtime     Mean_Work   Mean_Power Time_Corrected_Work
 #&gt; 1                300 1409014596  0.0028362363  0.078967198        0.0028362363
 #&gt; 2                300 1409014778  0.0009686570  0.026247519        0.0010905501

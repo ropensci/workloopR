@@ -37,7 +37,9 @@ For more on work loops, we recommend a great review paper by Ahn ([2012](https:/
 library(workloopR)
 
 ## import the workloop.ddf file included in workloopR
-wl_dat <- read_ddf(system.file("extdata", "workloop.ddf", package = 'workloopR'))
+wl_dat <- read_ddf(system.file("extdata", "workloop.ddf", 
+                               package = 'workloopR'),
+                  phase_from_peak = TRUE)
 
 ## select cycles 3 through 5 using a peak-to-peak definition
 wl_selected <- select_cycles(wl_dat, cycle_def = "p2p", keep_cycles = 3:5)
@@ -78,14 +80,15 @@ For an overview, please also see our "Introduction to workloopR" vignette
   ```R
   ## import the workloop.ddf file included in workloopR
   wl_dat <- read_ddf(system.file("extdata", "workloop.ddf", 
-                                 package = 'workloopR'))
+                                 package = 'workloopR'),
+                    phase_from_peak = TRUE)
   
   ## see how the muscle_stim object is organized
   wl_dat
   str(wl_dat)
   names(attributes(wl_dat))
-  ```
-
+```
+  
   
 
 **Data transformations & corrections**: Prior to analyses, data can be transformed or corrected. Should data have been recorded incorrectly, the gear ratio of the motor arm and/or the direction of the muscle's length change can be adjusted. Before analyzing work loop data, cycles within the work loop can be labeled (according to various definitions of what constitutes a "cycle"), which allows calculation of metrics on a per-cycle basis.
@@ -131,6 +134,7 @@ For an overview, please also see our "Introduction to workloopR" vignette
   ## batch read and analyze files included with workloopR
   analyzed_wls <- read_analyze_wl_dir(system.file("extdata/wl_duration_trials",
                                                   package = 'workloopR'),
+                                      phase_from_peak = TRUE,
                                       cycle_def = "p2p", keep_cycles = 2:4,
                                       GR = 2)
   ```

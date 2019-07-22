@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">workloopR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">19.7.20</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -97,7 +97,7 @@
       <h1>Importing data from non .ddf sources</h1>
                         <h4 class="author">Vikram B. Baliga</h4>
             
-            <h4 class="date">2019-07-21</h4>
+            <h4 class="date">2019-07-22</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/vbaliga/workloopR/blob/master/vignettes/non-ddf-sources.Rmd"><code>vignettes/non-ddf-sources.Rmd</code></a></small>
       <div class="hidden name"><code>non-ddf-sources.Rmd</code></div>
@@ -143,7 +143,7 @@
 <a class="sourceLine" id="cb2-4" title="4">    <span class="st">"extdata"</span>,</a>
 <a class="sourceLine" id="cb2-5" title="5">    <span class="st">"workloop.ddf"</span>,</a>
 <a class="sourceLine" id="cb2-6" title="6">    <span class="dt">package =</span> <span class="st">'workloopR'</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb2-7" title="7"><span class="st">  </span><span class="kw"><a href="../reference/read_ddf.html">read_ddf</a></span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="st">  </span><span class="kw"><a href="../reference/read_ddf.html">read_ddf</a></span>(<span class="dt">phase_from_peak =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb2-8" title="8"><span class="st">  </span><span class="kw"><a href="../reference/fix_GR.html">fix_GR</a></span>(<span class="dt">GR =</span> <span class="dv">2</span>)</a>
 <a class="sourceLine" id="cb2-9" title="9"></a>
 <a class="sourceLine" id="cb2-10" title="10"><span class="co">## First we'll extract Time</span></a>
@@ -263,7 +263,7 @@
 <a class="sourceLine" id="cb7-7" title="7"><span class="co">#&gt;  $ total_cycles      : int 6</span></a>
 <a class="sourceLine" id="cb7-8" title="8"><span class="co">#&gt;  $ cycle_def         : chr "lo"</span></a>
 <a class="sourceLine" id="cb7-9" title="9"><span class="co">#&gt;  $ amplitude         : num 1.57</span></a>
-<a class="sourceLine" id="cb7-10" title="10"><span class="co">#&gt;  $ phase             : num 0.08</span></a>
+<a class="sourceLine" id="cb7-10" title="10"><span class="co">#&gt;  $ phase             : num -24.9</span></a>
 <a class="sourceLine" id="cb7-11" title="11"><span class="co">#&gt;  $ position_inverted : logi FALSE</span></a>
 <a class="sourceLine" id="cb7-12" title="12"><span class="co">#&gt;  $ units             : chr [1:4] "s" "mm" "mN" "TTL"</span></a>
 <a class="sourceLine" id="cb7-13" title="13"><span class="co">#&gt;  $ sample_frequency  : num 10000</span></a>
@@ -291,7 +291,7 @@
 <a class="sourceLine" id="cb7-35" title="35"><span class="co">#&gt;  $ stimulus_width    : num 0.2</span></a>
 <a class="sourceLine" id="cb7-36" title="36"><span class="co">#&gt;  $ gear_ratio        : num 2</span></a>
 <a class="sourceLine" id="cb7-37" title="37"><span class="co">#&gt;  $ file_id           : chr "workloop.ddf"</span></a>
-<a class="sourceLine" id="cb7-38" title="38"><span class="co">#&gt;  $ mtime             : POSIXct[1:1], format: "2019-07-21 11:56:37"</span></a>
+<a class="sourceLine" id="cb7-38" title="38"><span class="co">#&gt;  $ mtime             : POSIXct[1:1], format: "2019-07-22 10:34:26"</span></a>
 <a class="sourceLine" id="cb7-39" title="39"><span class="co">#&gt;  $ class             : chr [1:3] "workloop" "muscle_stim" "data.frame"</span></a></code></pre></div>
 </div>
 </div>
