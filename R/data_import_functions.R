@@ -407,7 +407,8 @@ as_muscle_stim <- function(x,
 #'
 #' # import the workloop.ddf file included in workloopR
 #' wl_dat <-read_ddf(system.file("extdata", "workloop.ddf",
-#'                               package = 'workloopR'))
+#'                               package = 'workloopR'),
+#'                   phase_from_peak = TRUE)
 #'
 #' # or import your own file
 #' #my_dat <- read_ddf("./my/file/path/myfile.ddf")
@@ -790,6 +791,7 @@ read_tetanus.ddf<-
 #' # a gear ratio correction of 2 and cycle definition of peak-to-peak
 #' wl_dat <- read_analyze_wl(system.file("extdata", "workloop.ddf",
 #'                                       package = 'workloopR'),
+#'                           phase_from_peak = TRUE,
 #'                           GR = 2, cycle_def = "p2p")
 #'
 #'
@@ -922,6 +924,7 @@ get_wl_metadata <- function(filepath,
 #' # batch read and analyze files included with workloopR
 #' analyzed_wls <- read_analyze_wl_dir(system.file("extdata/wl_duration_trials",
 #'                                                 package = 'workloopR'),
+#'                                     phase_from_peak = TRUE,
 #'                                     cycle_def = "p2p", keep_cycles = 2:4)
 #'
 #' # or on your own directory
@@ -997,9 +1000,10 @@ read_analyze_wl_dir <- function(filepath,
 #' # batch read and analyze files included with workloopR
 #' analyzed_wls <- read_analyze_wl_dir(system.file("extdata/wl_duration_trials",
 #'                                                package = 'workloopR'),
-#'                                    cycle_def = "p2p",
-#'                                    keep_cycles = 2:4
-#'                                    )
+#'                                     phase_from_peak = TRUE,
+#'                                     cycle_def = "p2p",
+#'                                     keep_cycles = 2:4
+#'                                     )
 #'
 #' # now summarize
 #' summarized_wls <- summarize_wl_trials(analyzed_wls)

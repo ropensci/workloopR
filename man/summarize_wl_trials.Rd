@@ -42,9 +42,10 @@ library(workloopR)
 # batch read and analyze files included with workloopR
 analyzed_wls <- read_analyze_wl_dir(system.file("extdata/wl_duration_trials",
                                                package = 'workloopR'),
-                                   cycle_def = "p2p",
-                                   keep_cycles = 2:4
-                                   )
+                                    phase_from_peak = TRUE,
+                                    cycle_def = "p2p",
+                                    keep_cycles = 2:4
+                                    )
 
 # now summarize
 summarized_wls <- summarize_wl_trials(analyzed_wls)
