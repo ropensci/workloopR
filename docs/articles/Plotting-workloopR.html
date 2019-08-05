@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">workloopR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1</span>
       </span>
     </div>
 
@@ -100,7 +100,7 @@
       <h1>Plotting data in workloopR</h1>
                         <h4 class="author">Shreeram Senthivasan</h4>
             
-            <h4 class="date">2019-07-22</h4>
+            <h4 class="date">2019-08-05</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/vbaliga/workloopR/blob/master/vignettes/Plotting-workloopR.Rmd"><code>vignettes/Plotting-workloopR.Rmd</code></a></small>
       <div class="hidden name"><code>Plotting-workloopR.Rmd</code></div>
@@ -202,8 +202,8 @@
 <a class="sourceLine" id="cb4-23" title="23"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb4-24" title="24"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>)</a></code></pre></div>
 <p><img src="Plotting-workloopR_files/figure-html/annotate_cycles-1.png" width="700"></p>
-<p>Visualizing the cycles is a highly recommended in case noise before or after the experimental procedure is interpretted as a cycle.</p>
-<p>Let’s go ahead and use cycles 2 to 5 (labelled c-f in the previous plot). Note however that the cycle labels will be reassigned from a-d when we subset the data.</p>
+<p>Visualizing the cycles is a highly recommended in case noise before or after the experimental procedure is interpreted as a cycle.</p>
+<p>Let’s go ahead and use cycles 2 to 5 (labeled c-f in the previous plot). Note however that the cycle labels will be reassigned from a-d when we subset the data.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">workloop_dat&lt;-</a>
 <a class="sourceLine" id="cb5-2" title="2"><span class="st">  </span>workloop_dat <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb5-3" title="3"><span class="st">  </span><span class="kw"><a href="../reference/select_cycles.html">select_cycles</a></span>(<span class="st">'p2p'</span>, <span class="dv">2</span><span class="op">:</span><span class="dv">5</span>)</a></code></pre></div>

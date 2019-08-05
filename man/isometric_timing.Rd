@@ -33,7 +33,7 @@ data collection and when peak force occurs}
 \item{force_relaxing_X}{Magnitude of force at X\% of relaxation}
 }
 \description{
-Calculate timing and magnitude of force at stimluation, peak force, and
+Calculate timing and magnitude of force at stimulation, peak force, and
 various parts of the rising (force development) and relaxation (falling)
 phases of the twitch.
 }

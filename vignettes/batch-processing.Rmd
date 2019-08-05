@@ -23,7 +23,7 @@ Many of the functions in the `workloopR` package are built to facilitate batch p
 
 We generally expect a single file to store data from a single experimental trial, whereas directories hold data from all the trials of a single experiment. Accordingly, the `muscle_stim` objects created and used by most of the `workloopR` functions are intended to hold data from a single trial of a workloop or related experiment. Lists are then used to package together trials from a single experiment. This also lends itself to using recursion to transform and analyze all data from a single experiment.
 
-In broad strokes, there are three ways that batch processing has been worked into `workloopR` functions. First, some functions like the `*_dir()` family of import functions and `summarize_wl_trials()` specifically generate or require lists of `muscle_stim` objects. Second, the first argument of all other functions are the objects being manipulated, which can help clean up recursion using the `purrr::map()` family of functions. Finally, some functions return summarized data as single rows of a data.frame that can easily be binded together to generate a summary table.
+In broad strokes, there are three ways that batch processing has been worked into `workloopR` functions. First, some functions like the `*_dir()` family of import functions and `summarize_wl_trials()` specifically generate or require lists of `muscle_stim` objects. Second, the first argument of all other functions are the objects being manipulated, which can help clean up recursion using the `purrr::map()` family of functions. Finally, some functions return summarized data as single rows of a data.frame that can easily be bound together to generate a summary table.
 
 
 ## Load packages and data

@@ -53,7 +53,7 @@ package.check <- lapply(
 
 We'll now import the `workloop.ddf` file included with `workloopR`. Because this experiment involved using a gear ratio of 2, we'll use `fix_GR()` to also implement this correction.
 
-Ultimately, an object of classes `workloop`, `muscle_stim`, and `data.frame` is produced. `muscle_stim` objects are used throughout `workloopR` to help with data formatting and error checking across fuctions. Additionally setting the class to `workloop` allows our functions to understand that the data have properties that other experiment types (twitch, tetanus) do not. 
+Ultimately, an object of classes `workloop`, `muscle_stim`, and `data.frame` is produced. `muscle_stim` objects are used throughout `workloopR` to help with data formatting and error checking across functions. Additionally setting the class to `workloop` allows our functions to understand that the data have properties that other experiment types (twitch, tetanus) do not. 
 
 ```{r data_import}
 ## The file workloop.ddf is included and therefore can be accessed via
@@ -76,7 +76,7 @@ Running `summary()` on a `muscle_stim shows a handy summary of file properties, 
 
 Let's plot Time against Force, Position, and Stimulus (Stim) to visualize the time course of the work loop experiment.
 
-To get them all plotted in the same figure, we'll transform the data as they are being plotted. Please note tht this is for aesthetic purposes only - the underlying data will not be changed after the plotting is complete.
+To get them all plotted in the same figure, we'll transform the data as they are being plotted. Please note that this is for aesthetic purposes only - the underlying data will not be changed after the plotting is complete.
 
 ```{r intial_plot}
 scale_position_to_force <- 3000
@@ -102,7 +102,7 @@ workloop_dat %>%
   theme(legend.position = "bottom", legend.direction = "horizontal")
 ```
 
-There's a lot to digest here. The blue trace shows the change in length of the muscle via cyclical, sinusoidal changes to Position. The dark grey Stim dots show stimulation on a off vs. on basis. Stimulus onset is close to when the muscle is at L0 and the stimulator zapped the muscle four times in pulses of 0.2 ms width at 300 Hz. The resulting force development is shown in red. These cycles of length change and stimulation occurred a total of 6 times (measuring L0-to-L0).
+There's a lot to digest here. The blue trace shows the change in length of the muscle via cyclical, sinusoidal changes to Position. The dark gray Stim dots show stimulation on a off vs. on basis. Stimulus onset is close to when the muscle is at L0 and the stimulator zapped the muscle four times in pulses of 0.2 ms width at 300 Hz. The resulting force development is shown in red. These cycles of length change and stimulation occurred a total of 6 times (measuring L0-to-L0).
 
 ## Select cycles
 
@@ -192,7 +192,7 @@ str(workloop_analyzed$cycle_a)
 
 Within each cycle's `data.frame`, the usual `Time`, `Position`, `Force`, and `Stim` are stored. `Cycle`, added via `select_cycles()`, denotes cycle identity and `Percent_of_Cycle` displays time as a percentage of that particular cycle. 
 
-`analyze_workloop()` also computes instataneous velocity (`Inst_Velocity`) which can sometimes be noisy, leading us to also apply a butterworth filter to this velocity (`Filt_Velocity`). See the function's help file for more details on how to tweak filtering. The time course of power (instantaneous power) is also provided as `Inst_Power`.
+`analyze_workloop()` also computes instantaneous velocity (`Inst_Velocity`) which can sometimes be noisy, leading us to also apply a butterworth filter to this velocity (`Filt_Velocity`). See the function's help file for more details on how to tweak filtering. The time course of power (instantaneous power) is also provided as `Inst_Power`.
 
 Each of these variables can be plot against Time to see the time-course of that variable's change over the cycle. For example, we will plot instantaneous force in cycle b:
 
@@ -201,7 +201,7 @@ workloop_analyzed$cycle_b %>%
   ggplot(aes(x = Percent_of_Cycle, y = Inst_Power)) +
   geom_line(lwd = 1) +
   labs(y = "Instantaneous Power (W)", x = "Percent cycle") +
-  ggtitle("Instanteous power \n during cycle b") +
+  ggtitle("Instantaneous power \n during cycle b") +
   theme_bw()
 ```
 

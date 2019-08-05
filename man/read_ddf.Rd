@@ -39,7 +39,7 @@ The \code{muscle_stim} object's columns contain:
 \item{Force}{Force, uncorrected for gear ratio}
 \item{Stim}{When stimulation occurs, on a binary scale}
 
-In addtion, the following information is stored in the \code{data.frame}'s
+In addition, the following information is stored in the \code{data.frame}'s
 attributes:
 \item{sample_frequency}{Frequency at which samples were collected}
 \item{pulses}{Number of sequential pulses within a stimulation train}

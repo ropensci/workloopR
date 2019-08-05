@@ -39,7 +39,7 @@ Chiefly used in conjunction with \code{summarize_wl_trials()} and
 }
 \section{Warning}{
 
-Most systems we have enountered record Position data in millimeters
+Most systems we have encountered record Position data in millimeters
 and Force in millinewtons, and therefore this function assumes data are
 recorded in those units. Through a series of internal conversions, this
 function computes velocity in meters/sec, work in Joules, and power in

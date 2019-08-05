@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">workloopR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1</span>
       </span>
     </div>
 
@@ -100,7 +100,7 @@
       <h1>Batch processing</h1>
                         <h4 class="author">Shreeram Senthivasan</h4>
             
-            <h4 class="date">2019-07-22</h4>
+            <h4 class="date">2019-08-05</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/vbaliga/workloopR/blob/master/vignettes/batch-processing.Rmd"><code>vignettes/batch-processing.Rmd</code></a></small>
       <div class="hidden name"><code>batch-processing.Rmd</code></div>
@@ -114,7 +114,7 @@
 <h2 class="hasAnchor">
 <a href="#conceptual-overview" class="anchor"></a>Conceptual overview</h2>
 <p>We generally expect a single file to store data from a single experimental trial, whereas directories hold data from all the trials of a single experiment. Accordingly, the <code>muscle_stim</code> objects created and used by most of the <code>workloopR</code> functions are intended to hold data from a single trial of a workloop or related experiment. Lists are then used to package together trials from a single experiment. This also lends itself to using recursion to transform and analyze all data from a single experiment.</p>
-<p>In broad strokes, there are three ways that batch processing has been worked into <code>workloopR</code> functions. First, some functions like the <code>*_dir()</code> family of import functions and <code><a href="../reference/summarize_wl_trials.html">summarize_wl_trials()</a></code> specifically generate or require lists of <code>muscle_stim</code> objects. Second, the first argument of all other functions are the objects being manipulated, which can help clean up recursion using the <code><a href="https://purrr.tidyverse.org/reference/map.html">purrr::map()</a></code> family of functions. Finally, some functions return summarized data as single rows of a data.frame that can easily be binded together to generate a summary table.</p>
+<p>In broad strokes, there are three ways that batch processing has been worked into <code>workloopR</code> functions. First, some functions like the <code>*_dir()</code> family of import functions and <code><a href="../reference/summarize_wl_trials.html">summarize_wl_trials()</a></code> specifically generate or require lists of <code>muscle_stim</code> objects. Second, the first argument of all other functions are the objects being manipulated, which can help clean up recursion using the <code><a href="https://purrr.tidyverse.org/reference/map.html">purrr::map()</a></code> family of functions. Finally, some functions return summarized data as single rows of a data.frame that can easily be bound together to generate a summary table.</p>
 </div>
 <div id="load-packages-and-data" class="section level2">
 <h2 class="hasAnchor">
@@ -216,10 +216,10 @@
 <a class="sourceLine" id="cb4-6" title="6"><span class="co">#&gt; 3 03_6pulse.ddf              28      3.15 -24.92               6</span></a>
 <a class="sourceLine" id="cb4-7" title="7"><span class="co">#&gt; 4 04_4pulse.ddf              28      3.15 -24.64               4</span></a>
 <a class="sourceLine" id="cb4-8" title="8"><span class="co">#&gt;   Stimulus_Frequency      mtime     Mean_Work  Mean_Power</span></a>
-<a class="sourceLine" id="cb4-9" title="9"><span class="co">#&gt; 1                300 1563822348  0.0027387056 0.078427135</span></a>
-<a class="sourceLine" id="cb4-10" title="10"><span class="co">#&gt; 2                300 1563822348  0.0009849216 0.027832717</span></a>
-<a class="sourceLine" id="cb4-11" title="11"><span class="co">#&gt; 3                300 1563822348 -0.0002192395 0.004323004</span></a>
-<a class="sourceLine" id="cb4-12" title="12"><span class="co">#&gt; 4                300 1563822348  0.0022793831 0.065468837</span></a></code></pre></div>
+<a class="sourceLine" id="cb4-9" title="9"><span class="co">#&gt; 1                300 1565029434  0.0027387056 0.078427135</span></a>
+<a class="sourceLine" id="cb4-10" title="10"><span class="co">#&gt; 2                300 1565029434  0.0009849216 0.027832717</span></a>
+<a class="sourceLine" id="cb4-11" title="11"><span class="co">#&gt; 3                300 1565029434 -0.0002192395 0.004323004</span></a>
+<a class="sourceLine" id="cb4-12" title="12"><span class="co">#&gt; 4                300 1565029434  0.0022793831 0.065468837</span></a></code></pre></div>
 </div>
 </div>
 <div id="manual-recursion-examples" class="section level2">

@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 ```
 
 
-The `workloopR` package also provides a function that can calculate the timing and magnitude of force duirng isometric experiments (twitch, tetanus) via the `isometric_timing()` function.
+The `workloopR` package also provides a function that can calculate the timing and magnitude of force during isometric experiments (twitch, tetanus) via the `isometric_timing()` function.
 
 To demonstrate, we will first load `workloopR` and use example data provided with the package. We'll also load a couple packages within the `tidyverse` as well as `viridis` to help with data wrangling and plotting.
 
@@ -135,7 +135,7 @@ twitch_rising_custom
 
 ### Tetanus trials
 
-The `isometric_timing()` function can also work on `tetanus` objects that have been imported via `read_ddf()`. Should a `tetanus` object be used, the set points for relaxing are automatically set to `relaxing = c()`, which excludes this argument from producing anything. Instead, the timing & magnitude of force at stimulation, peak force, and specifed points of the rising phase are returned. The idea of 'relaxation' is simply ignored. 
+The `isometric_timing()` function can also work on `tetanus` objects that have been imported via `read_ddf()`. Should a `tetanus` object be used, the set points for relaxing are automatically set to `relaxing = c()`, which excludes this argument from producing anything. Instead, the timing & magnitude of force at stimulation, peak force, and specified points of the rising phase are returned. The idea of 'relaxation' is simply ignored. 
 
 To demonstrate, we'll use an example tetanus trial included in `workloopR`: 
 ```{r tetanus}

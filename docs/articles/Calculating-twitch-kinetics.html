@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">workloopR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1</span>
       </span>
     </div>
 
@@ -100,7 +100,7 @@
       <h1>Working with isometric experiments in workloopR</h1>
                         <h4 class="author">Vikram B. Baliga</h4>
             
-            <h4 class="date">2019-07-22</h4>
+            <h4 class="date">2019-08-05</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/vbaliga/workloopR/blob/master/vignettes/Calculating-twitch-kinetics.Rmd"><code>vignettes/Calculating-twitch-kinetics.Rmd</code></a></small>
       <div class="hidden name"><code>Calculating-twitch-kinetics.Rmd</code></div>
@@ -109,7 +109,7 @@
 
     
     
-<p>The <code>workloopR</code> package also provides a function that can calculate the timing and magnitude of force duirng isometric experiments (twitch, tetanus) via the <code><a href="../reference/isometric_timing.html">isometric_timing()</a></code> function.</p>
+<p>The <code>workloopR</code> package also provides a function that can calculate the timing and magnitude of force during isometric experiments (twitch, tetanus) via the <code><a href="../reference/isometric_timing.html">isometric_timing()</a></code> function.</p>
 <p>To demonstrate, we will first load <code>workloopR</code> and use example data provided with the package. We’ll also load a couple packages within the <code>tidyverse</code> as well as <code>viridis</code> to help with data wrangling and plotting.</p>
 <div id="load-packages-and-data" class="section level2">
 <h2 class="hasAnchor">
@@ -215,7 +215,7 @@
 <div id="tetanus-trials" class="section level3">
 <h3 class="hasAnchor">
 <a href="#tetanus-trials" class="anchor"></a>Tetanus trials</h3>
-<p>The <code><a href="../reference/isometric_timing.html">isometric_timing()</a></code> function can also work on <code>tetanus</code> objects that have been imported via <code><a href="../reference/read_ddf.html">read_ddf()</a></code>. Should a <code>tetanus</code> object be used, the set points for relaxing are automatically set to <code>relaxing = c()</code>, which excludes this argument from producing anything. Instead, the timing &amp; magnitude of force at stimulation, peak force, and specifed points of the rising phase are returned. The idea of ‘relaxation’ is simply ignored.</p>
+<p>The <code><a href="../reference/isometric_timing.html">isometric_timing()</a></code> function can also work on <code>tetanus</code> objects that have been imported via <code><a href="../reference/read_ddf.html">read_ddf()</a></code>. Should a <code>tetanus</code> object be used, the set points for relaxing are automatically set to <code>relaxing = c()</code>, which excludes this argument from producing anything. Instead, the timing &amp; magnitude of force at stimulation, peak force, and specified points of the rising phase are returned. The idea of ‘relaxation’ is simply ignored.</p>
 <p>To demonstrate, we’ll use an example tetanus trial included in <code>workloopR</code>:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">tetanus_analyzed &lt;-</a>
 <a class="sourceLine" id="cb7-2" title="2"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(</a>

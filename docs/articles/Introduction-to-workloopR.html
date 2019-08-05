@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">workloopR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1</span>
       </span>
     </div>
 
@@ -100,7 +100,7 @@
       <h1>Introduction to workloopR</h1>
                         <h4 class="author">Vikram B. Baliga</h4>
             
-            <h4 class="date">2019-07-22</h4>
+            <h4 class="date">2019-08-05</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/vbaliga/workloopR/blob/master/vignettes/Introduction-to-workloopR.Rmd"><code>vignettes/Introduction-to-workloopR.Rmd</code></a></small>
       <div class="hidden name"><code>Introduction-to-workloopR.Rmd</code></div>
@@ -165,10 +165,10 @@
 <a class="sourceLine" id="cb2-15" title="15"><span class="co">#&gt; 3 03_6pulse.ddf              28      3.15 -24.92               6</span></a>
 <a class="sourceLine" id="cb2-16" title="16"><span class="co">#&gt; 4 04_4pulse.ddf              28      3.15 -24.64               4</span></a>
 <a class="sourceLine" id="cb2-17" title="17"><span class="co">#&gt;   Stimulus_Frequency      mtime     Mean_Work   Mean_Power</span></a>
-<a class="sourceLine" id="cb2-18" title="18"><span class="co">#&gt; 1                300 1563822348  0.0028362363  0.078967198</span></a>
-<a class="sourceLine" id="cb2-19" title="19"><span class="co">#&gt; 2                300 1563822348  0.0009686570  0.026247519</span></a>
-<a class="sourceLine" id="cb2-20" title="20"><span class="co">#&gt; 3                300 1563822348 -0.0001310863 -0.004017894</span></a>
-<a class="sourceLine" id="cb2-21" title="21"><span class="co">#&gt; 4                300 1563822348  0.0024082708  0.066959552</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-18" title="18"><span class="co">#&gt; 1                300 1565029434  0.0028362363  0.078967198</span></a>
+<a class="sourceLine" id="cb2-19" title="19"><span class="co">#&gt; 2                300 1565029434  0.0009686570  0.026247519</span></a>
+<a class="sourceLine" id="cb2-20" title="20"><span class="co">#&gt; 3                300 1565029434 -0.0001310863 -0.004017894</span></a>
+<a class="sourceLine" id="cb2-21" title="21"><span class="co">#&gt; 4                300 1565029434  0.0024082708  0.066959552</span></a></code></pre></div>
 <p>Sections below will give more specific overviews.</p>
 </div>
 <div id="data-import" class="section level2">
@@ -190,7 +190,7 @@
 <a class="sourceLine" id="cb3-11" title="11"><span class="co">#&gt; # Workloop Data: 3 channels recorded over 0.3244s</span></a>
 <a class="sourceLine" id="cb3-12" title="12"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb3-13" title="13"><span class="co">#&gt; File ID: workloop.ddf</span></a>
-<a class="sourceLine" id="cb3-14" title="14"><span class="co">#&gt; Mod Time (mtime): 2019-07-22 12:05:47</span></a>
+<a class="sourceLine" id="cb3-14" title="14"><span class="co">#&gt; Mod Time (mtime): 2019-08-05 11:23:54</span></a>
 <a class="sourceLine" id="cb3-15" title="15"><span class="co">#&gt; Sample Frequency: 10000Hz</span></a>
 <a class="sourceLine" id="cb3-16" title="16"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb3-17" title="17"><span class="co">#&gt; data.frame Columns: </span></a>
@@ -223,7 +223,7 @@
 <div id="attributes" class="section level3">
 <h3 class="hasAnchor">
 <a href="#attributes" class="anchor"></a>Attributes</h3>
-<p>Again, important object metadata and experimental parameters are stored as attributes. We make extensive use of attributes throught the package and most functions will update at least one attribute after completion. So please see this feature of your <code>muscle_stim</code> objects for important info!</p>
+<p>Again, important object metadata and experimental parameters are stored as attributes. We make extensive use of attributes throughout the package and most functions will update at least one attribute after completion. So please see this feature of your <code>muscle_stim</code> objects for important info!</p>
 <p>You can use <code>attributes</code> on an object itself (e.g. <code><a href="https://rdrr.io/r/base/attributes.html">attributes(wl_dat)</a></code>), but we’ll avoid doing so because the printout can be pretty lengthy.</p>
 <p>Instead, let’s just look at a couple interesting ones.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="co">## names(attributes(x) gives a list of all the attributes' names</span></a>
@@ -262,7 +262,7 @@
 <div id="transformations-and-corrections-to-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#transformations-and-corrections-to-data" class="anchor"></a>Transformations and corrections to data</h2>
-<p>Prior to analyses, data can be transformed or corrected. Transformational functions include gear ratio correction (<code><a href="../reference/fix_GR.html">fix_GR()</a></code>) and position inversion (<code><a href="../reference/invert_position.html">invert_position()</a></code>). The core idea behind these two functions is to correct issues related to data aquistion.</p>
+<p>Prior to analyses, data can be transformed or corrected. Transformational functions include gear ratio correction (<code><a href="../reference/fix_GR.html">fix_GR()</a></code>) and position inversion (<code><a href="../reference/invert_position.html">invert_position()</a></code>). The core idea behind these two functions is to correct issues related to data acquisition.</p>
 <p>For example, to apply a gear ratio correction of 2:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="co">## this multiples Force by 2</span></a>
 <a class="sourceLine" id="cb5-2" title="2"><span class="co">## and multiplies Position by (1/2)</span></a>
@@ -280,18 +280,18 @@
 <p>Another ‘transformational’ function is <code><a href="../reference/select_cycles.html">select_cycles()</a></code>, which subsets cycles within a work loop experiment. This is a necessary step prior to analyses of work loop data: data are labeled by cycle for use with <code><a href="../reference/analyze_workloop.html">analyze_workloop()</a></code>.</p>
 </div>
 </div>
-<div id="data-analyical-functions" class="section level2">
+<div id="data-analytical-functions" class="section level2">
 <h2 class="hasAnchor">
-<a href="#data-analyical-functions" class="anchor"></a>Data analyical functions</h2>
+<a href="#data-analytical-functions" class="anchor"></a>Data analytical functions</h2>
 <p>Core analytical functions include <code><a href="../reference/analyze_workloop.html">analyze_workloop()</a></code> for work loop files and <code><a href="../reference/isometric_timing.html">isometric_timing()</a></code> for twitches. <code><a href="../reference/analyze_workloop.html">analyze_workloop()</a></code> computes instantaneous velocity, net work, instantaneous power, and net power for work loop experiments on a per-cycle basis. <code><a href="../reference/isometric_timing.html">isometric_timing()</a></code> provides summarization of twitch kinetics.</p>
 <p>To see more details about these functions, please refer to “Analyzing work loop experiments in workloopR” for work loop analyses and “Working with twitch files in workloopR” for twitches.</p>
 <p>Some functions are readily available for batch processing of files. The <code><a href="../reference/read_analyze_wl_dir.html">read_analyze_wl_dir()</a></code> function allows for the batch import, cycle selection, gear ratio correction, and ultimately work &amp; power computation for all work loop experiment files within a specified directory. The <code><a href="../reference/get_wl_metadata.html">get_wl_metadata()</a></code> and <code><a href="../reference/summarize_wl_trials.html">summarize_wl_trials()</a></code> functions organize scanned files by recency (according to their time of last modification: ‘mtime’) and then report work and power output in the order that trials were run.</p>
-<p>This ultimately allows for the <code><a href="../reference/time_correct.html">time_correct()</a></code> function to correct for degradation of the muscle (according to power &amp; work) over time, assuming that the first and final trials are identical in experimental parameters. If these parameters are not idendical, we advise against using this function.</p>
+<p>This ultimately allows for the <code><a href="../reference/time_correct.html">time_correct()</a></code> function to correct for degradation of the muscle (according to power &amp; work) over time, assuming that the first and final trials are identical in experimental parameters. If these parameters are not identical, we advise against using this function.</p>
 </div>
 <div id="thanks-for-reading" class="section level2">
 <h2 class="hasAnchor">
 <a href="#thanks-for-reading" class="anchor"></a>Thanks for reading!</h2>
-<p>Please feel free to contact either Vikram or Shree with suggestions or code development requests. We are especially interested in expanding our data import functions to accomodate filetypes other than .ddf in future versions of <code>workloopR</code>.</p>
+<p>Please feel free to contact either Vikram or Shree with suggestions or code development requests. We are especially interested in expanding our data import functions to accommodate filetypes other than .ddf in future versions of <code>workloopR</code>.</p>
 </div>
   </div>
 
@@ -305,7 +305,7 @@
       <li><a href="#data-import">Data import</a></li>
       <li><a href="#data-from-files-that-are-not-of--ddf-format">Data from files that are not of .ddf format</a></li>
       <li><a href="#transformations-and-corrections-to-data">Transformations and corrections to data</a></li>
-      <li><a href="#data-analyical-functions">Data analyical functions</a></li>
+      <li><a href="#data-analytical-functions">Data analytical functions</a></li>
       <li><a href="#thanks-for-reading">Thanks for reading!</a></li>
       </ul>
 </div>

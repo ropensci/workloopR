@@ -99,14 +99,14 @@ trapezoidal_integration <- function(x,
 #' The gear ratio (GR) and velocity multiplier (M) parameters can help correct
 #' for issues related to the magnitude and sign of data collection. By default,
 #' they are set to apply no gear ratio adjustment and to positivize velocity.
-#' Instanteous velocity is often noisy and the \code{vel_bf} parameter allows
+#' Instantaneous velocity is often noisy and the \code{vel_bf} parameter allows
 #' for low-pass filtering of velocity data. See \code{signal::butter()} and
 #' \code{signal::filtfilt()} for details of how filtering is achieved.
 #'
 #' Please also be careful with units! Se Warning section below.
 #'
 #' @section Warning:
-#' Most systems we have enountered record Position data in millimeters
+#' Most systems we have encountered record Position data in millimeters
 #' and Force in millinewtons, and therefore this function assumes data are
 #' recorded in those units. Through a series of internal conversions, this
 #' function computes velocity in meters/sec, work in Joules, and power in
@@ -127,9 +127,9 @@ trapezoidal_integration <- function(x,
 #' \item{Force}{Force, corrected for gear ratio, in mN}
 #' \item{Stim}{When stimulation occurs, on a binary scale}
 #' \item{Cycle}{Cycle ID, as a letter}
-#' \item{Inst_velocity}{Instanteous velocity, computed from \code{Position}
+#' \item{Inst_velocity}{Instantaneous velocity, computed from \code{Position}
 #' change, reported in meters/sec}
-#' \item{Filt_velocity}{Instaneous velocity, after low-pass filtering, again in
+#' \item{Filt_velocity}{Instantaneous velocity, after low-pass filtering, again in
 #' meter/sec}
 #' \item{Inst_Power}{Instantaneous power, a product of \code{Force} and
 #' \code{Filt_velocity}, reported in J}
@@ -398,7 +398,7 @@ time_correct <- function(x){
 
 #' Compute timing and magnitude of force in isometric trials
 #'
-#' Calculate timing and magnitude of force at stimluation, peak force, and
+#' Calculate timing and magnitude of force at stimulation, peak force, and
 #' various parts of the rising (force development) and relaxation (falling)
 #' phases of the twitch.
 #'

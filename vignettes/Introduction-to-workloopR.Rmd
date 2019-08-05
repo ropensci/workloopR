@@ -95,7 +95,7 @@ head(wl_dat)
 
 ### Attributes
 
-Again, important object metadata and experimental parameters are stored as attributes. We make extensive use of attributes throught the package and most functions will update at least one attribute after completion. So please see this feature of your `muscle_stim` objects for important info!
+Again, important object metadata and experimental parameters are stored as attributes. We make extensive use of attributes throughout the package and most functions will update at least one attribute after completion. So please see this feature of your `muscle_stim` objects for important info!
 
 You can use `attributes` on an object itself (e.g. `attributes(wl_dat)`), but we'll avoid doing so because the printout can be pretty lengthy.
 
@@ -123,7 +123,7 @@ Data that are read from other file formats can be constructed into `muscle_stim`
 
 ## Transformations and corrections to data
 
-Prior to analyses, data can be transformed or corrected. Transformational functions include gear ratio correction (`fix_GR()`) and position inversion (`invert_position()`). The core idea behind these two functions is to correct issues related to data aquistion.
+Prior to analyses, data can be transformed or corrected. Transformational functions include gear ratio correction (`fix_GR()`) and position inversion (`invert_position()`). The core idea behind these two functions is to correct issues related to data acquisition.
 
 For example, to apply a gear ratio correction of 2:
 ```{r transformations}
@@ -142,7 +142,7 @@ max(wl_fixed$Position)/max(wl_dat$Position) #1.832262 / 3.664524 = 0.5
 Another 'transformational' function is `select_cycles()`, which subsets cycles within a work loop experiment. This is a necessary step prior to analyses of work loop data: data are labeled by cycle for use with `analyze_workloop()`.
 
 
-## Data analyical functions
+## Data analytical functions
 
 Core analytical functions include `analyze_workloop()` for work loop files and `isometric_timing()` for twitches. `analyze_workloop()` computes instantaneous velocity, net work, instantaneous power, and net power for work loop experiments on a per-cycle basis. `isometric_timing()` provides summarization of twitch kinetics.
 
@@ -150,9 +150,9 @@ To see more details about these functions, please refer to "Analyzing work loop 
 
 Some functions are readily available for batch processing of files. The `read_analyze_wl_dir()` function allows for the batch import, cycle selection, gear ratio correction, and ultimately work & power computation for all work loop experiment files within a specified directory. The `get_wl_metadata()` and `summarize_wl_trials()` functions organize scanned files by recency (according to their time of last modification: 'mtime') and then report work and power output in the order that trials were run.
 
-This ultimately allows for the `time_correct()` function to correct for degradation of the muscle (according to power & work) over time, assuming that the first and final trials are identical in experimental parameters. If these parameters are not idendical, we advise against using this function.
+This ultimately allows for the `time_correct()` function to correct for degradation of the muscle (according to power & work) over time, assuming that the first and final trials are identical in experimental parameters. If these parameters are not identical, we advise against using this function.
 
 
 ## Thanks for reading!
 
-Please feel free to contact either Vikram or Shree with suggestions or code development requests. We are especially interested in expanding our data import functions to accomodate filetypes other than .ddf in future versions of `workloopR`.
+Please feel free to contact either Vikram or Shree with suggestions or code development requests. We are especially interested in expanding our data import functions to accommodate filetypes other than .ddf in future versions of `workloopR`.

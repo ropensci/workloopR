@@ -31,7 +31,7 @@ The \code{muscle_stim} object's columns contain:
 \item{Force}{Force, uncorrected for gear ratio}
 \item{Stim}{When stimulation occurs, on a binary scale}
 
-In addtion, the following information is stored in the \code{data.frame}'s
+In addition, the following information is stored in the \code{data.frame}'s
 attributes:
 \item{sample_frequency}{Frequency at which samples were collected}
 \item{pulses}{Number of sequential pulses within a stimulation train}
@@ -64,7 +64,7 @@ sample, and these columns (exact title matches) must be included: \cr
 "Position" - instantaneous position of the muscle, preferably in millimeters \cr
 "Force" - force, preferably in millinewtons \cr
 "Stim" - whether stimulation has occurred. All entries must be either 0 (no
-stimulus) or 1 (stimulus ocurrence).
+stimulus) or 1 (stimulus occurrence).
 
 Additional arguments can be provided via \code{...}. For all experiment
 types, the following attributes are appropriate: \cr

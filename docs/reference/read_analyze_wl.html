@@ -67,7 +67,7 @@ file, select cycles, and compute work and power output." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">workloopR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1</span>
       </span>
     </div>
 
@@ -177,9 +177,9 @@ that provides instantaneous velocity, a smoothed velocity, and computes work,
 <dt>Force</dt><dd><p>Force, corrected for gear ratio, in mN</p></dd>
 <dt>Stim</dt><dd><p>When stimulation occurs, on a binary scale</p></dd>
 <dt>Cycle</dt><dd><p>Cycle ID, as a letter</p></dd>
-<dt>Inst_velocity</dt><dd><p>Instanteous velocity, computed from <code>Position</code>
+<dt>Inst_velocity</dt><dd><p>Instantaneous velocity, computed from <code>Position</code>
 change, reported in meters/sec</p></dd>
-<dt>Filt_velocity</dt><dd><p>Instaneous velocity, after low-pass filtering, again in
+<dt>Filt_velocity</dt><dd><p>Instantaneous velocity, after low-pass filtering, again in
 meter/sec</p></dd>
 <dt>Inst_Power</dt><dd><p>Instantaneous power, a product of <code>Force</code> and
 <code>Filt_velocity</code>, reported in J</p></dd>
@@ -247,7 +247,7 @@ velocity via <code><a href='https://rdrr.io/pkg/signal/man/butter.html'>signal::
 <p>The gear ratio (GR) and velocity multiplier (M) parameters can help correct
 for issues related to the magnitude and sign of data collection. By
 default, they are set to apply no gear ratio adjustment and to positivize
-velocity. Instanteous velocity is often noisy and the <code>vel_bf</code> parameter
+velocity. Instantaneous velocity is often noisy and the <code>vel_bf</code> parameter
 allows for low-pass filtering of velocity data. See <code><a href='https://rdrr.io/pkg/signal/man/butter.html'>signal::butter()</a></code>
 and <code><a href='https://rdrr.io/pkg/signal/man/filtfilt.html'>signal::filtfilt()</a></code> for details of how filtering is achieved.</p>
     
@@ -255,7 +255,7 @@ and <code><a href='https://rdrr.io/pkg/signal/man/filtfilt.html'>signal::filtfil
 
     
 
-<p>Most systems we have enountered record Position data in millimeters
+<p>Most systems we have encountered record Position data in millimeters
 and Force in millinewtons, and therefore this function assumes data are
 recorded in those units. Through a series of internal conversions, this
 function computes velocity in meters/sec, work in Joules, and power in

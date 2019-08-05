@@ -121,9 +121,9 @@ workloop_dat %>%
   theme(legend.position = "none")
 ```
 
-Visualizing the cycles is a highly recommended in case noise before or after the experimental procedure is interpretted as a cycle.
+Visualizing the cycles is a highly recommended in case noise before or after the experimental procedure is interpreted as a cycle.
 
-Let's go ahead and use cycles 2 to 5 (labelled c-f in the previous plot). Note however that the cycle labels will be reassigned from a-d when we subset the data.
+Let's go ahead and use cycles 2 to 5 (labeled c-f in the previous plot). Note however that the cycle labels will be reassigned from a-d when we subset the data.
 
 ```{r select_cycles}
 workloop_dat<-

@@ -209,7 +209,7 @@ summary.analyzed_workloop <- function(object, ...){
 #' "Position" - instantaneous position of the muscle, preferably in millimeters \cr
 #' "Force" - force, preferably in millinewtons \cr
 #' "Stim" - whether stimulation has occurred. All entries must be either 0 (no
-#' stimulus) or 1 (stimulus ocurrence).
+#' stimulus) or 1 (stimulus occurrence).
 #'
 #' Additional arguments can be provided via \code{...}. For all experiment
 #' types, the following attributes are appropriate: \cr
@@ -381,7 +381,7 @@ as_muscle_stim <- function(x,
 #' \item{Force}{Force, uncorrected for gear ratio}
 #' \item{Stim}{When stimulation occurs, on a binary scale}
 #'
-#' In addtion, the following information is stored in the \code{data.frame}'s
+#' In addition, the following information is stored in the \code{data.frame}'s
 #' attributes:
 #' \item{sample_frequency}{Frequency at which samples were collected}
 #' \item{pulses}{Number of sequential pulses within a stimulation train}
@@ -531,7 +531,7 @@ read_ddf <-
 #' \item{Force}{Force, uncorrected for gear ratio}
 #' \item{Stim}{When stimulation occurs, on a binary scale}
 #'
-#' In addtion, the following information is stored in each \code{data.frame}'s
+#' In addition, the following information is stored in each \code{data.frame}'s
 #' attributes:
 #' \item{sample_frequency}{Frequency at which samples were collected}
 #' \item{pulses}{Number of sequential pulses within a stimulation train}
@@ -767,7 +767,7 @@ read_tetanus.ddf<-
 #' The gear ratio (GR) and velocity multiplier (M) parameters can help correct
 #' for issues related to the magnitude and sign of data collection. By
 #' default, they are set to apply no gear ratio adjustment and to positivize
-#' velocity. Instanteous velocity is often noisy and the \code{vel_bf} parameter
+#' velocity. Instantaneous velocity is often noisy and the \code{vel_bf} parameter
 #' allows for low-pass filtering of velocity data. See \code{signal::butter()}
 #' and \code{signal::filtfilt()} for details of how filtering is achieved.
 #'
