@@ -1,7 +1,7 @@
 Package: workloopR
 Type: Package
 Title: Analysis of Work Loops and Other Data from Muscle Physiology Experiments
-Version: 1.0.1
+Version: 1.0.1.9000
 Authors@R: c(
     person("Vikram B.", "Baliga",
         email = "vbaliga87@gmail.com",

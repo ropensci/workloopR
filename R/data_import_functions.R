@@ -311,7 +311,7 @@ as_muscle_stim <- function(x,
   # Check for invalid attributes and assign valids
   args<-list(...)
   if(!all(names(args) %in% valid_args))
-    warning("One or more provided attributes do not match known attributes. These will attributes will not be assigned.")
+    warning("One or more provided attributes do not match known attributes. These attributes will not be assigned.")
   for(i in intersect(names(args),valid_args))
     attr(x,i)<-args[[i]]
   for(i in setdiff(valid_args,names(args)))
