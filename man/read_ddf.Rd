@@ -4,15 +4,15 @@
 \alias{read_ddf}
 \title{Import work loop or isometric data from .ddf files}
 \usage{
-read_ddf(filename, file_id = NA, rename_cols = list(c(2, 3),
+read_ddf(file_name, file_id = NA, rename_cols = list(c(2, 3),
   c("Position", "Force")), skip_cols = 4:11, phase_from_peak = FALSE,
   ...)
 }
 \arguments{
-\item{filename}{A .ddf file that contains data from a single workloop,
+\item{file_name}{A .ddf file that contains data from a single workloop,
 twitch, or tetanus experiment}
 
-\item{file_id}{A string identifying the experiment. The filename is used by
+\item{file_id}{A string identifying the experiment. The file name is used by
 default.}
 
 \item{rename_cols}{List consisting of a vector of indices of columns to

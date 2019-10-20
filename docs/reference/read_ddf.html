@@ -67,7 +67,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">workloopR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1.9000</span>
       </span>
     </div>
 
@@ -84,25 +84,25 @@
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
+    Vignettes
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/Analyzing-workloops.html">Analyzing work loop experiments in workloopR</a>
-    </li>
-    <li>
-      <a href="../articles/batch-processing.html">Batch processing</a>
-    </li>
-    <li>
-      <a href="../articles/Calculating-twitch-kinetics.html">Working with isometric experiments in workloopR</a>
-    </li>
-    <li>
       <a href="../articles/Introduction-to-workloopR.html">Introduction to workloopR</a>
     </li>
     <li>
       <a href="../articles/non-ddf-sources.html">Importing data from non .ddf sources</a>
+    </li>
+    <li>
+      <a href="../articles/Calculating-twitch-kinetics.html">Working with isometric experiments</a>
+    </li>
+    <li>
+      <a href="../articles/Analyzing-workloops.html">Analyzing work loop experiments</a>
+    </li>
+    <li>
+      <a href="../articles/batch-processing.html">Batch processing</a>
     </li>
     <li>
       <a href="../articles/Plotting-workloopR.html">Plotting data in workloopR</a>
@@ -146,7 +146,7 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>read_ddf</span>(<span class='no'>filename</span>, <span class='kw'>file_id</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>rename_cols</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>, <span class='fl'>3</span>),
+    <pre class="usage"><span class='fu'>read_ddf</span>(<span class='no'>file_name</span>, <span class='kw'>file_id</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>rename_cols</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>, <span class='fl'>3</span>),
   <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Position"</span>, <span class='st'>"Force"</span>)), <span class='kw'>skip_cols</span> <span class='kw'>=</span> <span class='fl'>4</span>:<span class='fl'>11</span>, <span class='kw'>phase_from_peak</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='no'>...</span>)</pre>
     
@@ -154,13 +154,13 @@
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>filename</th>
+      <th>file_name</th>
       <td><p>A .ddf file that contains data from a single workloop,
 twitch, or tetanus experiment</p></td>
     </tr>
     <tr>
       <th>file_id</th>
-      <td><p>A string identifying the experiment. The filename is used by
+      <td><p>A string identifying the experiment. The file name is used by
 default.</p></td>
     </tr>
     <tr>
@@ -274,7 +274,7 @@ contact us with any issues or requests.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Vikram B. Baliga, Shreeram Senthivasan.</p>
+  <p>Developed by <a href='https://www.vikram-baliga.com/'>Vikram B. Baliga</a>, Shreeram Senthivasan.</p>
 </div>
 
 <div class="pkgdown">

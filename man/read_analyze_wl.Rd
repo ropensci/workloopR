@@ -4,10 +4,10 @@
 \alias{read_analyze_wl}
 \title{All-in-one import function for work loop files}
 \usage{
-read_analyze_wl(filename, ...)
+read_analyze_wl(file_name, ...)
 }
 \arguments{
-\item{filename}{A .ddf file that contains data from a
+\item{file_name}{A .ddf file that contains data from a
 single workloop experiment}
 
 \item{...}{Additional arguments to be passed to \code{read_ddf()},
@@ -67,7 +67,7 @@ ddf file}
 train}
 \item{stimulus_offset}{Timing offset at which stimulus began}
 \item{gear_ratio}{Gear ratio applied by this function}
-\item{file_id}{Filename}
+\item{file_id}{File name}
 \item{mtime}{Time at which file was last modified}
 \item{retained_cycles}{Which cycles were retained, as numerics}
 \item{summary}{Simple table showing work (in J) and net power (in W) for each

@@ -55,7 +55,7 @@ We'll now import the `twitch.ddf` file included with `workloopR`.
 
 ```{r data_import}
 ## The file twitch.ddf is included and therefore can be accessed via
-## system.file("subdirectory","filename","package") . We'll then use
+## system.file("subdirectory","file_name","package") . We'll then use
 ## read_ddf() to import it, creating an object of class "muscle_stim".
 twitch_dat <-
   system.file(

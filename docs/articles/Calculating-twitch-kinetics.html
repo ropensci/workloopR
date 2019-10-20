@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">workloopR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1.9000</span>
       </span>
     </div>
 
@@ -48,25 +48,25 @@
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
+    Vignettes
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/Analyzing-workloops.html">Analyzing work loop experiments in workloopR</a>
-    </li>
-    <li>
-      <a href="../articles/batch-processing.html">Batch processing</a>
-    </li>
-    <li>
-      <a href="../articles/Calculating-twitch-kinetics.html">Working with isometric experiments in workloopR</a>
-    </li>
-    <li>
       <a href="../articles/Introduction-to-workloopR.html">Introduction to workloopR</a>
     </li>
     <li>
       <a href="../articles/non-ddf-sources.html">Importing data from non .ddf sources</a>
+    </li>
+    <li>
+      <a href="../articles/Calculating-twitch-kinetics.html">Working with isometric experiments</a>
+    </li>
+    <li>
+      <a href="../articles/Analyzing-workloops.html">Analyzing work loop experiments</a>
+    </li>
+    <li>
+      <a href="../articles/batch-processing.html">Batch processing</a>
     </li>
     <li>
       <a href="../articles/Plotting-workloopR.html">Plotting data in workloopR</a>
@@ -100,7 +100,7 @@
       <h1>Working with isometric experiments in workloopR</h1>
                         <h4 class="author">Vikram B. Baliga</h4>
             
-            <h4 class="date">2019-08-05</h4>
+            <h4 class="date">2019-10-19</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/vbaliga/workloopR/blob/master/vignettes/Calculating-twitch-kinetics.Rmd"><code>vignettes/Calculating-twitch-kinetics.Rmd</code></a></small>
       <div class="hidden name"><code>Calculating-twitch-kinetics.Rmd</code></div>
@@ -141,7 +141,7 @@
 <a href="#visualize" class="anchor"></a>Visualize</h2>
 <p>We’ll now import the <code>twitch.ddf</code> file included with <code>workloopR</code>.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="co">## The file twitch.ddf is included and therefore can be accessed via</span></a>
-<a class="sourceLine" id="cb2-2" title="2"><span class="co">## system.file("subdirectory","filename","package") . We'll then use</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="co">## system.file("subdirectory","file_name","package") . We'll then use</span></a>
 <a class="sourceLine" id="cb2-3" title="3"><span class="co">## read_ddf() to import it, creating an object of class "muscle_stim".</span></a>
 <a class="sourceLine" id="cb2-4" title="4">twitch_dat &lt;-</a>
 <a class="sourceLine" id="cb2-5" title="5"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(</a>
@@ -302,7 +302,7 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Vikram B. Baliga, Shreeram Senthivasan.</p>
+  <p>Developed by <a href="https://www.vikram-baliga.com/">Vikram B. Baliga</a>, Shreeram Senthivasan.</p>
 </div>
 
 <div class="pkgdown">

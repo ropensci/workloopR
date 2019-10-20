@@ -1,7 +1,7 @@
 # custom functions
 # all written by Vikram B. Baliga (vbaliga@zoology.ubc.ca) and Shreeram
 # Senthivasan
-# last updated: 2019-07-20
+# last updated: 2019-10-19
 
 
 ########################## workloop object functions ###########################
@@ -337,9 +337,9 @@ as_muscle_stim <- function(x,
 #' \code{read_ddf} reads in workloop, twitch, or tetanus experiment data from
 #' .ddf files.
 #'
-#' @param filename A .ddf file that contains data from a single workloop,
+#' @param file_name A .ddf file that contains data from a single workloop,
 #' twitch, or tetanus experiment
-#' @param file_id A string identifying the experiment. The filename is used by
+#' @param file_id A string identifying the experiment. The file name is used by
 #' default.
 #' @param rename_cols List consisting of a vector of indices of columns to
 #' rename and a vector of new column names. See Details.
@@ -415,7 +415,7 @@ as_muscle_stim <- function(x,
 #'
 #' @export
 read_ddf <-
-  function(filename,
+  function(file_name,
            file_id = NA,
            rename_cols = list(c(2, 3), c("Position", "Force")),
            skip_cols = 4:11,
@@ -423,17 +423,17 @@ read_ddf <-
            ...)
   {
     # Import and checks
-    if(missing(filename)) stop("A filename is required")
-    if(!file.exists(filename)) stop(paste0("File ",filename," not found!"))
-    f<-file(filename,"r")
+    if(missing(file_name)) stop("A file_name is required")
+    if(!file.exists(file_name)) stop(paste0("File ",file_name," not found!"))
+    f<-file(file_name,"r")
     if(!grepl("DMC.*Data File",readLines(f,1))){
       close(f)
       stop("The input file does not appear to be a DMC Datafile (ddf)")
     }
-    if(is.na(file_id)) file_id<-basename(filename)
+    if(is.na(file_id)) file_id<-basename(file_name)
 
     # get metadata
-    mtime<-file.info(filename)$mtime
+    mtime<-file.info(file_name)$mtime
 
     # Setup for reading in file
     header<-c()
@@ -488,9 +488,9 @@ read_ddf <-
     read_filetype.ddf<-NULL
     switch(
            grep("Stim",protocol_table[[2]],value=TRUE)[1],
-           "Stimulus-Train"=read_filetype.ddf<-read_wl.ddf,
-           "Stimulus-Twitch"=read_filetype.ddf<-read_twitch.ddf,
-           "Stimulus-Tetanus"=read_filetype.ddf<-read_tetanus.ddf,
+           "Stimulus-Train"=read_filetype.ddf<-read_wl_ddf,
+           "Stimulus-Twitch"=read_filetype.ddf<-read_twitch_ddf,
+           "Stimulus-Tetanus"=read_filetype.ddf<-read_tetanus_ddf,
             stop("Could not parse experiment type (workloop, twitch, or tetanus)! Please ensure that the protocol section of the ddf header includes a label with one of the following: Stimulus-Train, Stimulus-Twitch, or Stimulus-Tetanus.")
     )
     read_filetype.ddf(file_id=file_id,
@@ -567,12 +567,12 @@ read_ddf_dir <- function(filepath,
                          pattern = "*.ddf",
                          sort_by = "mtime",
                          ...){
-  # Generate list of filenames
-  filename_list<-list.files(path=filepath,pattern=pattern,full.names=TRUE)
-  if(length(filename_list)==0) stop("No files matching the pattern found at the given directory!")
+  # Generate list of file_names
+  file_name_list<-list.files(path=filepath,pattern=pattern,full.names=TRUE)
+  if(length(file_name_list)==0) stop("No files matching the pattern found at the given directory!")
 
   # Generate list of muscle_stim objects
-  ms_list<-lapply(filename_list,function(i) read_ddf(i,...))
+  ms_list<-lapply(file_name_list,function(i) read_ddf(i,...))
 
   # Sort list, likely by modification time
   if(is.null(attr(ms_list[[1]],sort_by))){
@@ -615,7 +615,7 @@ rescale_data<-
 
 ########################## read_ddf files - workloop ###########################
 #' @noRd
-read_wl.ddf<-
+read_wl_ddf<-
   function(raw_data,
            units_table,
            protocol_table,
@@ -658,7 +658,7 @@ read_wl.ddf<-
 
 ############################ read_ddf files - twitch ###########################
 #' @noRd
-read_twitch.ddf<-
+read_twitch_ddf<-
   function(raw_data,
            units_table,
            protocol_table,
@@ -695,7 +695,7 @@ read_twitch.ddf<-
 
 ########################## read_ddf files - tetanus ##########################
 #' @noRd
-read_tetanus.ddf<-
+read_tetanus_ddf<-
   function(raw_data,
            units_table,
            protocol_table,
@@ -738,7 +738,7 @@ read_tetanus.ddf<-
 #' \code{read_analyze_wl()} is an all-in-one function to read in a work loop
 #' file, select cycles, and compute work and power output.
 #'
-#' @param filename A .ddf file that contains data from a
+#' @param file_name A .ddf file that contains data from a
 #' single workloop experiment
 #' @param ... Additional arguments to be passed to \code{read_ddf()},
 #' \code{select_cycles()},
@@ -801,15 +801,15 @@ read_tetanus.ddf<-
 #' \code{\link{analyze_workloop}}
 #'
 #' @export
-read_analyze_wl <- function(filename,
+read_analyze_wl <- function(file_name,
                             ...){
   valid_args<-c("file_id","rename_cols","skip_cols","phase_from_peak","cycle_def","keep_cycles","bworth_order","bworth_freq","simplify","GR","M","vel_bf")
   arg_names<-names(list(...))
   if(!all(arg_names %in% valid_args)) warning("One or more provided attributes do not match known attributes. These will attributes will not be assigned.")
 
-  fulldata<-read_ddf(filename,...)
+  fulldata<-read_ddf(file_name,...)
   if(!("workloop" %in% class(fulldata)))
-    stop(paste0("The provided file ",filename," does not appear to contain data from a workloop experiment!"))
+    stop(paste0("The provided file ",file_name," does not appear to contain data from a workloop experiment!"))
   analyze_workloop(select_cycles(fulldata,...),...)
 }
 
@@ -836,7 +836,7 @@ read_analyze_wl <- function(filename,
 #' metadata issues that arise if running \code{read_analyze_wl_dir()} goes awry.
 #'
 #' Unlike \code{read_analyze_wl_dir()}, this function does not necessarily need
-#' files to all be work loops. Any filetype is welcome (as long as the Regex
+#' files to all be work loops. Any file type is welcome (as long as the Regex
 #' \code{pattern} argument makes sense).
 #'
 #' @family data import functions
@@ -935,12 +935,12 @@ read_analyze_wl_dir <- function(filepath,
                                 pattern = "*.ddf",
                                 sort_by = "mtime",
                                 ...){
-  # Generate list of filenames
-  filename_list<-list.files(path=filepath,pattern=pattern,full.names=TRUE)
-  if(length(filename_list)==0) stop("No files matching the pattern found at the given directory!")
+  # Generate list of file_names
+  file_name_list<-list.files(path=filepath,pattern=pattern,full.names=TRUE)
+  if(length(file_name_list)==0) stop("No files matching the pattern found at the given directory!")
 
   # Generate list of analyzed workloop objects
-  wl_list<-lapply(filename_list,function(i) read_analyze_wl(i,...))
+  wl_list<-lapply(file_name_list,function(i) read_analyze_wl(i,...))
 
   # Sort list, likely by modification time
   if(is.null(attr(wl_list[[1]],sort_by))){

@@ -223,7 +223,7 @@ label_dat$force<-as.numeric(label_dat$force)
 ggplot() +
   geom_line(aes(Time, Force), data = twitch_dat) +
   geom_point(aes(time, force), data = label_dat) +
-  geom_text(aes(time, force, label = identifier), hjust=-0.15, vnudge=0.1, data = label_dat) +
+  geom_text(aes(time, force, label = identifier), hjust=-0.15, data = label_dat) +
   labs(y = "Force (mN)", x = "Time (sec)") +
   ggtitle("Force development in a twitch trial") +
   theme_bw() +

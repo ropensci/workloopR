@@ -28,7 +28,7 @@ only grabs metadata but also imports & analyzes files. Instead,
 metadata issues that arise if running \code{read_analyze_wl_dir()} goes awry.
 
 Unlike \code{read_analyze_wl_dir()}, this function does not necessarily need
-files to all be work loops. Any filetype is welcome (as long as the Regex
+files to all be work loops. Any file type is welcome (as long as the Regex
 \code{pattern} argument makes sense).
 }
 \examples{

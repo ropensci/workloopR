@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">workloopR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1.9000</span>
       </span>
     </div>
 
@@ -48,25 +48,25 @@
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
+    Vignettes
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/Analyzing-workloops.html">Analyzing work loop experiments in workloopR</a>
-    </li>
-    <li>
-      <a href="../articles/batch-processing.html">Batch processing</a>
-    </li>
-    <li>
-      <a href="../articles/Calculating-twitch-kinetics.html">Working with isometric experiments in workloopR</a>
-    </li>
-    <li>
       <a href="../articles/Introduction-to-workloopR.html">Introduction to workloopR</a>
     </li>
     <li>
       <a href="../articles/non-ddf-sources.html">Importing data from non .ddf sources</a>
+    </li>
+    <li>
+      <a href="../articles/Calculating-twitch-kinetics.html">Working with isometric experiments</a>
+    </li>
+    <li>
+      <a href="../articles/Analyzing-workloops.html">Analyzing work loop experiments</a>
+    </li>
+    <li>
+      <a href="../articles/batch-processing.html">Batch processing</a>
     </li>
     <li>
       <a href="../articles/Plotting-workloopR.html">Plotting data in workloopR</a>
@@ -100,7 +100,7 @@
       <h1>Introduction to workloopR</h1>
                         <h4 class="author">Vikram B. Baliga</h4>
             
-            <h4 class="date">2019-08-05</h4>
+            <h4 class="date">2019-10-19</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/vbaliga/workloopR/blob/master/vignettes/Introduction-to-workloopR.Rmd"><code>vignettes/Introduction-to-workloopR.Rmd</code></a></small>
       <div class="hidden name"><code>Introduction-to-workloopR.Rmd</code></div>
@@ -165,10 +165,10 @@
 <a class="sourceLine" id="cb2-15" title="15"><span class="co">#&gt; 3 03_6pulse.ddf              28      3.15 -24.92               6</span></a>
 <a class="sourceLine" id="cb2-16" title="16"><span class="co">#&gt; 4 04_4pulse.ddf              28      3.15 -24.64               4</span></a>
 <a class="sourceLine" id="cb2-17" title="17"><span class="co">#&gt;   Stimulus_Frequency      mtime     Mean_Work   Mean_Power</span></a>
-<a class="sourceLine" id="cb2-18" title="18"><span class="co">#&gt; 1                300 1565029434  0.0028362363  0.078967198</span></a>
-<a class="sourceLine" id="cb2-19" title="19"><span class="co">#&gt; 2                300 1565029434  0.0009686570  0.026247519</span></a>
-<a class="sourceLine" id="cb2-20" title="20"><span class="co">#&gt; 3                300 1565029434 -0.0001310863 -0.004017894</span></a>
-<a class="sourceLine" id="cb2-21" title="21"><span class="co">#&gt; 4                300 1565029434  0.0024082708  0.066959552</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-18" title="18"><span class="co">#&gt; 1                300 1571540996  0.0028362363  0.078967198</span></a>
+<a class="sourceLine" id="cb2-19" title="19"><span class="co">#&gt; 2                300 1571540996  0.0009686570  0.026247519</span></a>
+<a class="sourceLine" id="cb2-20" title="20"><span class="co">#&gt; 3                300 1571540996 -0.0001310863 -0.004017894</span></a>
+<a class="sourceLine" id="cb2-21" title="21"><span class="co">#&gt; 4                300 1571540996  0.0024082708  0.066959552</span></a></code></pre></div>
 <p>Sections below will give more specific overviews.</p>
 </div>
 <div id="data-import" class="section level2">
@@ -190,7 +190,7 @@
 <a class="sourceLine" id="cb3-11" title="11"><span class="co">#&gt; # Workloop Data: 3 channels recorded over 0.3244s</span></a>
 <a class="sourceLine" id="cb3-12" title="12"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb3-13" title="13"><span class="co">#&gt; File ID: workloop.ddf</span></a>
-<a class="sourceLine" id="cb3-14" title="14"><span class="co">#&gt; Mod Time (mtime): 2019-08-05 11:23:54</span></a>
+<a class="sourceLine" id="cb3-14" title="14"><span class="co">#&gt; Mod Time (mtime): 2019-10-19 20:09:56</span></a>
 <a class="sourceLine" id="cb3-15" title="15"><span class="co">#&gt; Sample Frequency: 10000Hz</span></a>
 <a class="sourceLine" id="cb3-16" title="16"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb3-17" title="17"><span class="co">#&gt; data.frame Columns: </span></a>
@@ -291,7 +291,7 @@
 <div id="thanks-for-reading" class="section level2">
 <h2 class="hasAnchor">
 <a href="#thanks-for-reading" class="anchor"></a>Thanks for reading!</h2>
-<p>Please feel free to contact either Vikram or Shree with suggestions or code development requests. We are especially interested in expanding our data import functions to accommodate filetypes other than .ddf in future versions of <code>workloopR</code>.</p>
+<p>Please feel free to contact either Vikram or Shree with suggestions or code development requests. We are especially interested in expanding our data import functions to accommodate file types other than .ddf in future versions of <code>workloopR</code>.</p>
 </div>
   </div>
 
@@ -316,7 +316,7 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Vikram B. Baliga, Shreeram Senthivasan.</p>
+  <p>Developed by <a href="https://www.vikram-baliga.com/">Vikram B. Baliga</a>, Shreeram Senthivasan.</p>
 </div>
 
 <div class="pkgdown">

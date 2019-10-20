@@ -1,7 +1,7 @@
 # custom functions
 # all written by Vikram B. Baliga (vbaliga@zoology.ubc.ca) and Shreeram
 # Senthivasan
-# last updated: 2019-07-20
+# last updated: 2019-10-19
 
 
 ############################### select cycles ###############################

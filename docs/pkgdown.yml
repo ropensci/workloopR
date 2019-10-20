@@ -8,4 +8,7 @@ articles:
   Introduction-to-workloopR: Introduction-to-workloopR.html
   non-ddf-sources: non-ddf-sources.html
   Plotting-workloopR: Plotting-workloopR.html
+urls:
+  reference: https://vbaliga.github.io/workloopR//reference
+  article: https://vbaliga.github.io/workloopR//articles
 
