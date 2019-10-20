@@ -4,14 +4,14 @@
 \alias{read_analyze_wl_dir}
 \title{Read and analyze work loop files from a directory}
 \usage{
-read_analyze_wl_dir(filepath, pattern = "*.ddf", sort_by = "mtime",
+read_analyze_wl_dir(file_path, pattern = "*.ddf", sort_by = "mtime",
   ...)
 }
 \arguments{
-\item{filepath}{Directory in which files are located}
+\item{file_path}{Directory in which files are located}
 
 \item{pattern}{Regular expression used to specify files of interest. Defaults
-to all .ddf files within filepath.}
+to all .ddf files within file_path}
 
 \item{sort_by}{Metadata by which files should be sorted to be in the correct
 run order. Defaults to \code{mtime}, which is time of last modification of

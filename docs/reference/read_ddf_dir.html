@@ -8,16 +8,18 @@
 
 <title>Import a batch of work loop or isometric data files from a directory — read_ddf_dir • workloopR</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
@@ -32,11 +34,12 @@
 
 
 
-<meta property="og:title" content="Import a batch of work loop or isometric data files from a directory — read_ddf_dir" />
 
+<meta property="og:title" content="Import a batch of work loop or isometric data files from a directory — read_ddf_dir" />
 <meta property="og:description" content="Uses read_ddf() to read in workloop, twitch, or tetanus experiment
 data from multiple .ddf files." />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -113,7 +116,6 @@ data from multiple .ddf files." />
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/vbaliga/workloopR">
@@ -140,24 +142,22 @@ data from multiple .ddf files." />
     </div>
 
     <div class="ref-description">
-    
     <p>Uses <code><a href='read_ddf.html'>read_ddf()</a></code> to read in workloop, twitch, or tetanus experiment
 data from multiple .ddf files.</p>
-    
     </div>
 
-    <pre class="usage"><span class='fu'>read_ddf_dir</span>(<span class='no'>filepath</span>, <span class='kw'>pattern</span> <span class='kw'>=</span> <span class='st'>"*.ddf"</span>, <span class='kw'>sort_by</span> <span class='kw'>=</span> <span class='st'>"mtime"</span>, <span class='no'>...</span>)</pre>
-    
+    <pre class="usage"><span class='fu'>read_ddf_dir</span>(<span class='no'>file_path</span>, <span class='kw'>pattern</span> <span class='kw'>=</span> <span class='st'>"*.ddf"</span>, <span class='kw'>sort_by</span> <span class='kw'>=</span> <span class='st'>"mtime"</span>, <span class='no'>...</span>)</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>filepath</th>
+      <th>file_path</th>
       <td><p>Path where files are stored. Should be in the same folder.</p></td>
     </tr>
     <tr>
       <th>pattern</th>
-      <td><p>Regex pattern for identifying relevant files in the filepath.</p></td>
+      <td><p>Regex pattern for identifying relevant files in the file_path.</p></td>
     </tr>
     <tr>
       <th>sort_by</th>
@@ -170,7 +170,7 @@ files.</p></td>
       <td><p>Additional arguments to be passed to <code><a href='read_ddf.html'>read_ddf()</a></code>.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A list of objects of class <code>workloop</code>, <code>twitch</code>, or
@@ -198,7 +198,6 @@ trajectory)</p></dd>
 <code>data.frame</code>. This might be the most important attribute so please check
  that it makes sense!</p></dd>
 
-    
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>Read in a .ddf file that contains data from an experiment. If
@@ -217,14 +216,12 @@ Analysis Software. YMMV if using a .ddf file from another source. The
 <code><a href='as_muscle_stim.html'>as_muscle_stim()</a></code> function can be used to generate <code>muscle_stim</code>
 objects if data are imported via another function. Please feel free to
 contact us with any issues or requests.</p>
-    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other data import functions: <code><a href='as_muscle_stim.html'>as_muscle_stim</a></code>,
   <code><a href='get_wl_metadata.html'>get_wl_metadata</a></code>,
   <code><a href='read_analyze_wl_dir.html'>read_analyze_wl_dir</a></code>,
   <code><a href='read_analyze_wl.html'>read_analyze_wl</a></code>, <code><a href='read_ddf.html'>read_ddf</a></code></p></div>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
@@ -241,13 +238,9 @@ contact us with any issues or requests.</p>
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#value">Value</a></li>
-
       <li><a href="#details">Details</a></li>
-
       <li><a href="#see-also">See also</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
@@ -263,7 +256,7 @@ contact us with any issues or requests.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.9100.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.9000.</p>
 </div>
 
       </footer>

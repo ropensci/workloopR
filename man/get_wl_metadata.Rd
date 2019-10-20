@@ -4,12 +4,12 @@
 \alias{get_wl_metadata}
 \title{Get file info for a sequence of experiment files}
 \usage{
-get_wl_metadata(filepath, pattern = "*.ddf")
+get_wl_metadata(file_path, pattern = "*.ddf")
 }
 \arguments{
-\item{filepath}{Path where files are stored. Should be in the same folder.}
+\item{file_path}{Path where files are stored. Should be in the same folder.}
 
-\item{pattern}{Regex pattern for identifying relevant files in the filepath.}
+\item{pattern}{Regex pattern for identifying relevant files in the file_path.}
 }
 \description{
 Grab metadata from files stored in the same folder (e.g. a sequence of trials

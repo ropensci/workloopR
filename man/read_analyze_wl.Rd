@@ -29,8 +29,8 @@ Within the \code{list}, each entry is labeled by cycle and includes:
 \item{Cycle}{Cycle ID, as a letter}
 \item{Inst_velocity}{Instantaneous velocity, computed from \code{Position}
 change, reported in meters/sec}
-\item{Filt_velocity}{Instantaneous velocity, after low-pass filtering, again in
-meter/sec}
+\item{Filt_velocity}{Instantaneous velocity, after low-pass filtering, again
+ in meter/sec}
 \item{Inst_Power}{Instantaneous power, a product of \code{Force} and
 \code{Filt_velocity}, reported in J}
 \item{Percent_of_Cycle}{The percent of that particular cycle which has
@@ -101,9 +101,10 @@ velocity via \code{signal::butter}. Default: 0.05. \cr
 The gear ratio (GR) and velocity multiplier (M) parameters can help correct
 for issues related to the magnitude and sign of data collection. By
 default, they are set to apply no gear ratio adjustment and to positivize
-velocity. Instantaneous velocity is often noisy and the \code{vel_bf} parameter
-allows for low-pass filtering of velocity data. See \code{signal::butter()}
-and \code{signal::filtfilt()} for details of how filtering is achieved.
+velocity. Instantaneous velocity is often noisy and the \code{vel_bf}
+parameter allows for low-pass filtering of velocity data. See
+\code{signal::butter()} and \code{signal::filtfilt()} for details of how
+filtering is achieved.
 }
 \section{Warning}{
 

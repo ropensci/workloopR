@@ -42,8 +42,8 @@ Within the \code{list}, each entry is labeled by cycle and includes:
 \item{Cycle}{Cycle ID, as a letter}
 \item{Inst_velocity}{Instantaneous velocity, computed from \code{Position}
 change, reported in meters/sec}
-\item{Filt_velocity}{Instantaneous velocity, after low-pass filtering, again in
-meter/sec}
+\item{Filt_velocity}{Instantaneous velocity, after low-pass filtering, again
+ in meter/sec}
 \item{Inst_Power}{Instantaneous power, a product of \code{Force} and
 \code{Filt_velocity}, reported in J}
 \item{Percent_of_Cycle}{The percent of that particular cycle which has
