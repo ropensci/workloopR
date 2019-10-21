@@ -88,7 +88,9 @@ wl_dat <-read_ddf(system.file("extdata", "workloop.ddf",
                   phase_from_peak = TRUE)
 
 # or import your own file
-#my_dat <- read_ddf("./my/file/path/myfile.ddf")
+\dontrun{
+my_dat <- read_ddf("./my/file/path/myfile.ddf")
+}
 
 }
 \seealso{

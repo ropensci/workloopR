@@ -63,8 +63,9 @@ twitch_dat <-read_ddf(system.file("extdata", "twitch.ddf",
 # run isometric_timing() to get info on twitch kinetics
 # we'll use different set points than the defaults
 analyze_twitch <- isometric_timing(twitch_dat,
-                                rising = c(25, 50, 75),
-                                relaxing = c(75, 50, 25))
+  rising = c(25, 50, 75),
+  relaxing = c(75, 50, 25)
+)
 
 # see the results
 analyze_twitch

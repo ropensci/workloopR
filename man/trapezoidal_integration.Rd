@@ -25,18 +25,19 @@ of a work loop.
 \examples{
 
 # create a circle centered at (x = 10, y = 20) with radius 2
-t <- seq(0, 2*pi, length = 1000)
-coords <- t(rbind(10 + sin(t)*2, 20 + cos(t)*2))
+t <- seq(0, 2 * pi, length = 1000)
+coords <- t(rbind(10 + sin(t) * 2, 20 + cos(t) * 2))
 
 # sanity check: does it look like a circle?
-#plot(coords, asp = 1)
+\dontrun{
+plot(coords, asp = 1)
+}
 
 # use the function to get the area
-trapezoidal_integration(coords[,1],coords[,2])
+trapezoidal_integration(coords[, 1], coords[, 2])
 
 # does it match (pi * r^2)?
 3.14159265358 * (2^2) # very close
-
 
 }
 \references{

@@ -38,7 +38,7 @@ wl_dat <-read_ddf(system.file("extdata", "workloop.ddf",
 wl_fixed <- invert_position(wl_dat)
 
 # quick check:
-max(wl_fixed$Position)/min(wl_dat$Position) # -1
+max(wl_fixed$Position) / min(wl_dat$Position) # -1
 
 }
 \seealso{

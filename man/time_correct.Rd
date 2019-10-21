@@ -63,9 +63,11 @@ timecor_wls <- time_correct(summarized_wls)
 timecor_wls
 
 # or on your own directory
-#my_meta <- read_analyze_wl_dir("./my/file/path/")
-#my_summaries <- summarize_wl_trials(my_meta)
-#my_timecors <- time_correct(my_summaries)
+\dontrun{
+my_meta <- read_analyze_wl_dir("./my/file/path/")
+my_summaries <- summarize_wl_trials(my_meta)
+my_timecors <- time_correct(my_summaries)
+}
 
 }
 \seealso{

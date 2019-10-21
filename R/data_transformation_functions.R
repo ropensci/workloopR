@@ -89,67 +89,74 @@ select_cycles <- function(x,
                           keep_cycles = 4:6,
                           bworth_order = 2,
                           bworth_freq = 0.05,
-                          ...)
-{
-  if(!any(class(x) == "workloop"))
+                          ...) {
+  if (!any(class(x) == "workloop")) {
     stop("Input data should be of class `workloop`")
-  if(!is.numeric(keep_cycles))
+  }
+  if (!is.numeric(keep_cycles)) {
     stop("keep_cycles should be numeric")
-  if(missing(cycle_def)){
-    cycle_def<-"lo"
+  }
+  if (missing(cycle_def)) {
+    cycle_def <- "lo"
     warning("Cycle definition not supplied! Defaulting to L0-to-L0")
   }
-  if(is.na(attr(x,"cycle_frequency")))
+  if (is.na(attr(x, "cycle_frequency"))) {
     stop("Length-out cycle frequency is needed to identify cycles!
          Please set the `cycle_frequency` attribute accordingly.")
+  }
 
   # get cycle frequency and sample frequency
-  cyc_freq<-attr(x,"cycle_frequency")
-  samp_freq<-attr(x,"sample_frequency")
+  cyc_freq <- attr(x, "cycle_frequency")
+  samp_freq <- attr(x, "sample_frequency")
 
   # Use butterworth-filtered position data to identify peaks
-  bworth<-signal::butter(bworth_order,bworth_freq)
-  smPos<-signal::filtfilt(bworth,x$Position)
+  bworth <- signal::butter(bworth_order, bworth_freq)
+  smPos <- signal::filtfilt(bworth, x$Position)
 
   # Calculate minimum number of ups before a peak from proportion ups
-  qf<-floor(0.25*(1/cyc_freq)*samp_freq)-1
-  peaks<-stats::setNames(data.frame(pracma::findpeaks(smPos,nups=qf)[,2:4]),
-                         c("peak","start","end"))
+  qf <- floor(0.25 * (1 / cyc_freq) * samp_freq) - 1
+  peaks <- stats::setNames(
+    data.frame(pracma::findpeaks(smPos, nups = qf)[, 2:4]),
+    c("peak", "start", "end")
+  )
 
   switch(cycle_def,
     # L0-to-Lo assumes position cycle starts and ends on an L0
     # Most L0 are found by averaging indices of a peak and previous trough
-    "lo"={splits<-round((peaks$start+peaks$peak)/2)
-    # The first L0 is the lowest point before first peak
-          splits[1]<-peaks$start[1]
-    # The last L0 is the last peak
-          splits[length(splits)]<-peaks$peak[nrow(peaks)]
-          splits<-c(0,splits,nrow(x))},
-    "p2p"=splits<-c(0,peaks$peak,nrow(x)),
-    "t2t"=splits<-c(0,peaks$start,utils::tail(peaks$end,1),nrow(x)),
+    "lo" = {
+      splits <- round((peaks$start + peaks$peak) / 2)
+      # The first L0 is the lowest point before first peak
+      splits[1] <- peaks$start[1]
+      # The last L0 is the last peak
+      splits[length(splits)] <- peaks$peak[nrow(peaks)]
+      splits <- c(0, splits, nrow(x))
+    },
+    "p2p" = splits <- c(0, peaks$peak, nrow(x)),
+    "t2t" = splits <- c(0, peaks$start, utils::tail(peaks$end, 1), nrow(x)),
     stop("Invalid cycle definition! Please select one of:\n
       'lo':  L0-to-L0
       'p2p': peak-to-peak
       't2t': trough-to-trough")
   )
-  splits<-(splits-c(NA,utils::head(splits,-1)))[-1]
+  splits <- (splits - c(NA, utils::head(splits, -1)))[-1]
 
-  cycle<-unlist(lapply(seq_along(splits), function(i)rep(i-1,splits[i])))
-  x$Cycle<-replace(cycle,cycle==max(cycle),0)
+  cycle <- unlist(lapply(seq_along(splits), function(i) rep(i - 1, splits[i])))
+  x$Cycle <- replace(cycle, cycle == max(cycle), 0)
 
   # Update cycle definition and total cycles
-  attr(x,"cycle_def")<-cycle_def
-  attr(x,"total_cycles")<-max(x$Cycle)
+  attr(x, "cycle_def") <- cycle_def
+  attr(x, "total_cycles") <- max(x$Cycle)
 
   # Subset by keep_cycles and rename cycles by letters
-  if(any(keep_cycles<0 | keep_cycles>max(x$Cycle)))
+  if (any(keep_cycles < 0 | keep_cycles > max(x$Cycle))) {
     warning("The keep_cycles argument includes cycles that don't exist
     (negative or greater than total_cycles).
             \nThese are being ignored.")
-  x<-x[x$Cycle %in% keep_cycles,]
-  x$Cycle<-letters[as.factor(x$Cycle)]
-  if(!all(is.na(attr(x,"units")))) attr(x,"units")<-c(attr(x,"units"),"letters")
-  attr(x,"retained_cycles")<-keep_cycles
+  }
+  x <- x[x$Cycle %in% keep_cycles, ]
+  x$Cycle <- letters[as.factor(x$Cycle)]
+  if (!all(is.na(attr(x, "units")))) attr(x, "units") <- c(attr(x, "units"), "letters")
+  attr(x, "retained_cycles") <- keep_cycles
   return(x)
 }
 
@@ -192,17 +199,17 @@ select_cycles <- function(x,
 #' wl_fixed <- invert_position(wl_dat)
 #'
 #' # quick check:
-#' max(wl_fixed$Position)/min(wl_dat$Position) # -1
+#' max(wl_fixed$Position) / min(wl_dat$Position) # -1
 #'
 #' @export
-invert_position <- function(x)
-{
-  if(!any(class(x) == "muscle_stim"))
+invert_position <- function(x) {
+  if (!any(class(x) == "muscle_stim")) {
     stop("Input data should be of class `muscle_stim`")
-  x$Position<-x$Position*-1
-  attr(x,"position_inverted")<-TRUE
-  return(x)
   }
+  x$Position <- x$Position * -1
+  attr(x, "position_inverted") <- TRUE
+  return(x)
+}
 
 
 ############################## gear ratio correction ###########################
@@ -250,8 +257,8 @@ invert_position <- function(x)
 #' wl_fixed <- fix_GR(wl_dat, GR = 2)
 #'
 #' # quick check:
-#' max(wl_fixed$Force)/max(wl_dat$Force)       #5592.578 / 2796.289 = 2
-#' max(wl_fixed$Position)/max(wl_dat$Position) #1.832262 / 3.664524 = 0.5
+#' max(wl_fixed$Force) / max(wl_dat$Force) # 5592.578 / 2796.289 = 2
+#' max(wl_fixed$Position) / max(wl_dat$Position) # 1.832262 / 3.664524 = 0.5
 #'
 #' @seealso
 #' \code{\link{analyze_workloop}},
@@ -260,25 +267,26 @@ invert_position <- function(x)
 #'
 #' @export
 fix_GR <- function(x,
-                   GR = 1)
-{
+                   GR = 1) {
   # Check that x is correct type of object
-  if (!any(class(x) == "muscle_stim"))
+  if (!any(class(x) == "muscle_stim")) {
     stop("Input data should be of class `muscle_stim`")
-
-  # check that gear ratio is numeric
-  if (!is.numeric(GR))
-  {
-    stop('Gear ratio (GR) must be numeric')
   }
 
-  x$Position<-x$Position*(1/GR)
+  # check that gear ratio is numeric
+  if (!is.numeric(GR)) {
+    stop("Gear ratio (GR) must be numeric")
+  }
 
-  x$Force<-x$Force*GR
+  x$Position <- x$Position * (1 / GR)
 
-  attr(x,"gear_ratio")<-attr(x,"gear_ratio")*GR
-  if("workloop" %in% class(x))
-    if(!is.na(attr(x,"amplitude")))
-      attr(x,"amplitude")<-attr(x,"amplitude")*(1/GR)
+  x$Force <- x$Force * GR
+
+  attr(x, "gear_ratio") <- attr(x, "gear_ratio") * GR
+  if ("workloop" %in% class(x)) {
+    if (!is.na(attr(x, "amplitude"))) {
+      attr(x, "amplitude") <- attr(x, "amplitude") * (1 / GR)
+    }
+  }
   return(x)
 }

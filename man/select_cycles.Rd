@@ -74,7 +74,9 @@ wl_dat <-read_ddf(system.file("extdata", "workloop.ddf",
 wl_selected <- select_cycles(wl_dat, cycle_def = "p2p", keep_cycles = 3:5)
 
 # are only three cycles present, running peak-to-peak?
-#plot(wl_selected$Position)
+\dontrun{
+plot(wl_selected$Position)
+}
 
 # are the cycles of (approximately) the same length?
 summary(as.factor(wl_selected$Cycle))

@@ -77,7 +77,9 @@ workloop_dat <-read_ddf_dir(system.file("extdata/wl_duration_trials",
                  package = 'workloopR'))
 
 # or import your own file
-#my_dat <- read_ddf_dir("./my/file/path/")
+\dontrun{
+my_dat <- read_ddf_dir("./my/file/path/")
+}
 
 }
 \seealso{

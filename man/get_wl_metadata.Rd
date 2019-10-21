@@ -40,7 +40,9 @@ wl_meta <- get_wl_metadata(system.file("extdata/wl_duration_trials",
                                        package = 'workloopR'))
 
 # or on your own directory
-#my_meta <- get_wl_metadata("./my/file/path/")
+\dontrun{
+my_meta <- get_wl_metadata("./my/file/path/")
+}
 
 }
 \seealso{

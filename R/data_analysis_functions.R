@@ -33,8 +33,8 @@
 #' @examples
 #'
 #' # create a circle centered at (x = 10, y = 20) with radius 2
-#' t <- seq(0, 2*pi, length = 1000)
-#' coords <- t(rbind(10 + sin(t)*2, 20 + cos(t)*2))
+#' t <- seq(0, 2 * pi, length = 1000)
+#' coords <- t(rbind(10 + sin(t) * 2, 20 + cos(t) * 2))
 #'
 #' # sanity check: does it look like a circle?
 #' \dontrun{
@@ -42,27 +42,28 @@
 #' }
 #'
 #' # use the function to get the area
-#' trapezoidal_integration(coords[,1],coords[,2])
+#' trapezoidal_integration(coords[, 1], coords[, 2])
 #'
 #' # does it match (pi * r^2)?
 #' 3.14159265358 * (2^2) # very close
 #'
-#'
 #' @export
 trapezoidal_integration <- function(x,
-                                    f)
-{
-  if(!is.numeric(x))
-    stop('The variable (first argument) is not numeric.')
-  if(!is.numeric(f))
-    stop('The integrand (second argument) is not numeric.')
-  if (length(x) != length(f))
-    stop('The lengths of the variable and the integrand are not equal.')
+                                    f) {
+  if (!is.numeric(x)) {
+    stop("The variable (first argument) is not numeric.")
+  }
+  if (!is.numeric(f)) {
+    stop("The integrand (second argument) is not numeric.")
+  }
+  if (length(x) != length(f)) {
+    stop("The lengths of the variable and the integrand are not equal.")
+  }
 
   # obtain length of variable of integration and integrand
-  n=length(x)
+  n <- length(x)
   # integrate using the trapezoidal rule
-  integral=0.5*sum((x[-1]-x[-n])*(f[-1]+f[-n]))
+  integral <- 0.5 * sum((x[-1] - x[-n]) * (f[-1] + f[-n]))
   # return the definite integral
   return(integral)
 }
@@ -219,82 +220,100 @@ analyze_workloop <- function(x,
                              GR = 1,
                              M = -1,
                              vel_bf = 0.05,
-                             ...){
-  if(!any(class(x)=="workloop"))
+                             ...) {
+  if (!any(class(x) == "workloop")) {
     stop("Input data should be of class `workloop`")
-  if(!any(names(x)=='Cycle'))
-    stop('The Cycle column is missing with no default.
+  }
+  if (!any(names(x) == "Cycle")) {
+    stop("The Cycle column is missing with no default.
          \nPlease use select_cycles() to generate this column
-         or check that the column is named correctly.')
-  if(!is.numeric(GR))
-    stop('Gear ratio (GR) must be numeric')
-  if(!is.numeric(M))
-    stop('Velocity multiplier (M) must be numeric
-         \nand is recommended to be either -1 or 1.')
+         or check that the column is named correctly.")
+  }
+  if (!is.numeric(GR)) {
+    stop("Gear ratio (GR) must be numeric")
+  }
+  if (!is.numeric(M)) {
+    stop("Velocity multiplier (M) must be numeric
+         \nand is recommended to be either -1 or 1.")
+  }
 
   # transform variables
-  x<-fix_GR(x,GR)
+  x <- fix_GR(x, GR)
 
   # first chop up the data by cycle:
-  cycle_names<-unique(x$Cycle)
-  x_by_cycle<-lapply(cycle_names,function(cycle)x[x$Cycle==cycle,])
+  cycle_names <- unique(x$Cycle)
+  x_by_cycle <- lapply(cycle_names, function(cycle) x[x$Cycle == cycle, ])
 
   # create a percent cycle index column
-  percent_of_cycle<-lapply(x_by_cycle,function(x)seq(0,100,100/(nrow(x)-1)))
+  percent_of_cycle <- lapply(x_by_cycle, function(x) seq(0, 100, 100 / (nrow(x) - 1)))
 
   # work is calculated as the path integral of Force with respect to Position
   # (displacement)
   # Position and Force are each divided by 1000 to convert mm to meters and mN
   # to N prior to taking the integral. This ensures that the integral reports
   # work in J. The negative is used to match conventions for work
-  work<-lapply(x_by_cycle,function(x)-trapezoidal_integration(x$Position/1000,
-                                                              x$Force/1000))
-  names(work)<-cycle_names
+  work <- lapply(x_by_cycle, function(x) {
+    -trapezoidal_integration(
+      x$Position / 1000,
+      x$Force / 1000
+    )
+  })
+  names(work) <- cycle_names
 
   # velocity is the instantanous change in length (i.e. position) multiplied
   # by sampling frequency the result is divided by 1000 to convert to m/s and
   # multiplied by the velocity multiplier, M
   velocity <-
-    lapply(x_by_cycle, function(x)
-      (x$Position - c(NA,
-                      utils::head(x$Position,
-                                  -1)))*attributes(x)$sample_frequency/1000*M)
+    lapply(x_by_cycle, function(x) {
+      (x$Position - c(
+        NA,
+        utils::head(
+          x$Position,
+          -1
+        )
+      )) * attributes(x)$sample_frequency / 1000 * M
+    })
 
   # apply a butterworth filter to velocity to smooth it out a bit
-  buttah<-signal::butter(2,vel_bf)
+  buttah <- signal::butter(2, vel_bf)
   filt_velocity <-
-    lapply(velocity, function(v)
-      c(NA, signal::filtfilt(buttah, v[-1])))
+    lapply(velocity, function(v) {
+      c(NA, signal::filtfilt(buttah, v[-1]))
+    })
 
   # instantaneous power is calculated as the product of instantaneous velocity
   # and force. However since velocity is calculated between two time points,
   # corresponding pairs of force measurements are averaged first
   # the result is divided by 1000 to convert mW to W
-  instant_power<-mapply(function(x,v)x$Force*v/1000,x_by_cycle,filt_velocity,
-                        SIMPLIFY=FALSE)
+  instant_power <- mapply(function(x, v) x$Force * v / 1000, x_by_cycle, filt_velocity,
+    SIMPLIFY = FALSE
+  )
 
   # net power is simply the mean of all instantaneous power
-  net_power<-lapply(instant_power,mean,na.rm=TRUE)
+  net_power <- lapply(instant_power, mean, na.rm = TRUE)
 
   # Early escape for simplified output
-  summary_table<-data.frame(
-      Cycle=paste0(toupper(cycle_names)),
-      Work=unlist(work),
-      Net_Power=unlist(net_power)
-    )
-  if(simplify) return(summary_table)
+  summary_table <- data.frame(
+    Cycle = paste0(toupper(cycle_names)),
+    Work = unlist(work),
+    Net_Power = unlist(net_power)
+  )
+  if (simplify) {
+    return(summary_table)
+  }
 
   # combine everything into one useful object
-  result<-mapply(
-    function(x,v,filt_v,w,inst_p,net_p,perc){
-      x$Inst_Velocity<-v
-      x$Filt_Velocity<-filt_v
-      x$Inst_Power<-inst_p
-      x$Percent_of_Cycle<-perc
-      attr(x,"work")<-w
-      attr(x,"net_power")<-net_p
-      if(!all(is.na(attr(x,"units"))))
-        attr(x,"units")<-c(attr(x,"units"),"m/s","m/s","W")
+  result <- mapply(
+    function(x, v, filt_v, w, inst_p, net_p, perc) {
+      x$Inst_Velocity <- v
+      x$Filt_Velocity <- filt_v
+      x$Inst_Power <- inst_p
+      x$Percent_of_Cycle <- perc
+      attr(x, "work") <- w
+      attr(x, "net_power") <- net_p
+      if (!all(is.na(attr(x, "units")))) {
+        attr(x, "units") <- c(attr(x, "units"), "m/s", "m/s", "W")
+      }
       return(x)
     },
     x_by_cycle,
@@ -304,13 +323,14 @@ analyze_workloop <- function(x,
     instant_power,
     net_power,
     percent_of_cycle,
-    SIMPLIFY=FALSE)
-  attr(x,"row.names")<-attr(x,"names")<-NULL
-  attributes(result)<-attributes(x)
-  attr(result,"summary")<-summary_table
-  class(result)<-c("analyzed_workloop","list")
+    SIMPLIFY = FALSE
+  )
+  attr(x, "row.names") <- attr(x, "names") <- NULL
+  attributes(result) <- attributes(x)
+  attr(result, "summary") <- summary_table
+  class(result) <- c("analyzed_workloop", "list")
 
-  return(stats::setNames(result,paste0("cycle_",cycle_names)))
+  return(stats::setNames(result, paste0("cycle_", cycle_names)))
 }
 
 
@@ -386,28 +406,30 @@ analyze_workloop <- function(x,
 #' \code{\link{summarize_wl_trials}}
 #'
 #' @export
-time_correct <- function(x){
-  if(class(x)[[1]]!="data.frame")
+time_correct <- function(x) {
+  if (class(x)[[1]] != "data.frame") {
     stop("Please provide a data.frame of summarized workloop trial data
          generated by summarize_wl_trials()")
-  if(!all(c("Mean_Work","Mean_Power","mtime") %in% names(x)))
+  }
+  if (!all(c("Mean_Work", "Mean_Power", "mtime") %in% names(x))) {
     stop("Please provide summarized workloop trial data
          generated by summarize_wl_trials()")
+  }
 
   x$Time_Corrected_Work <-
-    x$Mean_Work-(utils::tail(x$Mean_Work,1)-utils::head(x$Mean_Work,1)) /
-    (utils::tail(x$mtime,1)-utils::head(x$mtime,1))*(x$mtime-
-                                                       utils::head(x$mtime,1))
+    x$Mean_Work - (utils::tail(x$Mean_Work, 1) - utils::head(x$Mean_Work, 1)) /
+      (utils::tail(x$mtime, 1) - utils::head(x$mtime, 1)) * (x$mtime -
+        utils::head(x$mtime, 1))
   x$Time_Corrected_Power <-
-    x$Mean_Power-(utils::tail(x$Mean_Power,1)-utils::head(x$Mean_Power,1)) /
-    (utils::tail(x$mtime,1)-utils::head(x$mtime,1))*(x$mtime-
-                                                       utils::head(x$mtime,1))
-  attr(x,"power_difference") <-
-    utils::tail(x$Mean_Power,1)-utils::head(x$Mean_Power,1)
-  attr(x,"time_difference") <-
-    utils::tail(x$mtime,1)-utils::head(x$mtime,1)
-  attr(x,"time_correction_rate") <-
-    attr(x,"power_difference") / attr(x,"time_difference")
+    x$Mean_Power - (utils::tail(x$Mean_Power, 1) - utils::head(x$Mean_Power, 1)) /
+      (utils::tail(x$mtime, 1) - utils::head(x$mtime, 1)) * (x$mtime -
+        utils::head(x$mtime, 1))
+  attr(x, "power_difference") <-
+    utils::tail(x$Mean_Power, 1) - utils::head(x$Mean_Power, 1)
+  attr(x, "time_difference") <-
+    utils::tail(x$mtime, 1) - utils::head(x$mtime, 1)
+  attr(x, "time_correction_rate") <-
+    attr(x, "power_difference") / attr(x, "time_difference")
   return(x)
 }
 
@@ -474,8 +496,9 @@ time_correct <- function(x){
 #' # run isometric_timing() to get info on twitch kinetics
 #' # we'll use different set points than the defaults
 #' analyze_twitch <- isometric_timing(twitch_dat,
-#'                                 rising = c(25, 50, 75),
-#'                                 relaxing = c(75, 50, 25))
+#'   rising = c(25, 50, 75),
+#'   relaxing = c(75, 50, 25)
+#' )
 #'
 #' # see the results
 #' analyze_twitch
@@ -486,37 +509,42 @@ time_correct <- function(x){
 #' @export
 isometric_timing <- function(x,
                              rising = c(10, 90),
-                             relaxing = c(90, 50)){
+                             relaxing = c(90, 50)) {
   # check input data
-  if(!("isometric" %in% class(x)))
+  if (!("isometric" %in% class(x))) {
     stop("Please ensure that your data is from an isometric experiment!")
-  if("tetanus" %in% class(x))
-    relaxing=c()
+  }
+  if ("tetanus" %in% class(x)) {
+    relaxing <- c()
+  }
 
   # check that set points are numeric between 0 and 100
-  if(any(!is.numeric(rising) | rising < 0 | rising > 100))
+  if (any(!is.numeric(rising) | rising < 0 | rising > 100)) {
     stop("Please ensure that all rising set points are numeric values
          between 0 and 100.")
-  if(any(!is.numeric(relaxing) | relaxing < 0 | relaxing > 100))
+  }
+  if (any(!is.numeric(relaxing) | relaxing < 0 | relaxing > 100)) {
     stop("Please ensure that all relaxing set points are numeric values
          between 0 and 100.")
+  }
 
   # convert precents to proportions for easier math
-  rising<-rising/100
-  relaxing<-relaxing/100
+  rising <- rising / 100
+  relaxing <- relaxing / 100
 
   # find position of peak force and stimulus in dataset
-  stim_row<-which.max(x$Stim)
-  pf_row<-which.max(x$Force)
+  stim_row <- which.max(x$Stim)
+  pf_row <- which.max(x$Force)
 
   # get force and timing for peak force and stim
-  main_results<-data.frame(
-    'file_id'=attr(x,"file_id"),
-    'time_stim'=x$Time[stim_row],
-    'force_stim'=x$Force[stim_row],
-    'time_peak'=x$Time[pf_row],
-    'force_peak'=x$Force[pf_row],
-    stringsAsFactors=FALSE)
+  main_results <- data.frame(
+    "file_id" = attr(x, "file_id"),
+    "time_stim" = x$Time[stim_row],
+    "force_stim" = x$Force[stim_row],
+    "time_peak" = x$Time[pf_row],
+    "force_peak" = x$Force[pf_row],
+    stringsAsFactors = FALSE
+  )
 
   # calculate absolute force at optional set points
   rising_forces <-
@@ -526,26 +554,39 @@ isometric_timing <- function(x,
 
   # calculate corresponding position in dataset
   rising_row <-
-    lapply(rising_forces, function(i)
-      utils::head(which(x$Force > i), 1))
+    lapply(rising_forces, function(i) {
+      utils::head(which(x$Force > i), 1)
+    })
   relaxing_row <-
-    lapply(relaxing_forces, function(i)
-      utils::tail(which(x$Force > i), 1))
+    lapply(relaxing_forces, function(i) {
+      utils::tail(which(x$Force > i), 1)
+    })
 
   # extract time and force at these positions, bind together into a vector
-  set_point_results<-
-    c(unlist(lapply(rising_row, function(i) c(x$Time[i],x$Force[i]))),
-      unlist(lapply(relaxing_row, function(i) c(x$Time[i],x$Force[i]))))
+  set_point_results <-
+    c(
+      unlist(lapply(rising_row, function(i) c(x$Time[i], x$Force[i]))),
+      unlist(lapply(relaxing_row, function(i) c(x$Time[i], x$Force[i])))
+    )
 
   # add names and convert to data.frame
-  names(set_point_results)<-
-    c(unlist(lapply(rising*100, function(i) c(paste0("time_rising_",i),
-                                              paste0("force_rising_",i)))),
-      unlist(lapply(relaxing*100, function(i) c(paste0("time_relaxing_",i),
-                                                paste0("force_relaxing_",i)))))
-  set_point_results<-data.frame(as.list(set_point_results))
+  names(set_point_results) <-
+    c(
+      unlist(lapply(rising * 100, function(i) {
+        c(
+          paste0("time_rising_", i),
+          paste0("force_rising_", i)
+        )
+      })),
+      unlist(lapply(relaxing * 100, function(i) {
+        c(
+          paste0("time_relaxing_", i),
+          paste0("force_relaxing_", i)
+        )
+      }))
+    )
+  set_point_results <- data.frame(as.list(set_point_results))
 
   # return both result
-  return(cbind(main_results,set_point_results))
+  return(cbind(main_results, set_point_results))
 }
-

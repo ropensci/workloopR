@@ -45,8 +45,8 @@ wl_dat <-read_ddf(system.file("extdata", "workloop.ddf",
 wl_fixed <- fix_GR(wl_dat, GR = 2)
 
 # quick check:
-max(wl_fixed$Force)/max(wl_dat$Force)       #5592.578 / 2796.289 = 2
-max(wl_fixed$Position)/max(wl_dat$Position) #1.832262 / 3.664524 = 0.5
+max(wl_fixed$Force) / max(wl_dat$Force) # 5592.578 / 2796.289 = 2
+max(wl_fixed$Position) / max(wl_dat$Position) # 1.832262 / 3.664524 = 0.5
 
 }
 \seealso{
