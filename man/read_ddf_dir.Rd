@@ -4,12 +4,12 @@
 \alias{read_ddf_dir}
 \title{Import a batch of work loop or isometric data files from a directory}
 \usage{
-read_ddf_dir(filepath, pattern = "*.ddf", sort_by = "mtime", ...)
+read_ddf_dir(file_path, pattern = "*.ddf", sort_by = "mtime", ...)
 }
 \arguments{
-\item{filepath}{Path where files are stored. Should be in the same folder.}
+\item{file_path}{Path where files are stored. Should be in the same folder.}
 
-\item{pattern}{Regex pattern for identifying relevant files in the filepath.}
+\item{pattern}{Regex pattern for identifying relevant files in the file_path.}
 
 \item{sort_by}{Metadata by which files should be sorted to be in the correct
 run order. Defaults to \code{mtime}, which is time of last modification of

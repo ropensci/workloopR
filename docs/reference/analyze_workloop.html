@@ -8,16 +8,18 @@
 
 <title>Analyze work loop object to compute work and power output — analyze_workloop • workloopR</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
@@ -32,11 +34,12 @@
 
 
 
-<meta property="og:title" content="Analyze work loop object to compute work and power output — analyze_workloop" />
 
+<meta property="og:title" content="Analyze work loop object to compute work and power output — analyze_workloop" />
 <meta property="og:description" content="Compute work and power output from a work loop experiment on a per-cycle
 basis." />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -67,7 +70,7 @@ basis." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">workloopR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1.9000</span>
       </span>
     </div>
 
@@ -84,25 +87,25 @@ basis." />
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
+    Vignettes
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/Analyzing-workloops.html">Analyzing work loop experiments in workloopR</a>
-    </li>
-    <li>
-      <a href="../articles/batch-processing.html">Batch processing</a>
-    </li>
-    <li>
-      <a href="../articles/Calculating-twitch-kinetics.html">Working with isometric experiments in workloopR</a>
-    </li>
-    <li>
       <a href="../articles/Introduction-to-workloopR.html">Introduction to workloopR</a>
     </li>
     <li>
       <a href="../articles/non-ddf-sources.html">Importing data from non .ddf sources</a>
+    </li>
+    <li>
+      <a href="../articles/Calculating-twitch-kinetics.html">Working with isometric experiments</a>
+    </li>
+    <li>
+      <a href="../articles/Analyzing-workloops.html">Analyzing work loop experiments</a>
+    </li>
+    <li>
+      <a href="../articles/batch-processing.html">Batch processing</a>
     </li>
     <li>
       <a href="../articles/Plotting-workloopR.html">Plotting data in workloopR</a>
@@ -113,7 +116,6 @@ basis." />
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/vbaliga/workloopR">
@@ -140,15 +142,13 @@ basis." />
     </div>
 
     <div class="ref-description">
-    
     <p>Compute work and power output from a work loop experiment on a per-cycle
 basis.</p>
-    
     </div>
 
     <pre class="usage"><span class='fu'>analyze_workloop</span>(<span class='no'>x</span>, <span class='kw'>simplify</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>GR</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>M</span> <span class='kw'>=</span> -<span class='fl'>1</span>,
   <span class='kw'>vel_bf</span> <span class='kw'>=</span> <span class='fl'>0.05</span>, <span class='no'>...</span>)</pre>
-    
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -184,7 +184,7 @@ via <code><a href='https://rdrr.io/pkg/signal/man/butter.html'>signal::butter()<
 <code><a href='read_analyze_wl.html'>read_analyze_wl()</a></code> or <code><a href='read_analyze_wl_dir.html'>read_analyze_wl_dir()</a></code></p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>The function returns a <code>list</code> of class <code>analyzed_workloop</code>
@@ -200,8 +200,8 @@ that provides instantaneous velocity, a smoothed velocity, and computes work,
 <dt>Cycle</dt><dd><p>Cycle ID, as a letter</p></dd>
 <dt>Inst_velocity</dt><dd><p>Instantaneous velocity, computed from <code>Position</code>
 change, reported in meters/sec</p></dd>
-<dt>Filt_velocity</dt><dd><p>Instantaneous velocity, after low-pass filtering, again in
-meter/sec</p></dd>
+<dt>Filt_velocity</dt><dd><p>Instantaneous velocity, after low-pass filtering, again
+ in meter/sec</p></dd>
 <dt>Inst_Power</dt><dd><p>Instantaneous power, a product of <code>Force</code> and
 <code>Filt_velocity</code>, reported in J</p></dd>
 <dt>Percent_of_Cycle</dt><dd><p>The percent of that particular cycle which has
@@ -238,13 +238,12 @@ ddf file</p></dd>
 train</p></dd>
 <dt>stimulus_offset</dt><dd><p>Timing offset at which stimulus began</p></dd>
 <dt>gear_ratio</dt><dd><p>Gear ratio applied by this function</p></dd>
-<dt>file_id</dt><dd><p>Filename</p></dd>
+<dt>file_id</dt><dd><p>File name</p></dd>
 <dt>mtime</dt><dd><p>Time at which file was last modified</p></dd>
 <dt>retained_cycles</dt><dd><p>Which cycles were retained, as numerics</p></dd>
 <dt>summary</dt><dd><p>Simple table showing work (in J) and net power (in W) for each
  cycle</p></dd>
 
-    
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>Please note that <code><a href='select_cycles.html'>select_cycles()</a></code> must be run on data prior to
@@ -261,7 +260,6 @@ Instantaneous velocity is often noisy and the <code>vel_bf</code> parameter allo
 for low-pass filtering of velocity data. See <code><a href='https://rdrr.io/pkg/signal/man/butter.html'>signal::butter()</a></code> and
 <code><a href='https://rdrr.io/pkg/signal/man/filtfilt.html'>signal::filtfilt()</a></code> for details of how filtering is achieved.</p>
 <p>Please also be careful with units! Se Warning section below.</p>
-    
     <h2 class="hasAnchor" id="warning"><a class="anchor" href="#warning"></a>Warning</h2>
 
     
@@ -273,12 +271,10 @@ function computes velocity in meters/sec, work in Joules, and power in
 Watts. If your raw data do not originate in millimeters and millinewtons,
 please transform your data accordingly and ignore what you see in the
 attribute <code>units</code>.</p>
-    
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Josephson RK. 1985. Mechanical Power output from Striated Muscle
  during Cyclic Contraction. Journal of Experimental Biology 114: 493-512.</p>
-    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='read_ddf.html'>read_ddf</a></code>,
@@ -295,7 +291,6 @@ attribute <code>units</code>.</p>
   <code><a href='select_cycles.html'>select_cycles</a></code>,
   <code><a href='summarize_wl_trials.html'>summarize_wl_trials</a></code>,
   <code><a href='time_correct.html'>time_correct</a></code></p></div>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
@@ -323,7 +318,7 @@ attribute <code>units</code>.</p>
 #&gt; 
 #&gt; 
 #&gt; File ID: workloop.ddf
-#&gt; Mod Time (mtime): 2019-07-11 13:49:08
+#&gt; Mod Time (mtime): 2019-10-20 12:23:53
 #&gt; Sample Frequency: 10000Hz
 #&gt; 
 #&gt; data.frame Columns: 
@@ -359,17 +354,11 @@ attribute <code>units</code>.</p>
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#value">Value</a></li>
-
       <li><a href="#details">Details</a></li>
-
       <li><a href="#warning">Warning</a></li>
-
       <li><a href="#references">References</a></li>
-
       <li><a href="#see-also">See also</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
@@ -381,11 +370,11 @@ attribute <code>units</code>.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Vikram B. Baliga, Shreeram Senthivasan.</p>
+  <p>Developed by <a href='https://www.vikram-baliga.com/'>Vikram B. Baliga</a>, Shreeram Senthivasan.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.9100.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.9000.</p>
 </div>
 
       </footer>

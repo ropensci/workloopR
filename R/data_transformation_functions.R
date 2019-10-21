@@ -1,7 +1,7 @@
 # custom functions
 # all written by Vikram B. Baliga (vbaliga@zoology.ubc.ca) and Shreeram
 # Senthivasan
-# last updated: 2019-07-20
+# last updated: 2019-10-20
 
 
 ############################### select cycles ###############################
@@ -98,7 +98,8 @@ select_cycles <- function(x,
     warning("Cycle definition not supplied! Defaulting to L0-to-L0")
   }
   if(is.na(attr(x,"cycle_frequency")))
-    stop("Length-out cycle frequency is needed to identify cycles! Please set the `cycle_frequency` attribute accordingly.")
+    stop("Length-out cycle frequency is needed to identify cycles!
+         Please set the `cycle_frequency` attribute accordingly.")
 
   # get cycle frequency and sample frequency
   cyc_freq<-attr(x,"cycle_frequency")
@@ -140,7 +141,9 @@ select_cycles <- function(x,
 
   # Subset by keep_cycles and rename cycles by letters
   if(any(keep_cycles<0 | keep_cycles>max(x$Cycle)))
-    warning("The keep_cycles argument includes cycles that don't exist (negative or greater than total_cycles). These are being ignored.")
+    warning("The keep_cycles argument includes cycles that don't exist
+    (negative or greater than total_cycles).
+            \nThese are being ignored.")
   x<-x[x$Cycle %in% keep_cycles,]
   x$Cycle<-letters[as.factor(x$Cycle)]
   if(!all(is.na(attr(x,"units")))) attr(x,"units")<-c(attr(x,"units"),"letters")

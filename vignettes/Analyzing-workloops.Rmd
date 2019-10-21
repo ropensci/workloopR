@@ -57,7 +57,7 @@ Ultimately, an object of classes `workloop`, `muscle_stim`, and `data.frame` is 
 
 ```{r data_import}
 ## The file workloop.ddf is included and therefore can be accessed via
-## system.file("subdirectory","filename","package") . We'll then use
+## system.file("subdirectory","file_name","package") . We'll then use
 ## read_ddf() to import it, creating an object of class "muscle_stim".
 ## fix_GR() multiplies Force by 2 and divides Position by 2
 workloop_dat <-

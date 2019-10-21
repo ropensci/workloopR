@@ -61,7 +61,8 @@ The input \code{x} must be a \code{data.frame} that contains time series
 of numeric data collected from an experiment. Each row must correspond to a
 sample, and these columns (exact title matches) must be included: \cr
 "Time" - time, recorded in seconds \cr
-"Position" - instantaneous position of the muscle, preferably in millimeters \cr
+"Position" - instantaneous position of the muscle,
+  preferably in millimeters \cr
 "Force" - force, preferably in millinewtons \cr
 "Stim" - whether stimulation has occurred. All entries must be either 0 (no
 stimulus) or 1 (stimulus occurrence).
@@ -91,7 +92,8 @@ For twitches or tetanic trials:
 library(workloopR)
 
 # import the workloop.ddf file included in workloopR
-wl_dat <-read_ddf(system.file("extdata", "workloop.ddf", package = 'workloopR'))
+wl_dat <-read_ddf(system.file("extdata", "workloop.ddf",
+                              package = 'workloopR'))
 
 # see how this object is organized - this will give you a sense
 # of how your inputs to `as_muscle_stim()` should be arranged:

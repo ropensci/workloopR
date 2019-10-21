@@ -8,16 +8,18 @@
 
 <title>Select cycles from a work loop object — select_cycles • workloopR</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
@@ -32,10 +34,11 @@
 
 
 
-<meta property="og:title" content="Select cycles from a work loop object — select_cycles" />
 
+<meta property="og:title" content="Select cycles from a work loop object — select_cycles" />
 <meta property="og:description" content="Retain data from a work loop experiment based on position cycle" />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -66,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">workloopR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1.9000</span>
       </span>
     </div>
 
@@ -83,25 +86,25 @@
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
+    Vignettes
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/Analyzing-workloops.html">Analyzing work loop experiments in workloopR</a>
-    </li>
-    <li>
-      <a href="../articles/batch-processing.html">Batch processing</a>
-    </li>
-    <li>
-      <a href="../articles/Calculating-twitch-kinetics.html">Working with isometric experiments in workloopR</a>
-    </li>
-    <li>
       <a href="../articles/Introduction-to-workloopR.html">Introduction to workloopR</a>
     </li>
     <li>
       <a href="../articles/non-ddf-sources.html">Importing data from non .ddf sources</a>
+    </li>
+    <li>
+      <a href="../articles/Calculating-twitch-kinetics.html">Working with isometric experiments</a>
+    </li>
+    <li>
+      <a href="../articles/Analyzing-workloops.html">Analyzing work loop experiments</a>
+    </li>
+    <li>
+      <a href="../articles/batch-processing.html">Batch processing</a>
     </li>
     <li>
       <a href="../articles/Plotting-workloopR.html">Plotting data in workloopR</a>
@@ -112,7 +115,6 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/vbaliga/workloopR">
@@ -139,14 +141,12 @@
     </div>
 
     <div class="ref-description">
-    
     <p>Retain data from a work loop experiment based on position cycle</p>
-    
     </div>
 
     <pre class="usage"><span class='fu'>select_cycles</span>(<span class='no'>x</span>, <span class='no'>cycle_def</span>, <span class='kw'>keep_cycles</span> <span class='kw'>=</span> <span class='fl'>4</span>:<span class='fl'>6</span>, <span class='kw'>bworth_order</span> <span class='kw'>=</span> <span class='fl'>2</span>,
   <span class='kw'>bworth_freq</span> <span class='kw'>=</span> <span class='fl'>0.05</span>, <span class='no'>...</span>)</pre>
-    
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -181,7 +181,7 @@ via <code><a href='https://rdrr.io/pkg/signal/man/butter.html'>signal::butter()<
 of <code>select_cycles()</code></p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A <code>workloop</code> object with rows subsetted by the chosen position
@@ -189,7 +189,6 @@ cycles. A <code>Cycle</code> column is appended to denote which cycle each time
 point is associated with. Finally, all attributes from the input
 <code>workloop</code> object are retained and one new attribute is added to
 record which cycles from the original data were retained.</p>
-    
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p><code>select_cycles()</code> subsets data from a workloop trial by
@@ -212,7 +211,6 @@ a complete cycle.</p>
 preferably read in by one of our data import functions. Please see
 documentation for <code><a href='as_muscle_stim.html'>as_muscle_stim()</a></code> if you need to manually construct
 a <code>muscle_stim</code> object from another source.</p>
-    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='analyze_workloop.html'>analyze_workloop</a></code>,
@@ -227,7 +225,6 @@ a <code>muscle_stim</code> object from another source.</p>
   <code><a href='read_analyze_wl.html'>read_analyze_wl</a></code>,
   <code><a href='summarize_wl_trials.html'>summarize_wl_trials</a></code>,
   <code><a href='time_correct.html'>time_correct</a></code></p></div>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
@@ -253,13 +250,9 @@ a <code>muscle_stim</code> object from another source.</p>
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#value">Value</a></li>
-
       <li><a href="#details">Details</a></li>
-
       <li><a href="#see-also">See also</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
@@ -271,11 +264,11 @@ a <code>muscle_stim</code> object from another source.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Vikram B. Baliga, Shreeram Senthivasan.</p>
+  <p>Developed by <a href='https://www.vikram-baliga.com/'>Vikram B. Baliga</a>, Shreeram Senthivasan.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.9100.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.9000.</p>
 </div>
 
       </footer>

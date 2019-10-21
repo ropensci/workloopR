@@ -46,7 +46,7 @@ run. This ultimately allows for the \code{time_correct()} function to correct
 
 Please feel free to contact either Vikram or Shree with suggestions or code
 development requests (see contact info below). We are especially interested
-in expanding our data import functions to accommodate filetypes other than
+in expanding our data import functions to accommodate file types other than
 .ddf in future versions of workloopR.
 }
 \seealso{

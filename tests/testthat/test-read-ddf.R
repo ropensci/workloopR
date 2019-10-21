@@ -1,7 +1,7 @@
 context("importing ddf files")
 
 test_that("read_ddf stops when it should", {
-  expect_error(read_ddf(),"A filename is required")
+  expect_error(read_ddf(),"A file_name is required")
   expect_error(read_ddf(system.file("extdata","twitch001.ddf",package = 'workloopR')),"File * not found!")
   expect_error(read_ddf(system.file("CITATION",package = 'workloopR')),"DMC Datafile")
   expect_error(read_ddf("invalid_exp.ddf"),"Could not parse experiment type")

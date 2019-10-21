@@ -42,8 +42,8 @@ Within the \code{list}, each entry is labeled by cycle and includes:
 \item{Cycle}{Cycle ID, as a letter}
 \item{Inst_velocity}{Instantaneous velocity, computed from \code{Position}
 change, reported in meters/sec}
-\item{Filt_velocity}{Instantaneous velocity, after low-pass filtering, again in
-meter/sec}
+\item{Filt_velocity}{Instantaneous velocity, after low-pass filtering, again
+ in meter/sec}
 \item{Inst_Power}{Instantaneous power, a product of \code{Force} and
 \code{Filt_velocity}, reported in J}
 \item{Percent_of_Cycle}{The percent of that particular cycle which has
@@ -80,7 +80,7 @@ ddf file}
 train}
 \item{stimulus_offset}{Timing offset at which stimulus began}
 \item{gear_ratio}{Gear ratio applied by this function}
-\item{file_id}{Filename}
+\item{file_id}{File name}
 \item{mtime}{Time at which file was last modified}
 \item{retained_cycles}{Which cycles were retained, as numerics}
 \item{summary}{Simple table showing work (in J) and net power (in W) for each

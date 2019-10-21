@@ -1,7 +1,7 @@
 # custom functions
 # all written by Vikram B. Baliga (vbaliga@zoology.ubc.ca) and Shreeram
 # Senthivasan
-# last updated: 2019-07-20
+# last updated: 2019-10-20
 
 
 ########################## workloop object functions ###########################
@@ -53,7 +53,10 @@ workloop <-
     attr(data, "amplitude") <- cycle_table$amplitude[1]
 
     # Calculate Phase
-    phase<-(which.max(data$Stim)-which.max(data$Position))/sample_frequency*stim_table$cycle_frequency[1]
+    phase <-
+      (
+        which.max(data$Stim) - which.max(data$Position)
+      ) / sample_frequency * stim_table$cycle_frequency[1]
     if(!phase_from_peak)
       phase<-phase+0.25
     # convert 0-1 scale to -50 to +50
@@ -206,7 +209,8 @@ summary.analyzed_workloop <- function(object, ...){
 #' of numeric data collected from an experiment. Each row must correspond to a
 #' sample, and these columns (exact title matches) must be included: \cr
 #' "Time" - time, recorded in seconds \cr
-#' "Position" - instantaneous position of the muscle, preferably in millimeters \cr
+#' "Position" - instantaneous position of the muscle,
+#'   preferably in millimeters \cr
 #' "Force" - force, preferably in millinewtons \cr
 #' "Stim" - whether stimulation has occurred. All entries must be either 0 (no
 #' stimulus) or 1 (stimulus occurrence).
@@ -239,7 +243,8 @@ summary.analyzed_workloop <- function(object, ...){
 #' library(workloopR)
 #'
 #' # import the workloop.ddf file included in workloopR
-#' wl_dat <-read_ddf(system.file("extdata", "workloop.ddf", package = 'workloopR'))
+#' wl_dat <-read_ddf(system.file("extdata", "workloop.ddf",
+#'                               package = 'workloopR'))
 #'
 #' # see how this object is organized - this will give you a sense
 #' # of how your inputs to `as_muscle_stim()` should be arranged:
@@ -262,13 +267,21 @@ as_muscle_stim <- function(x,
                            sample_frequency,
                            ...){
   # Check for missing information
-  if(missing(type))stop("Please specify the experiment type! The type argument should be one of: workloop, tetanus, or twitch.")
+  if(missing(type))stop("Please specify the experiment type!
+                        \nThe type argument should be one of:
+                        \nworkloop, tetanus, or twitch.")
   if(!(type %in% c("workloop","tetanus","twitch"))|length(type)!=1)
-    stop("Invalid experiment type! The type argument should be one of: workloop, tetanus, or twitch.")
+    stop("Invalid experiment type!
+         \nThe type argument should be one of:
+         \nworkloop, tetanus, or twitch.")
   if(!all(c("Position","Force","Stim") %in% names(x)))
-    stop("Couldn't find one or more of the following necessary columns: Position, Force, Stim. Please ensure that the columns match the naming conventions.")
+    stop("Couldn't find one or more of the following necessary columns:
+         \nPosition, Force, Stim.
+         \nPlease ensure that the columns match the naming conventions.")
   if(missing(sample_frequency)&!("Time" %in% names(x)))
-    stop("Insufficient information to infer the sampling frequency. Please provide a value for the sample_frequency argument or include a column named `Time` in the dataframe.")
+    stop("Insufficient information to infer the sampling frequency.
+         \nPlease provide a value for the sample_frequency argument
+         \nor include a column named `Time` in the dataframe.")
 
   # Consolidate time / sample frequency information
   if(!missing(sample_frequency))
@@ -311,7 +324,8 @@ as_muscle_stim <- function(x,
   # Check for invalid attributes and assign valids
   args<-list(...)
   if(!all(names(args) %in% valid_args))
-    warning("One or more provided attributes do not match known attributes. These attributes will not be assigned.")
+    warning("One or more provided attributes do not match known attributes.
+            \nThese attributes will not be assigned.")
   for(i in intersect(names(args),valid_args))
     attr(x,i)<-args[[i]]
   for(i in setdiff(valid_args,names(args)))
@@ -337,9 +351,9 @@ as_muscle_stim <- function(x,
 #' \code{read_ddf} reads in workloop, twitch, or tetanus experiment data from
 #' .ddf files.
 #'
-#' @param filename A .ddf file that contains data from a single workloop,
+#' @param file_name A .ddf file that contains data from a single workloop,
 #' twitch, or tetanus experiment
-#' @param file_id A string identifying the experiment. The filename is used by
+#' @param file_id A string identifying the experiment. The file name is used by
 #' default.
 #' @param rename_cols List consisting of a vector of indices of columns to
 #' rename and a vector of new column names. See Details.
@@ -415,24 +429,24 @@ as_muscle_stim <- function(x,
 #'
 #' @export
 read_ddf <-
-  function(filename,
+  function(file_name,
            file_id = NA,
            rename_cols = list(c(2, 3), c("Position", "Force")),
            skip_cols = 4:11,
            phase_from_peak = FALSE,
            ...){
     # Import and checks
-    if(missing(filename)) stop("A filename is required")
-    if(!file.exists(filename)) stop(paste0("File ",filename," not found!"))
-    f<-file(filename,"r")
+    if(missing(file_name)) stop("A file_name is required")
+    if(!file.exists(file_name)) stop(paste0("File ",file_name," not found!"))
+    f<-file(file_name,"r")
     if(!grepl("DMC.*Data File",readLines(f,1))){
       close(f)
       stop("The input file does not appear to be a DMC Datafile (ddf)")
     }
-    if(is.na(file_id)) file_id<-basename(filename)
+    if(is.na(file_id)) file_id<-basename(file_name)
 
     # get metadata
-    mtime<-file.info(filename)$mtime
+    mtime<-file.info(file_name)$mtime
 
     # Setup for reading in file
     header<-c()
@@ -457,7 +471,9 @@ read_ddf <-
     units_table[3:5]<-lapply(units_table[3:5],as.numeric)
     units<-c("s",units_table$Units[-skip_cols+1],"TTL")
     if(!all(units %in% c("s","mm","mN","TTL")))
-      warning("Non-standard units detected in ddf file! Please note that calculations currently assume raw data are in seconds, millimeters, and millinewtons.")
+      warning("Non-standard units detected in ddf file!
+              \nPlease note that calculations currently assume raw data
+              are in seconds, millimeters, and millinewtons.")
 
     # Read in Protocol Array
     while(!grepl("Protocol",readLines(f,1))) {}
@@ -480,17 +496,22 @@ read_ddf <-
                              header=TRUE,
                              sep="\t",
                              stringsAsFactors=FALSE)
-    if(any(!apply(dataz,2,is.numeric))) warning("The ddf file includes non-numeric data. Please ensure that this is intentional before proceeding.")
+    if(any(!apply(dataz,2,is.numeric)))
+      warning("The ddf file includes non-numeric data.
+              \nPlease ensure that this is intentional before proceeding.")
     close(f)
 
     # Parse file type
     read_filetype.ddf<-NULL
     switch(
            grep("Stim",protocol_table[[2]],value=TRUE)[1],
-           "Stimulus-Train"=read_filetype.ddf<-read_wl.ddf,
-           "Stimulus-Twitch"=read_filetype.ddf<-read_twitch.ddf,
-           "Stimulus-Tetanus"=read_filetype.ddf<-read_tetanus.ddf,
-            stop("Could not parse experiment type (workloop, twitch, or tetanus)! Please ensure that the protocol section of the ddf header includes a label with one of the following: Stimulus-Train, Stimulus-Twitch, or Stimulus-Tetanus.")
+           "Stimulus-Train"=read_filetype.ddf<-read_wl_ddf,
+           "Stimulus-Twitch"=read_filetype.ddf<-read_twitch_ddf,
+           "Stimulus-Tetanus"=read_filetype.ddf<-read_tetanus_ddf,
+          stop("Could not parse experiment type (workloop, twitch, or tetanus)!
+               \nPlease ensure that the protocol section of the ddf header
+               includes a label with one of the following:
+               \nStimulus-Train, Stimulus-Twitch, or Stimulus-Tetanus.")
     )
     return(read_filetype.ddf(file_id=file_id,
                              mtime=mtime,
@@ -510,8 +531,8 @@ read_ddf <-
 #' Uses \code{read_ddf()} to read in workloop, twitch, or tetanus experiment
 #' data from multiple .ddf files.
 #'
-#' @param filepath Path where files are stored. Should be in the same folder.
-#' @param pattern Regex pattern for identifying relevant files in the filepath.
+#' @param file_path Path where files are stored. Should be in the same folder.
+#' @param pattern Regex pattern for identifying relevant files in the file_path.
 #' @param sort_by Metadata by which files should be sorted to be in the correct
 #' run order. Defaults to \code{mtime}, which is time of last modification of
 #' files.
@@ -562,20 +583,22 @@ read_ddf <-
 #' #my_dat <- read_ddf_dir("./my/file/path/")
 #'
 #' @export
-read_ddf_dir <- function(filepath,
+read_ddf_dir <- function(file_path,
                          pattern = "*.ddf",
                          sort_by = "mtime",
                          ...){
-  # Generate list of filenames
-  filename_list<-list.files(path=filepath,pattern=pattern,full.names=TRUE)
-  if(length(filename_list)==0) stop("No files matching the pattern found at the given directory!")
+  # Generate list of file_names
+  file_name_list<-list.files(path=file_path,pattern=pattern,full.names=TRUE)
+  if(length(file_name_list)==0)
+    stop("No files matching the pattern found at the given directory!")
 
   # Generate list of muscle_stim objects
-  ms_list<-lapply(filename_list,function(i) read_ddf(i,...))
+  ms_list<-lapply(file_name_list,function(i) read_ddf(i,...))
 
   # Sort list, likely by modification time
   if(is.null(attr(ms_list[[1]],sort_by))){
-    warning("The provided sort_by argument is not a valid attribute. Defaulting to `mtime`.")
+    warning("The provided sort_by argument is not a valid attribute.
+            \nDefaulting to `mtime`.")
     sort_by<-"mtime"
   }
   ms_list<-ms_list[order(sapply(ms_list,function(i)attr(i,sort_by)))]
@@ -614,7 +637,7 @@ rescale_data<-
 
 ########################## read_ddf files - workloop ###########################
 #' @noRd
-read_wl.ddf<-
+read_wl_ddf<-
   function(raw_data,
            units_table,
            protocol_table,
@@ -656,7 +679,7 @@ read_wl.ddf<-
 
 ############################ read_ddf files - twitch ###########################
 #' @noRd
-read_twitch.ddf<-
+read_twitch_ddf<-
   function(raw_data,
            units_table,
            protocol_table,
@@ -692,7 +715,7 @@ read_twitch.ddf<-
 
 ########################## read_ddf files - tetanus ##########################
 #' @noRd
-read_tetanus.ddf<-
+read_tetanus_ddf<-
   function(raw_data,
            units_table,
            protocol_table,
@@ -734,7 +757,7 @@ read_tetanus.ddf<-
 #' \code{read_analyze_wl()} is an all-in-one function to read in a work loop
 #' file, select cycles, and compute work and power output.
 #'
-#' @param filename A .ddf file that contains data from a
+#' @param file_name A .ddf file that contains data from a
 #' single workloop experiment
 #' @param ... Additional arguments to be passed to \code{read_ddf()},
 #' \code{select_cycles()},
@@ -763,9 +786,10 @@ read_tetanus.ddf<-
 #' The gear ratio (GR) and velocity multiplier (M) parameters can help correct
 #' for issues related to the magnitude and sign of data collection. By
 #' default, they are set to apply no gear ratio adjustment and to positivize
-#' velocity. Instantaneous velocity is often noisy and the \code{vel_bf} parameter
-#' allows for low-pass filtering of velocity data. See \code{signal::butter()}
-#' and \code{signal::filtfilt()} for details of how filtering is achieved.
+#' velocity. Instantaneous velocity is often noisy and the \code{vel_bf}
+#' parameter allows for low-pass filtering of velocity data. See
+#' \code{signal::butter()} and \code{signal::filtfilt()} for details of how
+#' filtering is achieved.
 #'
 #' @inherit analyze_workloop return
 #' @inheritSection analyze_workloop Warning
@@ -797,15 +821,21 @@ read_tetanus.ddf<-
 #' \code{\link{analyze_workloop}}
 #'
 #' @export
-read_analyze_wl <- function(filename,
+read_analyze_wl <- function(file_name,
                             ...){
-  valid_args<-c("file_id","rename_cols","skip_cols","phase_from_peak","cycle_def","keep_cycles","bworth_order","bworth_freq","simplify","GR","M","vel_bf")
+  valid_args<-c("file_id","rename_cols","skip_cols",
+                "phase_from_peak","cycle_def","keep_cycles",
+                "bworth_order","bworth_freq",
+                "simplify","GR","M","vel_bf")
   arg_names<-names(list(...))
-  if(!all(arg_names %in% valid_args)) warning("One or more provided attributes do not match known attributes. These will attributes will not be assigned.")
+  if(!all(arg_names %in% valid_args))
+    warning("One or more provided attributes do not match known attributes.
+            \nThese will attributes will not be assigned.")
 
-  fulldata<-read_ddf(filename,...)
+  fulldata<-read_ddf(file_name,...)
   if(!("workloop" %in% class(fulldata)))
-    stop(paste0("The provided file ",filename," does not appear to contain data from a workloop experiment!"))
+    stop(paste0("The provided file ",file_name,"
+                does not appear to contain data from a workloop experiment!"))
   return(analyze_workloop(select_cycles(fulldata,...),...))
 }
 
@@ -817,8 +847,8 @@ read_analyze_wl <- function(filename,
 #' Grab metadata from files stored in the same folder (e.g. a sequence of trials
 #'  in an experiment).
 #'
-#' @param filepath Path where files are stored. Should be in the same folder.
-#' @param pattern Regex pattern for identifying relevant files in the filepath.
+#' @param file_path Path where files are stored. Should be in the same folder.
+#' @param pattern Regex pattern for identifying relevant files in the file_path.
 #'
 #' @details If several files (e.g. successive trials from one experiment) are
 #' stored in one folder, use this function to obtain metadata in a list
@@ -832,7 +862,7 @@ read_analyze_wl <- function(filename,
 #' metadata issues that arise if running \code{read_analyze_wl_dir()} goes awry.
 #'
 #' Unlike \code{read_analyze_wl_dir()}, this function does not necessarily need
-#' files to all be work loops. Any filetype is welcome (as long as the Regex
+#' files to all be work loops. Any file type is welcome (as long as the Regex
 #' \code{pattern} argument makes sense).
 #'
 #' @family data import functions
@@ -856,9 +886,9 @@ read_analyze_wl <- function(filename,
 #' #my_meta <- get_wl_metadata("./my/file/path/")
 #'
 #' @export
-get_wl_metadata <- function(filepath,
+get_wl_metadata <- function(file_path,
                             pattern = "*.ddf"){
-  exp_list<-file.info(list.files(path=filepath,pattern=pattern,
+  exp_list<-file.info(list.files(path=file_path,pattern=pattern,
                                  full.names=TRUE,recursive=TRUE))
   exp_list$exp_names<-rownames(exp_list)
   # re-order by run order, using time stamps
@@ -875,9 +905,9 @@ get_wl_metadata <- function(filepath,
 #' sort them by mtime, analyze them, and store the resulting objects in an
 #' ordered list.
 #'
-#' @param filepath Directory in which files are located
+#' @param file_path Directory in which files are located
 #' @param pattern Regular expression used to specify files of interest. Defaults
-#' to all .ddf files within filepath.
+#' to all .ddf files within file_path
 #' @param sort_by Metadata by which files should be sorted to be in the correct
 #' run order. Defaults to \code{mtime}, which is time of last modification of
 #' files.
@@ -927,20 +957,22 @@ get_wl_metadata <- function(filepath,
 #' #my_analyzed_wls <- read_analyze_wl_dir("./my/file/path/")
 #'
 #' @export
-read_analyze_wl_dir <- function(filepath,
+read_analyze_wl_dir <- function(file_path,
                                 pattern = "*.ddf",
                                 sort_by = "mtime",
                                 ...){
-  # Generate list of filenames
-  filename_list<-list.files(path=filepath,pattern=pattern,full.names=TRUE)
-  if(length(filename_list)==0) stop("No files matching the pattern found at the given directory!")
+  # Generate list of file_names
+  file_name_list<-list.files(path=file_path,pattern=pattern,full.names=TRUE)
+  if(length(file_name_list)==0)
+    stop("No files matching the pattern found at the given directory!")
 
   # Generate list of analyzed workloop objects
-  wl_list<-lapply(filename_list,function(i) read_analyze_wl(i,...))
+  wl_list<-lapply(file_name_list,function(i) read_analyze_wl(i,...))
 
   # Sort list, likely by modification time
   if(is.null(attr(wl_list[[1]],sort_by))){
-    warning("The provided sort_by argument is not a valid attribute. Defaulting to `mtime`.")
+    warning("The provided sort_by argument is not a valid attribute.
+            \nDefaulting to `mtime`.")
     sort_by<-"mtime"
   }
   return(wl_list<-wl_list[order(sapply(wl_list,function(i)attr(i,sort_by)))])
@@ -1014,16 +1046,22 @@ summarize_wl_trials <- function(wl_list){
   if(class(wl_list)[[1]]!="list")
      stop("Please provide a list of analyzed workloop objects")
   if(!all(sapply(wl_list,function(x) 'analyzed_workloop' %in% class(x))))
-    stop("The provided list includes elements that are not analyzed workloop objects")
+    stop("The provided list includes elements that are
+         not analyzed workloop objects")
 
-  return(data.frame(File_ID = sapply(wl_list,function(i)attr(i,"file_id")),
-                    Cycle_Frequency = sapply(wl_list,function(i)attr(i,"cycle_frequency")),
-                    Amplitude = sapply(wl_list,function(i)attr(i,"amplitude")),
-                    Phase = sapply(wl_list,function(i)attr(i,"phase")),
-                    Stimulus_Pulses = sapply(wl_list,function(i)attr(i,"stimulus_pulses")),
-                    Stimulus_Frequency = sapply(wl_list,function(i)attr(i,"stimulus_frequency")),
-                    mtime = sapply(wl_list,function(i)attr(i,"mtime")),
-                    Mean_Work = sapply(wl_list,function(i)mean(attr(i,"summary")$Work)),
-                    Mean_Power = sapply(wl_list,function(i)mean(attr(i,"summary")$Net_Power))))
+  summarized <- data.frame(
+    File_ID = sapply(wl_list,function(i)attr(i,"file_id")),
+    Cycle_Frequency = sapply(wl_list,function(i)attr(i,"cycle_frequency")),
+    Amplitude = sapply(wl_list,function(i)attr(i,"amplitude")),
+    Phase = sapply(wl_list,function(i)attr(i,"phase")),
+    Stimulus_Pulses = sapply(wl_list,function(i)attr(i,"stimulus_pulses")),
+    Stimulus_Frequency = sapply(wl_list, function(i)
+      attr(i, "stimulus_frequency")),
+    mtime = sapply(wl_list,function(i)attr(i,"mtime")),
+    Mean_Work = sapply(wl_list,function(i)mean(attr(i,"summary")$Work)),
+    Mean_Power = sapply(wl_list,function(i)mean(attr(i,"summary")$Net_Power))
+  )
+
+  return(summarized)
 }
 

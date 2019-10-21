@@ -4,12 +4,12 @@
 \alias{get_wl_metadata}
 \title{Get file info for a sequence of experiment files}
 \usage{
-get_wl_metadata(filepath, pattern = "*.ddf")
+get_wl_metadata(file_path, pattern = "*.ddf")
 }
 \arguments{
-\item{filepath}{Path where files are stored. Should be in the same folder.}
+\item{file_path}{Path where files are stored. Should be in the same folder.}
 
-\item{pattern}{Regex pattern for identifying relevant files in the filepath.}
+\item{pattern}{Regex pattern for identifying relevant files in the file_path.}
 }
 \description{
 Grab metadata from files stored in the same folder (e.g. a sequence of trials
@@ -28,7 +28,7 @@ only grabs metadata but also imports & analyzes files. Instead,
 metadata issues that arise if running \code{read_analyze_wl_dir()} goes awry.
 
 Unlike \code{read_analyze_wl_dir()}, this function does not necessarily need
-files to all be work loops. Any filetype is welcome (as long as the Regex
+files to all be work loops. Any file type is welcome (as long as the Regex
 \code{pattern} argument makes sense).
 }
 \examples{

@@ -70,7 +70,7 @@ analyzed_wl_list[[5]]<-workloop_example
 
 test_that("summarize wl trials stops when it should", {
   expect_error(summarize_wl_trials(workloop_example),"Please provide a list")
-  expect_error(summarize_wl_trials(analyzed_wl_list),"includes elements that are not analyzed")
+  expect_error(summarize_wl_trials(analyzed_wl_list),"not analyzed workloop objects")
 })
 
 analyzed_wl_list[[5]]<-NULL
