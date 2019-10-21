@@ -37,7 +37,9 @@
 #' coords <- t(rbind(10 + sin(t)*2, 20 + cos(t)*2))
 #'
 #' # sanity check: does it look like a circle?
-#' #plot(coords, asp = 1)
+#' \dontrun{
+#' plot(coords, asp = 1)
+#' }
 #'
 #' # use the function to get the area
 #' trapezoidal_integration(coords[,1],coords[,2])
@@ -374,9 +376,11 @@ analyze_workloop <- function(x,
 #' timecor_wls
 #'
 #' # or on your own directory
-#' #my_meta <- read_analyze_wl_dir("./my/file/path/")
-#' #my_summaries <- summarize_wl_trials(my_meta)
-#' #my_timecors <- time_correct(my_summaries)
+#' \dontrun{
+#' my_meta <- read_analyze_wl_dir("./my/file/path/")
+#' my_summaries <- summarize_wl_trials(my_meta)
+#' my_timecors <- time_correct(my_summaries)
+#' }
 #'
 #' @seealso
 #' \code{\link{summarize_wl_trials}}

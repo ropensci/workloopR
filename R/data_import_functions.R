@@ -248,11 +248,13 @@ summary.analyzed_workloop <- function(object, ...){
 #'
 #' # see how this object is organized - this will give you a sense
 #' # of how your inputs to `as_muscle_stim()` should be arranged:
-#' #head(wl_dat)
-#' #str(wl_dat)
+#' \dontrun{
+#' head(wl_dat)
+#' str(wl_dat)
 #' # formatting of attributes:
-#' #names(attributes(wl_dat))
-#' #str(attributes(wl_dat))
+#' names(attributes(wl_dat))
+#' str(attributes(wl_dat))
+#' }
 #'
 #' @author Shreeram Senthivasan
 #'
@@ -425,7 +427,9 @@ as_muscle_stim <- function(x,
 #'                   phase_from_peak = TRUE)
 #'
 #' # or import your own file
-#' #my_dat <- read_ddf("./my/file/path/myfile.ddf")
+#' \dontrun{
+#' my_dat <- read_ddf("./my/file/path/myfile.ddf")
+#' }
 #'
 #' @export
 read_ddf <-
@@ -580,7 +584,9 @@ read_ddf <-
 #'                  package = 'workloopR'))
 #'
 #' # or import your own file
-#' #my_dat <- read_ddf_dir("./my/file/path/")
+#' \dontrun{
+#' my_dat <- read_ddf_dir("./my/file/path/")
+#' }
 #'
 #' @export
 read_ddf_dir <- function(file_path,
@@ -883,7 +889,9 @@ read_analyze_wl <- function(file_name,
 #'                                        package = 'workloopR'))
 #'
 #' # or on your own directory
-#' #my_meta <- get_wl_metadata("./my/file/path/")
+#' \dontrun{
+#' my_meta <- get_wl_metadata("./my/file/path/")
+#' }
 #'
 #' @export
 get_wl_metadata <- function(file_path,
@@ -954,7 +962,9 @@ get_wl_metadata <- function(file_path,
 #'                                     cycle_def = "p2p", keep_cycles = 2:4)
 #'
 #' # or on your own directory
-#' #my_analyzed_wls <- read_analyze_wl_dir("./my/file/path/")
+#' \dontrun{
+#' my_analyzed_wls <- read_analyze_wl_dir("./my/file/path/")
+#' }
 #'
 #' @export
 read_analyze_wl_dir <- function(file_path,
@@ -1037,8 +1047,10 @@ read_analyze_wl_dir <- function(file_path,
 #' summarized_wls <- summarize_wl_trials(analyzed_wls)
 #'
 #' # or on your own directory
-#' #my_meta <- read_analyze_wl_dir("./my/file/path/")
-#' #my_summaries <- summarize_wl_trials(my_meta)
+#' \dontrun{
+#' my_meta <- read_analyze_wl_dir("./my/file/path/")
+#' my_summaries <- summarize_wl_trials(my_meta)
+#' }
 #'
 #'
 #' @export
