@@ -60,7 +60,7 @@ trapezoidal_integration <- function(x,
   # obtain length of variable of integration and integrand
   n=length(x)
   # integrate using the trapezoidal rule
-  integral=0.5*sum((x[2:n]-x[1:(n-1)])*(f[2:n]+f[1:(n-1)]))
+  integral=0.5*sum((x[-1]-x[-n])*(f[-1]+f[-n]))
   # return the definite integral
   return(integral)
 }

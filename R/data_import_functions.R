@@ -285,7 +285,7 @@ as_muscle_stim <- function(x,
 
   # Consolidate time / sample frequency information
   if(!missing(sample_frequency))
-    x$Time=(1:nrow(x)-1)/sample_frequency
+    x$Time=(seq_len(nrow(x))-1)/sample_frequency
   else
     sample_frequency<-1/(x$Time[2]-x$Time[1])
 
@@ -624,7 +624,7 @@ rescale_data<-
                      unitz$Offset,
                      unitz$Scale)
 
-    rescaled<-data.frame(Time=(1:nrow(dataz))/sample_frequency,
+    rescaled<-data.frame(Time=(seq_len(nrow(dataz)))/sample_frequency,
                   rescaled,
                   Stim=dataz$Stim)
 
