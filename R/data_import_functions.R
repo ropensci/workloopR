@@ -34,7 +34,7 @@ muscle_stim <-
     attr(data, "file_id") <- file_id
     attr(data, "mtime") <- mtime
     class(data) <- c(class(data), "muscle_stim", "data.frame")
-    data
+    return(data)
   }
 
 # Classes for specific trial type
@@ -61,10 +61,10 @@ workloop <-
 
     attr(data,"position_inverted")<-FALSE
     class(data)<-c("workloop")
-    muscle_stim(data=data,
-                stim_table=stim_table,
-                sample_frequency=sample_frequency,
-                ...)
+    return(muscle_stim(data=data,
+                       stim_table=stim_table,
+                       sample_frequency=sample_frequency,
+                       ...))
   }
 
 #' @noRd
@@ -73,16 +73,16 @@ tetanus<-
     attr(data,"stimulus_frequency")<-stim_table$frequency[1]
     attr(data,"stimulus_length")<-stim_table$length[1]
     class(data)<-c("tetanus","isometric")
-    muscle_stim(data=data,
-                stim_table=stim_table,
-                ...)
+    return(muscle_stim(data=data,
+                       stim_table=stim_table,
+                       ...))
   }
 
 #' @noRd
 twitch<-
   function(data,...){
     class(data)<-c("twitch","isometric")
-    muscle_stim(data=data,...)
+    return(muscle_stim(data=data,...))
   }
 
 # Generate type-specific output header for workloop objects
@@ -327,7 +327,7 @@ as_muscle_stim <- function(x,
          "workloop"=class(x)<-c("workloop",class(x)),
          "tetanus"=class(x)<-c("tetanus","isometric",class(x)),
          "twitch"=class(x)<-c("twitch","isometric",class(x)))
-  x
+  return(x)
 }
 
 ########################## read_ddf files - work loops #########################
@@ -420,8 +420,7 @@ read_ddf <-
            rename_cols = list(c(2, 3), c("Position", "Force")),
            skip_cols = 4:11,
            phase_from_peak = FALSE,
-           ...)
-  {
+           ...){
     # Import and checks
     if(missing(filename)) stop("A filename is required")
     if(!file.exists(filename)) stop(paste0("File ",filename," not found!"))
@@ -493,17 +492,17 @@ read_ddf <-
            "Stimulus-Tetanus"=read_filetype.ddf<-read_tetanus.ddf,
             stop("Could not parse experiment type (workloop, twitch, or tetanus)! Please ensure that the protocol section of the ddf header includes a label with one of the following: Stimulus-Train, Stimulus-Twitch, or Stimulus-Tetanus.")
     )
-    read_filetype.ddf(file_id=file_id,
-                     mtime=mtime,
-                     header=header,
-                     units_table=units_table,
-                     units=units,
-                     protocol_table=protocol_table,
-                     raw_data=dataz,
-                     sample_frequency=sample_frequency,
-                     rename_cols=rename_cols,
-                     skip_cols=skip_cols,
-                     phase_from_peak=phase_from_peak)
+    return(read_filetype.ddf(file_id=file_id,
+                             mtime=mtime,
+                             header=header,
+                             units_table=units_table,
+                             units=units,
+                             protocol_table=protocol_table,
+                             raw_data=dataz,
+                             sample_frequency=sample_frequency,
+                             rename_cols=rename_cols,
+                             skip_cols=skip_cols,
+                             phase_from_peak=phase_from_peak))
   }
 
 #' Import a batch of work loop or isometric data files from a directory
@@ -581,7 +580,7 @@ read_ddf_dir <- function(filepath,
   }
   ms_list<-ms_list[order(sapply(ms_list,function(i)attr(i,sort_by)))]
 
-  ms_list
+  return(ms_list)
 }
 
 ############################# rescale data matrix ##############################
@@ -610,7 +609,7 @@ rescale_data<-
     if(!is.null(rename_cols))
       names(rescaled)[rename_cols[[1]]]<-rename_cols[[2]]
 
-    rescaled[,-skip_cols]
+    return(rescaled[,-skip_cols])
   }
 
 ########################## read_ddf files - workloop ###########################
@@ -622,8 +621,7 @@ read_wl.ddf<-
            sample_frequency,
            rename_cols,
            skip_cols,
-           ...)
-  {
+           ...) {
     #get info on experimental parameters
     stim_table<-
       utils::read.table(
@@ -646,13 +644,13 @@ read_wl.ddf<-
                                 skip_cols)
 
     #construct and return workloop object
-    workloop(data=rescaled_data,
-             sample_frequency=sample_frequency,
-             units_table=units_table,
-             protocol_table=protocol_table,
-             stim_table=stim_table,
-             cycle_table=cycle_table,
-             ...)
+    return(workloop(data=rescaled_data,
+                    sample_frequency=sample_frequency,
+                    units_table=units_table,
+                    protocol_table=protocol_table,
+                    stim_table=stim_table,
+                    cycle_table=cycle_table,
+                    ...))
   }
 
 
@@ -665,8 +663,7 @@ read_twitch.ddf<-
            sample_frequency,
            rename_cols=list(c(2,3),c("Position","Force")),
            skip_cols=4:11,
-           ...)
-  {
+           ...) {
     #get info on experimental parameters
     stim_table<-
       utils::read.table(
@@ -684,12 +681,12 @@ read_twitch.ddf<-
                                 skip_cols)
 
     #construct and return workloop object
-    twitch(data=rescaled_data,
-           sample_frequency=sample_frequency,
-           units_table=units_table,
-           protocol_table=protocol_table,
-           stim_table=stim_table,
-           ...)
+    return(twitch(data=rescaled_data,
+                  sample_frequency=sample_frequency,
+                  units_table=units_table,
+                  protocol_table=protocol_table,
+                  stim_table=stim_table,
+                  ...))
   }
 
 
@@ -702,8 +699,7 @@ read_tetanus.ddf<-
            sample_frequency,
            rename_cols=list(c(2,3),c("Position","Force")),
            skip_cols=4:11,
-           ...)
-  {
+           ...) {
     #get info on experimental parameters
     stim_table <-
       utils::read.table(
@@ -722,12 +718,12 @@ read_tetanus.ddf<-
                                 skip_cols)
 
     #construct and return workloop object
-    tetanus(data=rescaled_data,
-            sample_frequency=sample_frequency,
-            units_table=units_table,
-            protocol_table=protocol_table,
-            stim_table=stim_table,
-            ...)
+    return(tetanus(data=rescaled_data,
+                   sample_frequency=sample_frequency,
+                   units_table=units_table,
+                   protocol_table=protocol_table,
+                   stim_table=stim_table,
+                   ...))
   }
 
 
@@ -810,7 +806,7 @@ read_analyze_wl <- function(filename,
   fulldata<-read_ddf(filename,...)
   if(!("workloop" %in% class(fulldata)))
     stop(paste0("The provided file ",filename," does not appear to contain data from a workloop experiment!"))
-  analyze_workloop(select_cycles(fulldata,...),...)
+  return(analyze_workloop(select_cycles(fulldata,...),...))
 }
 
 
@@ -947,7 +943,7 @@ read_analyze_wl_dir <- function(filepath,
     warning("The provided sort_by argument is not a valid attribute. Defaulting to `mtime`.")
     sort_by<-"mtime"
   }
-  wl_list<-wl_list[order(sapply(wl_list,function(i)attr(i,sort_by)))]
+  return(wl_list<-wl_list[order(sapply(wl_list,function(i)attr(i,sort_by)))])
 }
 
 ######################### summarize sequence of work loops #####################
@@ -1020,16 +1016,14 @@ summarize_wl_trials <- function(wl_list){
   if(!all(sapply(wl_list,function(x) 'analyzed_workloop' %in% class(x))))
     stop("The provided list includes elements that are not analyzed workloop objects")
 
-  data.frame(
-    File_ID = sapply(wl_list,function(i)attr(i,"file_id")),
-    Cycle_Frequency = sapply(wl_list,function(i)attr(i,"cycle_frequency")),
-    Amplitude = sapply(wl_list,function(i)attr(i,"amplitude")),
-    Phase = sapply(wl_list,function(i)attr(i,"phase")),
-    Stimulus_Pulses = sapply(wl_list,function(i)attr(i,"stimulus_pulses")),
-    Stimulus_Frequency = sapply(wl_list,function(i)attr(i,"stimulus_frequency")),
-    mtime = sapply(wl_list,function(i)attr(i,"mtime")),
-    Mean_Work = sapply(wl_list,function(i)mean(attr(i,"summary")$Work)),
-    Mean_Power = sapply(wl_list,function(i)mean(attr(i,"summary")$Net_Power))
-  )
+  return(data.frame(File_ID = sapply(wl_list,function(i)attr(i,"file_id")),
+                    Cycle_Frequency = sapply(wl_list,function(i)attr(i,"cycle_frequency")),
+                    Amplitude = sapply(wl_list,function(i)attr(i,"amplitude")),
+                    Phase = sapply(wl_list,function(i)attr(i,"phase")),
+                    Stimulus_Pulses = sapply(wl_list,function(i)attr(i,"stimulus_pulses")),
+                    Stimulus_Frequency = sapply(wl_list,function(i)attr(i,"stimulus_frequency")),
+                    mtime = sapply(wl_list,function(i)attr(i,"mtime")),
+                    Mean_Work = sapply(wl_list,function(i)mean(attr(i,"summary")$Work)),
+                    Mean_Power = sapply(wl_list,function(i)mean(attr(i,"summary")$Net_Power))))
 }
 

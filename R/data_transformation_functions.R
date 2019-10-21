@@ -145,7 +145,7 @@ select_cycles <- function(x,
   x$Cycle<-letters[as.factor(x$Cycle)]
   if(!all(is.na(attr(x,"units")))) attr(x,"units")<-c(attr(x,"units"),"letters")
   attr(x,"retained_cycles")<-keep_cycles
-  x
+  return(x)
 }
 
 ############################## position inversion ##############################

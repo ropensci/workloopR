@@ -283,7 +283,7 @@ analyze_workloop <- function(x,
       attr(x,"net_power")<-net_p
       if(!all(is.na(attr(x,"units"))))
         attr(x,"units")<-c(attr(x,"units"),"m/s","m/s","W")
-      x
+      return(x)
     },
     x_by_cycle,
     velocity,
@@ -298,7 +298,7 @@ analyze_workloop <- function(x,
   attr(result,"summary")<-summary_table
   class(result)<-c("analyzed_workloop","list")
 
-  stats::setNames(result,paste0("cycle_",cycle_names))
+  return(stats::setNames(result,paste0("cycle_",cycle_names)))
 }
 
 
@@ -390,7 +390,7 @@ time_correct <- function(x){
     utils::tail(x$mtime,1)-utils::head(x$mtime,1)
   attr(x,"time_correction_rate") <-
     attr(x,"power_difference") / attr(x,"time_difference")
-  x
+  return(x)
 }
 
 
@@ -520,6 +520,6 @@ isometric_timing <- function(x,
   set_point_results<-data.frame(as.list(set_point_results))
 
   # return both result
-  cbind(main_results,set_point_results)
+  return(cbind(main_results,set_point_results))
 }
 
