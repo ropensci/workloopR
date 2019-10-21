@@ -975,7 +975,7 @@ read_analyze_wl_dir <- function(file_path,
             \nDefaulting to `mtime`.")
     sort_by<-"mtime"
   }
-  return(wl_list<-wl_list[order(sapply(wl_list,function(i)attr(i,sort_by)))])
+  return(wl_list<-wl_list[order(unlist(lapply(wl_list,function(i)attr(i,sort_by))))])
 }
 
 ######################### summarize sequence of work loops #####################
@@ -1045,21 +1045,21 @@ read_analyze_wl_dir <- function(file_path,
 summarize_wl_trials <- function(wl_list){
   if(class(wl_list)[[1]]!="list")
      stop("Please provide a list of analyzed workloop objects")
-  if(!all(sapply(wl_list,function(x) 'analyzed_workloop' %in% class(x))))
+  if(!all(unlist(lapply(wl_list,function(x) 'analyzed_workloop' %in% class(x)))))
     stop("The provided list includes elements that are
          not analyzed workloop objects")
 
   summarized <- data.frame(
-    File_ID = sapply(wl_list,function(i)attr(i,"file_id")),
-    Cycle_Frequency = sapply(wl_list,function(i)attr(i,"cycle_frequency")),
-    Amplitude = sapply(wl_list,function(i)attr(i,"amplitude")),
-    Phase = sapply(wl_list,function(i)attr(i,"phase")),
-    Stimulus_Pulses = sapply(wl_list,function(i)attr(i,"stimulus_pulses")),
-    Stimulus_Frequency = sapply(wl_list, function(i)
-      attr(i, "stimulus_frequency")),
-    mtime = sapply(wl_list,function(i)attr(i,"mtime")),
-    Mean_Work = sapply(wl_list,function(i)mean(attr(i,"summary")$Work)),
-    Mean_Power = sapply(wl_list,function(i)mean(attr(i,"summary")$Net_Power))
+    File_ID = vapply(wl_list,function(i)attr(i,"file_id"), character(1)),
+    Cycle_Frequency = vapply(wl_list,function(i)attr(i,"cycle_frequency"), numeric(1)),
+    Amplitude = vapply(wl_list,function(i)attr(i,"amplitude"), numeric(1)),
+    Phase = vapply(wl_list,function(i)attr(i,"phase"), numeric(1)),
+    Stimulus_Pulses = vapply(wl_list,function(i)attr(i,"stimulus_pulses"), numeric(1)),
+    Stimulus_Frequency = vapply(wl_list, function(i)
+      attr(i, "stimulus_frequency"), numeric(1)),
+    mtime = vapply(wl_list,function(i)attr(i,"mtime"), numeric(1)),
+    Mean_Work = vapply(wl_list,function(i)mean(attr(i,"summary")$Work), numeric(1)),
+    Mean_Power = vapply(wl_list,function(i)mean(attr(i,"summary")$Net_Power), numeric(1))
   )
 
   return(summarized)

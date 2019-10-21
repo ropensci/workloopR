@@ -132,7 +132,7 @@ select_cycles <- function(x,
   )
   splits<-(splits-c(NA,utils::head(splits,-1)))[-1]
 
-  cycle<-unlist(sapply(seq_along(splits), function(i)rep(i-1,splits[i])))
+  cycle<-unlist(lapply(seq_along(splits), function(i)rep(i-1,splits[i])))
   x$Cycle<-replace(cycle,cycle==max(cycle),0)
 
   # Update cycle definition and total cycles

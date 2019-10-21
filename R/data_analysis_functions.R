@@ -522,10 +522,10 @@ isometric_timing <- function(x,
 
   # calculate corresponding position in dataset
   rising_row <-
-    sapply(rising_forces, function(i)
+    lapply(rising_forces, function(i)
       utils::head(which(x$Force > i), 1))
   relaxing_row <-
-    sapply(relaxing_forces, function(i)
+    lapply(relaxing_forces, function(i)
       utils::tail(which(x$Force > i), 1))
 
   # extract time and force at these positions, bind together into a vector
@@ -535,10 +535,10 @@ isometric_timing <- function(x,
 
   # add names and convert to data.frame
   names(set_point_results)<-
-    c(sapply(rising*100, function(i) c(paste0("time_rising_",i),
-                                       paste0("force_rising_",i))),
-      sapply(relaxing*100, function(i) c(paste0("time_relaxing_",i),
-                                         paste0("force_relaxing_",i))))
+    c(unlist(lapply(rising*100, function(i) c(paste0("time_rising_",i),
+                                              paste0("force_rising_",i)))),
+      unlist(lapply(relaxing*100, function(i) c(paste0("time_relaxing_",i),
+                                                paste0("force_relaxing_",i)))))
   set_point_results<-data.frame(as.list(set_point_results))
 
   # return both result
