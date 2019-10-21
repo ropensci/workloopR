@@ -251,11 +251,13 @@ and "position_inverted"</p>
 
 <span class='co'># see how this object is organized - this will give you a sense</span>
 <span class='co'># of how your inputs to `as_muscle_stim()` should be arranged:</span>
-<span class='co'>#head(wl_dat)</span>
-<span class='co'>#str(wl_dat)</span>
+<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>wl_dat</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>(<span class='no'>wl_dat</span>)
 <span class='co'># formatting of attributes:</span>
-<span class='co'>#names(attributes(wl_dat))</span>
-<span class='co'>#str(attributes(wl_dat))</span></div></pre>
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/attributes.html'>attributes</a></span>(<span class='no'>wl_dat</span>))
+<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/attributes.html'>attributes</a></span>(<span class='no'>wl_dat</span>))
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

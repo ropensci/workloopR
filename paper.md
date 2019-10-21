@@ -47,6 +47,6 @@ Please see Figure \ref{flowchart} below for an overview of the ``workloopR`` pac
 
 # Acknowledgements
 
-We thank Doug Altshuler, Jasmin Wong, Jolan Theriault, and Joseph Bahlman for help they provided throughout the course of this project.
+We thank Doug Altshuler, Jasmin Wong, and Jolan Theriault for help they provided throughout the course of this project.
 
 # References

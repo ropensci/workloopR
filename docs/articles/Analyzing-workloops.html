@@ -100,7 +100,7 @@
       <h1>Analyzing work loop experiments in workloopR</h1>
                         <h4 class="author">Vikram B. Baliga</h4>
             
-            <h4 class="date">2019-10-20</h4>
+            <h4 class="date">2019-10-21</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/vbaliga/workloopR/blob/master/vignettes/Analyzing-workloops.Rmd"><code>vignettes/Analyzing-workloops.Rmd</code></a></small>
       <div class="hidden name"><code>Analyzing-workloops.Rmd</code></div>
@@ -110,7 +110,7 @@
     
     
 <p>The function <code><a href="../reference/analyze_workloop.html">analyze_workloop()</a></code> in <code>workloopR</code> allows users to evaluate the mechanical work and power output of a muscle they have investigated through work loop experiments.</p>
-<p>To demonstrate <code><a href="../reference/analyze_workloop.html">analyze_workloop()</a></code>, we will first load <code>workloopR</code> and use example data provided with the package. We’ll also load a couple packages within the <code>tidyverse</code> as well as <code>viridis</code> to help with data wrangling and plotting.</p>
+<p>To demonstrate <code><a href="../reference/analyze_workloop.html">analyze_workloop()</a></code>, we will first load <code>workloopR</code> and use example data provided with the package. We’ll also load a couple packages within the <code>tidyverse</code> to help with data wrangling and plotting.</p>
 <div id="load-packages-and-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#load-packages-and-data" class="anchor"></a>Load packages and data</h2>
@@ -122,20 +122,19 @@
 <a class="sourceLine" id="cb1-6" title="6"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"workloopR"</span>,</a>
 <a class="sourceLine" id="cb1-7" title="7">    <span class="st">"magrittr"</span>,</a>
 <a class="sourceLine" id="cb1-8" title="8">    <span class="st">"ggplot2"</span>,</a>
-<a class="sourceLine" id="cb1-9" title="9">    <span class="st">"dplyr"</span>,</a>
-<a class="sourceLine" id="cb1-10" title="10">    <span class="st">"viridis"</span>)</a>
-<a class="sourceLine" id="cb1-11" title="11"></a>
-<a class="sourceLine" id="cb1-12" title="12"><span class="co">## Now load or install&amp;load all</span></a>
-<a class="sourceLine" id="cb1-13" title="13">package.check &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span>(</a>
-<a class="sourceLine" id="cb1-14" title="14">  packages,</a>
-<a class="sourceLine" id="cb1-15" title="15">  <span class="dt">FUN =</span> <span class="cf">function</span>(x) {</a>
-<a class="sourceLine" id="cb1-16" title="16">    <span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span>(x, <span class="dt">character.only =</span> <span class="ot">TRUE</span>)) {</a>
-<a class="sourceLine" id="cb1-17" title="17">      <span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(x, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb1-18" title="18">                       <span class="dt">repos =</span> <span class="st">"http://cran.us.r-project.org"</span>)</a>
-<a class="sourceLine" id="cb1-19" title="19">      <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(x, <span class="dt">character.only =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb1-20" title="20">    }</a>
-<a class="sourceLine" id="cb1-21" title="21">  }</a>
-<a class="sourceLine" id="cb1-22" title="22">)</a></code></pre></div>
+<a class="sourceLine" id="cb1-9" title="9">    <span class="st">"dplyr"</span>)</a>
+<a class="sourceLine" id="cb1-10" title="10"></a>
+<a class="sourceLine" id="cb1-11" title="11"><span class="co">## Now load or install&amp;load all</span></a>
+<a class="sourceLine" id="cb1-12" title="12">package.check &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span>(</a>
+<a class="sourceLine" id="cb1-13" title="13">  packages,</a>
+<a class="sourceLine" id="cb1-14" title="14">  <span class="dt">FUN =</span> <span class="cf">function</span>(x) {</a>
+<a class="sourceLine" id="cb1-15" title="15">    <span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span>(x, <span class="dt">character.only =</span> <span class="ot">TRUE</span>)) {</a>
+<a class="sourceLine" id="cb1-16" title="16">      <span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(x, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb1-17" title="17">                       <span class="dt">repos =</span> <span class="st">"http://cran.us.r-project.org"</span>)</a>
+<a class="sourceLine" id="cb1-18" title="18">      <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(x, <span class="dt">character.only =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb1-19" title="19">    }</a>
+<a class="sourceLine" id="cb1-20" title="20">  }</a>
+<a class="sourceLine" id="cb1-21" title="21">)</a></code></pre></div>
 </div>
 <div id="visualize" class="section level2">
 <h2 class="hasAnchor">
@@ -158,7 +157,7 @@
 <a class="sourceLine" id="cb2-14" title="14"><span class="co">#&gt; # Workloop Data: 3 channels recorded over 0.3244s</span></a>
 <a class="sourceLine" id="cb2-15" title="15"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb2-16" title="16"><span class="co">#&gt; File ID: workloop.ddf</span></a>
-<a class="sourceLine" id="cb2-17" title="17"><span class="co">#&gt; Mod Time (mtime): 2019-10-20 12:23:53</span></a>
+<a class="sourceLine" id="cb2-17" title="17"><span class="co">#&gt; Mod Time (mtime): 2019-10-21 13:55:07</span></a>
 <a class="sourceLine" id="cb2-18" title="18"><span class="co">#&gt; Sample Frequency: 10000Hz</span></a>
 <a class="sourceLine" id="cb2-19" title="19"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb2-20" title="20"><span class="co">#&gt; data.frame Columns: </span></a>
@@ -219,7 +218,7 @@
 <a class="sourceLine" id="cb4-7" title="7"><span class="co">#&gt; # Workloop Data: 4 channels recorded over 0.1086s</span></a>
 <a class="sourceLine" id="cb4-8" title="8"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb4-9" title="9"><span class="co">#&gt; File ID: workloop.ddf</span></a>
-<a class="sourceLine" id="cb4-10" title="10"><span class="co">#&gt; Mod Time (mtime): 2019-10-20 12:23:53</span></a>
+<a class="sourceLine" id="cb4-10" title="10"><span class="co">#&gt; Mod Time (mtime): 2019-10-21 13:55:07</span></a>
 <a class="sourceLine" id="cb4-11" title="11"><span class="co">#&gt; Sample Frequency: 10000Hz</span></a>
 <a class="sourceLine" id="cb4-12" title="12"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb4-13" title="13"><span class="co">#&gt; data.frame Columns: </span></a>
@@ -336,7 +335,7 @@
 <a class="sourceLine" id="cb8-42" title="42"><span class="co">#&gt;  - attr(*, "stimulus_width")= num 0.2</span></a>
 <a class="sourceLine" id="cb8-43" title="43"><span class="co">#&gt;  - attr(*, "gear_ratio")= num 2</span></a>
 <a class="sourceLine" id="cb8-44" title="44"><span class="co">#&gt;  - attr(*, "file_id")= chr "workloop.ddf"</span></a>
-<a class="sourceLine" id="cb8-45" title="45"><span class="co">#&gt;  - attr(*, "mtime")= POSIXct, format: "2019-10-20 12:23:53"</span></a>
+<a class="sourceLine" id="cb8-45" title="45"><span class="co">#&gt;  - attr(*, "mtime")= POSIXct, format: "2019-10-21 13:55:07"</span></a>
 <a class="sourceLine" id="cb8-46" title="46"><span class="co">#&gt;  - attr(*, "retained_cycles")= int  4 5 6</span></a>
 <a class="sourceLine" id="cb8-47" title="47"><span class="co">#&gt;  - attr(*, "work")= num 0.00301</span></a>
 <a class="sourceLine" id="cb8-48" title="48"><span class="co">#&gt;  - attr(*, "net_power")= num 0.0909</span></a></code></pre></div>

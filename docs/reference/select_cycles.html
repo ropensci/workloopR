@@ -239,7 +239,9 @@ a <code>muscle_stim</code> object from another source.</p>
 <span class='no'>wl_selected</span> <span class='kw'>&lt;-</span> <span class='fu'>select_cycles</span>(<span class='no'>wl_dat</span>, <span class='kw'>cycle_def</span> <span class='kw'>=</span> <span class='st'>"p2p"</span>, <span class='kw'>keep_cycles</span> <span class='kw'>=</span> <span class='fl'>3</span>:<span class='fl'>5</span>)
 
 <span class='co'># are only three cycles present, running peak-to-peak?</span>
-<span class='co'>#plot(wl_selected$Position)</span>
+<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>wl_selected</span>$<span class='no'>Position</span>)
+}
 
 <span class='co'># are the cycles of (approximately) the same length?</span>
 <span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span>(<span class='no'>wl_selected</span>$<span class='no'>Cycle</span>))</div><div class='output co'>#&gt;   a   b   c 

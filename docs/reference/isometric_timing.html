@@ -225,8 +225,9 @@ insect. Journal of Experimental Biology 205, 379-389.</p>
 <span class='co'># run isometric_timing() to get info on twitch kinetics</span>
 <span class='co'># we'll use different set points than the defaults</span>
 <span class='no'>analyze_twitch</span> <span class='kw'>&lt;-</span> <span class='fu'>isometric_timing</span>(<span class='no'>twitch_dat</span>,
-                                <span class='kw'>rising</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>25</span>, <span class='fl'>50</span>, <span class='fl'>75</span>),
-                                <span class='kw'>relaxing</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>75</span>, <span class='fl'>50</span>, <span class='fl'>25</span>))
+  <span class='kw'>rising</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>25</span>, <span class='fl'>50</span>, <span class='fl'>75</span>),
+  <span class='kw'>relaxing</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>75</span>, <span class='fl'>50</span>, <span class='fl'>25</span>)
+)
 
 <span class='co'># see the results</span>
 <span class='no'>analyze_twitch</span></div><div class='output co'>#&gt;      file_id time_stim force_stim time_peak force_peak time_rising_25
