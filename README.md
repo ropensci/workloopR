@@ -18,6 +18,11 @@ We are not (yet) on CRAN but the package can be installed via:
 devtools::install_github("vbaliga/workloopR")
 ```
 
+Please note that vignettes are not built by default. To build vignettes as well, please use the following code:
+``` r
+devtools::install_github("vbaliga/workloopR", build_vignettes = TRUE)
+```
+
 
 
 ## Overview
@@ -38,14 +43,14 @@ For more on work loops, we recommend a great review paper by Ahn ([2012](https:/
 library(workloopR)
 
 ## import the workloop.ddf file included in workloopR
-wl_dat <- read_ddf(system.file("extdata", "workloop.ddf", 
+wl_dat <- read_ddf(system.file("extdata", "workloop.ddf",
                                package = 'workloopR'),
                   phase_from_peak = TRUE)
 
 ## select cycles 3 through 5 using a peak-to-peak definition
 wl_selected <- select_cycles(wl_dat, cycle_def = "p2p", keep_cycles = 3:5)
 
-## apply a gear ratio correction, run the analysis function, 
+## apply a gear ratio correction, run the analysis function,
 ## and then get the full object
 wl_analyzed <- analyze_workloop(wl_selected, GR = 2)
 ## for brevity, the print() method for this object produces a simple output
@@ -80,7 +85,7 @@ wl_analyzed_simple
 
 ```R
 ## import the workloop.ddf file included in workloopR
-wl_dat <- read_ddf(system.file("extdata", "workloop.ddf", 
+wl_dat <- read_ddf(system.file("extdata", "workloop.ddf",
                                package = 'workloopR'),
                   phase_from_peak = TRUE)
 
@@ -126,7 +131,7 @@ analyze_twitch <- isometric_timing(twitch_dat,
 
 **Batch processing**: We also include functions for batch processing files (e.g. multiple files from a common experiment). These functions allow for the import, cycle selection, gear ratio correction, and ultimately work & power computation for all work loop trial files within a specified directory.  This also allows users to correct for potential degradation of the muscle (according to power & work output) over the course of the experiment. See the ["Batch processing"](https://vbaliga.github.io/workloopR/articles/batch-processing.html) vignette
 
-- Example: 
+- Example:
 
 ```R
 ## batch read and analyze files included with workloopR
