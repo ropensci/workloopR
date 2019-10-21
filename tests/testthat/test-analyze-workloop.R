@@ -48,9 +48,9 @@ analyzed_workloop <- analyze_workloop(selected_cycles)
 
 test_that("full analyze_workloop output is accurate", {
   expect_equal(class(analyzed_workloop), c("analyzed_workloop", "list"))
-  expect_true(all(sapply(analyzed_workloop, function(x) class(x) == c("workloop", "muscle_stim", "data.frame"))))
-  expect_true(all(sapply(analyzed_workloop, function(x) names(x) == c("Time", "Position", "Force", "Stim", "Cycle", "Inst_Velocity", "Filt_Velocity", "Inst_Power", "Percent_of_Cycle"))))
-  expect_equal(suppressWarnings(sapply(analyzed_workloop[[1]], mean, na.rm = T)),
+  expect_true(all(unlist(lapply(analyzed_workloop, function(x) class(x) == c("workloop", "muscle_stim", "data.frame")))))
+  expect_true(all(unlist(lapply(analyzed_workloop, function(x) names(x) == c("Time", "Position", "Force", "Stim", "Cycle", "Inst_Velocity", "Filt_Velocity", "Inst_Power", "Percent_of_Cycle")))))
+  expect_equal(suppressWarnings(unlist(lapply(analyzed_workloop[[1]], mean, na.rm = T))),
     c(
       Time = 6.570000e-02,
       Position = 4.985869e-01,

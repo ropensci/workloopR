@@ -22,7 +22,7 @@ test_tetanus <- as_muscle_stim(test_data, "tetanus", 1000)
 test_twitch <- as_muscle_stim(test_data, "twitch", 1000)
 
 test_that("data is read in correctly", {
-  expect_equal(sapply(test_workloop, sum), c(Stim = 3, Force = 7, Position = 11, Time = 1e-3))
+  expect_equal(unlist(lapply(test_workloop, sum)), c(Stim = 3, Force = 7, Position = 11, Time = 1e-3))
 })
 
 test_that("attributes are handled correctly", {

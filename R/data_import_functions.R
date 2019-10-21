@@ -661,7 +661,7 @@ read_ddf_dir <- function(file_path,
             \nDefaulting to `mtime`.")
     sort_by <- "mtime"
   }
-  ms_list <- ms_list[order(sapply(ms_list, function(i) attr(i, sort_by)))]
+  ms_list <- ms_list[order(unlist(lapply(ms_list, function(i) attr(i, sort_by))))]
 
   return(ms_list)
 }

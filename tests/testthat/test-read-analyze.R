@@ -28,5 +28,5 @@ analyzed_wl_dir_example <- read_analyze_wl_dir(system.file("extdata/wl_duration_
 
 test_that("read_analyze_wl_dir reads in data correctly", {
   expect_length(analyzed_wl_dir_example, 4)
-  expect_true(all(sapply(analyzed_wl_dir_example, function(x) class(x) == c("analyzed_workloop", "list"))))
+  expect_true(all(unlist(lapply(analyzed_wl_dir_example, function(x) class(x) == c("analyzed_workloop", "list")))))
 })

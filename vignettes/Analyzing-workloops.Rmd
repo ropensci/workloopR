@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 
 The function `analyze_workloop()` in `workloopR` allows users to evaluate the mechanical work and power output of a muscle they have investigated through work loop experiments.
 
-To demonstrate `analyze_workloop()`, we will first load `workloopR` and use example data provided with the package. We'll also load a couple packages within the `tidyverse` as well as `viridis` to help with data wrangling and plotting.
+To demonstrate `analyze_workloop()`, we will first load `workloopR` and use example data provided with the package. We'll also load a couple packages within the `tidyverse` to help with data wrangling and plotting.
 
 
 ## Load packages and data
@@ -32,8 +32,7 @@ packages <-
   c("workloopR",
     "magrittr",
     "ggplot2",
-    "dplyr",
-    "viridis")
+    "dplyr")
 
 ## Now load or install&load all
 package.check <- lapply(

@@ -32,8 +32,7 @@ packages <-
     "dplyr",
     "tidyr",
     "purrr",
-    "ggplot2",
-    "viridis")
+    "ggplot2")
 
 ## Now load or install&load all
 package.check <- lapply(

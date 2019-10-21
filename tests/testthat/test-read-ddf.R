@@ -21,9 +21,9 @@ test_that("read_ddf parses experiments correctly", {
 
 test_that("read_ddf reads data in correctly", {
   expect_equal(names(workloop_example), c("Time", "Position", "Force", "Stim"))
-  expect_equal(sapply(workloop_example, sum), c(Time = 526.339, Position = 1622.828, Force = 3267965.800, Stim = 48.000), tolerance = 1e-3)
-  expect_equal(sapply(tetanus_example, sum), c(Time = 2813.625, Position = 4448.732, Force = 2210595.621, Stim = 44.000), tolerance = 1e-3)
-  expect_equal(sapply(twitch_example, sum), c(Time = 800.6001, Position = -24008.8626, Force = 950311.5720, Stim = 2.0000), tolerance = 1e-3)
+  expect_equal(unlist(lapply(workloop_example, sum)), c(Time = 526.339, Position = 1622.828, Force = 3267965.800, Stim = 48.000), tolerance = 1e-3)
+  expect_equal(unlist(lapply(tetanus_example, sum)), c(Time = 2813.625, Position = 4448.732, Force = 2210595.621, Stim = 44.000), tolerance = 1e-3)
+  expect_equal(unlist(lapply(twitch_example, sum)), c(Time = 800.6001, Position = -24008.8626, Force = 950311.5720, Stim = 2.0000), tolerance = 1e-3)
 })
 
 test_that("read_ddf reads in attributes correctly", {
@@ -52,17 +52,17 @@ test_that("read_ddf_dir stops when it should", {
 workloop_dir_example <- read_ddf_dir(system.file("extdata/wl_duration_trials", package = "workloopR"), sort_by = "file_id")
 
 test_that("read_ddf_dir parses experiments correctly", {
-  expect_true(all(sapply(workloop_dir_example, function(x) class(x) == c("workloop", "muscle_stim", "data.frame"))))
+  expect_true(all(unlist(lapply(workloop_dir_example, function(x) class(x) == c("workloop", "muscle_stim", "data.frame")))))
 })
 
 test_that("read_ddf_dir reads data in correctly", {
   expect_equal(names(workloop_dir_example[[1]]), c("Time", "Position", "Force", "Stim"))
-  expect_equal(sapply(workloop_dir_example, sum), c(1404208.3, 890138.2, 2253317.5, 1250923.5), tolerance = 1e-3)
+  expect_equal(unlist(lapply(workloop_dir_example, sum)), c(1404208.3, 890138.2, 2253317.5, 1250923.5), tolerance = 1e-3)
 })
 
 test_that("read_ddf_dir reads in attributes correctly", {
-  expect_false(any(sapply(workloop_dir_example, function(x) any(is.na(attributes(x))))))
-  expect_equal(mean(sapply(workloop_dir_example, function(x) length(attributes(x)))), 22)
+  expect_false(any(unlist(lapply(workloop_dir_example, function(x) any(is.na(attributes(x)))))))
+  expect_equal(mean(unlist(lapply(workloop_dir_example, function(x) length(attributes(x))))), 22)
 })
 
 context("pulling metadata")
