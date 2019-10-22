@@ -1,7 +1,7 @@
 # custom functions
 # all written by Vikram B. Baliga (vbaliga@zoology.ubc.ca) and Shreeram
 # Senthivasan
-# last updated: 2019-10-20
+# last updated: 2019-10-22
 
 
 ############################ trapezoidal integration ###########################
@@ -593,4 +593,98 @@ isometric_timing <- function(x,
 
   # return both result
   return(cbind(main_results, set_point_results))
+}
+
+
+###################### work loop reading and data extraction ###################
+
+#' All-in-one import function for work loop files
+#'
+#' \code{read_analyze_wl()} is an all-in-one function to read in a work loop
+#' file, select cycles, and compute work and power output.
+#'
+#' @param file_name A .ddf file that contains data from a
+#' single workloop experiment
+#' @param ... Additional arguments to be passed to \code{read_ddf()},
+#' \code{select_cycles()},
+#' or \code{analyze_workloop()}.
+#'
+#' @details Please be careful with units! See Warnings below. This function
+#' combines \code{read_ddf()} with \code{select_cycles()} and then ultimately
+#' \code{analyze_workloop()} into one handy function.
+#'
+#' As detailed in these three functions, possible arguments include: \cr
+#' \code{cycle_def} - used to specify which part of the cycle is understood as
+#' the beginning and end. There are currently three options: 'lo' for L0-to-L0;
+#' 'p2p' for peak-to-peak; and 't2t' for trough-to-trough \cr
+#' \code{bworth_order} - Filter order for low-pass filtering of \code{Position}
+#'  via \code{signal::butter} prior to finding peak lengths. Default: 2. \cr
+#' \code{bworth_freq} - Critical frequency (scalar) for low-pass filtering of
+#' \code{Position} via \code{signal::butter} prior to finding peak lengths.
+#' Default: 0.05. \cr
+#' \code{keep_cycles} - Which cycles should be retained. Default: 4:6. \cr
+#' \code{GR} - Gear ratio. Default: 1. \cr
+#' \code{M} - Velocity multiplier used to positivize velocity; should be either
+#' -1 or 1. Default: -1. \cr
+#' \code{vel_bf} - Critical frequency (scalar) for low-pass filtering of
+#' velocity via \code{signal::butter}. Default: 0.05. \cr
+#'
+#' The gear ratio (GR) and velocity multiplier (M) parameters can help correct
+#' for issues related to the magnitude and sign of data collection. By
+#' default, they are set to apply no gear ratio adjustment and to positivize
+#' velocity. Instantaneous velocity is often noisy and the \code{vel_bf}
+#' parameter allows for low-pass filtering of velocity data. See
+#' \code{signal::butter()} and \code{signal::filtfilt()} for details of how
+#' filtering is achieved.
+#'
+#' @inherit analyze_workloop return
+#' @inheritSection analyze_workloop Warning
+#'
+#' @references Josephson RK. 1985. Mechanical Power output from Striated Muscle
+#'  during Cyclic Contraction. Journal of Experimental Biology 114: 493-512.
+#'
+#' @author Vikram B. Baliga
+#'
+#' @family data analyses
+#' @family data import functions
+#' @family workloop functions
+#'
+#' @examples
+#'
+#' library(workloopR)
+#'
+#' # import the workloop.ddf file included in workloopR and analyze with
+#' # a gear ratio correction of 2 and cycle definition of peak-to-peak
+#' wl_dat <- read_analyze_wl(system.file("extdata", "workloop.ddf",
+#'                                       package = 'workloopR'),
+#'                           phase_from_peak = TRUE,
+#'                           GR = 2, cycle_def = "p2p")
+#'
+#'
+#' @seealso
+#' \code{\link{read_ddf}},
+#' \code{\link{select_cycles}}
+#' \code{\link{analyze_workloop}}
+#'
+#' @export
+read_analyze_wl <- function(file_name,
+                            ...) {
+  valid_args <- c(
+    "file_id", "rename_cols", "skip_cols",
+    "phase_from_peak", "cycle_def", "keep_cycles",
+    "bworth_order", "bworth_freq",
+    "simplify", "GR", "M", "vel_bf"
+  )
+  arg_names <- names(list(...))
+  if (!all(arg_names %in% valid_args)) {
+    warning("One or more provided attributes do not match known attributes.
+            \nThese will attributes will not be assigned.")
+  }
+
+  fulldata <- read_ddf(file_name, ...)
+  if (!("workloop" %in% class(fulldata))) {
+    stop(paste0("The provided file ", file_name, "
+                does not appear to contain data from a workloop experiment!"))
+  }
+  return(analyze_workloop(select_cycles(fulldata, ...), ...))
 }
