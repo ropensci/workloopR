@@ -245,7 +245,8 @@ analyze_workloop <- function(x,
   x_by_cycle <- lapply(cycle_names, function(cycle) x[x$Cycle == cycle, ])
 
   # create a percent cycle index column
-  percent_of_cycle <- lapply(x_by_cycle, function(x) seq(0, 100, 100 / (nrow(x) - 1)))
+  percent_of_cycle <- lapply(x_by_cycle, function(x)
+    seq(0, 100, 100 / (nrow(x) - 1)))
 
   # work is calculated as the path integral of Force with respect to Position
   # (displacement)
@@ -285,7 +286,9 @@ analyze_workloop <- function(x,
   # and force. However since velocity is calculated between two time points,
   # corresponding pairs of force measurements are averaged first
   # the result is divided by 1000 to convert mW to W
-  instant_power <- mapply(function(x, v) x$Force * v / 1000, x_by_cycle, filt_velocity,
+  instant_power <- mapply(function(x, v) x$Force * v / 1000,
+                          x_by_cycle,
+                          filt_velocity,
     SIMPLIFY = FALSE
   )
 
@@ -421,7 +424,8 @@ time_correct <- function(x) {
       (utils::tail(x$mtime, 1) - utils::head(x$mtime, 1)) * (x$mtime -
         utils::head(x$mtime, 1))
   x$Time_Corrected_Power <-
-    x$Mean_Power - (utils::tail(x$Mean_Power, 1) - utils::head(x$Mean_Power, 1)) /
+    x$Mean_Power - (utils::tail(x$Mean_Power, 1) - utils::head(x$Mean_Power,
+                                                               1)) /
       (utils::tail(x$mtime, 1) - utils::head(x$mtime, 1)) * (x$mtime -
         utils::head(x$mtime, 1))
   attr(x, "power_difference") <-

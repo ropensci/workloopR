@@ -1,7 +1,9 @@
 context("timing isometric data")
 
-tetanus_example <- read_ddf(system.file("extdata", "tetanus.ddf", package = "workloopR"))
-twitch_example <- read_ddf(system.file("extdata", "twitch.ddf", package = "workloopR"))
+tetanus_example <- read_ddf(system.file("extdata", "tetanus.ddf",
+                                        package = "workloopR"))
+twitch_example <- read_ddf(system.file("extdata", "twitch.ddf",
+                                       package = "workloopR"))
 
 test_that("isometric timing stops when it should", {
   expect_error(isometric_timing(1), "from an isometric experiment!")

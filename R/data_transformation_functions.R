@@ -155,7 +155,8 @@ select_cycles <- function(x,
   }
   x <- x[x$Cycle %in% keep_cycles, ]
   x$Cycle <- letters[as.factor(x$Cycle)]
-  if (!all(is.na(attr(x, "units")))) attr(x, "units") <- c(attr(x, "units"), "letters")
+  if (!all(is.na(attr(x, "units")))) attr(x, "units") <- c(attr(x, "units"),
+                                                           "letters")
   attr(x, "retained_cycles") <- keep_cycles
   return(x)
 }

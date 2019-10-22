@@ -17,5 +17,7 @@ test_that("trapezoidal integration works", {
   expect_error(trapezoidal_integration("a"), "first argument")
   expect_error(trapezoidal_integration(1, "a"), "second argument")
   expect_error(trapezoidal_integration(2, 1:2), "lengths of the variable")
-  expect_equal(trapezoidal_integration(test_workloop$Time, test_workloop$Force), 0.0035)
+  expect_equal(trapezoidal_integration(test_workloop$Time,
+                                       test_workloop$Force),
+               0.0035)
 })

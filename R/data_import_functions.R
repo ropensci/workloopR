@@ -155,13 +155,16 @@ summary.muscle_stim <- function(object, ...) {
   print_muscle_stim_header(object, ...)
   cat(paste0("\nFile ID: ", attr(object, "file_id")))
   cat(paste0("\nMod Time (mtime): ", attr(object, "mtime")))
-  cat(paste0("\nSample Frequency: ", attr(object, "sample_frequency"), "Hz\n\n"))
+  cat(paste0("\nSample Frequency: ", attr(object, "sample_frequency"),
+             "Hz\n\n"))
   cat(paste0("data.frame Columns: \n"))
   for (i in 2:ncol(object)) {
-    cat(paste0("  ", colnames(object)[i], " (", attr(object, "units")[i], ")\n"))
+    cat(paste0("  ", colnames(object)[i], " (", attr(object, "units")[i],
+               ")\n"))
   }
   cat(paste0("\nStimulus Offset: ", attr(object, "stimulus_offset"), "s\n"))
-  cat(paste0("Stimulus Frequency: ", attr(object, "stimulus_frequency"), "Hz\n"))
+  cat(paste0("Stimulus Frequency: ", attr(object, "stimulus_frequency"),
+             "Hz\n"))
   cat(paste0("Stimulus Width: ", attr(object, "stimulus_width"), "ms\n"))
   cat(paste0("Stimulus Pulses: ", attr(object, "stimulus_pulses"), "\n"))
   cat(paste0("Gear Ratio: ", attr(object, "gear_ratio"), "\n"))
@@ -371,7 +374,8 @@ as_muscle_stim <- function(x,
   attr(x, "sample_frequency") <- sample_frequency
   if (is.na(attr(x, "gear_ratio"))) attr(x, "gear_ratio") <- 1
   if (type == "workloop") {
-    if (is.na(attr(x, "position_inverted"))) attr(x, "position_inverted") <- FALSE
+    if (is.na(attr(x, "position_inverted")))
+      attr(x, "position_inverted") <- FALSE
   }
 
   # Assign classes and return
@@ -647,7 +651,9 @@ read_ddf_dir <- function(file_path,
                          sort_by = "mtime",
                          ...) {
   # Generate list of file_names
-  file_name_list <- list.files(path = file_path, pattern = pattern, full.names = TRUE)
+  file_name_list <- list.files(path = file_path,
+                               pattern = pattern,
+                               full.names = TRUE)
   if (length(file_name_list) == 0) {
     stop("No files matching the pattern found at the given directory!")
   }
@@ -661,7 +667,8 @@ read_ddf_dir <- function(file_path,
             \nDefaulting to `mtime`.")
     sort_by <- "mtime"
   }
-  ms_list <- ms_list[order(unlist(lapply(ms_list, function(i) attr(i, sort_by))))]
+  ms_list <- ms_list[order(unlist(lapply(ms_list, function(i)
+    attr(i, sort_by))))]
 
   return(ms_list)
 }
@@ -715,13 +722,19 @@ read_wl_ddf <-
     # get info on experimental parameters
     stim_table <-
       utils::read.table(
-        text = protocol_table[grepl("Stim", protocol_table$Then.action), "Units"],
+        text = protocol_table[grepl("Stim", protocol_table$Then.action),
+                              "Units"],
         sep = ",",
-        col.names = c("offset", "frequency", "width", "pulses", "cycle_frequency")
+        col.names = c("offset",
+                      "frequency",
+                      "width",
+                      "pulses",
+                      "cycle_frequency")
       )
     cycle_table <-
       utils::read.table(
-        text = protocol_table[grepl("Sine", protocol_table$Then.action), "Units"],
+        text = protocol_table[grepl("Sine", protocol_table$Then.action),
+                              "Units"],
         sep = ",",
         col.names = c("frequency", "amplitude", "total_cycles")
       )
@@ -761,7 +774,8 @@ read_twitch_ddf <-
     # get info on experimental parameters
     stim_table <-
       utils::read.table(
-        text = protocol_table[grepl("Stim", protocol_table$Then.action), "Units"],
+        text = protocol_table[grepl("Stim", protocol_table$Then.action),
+                              "Units"],
         sep = ",",
         col.names = c("offset", "width")
       )
@@ -801,7 +815,8 @@ read_tetanus_ddf <-
     # get info on experimental parameters
     stim_table <-
       utils::read.table(
-        text = protocol_table[grepl("Stim", protocol_table$Then.action), "Units"],
+        text = protocol_table[grepl("Stim", protocol_table$Then.action),
+                              "Units"],
         sep = ",",
         col.names = c("offset", "frequency", "width", "length")
       )
@@ -1051,7 +1066,9 @@ read_analyze_wl_dir <- function(file_path,
                                 sort_by = "mtime",
                                 ...) {
   # Generate list of file_names
-  file_name_list <- list.files(path = file_path, pattern = pattern, full.names = TRUE)
+  file_name_list <- list.files(path = file_path,
+                               pattern = pattern,
+                               full.names = TRUE)
   if (length(file_name_list) == 0) {
     stop("No files matching the pattern found at the given directory!")
   }
@@ -1065,7 +1082,8 @@ read_analyze_wl_dir <- function(file_path,
             \nDefaulting to `mtime`.")
     sort_by <- "mtime"
   }
-  return(wl_list <- wl_list[order(unlist(lapply(wl_list, function(i) attr(i, sort_by))))])
+  return(wl_list <- wl_list[order(unlist(lapply(wl_list, function(i)
+    attr(i, sort_by))))])
 }
 
 ######################### summarize sequence of work loops #####################
@@ -1137,23 +1155,32 @@ summarize_wl_trials <- function(wl_list) {
   if (class(wl_list)[[1]] != "list") {
     stop("Please provide a list of analyzed workloop objects")
   }
-  if (!all(unlist(lapply(wl_list, function(x) "analyzed_workloop" %in% class(x))))) {
+  if (!all(unlist(lapply(wl_list,
+                         function(x) "analyzed_workloop" %in% class(x))))) {
     stop("The provided list includes elements that are
          not analyzed workloop objects")
   }
 
   summarized <- data.frame(
-    File_ID = vapply(wl_list, function(i) attr(i, "file_id"), character(1)),
-    Cycle_Frequency = vapply(wl_list, function(i) attr(i, "cycle_frequency"), numeric(1)),
-    Amplitude = vapply(wl_list, function(i) attr(i, "amplitude"), numeric(1)),
-    Phase = vapply(wl_list, function(i) attr(i, "phase"), numeric(1)),
-    Stimulus_Pulses = vapply(wl_list, function(i) attr(i, "stimulus_pulses"), numeric(1)),
+    File_ID = vapply(wl_list, function(i) attr(i, "file_id"),
+                     character(1)),
+    Cycle_Frequency = vapply(wl_list, function(i) attr(i, "cycle_frequency"),
+                             numeric(1)),
+    Amplitude = vapply(wl_list, function(i) attr(i, "amplitude"),
+                       numeric(1)),
+    Phase = vapply(wl_list, function(i) attr(i, "phase"),
+                   numeric(1)),
+    Stimulus_Pulses = vapply(wl_list, function(i) attr(i, "stimulus_pulses"),
+                             numeric(1)),
     Stimulus_Frequency = vapply(wl_list, function(i) {
       attr(i, "stimulus_frequency")
     }, numeric(1)),
-    mtime = vapply(wl_list, function(i) attr(i, "mtime"), numeric(1)),
-    Mean_Work = vapply(wl_list, function(i) mean(attr(i, "summary")$Work), numeric(1)),
-    Mean_Power = vapply(wl_list, function(i) mean(attr(i, "summary")$Net_Power), numeric(1))
+    mtime = vapply(wl_list, function(i) attr(i, "mtime"),
+                   numeric(1)),
+    Mean_Work = vapply(wl_list, function(i) mean(attr(i, "summary")$Work),
+                       numeric(1)),
+    Mean_Power = vapply(wl_list, function(i) mean(attr(i, "summary")$Net_Power),
+                        numeric(1))
   )
 
   return(summarized)

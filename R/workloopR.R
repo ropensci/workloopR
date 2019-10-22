@@ -17,10 +17,10 @@
 #' loop experiment (\code{select_cycles()}).
 #'
 #' Core data analytical functions include \code{analyze_workloop()} for work
-#' loop files and \code{isometric_timing()} for twitches. \code{analyze_workloop()}
-#' computes instantaneous velocity, net work, instantaneous power, and net power
-#' for work loop experiments on a per-cycle basis. \code{isometric_timing()}
-#' provides summarization of twitch kinetics.
+#' loop files and \code{isometric_timing()} for twitches.
+#' \code{analyze_workloop()} computes instantaneous velocity, net work,
+#' instantaneous power, and net power for work loop experiments on a per-cycle
+#' basis. \code{isometric_timing()} provides summarization of twitch kinetics.
 #'
 #' Some functions are readily available for batch processing of files. The
 #' \code{read_analyze_wl_dir()} function allows for the batch import, cycle
