@@ -23,7 +23,8 @@ test_that("print works for transformed and analyzed objects", {
   expect_output(print(selected_cycles),
                 "# Workloop Data: .* with 1065 more rows")
   expect_output(print(analyzed_workloop),
-                "File ID: workloop.ddf\nCycles: 3 cycles kept out of 6\nMean Work: 0.00266 J\nMean Power: 0.0807 W")
+                "File ID: workloop.ddf\nCycles: 3 cycles kept out of 6
+Mean Work: 0.00266 J\nMean Power: 0.0807 W")
 })
 
 context("summarizing muscle_stim objects")
