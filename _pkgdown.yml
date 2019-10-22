@@ -5,6 +5,9 @@ destination: docs
 authors:
   Vikram B. Baliga:
     href: https://www.vikram-baliga.com/
+  Shreeram Senthivasan:
+    href: https://www.zoology.ubc.ca/person/shreeram-senthivasan/
+
 navbar:
   components:
     articles:
@@ -22,3 +25,33 @@ navbar:
         href: articles/batch-processing.html
       - text: 'Plotting data in workloopR'
         href: articles/Plotting-workloopR.html
+
+reference:
+- title: Data import functions
+  desc:  Import data from .ddf or other file types
+  contents:
+  - read_ddf
+  - read_analyze_wl
+  - as_muscle_stim
+- title: Data transformation functions
+  desc:  Manipulation of `muscle_stim` objects prior to analyses
+  contents:
+  - select_cycles
+  - invert_position
+  - fix_GR
+- title: Analysis functions
+  desc:  Functions for the analysis of a single `muscle_stim` object
+  contents:
+  - analyze_workloop
+  - isometric_timing
+  - trapezoidal_integration  
+  - time_correct
+- title: Batch analysis functions
+  desc:  Functions for the analysis of multiple files or `muscle_stim` objects
+  contents:
+  - read_ddf_dir
+  - read_analyze_wl_dir
+  - get_wl_metadata
+  - summarize_wl_trials
+  
+  

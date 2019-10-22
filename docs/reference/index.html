@@ -147,8 +147,60 @@
     <tbody>
       <tr>
         <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
+          <h2 id="section-data-import-functions" class="hasAnchor"><a href="#section-data-import-functions" class="anchor"></a>Data import functions</h2>
+          <p class="section-desc"><p>Import data from .ddf or other file types</p></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="read_ddf.html">read_ddf()</a></code> </p>
+        </td>
+        <td><p>Import work loop or isometric data from .ddf files</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="read_analyze_wl.html">read_analyze_wl()</a></code> </p>
+        </td>
+        <td><p>All-in-one import function for work loop files</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="as_muscle_stim.html">as_muscle_stim()</a></code> </p>
+        </td>
+        <td><p>Create your own muscle_stim object</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-data-transformation-functions" class="hasAnchor"><a href="#section-data-transformation-functions" class="anchor"></a>Data transformation functions</h2>
+          <p class="section-desc"><p>Manipulation of <code>muscle_stim</code> objects prior to analyses</p></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="select_cycles.html">select_cycles()</a></code> </p>
+        </td>
+        <td><p>Select cycles from a work loop object</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="invert_position.html">invert_position()</a></code> </p>
+        </td>
+        <td><p>Invert the position data</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="fix_GR.html">fix_GR()</a></code> </p>
+        </td>
+        <td><p>Adjust for the gear ratio of a motor arm</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-analysis-functions" class="hasAnchor"><a href="#section-analysis-functions" class="anchor"></a>Analysis functions</h2>
+          <p class="section-desc"><p>Functions for the analysis of a single <code>muscle_stim</code> object</p></p>
         </th>
       </tr>
       <tr>
@@ -160,39 +212,35 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="as_muscle_stim.html">as_muscle_stim()</a></code> </p>
-        </td>
-        <td><p>Create your own muscle_stim object</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="fix_GR.html">fix_GR()</a></code> </p>
-        </td>
-        <td><p>Adjust for the gear ratio of a motor arm</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_wl_metadata.html">get_wl_metadata()</a></code> </p>
-        </td>
-        <td><p>Get file info for a sequence of experiment files</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="invert_position.html">invert_position()</a></code> </p>
-        </td>
-        <td><p>Invert the position data</p></td>
-      </tr><tr>
-        
-        <td>
           <p><code><a href="isometric_timing.html">isometric_timing()</a></code> </p>
         </td>
         <td><p>Compute timing and magnitude of force in isometric trials</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="read_analyze_wl.html">read_analyze_wl()</a></code> </p>
+          <p><code><a href="trapezoidal_integration.html">trapezoidal_integration()</a></code> </p>
         </td>
-        <td><p>All-in-one import function for work loop files</p></td>
+        <td><p>Approximate the definite integral via the trapezoidal rule</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="time_correct.html">time_correct()</a></code> </p>
+        </td>
+        <td><p>Time correction for work loop experiments</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-batch-analysis-functions" class="hasAnchor"><a href="#section-batch-analysis-functions" class="anchor"></a>Batch analysis functions</h2>
+          <p class="section-desc"><p>Functions for the analysis of multiple files or <code>muscle_stim</code> objects</p></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="read_ddf_dir.html">read_ddf_dir()</a></code> </p>
+        </td>
+        <td><p>Import a batch of work loop or isometric data files from a directory</p></td>
       </tr><tr>
         
         <td>
@@ -202,39 +250,15 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="read_ddf.html">read_ddf()</a></code> </p>
+          <p><code><a href="get_wl_metadata.html">get_wl_metadata()</a></code> </p>
         </td>
-        <td><p>Import work loop or isometric data from .ddf files</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="read_ddf_dir.html">read_ddf_dir()</a></code> </p>
-        </td>
-        <td><p>Import a batch of work loop or isometric data files from a directory</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="select_cycles.html">select_cycles()</a></code> </p>
-        </td>
-        <td><p>Select cycles from a work loop object</p></td>
+        <td><p>Get file info for a sequence of experiment files</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="summarize_wl_trials.html">summarize_wl_trials()</a></code> </p>
         </td>
         <td><p>Summarize work loop files</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="time_correct.html">time_correct()</a></code> </p>
-        </td>
-        <td><p>Time correction for work loop experiments</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="trapezoidal_integration.html">trapezoidal_integration()</a></code> </p>
-        </td>
-        <td><p>Approximate the definite integral via the trapezoidal rule</p></td>
       </tr>
     </tbody>
     </table>
@@ -243,7 +267,10 @@
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
+      <li><a href="#section-data-import-functions">Data import functions</a></li>
+      <li><a href="#section-data-transformation-functions">Data transformation functions</a></li>
+      <li><a href="#section-analysis-functions">Analysis functions</a></li>
+      <li><a href="#section-batch-analysis-functions">Batch analysis functions</a></li>
     </ul>
   </div>
 </div>
@@ -251,7 +278,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='https://www.vikram-baliga.com/'>Vikram B. Baliga</a>, Shreeram Senthivasan.</p>
+  <p>Developed by <a href='https://www.vikram-baliga.com/'>Vikram B. Baliga</a>, <a href='https://www.zoology.ubc.ca/person/shreeram-senthivasan/'>Shreeram Senthivasan</a>.</p>
 </div>
 
 <div class="pkgdown">
