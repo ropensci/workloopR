@@ -2,16 +2,17 @@ Package: workloopR
 Type: Package
 Title: Analysis of Work Loops and Other Data from Muscle Physiology Experiments
 Version: 1.0.1.9000
-Authors@R: c(
-    person("Vikram B.", "Baliga",
-        email = "vbaliga87@gmail.com",
-        role = c("cre", "aut"),
-        comment = c(ORCID = "0000-0002-9367-8974")),
-    person("Shreeram", "Senthivasan",
-        email = "shreeramsenthi@gmail.com",
-        role = "aut",
-        comment = c(ORCID = "0000-0002-7118-9547")))
-Maintainer: Vikram B. Baliga <vbaliga87@gmail.com>
+Authors@R: 
+    c(person(given = "Vikram B.",
+             family = "Baliga", 
+             role = c("aut", "cre"),
+             email = "vbaliga87@gmail.com",
+             comment = c(ORCID = "0000-0002-9367-8974")),
+      person(given = "Shreeram", 
+             family = "Senthivasan",
+             role = "aut",
+             email = "shreeramsenthi@gmail.com",
+             comment = c(ORCID = "0000-0002-7118-9547")))
 Description: Functions for the import, transformation, and analysis of data 
     from muscle physiology experiments. The work loop technique is used to 
     evaluate the mechanical work and power output of muscle. Josephson (1985) 
