@@ -32,8 +32,7 @@ To demonstrate, we will first load `workloopR` and use example data provided wit
 packages <-
   c("workloopR",
     "magrittr",
-    "ggplot2",
-    "viridis")
+    "ggplot2")
 
 ## Now load or install&load all
 package.check <- lapply(
@@ -170,8 +169,11 @@ It is also good to plot some of these metrics and see if they pass the eye-test.
 We'll use our analyzed twitch and the `viridis` package to supply colors to dots at key points.
 
 ```{r annotated_plot}
-## Create a color pallete via viridis
-colz <- viridis(6)
+## Create a color pallete
+## Generated using `viridis::viridis(6)`
+## We use hard-coded values here just to avoid extra dependencies 
+colz <- c("#440154FF","#414487FF","#2A788EFF",
+          "#22A884FF","#7AD151FF","#FDE725FF")
 
 twitch_dat %>%
  ggplot(aes(x = Time, y = Force)) +
