@@ -82,5 +82,13 @@ Authors:
   \item Shreeram Senthivasan \email{shreeramsenthi@gmail.com} (0000-0002-7118-9547)
 }
 
+Other contributors:
+\itemize{
+  \item Julia Romanowska \email{Julia.Romanowska@uib.no} (Julia reviewed the package for ropensci
+             , see <https://github.com/ropensci/software-review/issues/326>) [reviewer]
+  \item Eric Brown \email{eb@ericebrown.com} (Eric reviewed the package for ropensci
+             , see <https://github.com/ropensci/software-review/issues/326>) [reviewer]
+}
+
 }
 \keyword{internal}

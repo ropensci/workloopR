@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">workloopR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -121,20 +121,19 @@
 <a class="sourceLine" id="cb1-5" title="5">packages &lt;-</a>
 <a class="sourceLine" id="cb1-6" title="6"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"workloopR"</span>,</a>
 <a class="sourceLine" id="cb1-7" title="7">    <span class="st">"magrittr"</span>,</a>
-<a class="sourceLine" id="cb1-8" title="8">    <span class="st">"ggplot2"</span>,</a>
-<a class="sourceLine" id="cb1-9" title="9">    <span class="st">"viridis"</span>)</a>
-<a class="sourceLine" id="cb1-10" title="10"></a>
-<a class="sourceLine" id="cb1-11" title="11"><span class="co">## Now load or install&amp;load all</span></a>
-<a class="sourceLine" id="cb1-12" title="12">package.check &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span>(</a>
-<a class="sourceLine" id="cb1-13" title="13">  packages,</a>
-<a class="sourceLine" id="cb1-14" title="14">  <span class="dt">FUN =</span> <span class="cf">function</span>(x) {</a>
-<a class="sourceLine" id="cb1-15" title="15">    <span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span>(x, <span class="dt">character.only =</span> <span class="ot">TRUE</span>)) {</a>
-<a class="sourceLine" id="cb1-16" title="16">      <span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(x, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb1-17" title="17">                       <span class="dt">repos =</span> <span class="st">"http://cran.us.r-project.org"</span>)</a>
-<a class="sourceLine" id="cb1-18" title="18">      <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(x, <span class="dt">character.only =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb1-19" title="19">    }</a>
-<a class="sourceLine" id="cb1-20" title="20">  }</a>
-<a class="sourceLine" id="cb1-21" title="21">)</a></code></pre></div>
+<a class="sourceLine" id="cb1-8" title="8">    <span class="st">"ggplot2"</span>)</a>
+<a class="sourceLine" id="cb1-9" title="9"></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="co">## Now load or install&amp;load all</span></a>
+<a class="sourceLine" id="cb1-11" title="11">package.check &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span>(</a>
+<a class="sourceLine" id="cb1-12" title="12">  packages,</a>
+<a class="sourceLine" id="cb1-13" title="13">  <span class="dt">FUN =</span> <span class="cf">function</span>(x) {</a>
+<a class="sourceLine" id="cb1-14" title="14">    <span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span>(x, <span class="dt">character.only =</span> <span class="ot">TRUE</span>)) {</a>
+<a class="sourceLine" id="cb1-15" title="15">      <span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(x, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb1-16" title="16">                       <span class="dt">repos =</span> <span class="st">"http://cran.us.r-project.org"</span>)</a>
+<a class="sourceLine" id="cb1-17" title="17">      <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(x, <span class="dt">character.only =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb1-18" title="18">    }</a>
+<a class="sourceLine" id="cb1-19" title="19">  }</a>
+<a class="sourceLine" id="cb1-20" title="20">)</a></code></pre></div>
 </div>
 <div id="visualize" class="section level2">
 <h2 class="hasAnchor">
@@ -248,36 +247,39 @@
 <a href="#annotate-the-twitch-plot" class="anchor"></a>Annotate the twitch plot</h2>
 <p>It is also good to plot some of these metrics and see if they pass the eye-test.</p>
 <p>We’ll use our analyzed twitch and the <code>viridis</code> package to supply colors to dots at key points.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="co">## Create a color pallete via viridis</span></a>
-<a class="sourceLine" id="cb9-2" title="2">colz &lt;-<span class="st"> </span><span class="kw">viridis</span>(<span class="dv">6</span>)</a>
-<a class="sourceLine" id="cb9-3" title="3"></a>
-<a class="sourceLine" id="cb9-4" title="4">twitch_dat <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb9-5" title="5"><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Time, <span class="dt">y =</span> Force)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-6" title="6"><span class="st">   </span><span class="kw">geom_line</span>(<span class="dt">lwd =</span> <span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-7" title="7"><span class="st">   </span><span class="kw"><a href="https://rdrr.io/r/graphics/plot.window.html">xlim</a></span>(<span class="fl">0.075</span>, <span class="fl">0.2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-8" title="8"><span class="st">   </span><span class="kw"><a href="https://rdrr.io/r/graphics/plot.window.html">ylim</a></span>(<span class="dv">200</span>, <span class="dv">450</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-9" title="9"><span class="st">   </span><span class="kw">xlab</span>(<span class="st">"Time (sec)"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-10" title="10"><span class="st">   </span><span class="kw">ylab</span>(<span class="st">"Force (mN)"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-11" title="11"><span class="st">   </span><span class="kw">geom_point</span>(<span class="dt">x =</span> twitch_analyzed<span class="op">$</span>time_stim, </a>
-<a class="sourceLine" id="cb9-12" title="12">              <span class="dt">y =</span> twitch_analyzed<span class="op">$</span>force_stim,</a>
-<a class="sourceLine" id="cb9-13" title="13">              <span class="dt">color =</span> colz[<span class="dv">1</span>], <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-14" title="14"><span class="st">   </span><span class="kw">geom_point</span>(<span class="dt">x =</span> twitch_analyzed<span class="op">$</span>time_peak, </a>
-<a class="sourceLine" id="cb9-15" title="15">              <span class="dt">y =</span> twitch_analyzed<span class="op">$</span>force_peak,</a>
-<a class="sourceLine" id="cb9-16" title="16">              <span class="dt">color =</span> colz[<span class="dv">4</span>], <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-17" title="17"><span class="st">   </span><span class="kw">geom_point</span>(<span class="dt">x =</span> twitch_analyzed<span class="op">$</span>time_rising_<span class="dv">10</span>, </a>
-<a class="sourceLine" id="cb9-18" title="18">              <span class="dt">y =</span> twitch_analyzed<span class="op">$</span>force_rising_<span class="dv">10</span>,</a>
-<a class="sourceLine" id="cb9-19" title="19">              <span class="dt">color =</span> colz[<span class="dv">2</span>], <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-20" title="20"><span class="st">   </span><span class="kw">geom_point</span>(<span class="dt">x =</span> twitch_analyzed<span class="op">$</span>time_rising_<span class="dv">90</span>, </a>
-<a class="sourceLine" id="cb9-21" title="21">              <span class="dt">y =</span> twitch_analyzed<span class="op">$</span>force_rising_<span class="dv">90</span>,</a>
-<a class="sourceLine" id="cb9-22" title="22">              <span class="dt">color =</span> colz[<span class="dv">3</span>], <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-23" title="23"><span class="st">   </span><span class="kw">geom_point</span>(<span class="dt">x =</span> twitch_analyzed<span class="op">$</span>time_relaxing_<span class="dv">90</span>, </a>
-<a class="sourceLine" id="cb9-24" title="24">              <span class="dt">y =</span> twitch_analyzed<span class="op">$</span>force_relaxing_<span class="dv">90</span>,</a>
-<a class="sourceLine" id="cb9-25" title="25">              <span class="dt">color =</span> colz[<span class="dv">5</span>], <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-26" title="26"><span class="st">   </span><span class="kw">geom_point</span>(<span class="dt">x =</span> twitch_analyzed<span class="op">$</span>time_relaxing_<span class="dv">50</span>, </a>
-<a class="sourceLine" id="cb9-27" title="27">              <span class="dt">y =</span> twitch_analyzed<span class="op">$</span>force_relaxing_<span class="dv">50</span>,</a>
-<a class="sourceLine" id="cb9-28" title="28">              <span class="dt">color =</span> colz[<span class="dv">6</span>], <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-29" title="29"><span class="st">   </span><span class="kw">theme_minimal</span>()</a>
-<a class="sourceLine" id="cb9-30" title="30"><span class="co">#&gt; Warning: Removed 2750 rows containing missing values (geom_path).</span></a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="co">## Create a color pallete</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="co">## Generated using `viridis::viridis(6)`</span></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="co">## We use hard-coded values here just to avoid extra dependencies </span></a>
+<a class="sourceLine" id="cb9-4" title="4">colz &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"#440154FF"</span>,<span class="st">"#414487FF"</span>,<span class="st">"#2A788EFF"</span>,</a>
+<a class="sourceLine" id="cb9-5" title="5">          <span class="st">"#22A884FF"</span>,<span class="st">"#7AD151FF"</span>,<span class="st">"#FDE725FF"</span>)</a>
+<a class="sourceLine" id="cb9-6" title="6"></a>
+<a class="sourceLine" id="cb9-7" title="7">twitch_dat <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb9-8" title="8"><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Time, <span class="dt">y =</span> Force)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-9" title="9"><span class="st">   </span><span class="kw">geom_line</span>(<span class="dt">lwd =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-10" title="10"><span class="st">   </span><span class="kw"><a href="https://rdrr.io/r/graphics/plot.window.html">xlim</a></span>(<span class="fl">0.075</span>, <span class="fl">0.2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-11" title="11"><span class="st">   </span><span class="kw"><a href="https://rdrr.io/r/graphics/plot.window.html">ylim</a></span>(<span class="dv">200</span>, <span class="dv">450</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-12" title="12"><span class="st">   </span><span class="kw">xlab</span>(<span class="st">"Time (sec)"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-13" title="13"><span class="st">   </span><span class="kw">ylab</span>(<span class="st">"Force (mN)"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-14" title="14"><span class="st">   </span><span class="kw">geom_point</span>(<span class="dt">x =</span> twitch_analyzed<span class="op">$</span>time_stim, </a>
+<a class="sourceLine" id="cb9-15" title="15">              <span class="dt">y =</span> twitch_analyzed<span class="op">$</span>force_stim,</a>
+<a class="sourceLine" id="cb9-16" title="16">              <span class="dt">color =</span> colz[<span class="dv">1</span>], <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-17" title="17"><span class="st">   </span><span class="kw">geom_point</span>(<span class="dt">x =</span> twitch_analyzed<span class="op">$</span>time_peak, </a>
+<a class="sourceLine" id="cb9-18" title="18">              <span class="dt">y =</span> twitch_analyzed<span class="op">$</span>force_peak,</a>
+<a class="sourceLine" id="cb9-19" title="19">              <span class="dt">color =</span> colz[<span class="dv">4</span>], <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-20" title="20"><span class="st">   </span><span class="kw">geom_point</span>(<span class="dt">x =</span> twitch_analyzed<span class="op">$</span>time_rising_<span class="dv">10</span>, </a>
+<a class="sourceLine" id="cb9-21" title="21">              <span class="dt">y =</span> twitch_analyzed<span class="op">$</span>force_rising_<span class="dv">10</span>,</a>
+<a class="sourceLine" id="cb9-22" title="22">              <span class="dt">color =</span> colz[<span class="dv">2</span>], <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-23" title="23"><span class="st">   </span><span class="kw">geom_point</span>(<span class="dt">x =</span> twitch_analyzed<span class="op">$</span>time_rising_<span class="dv">90</span>, </a>
+<a class="sourceLine" id="cb9-24" title="24">              <span class="dt">y =</span> twitch_analyzed<span class="op">$</span>force_rising_<span class="dv">90</span>,</a>
+<a class="sourceLine" id="cb9-25" title="25">              <span class="dt">color =</span> colz[<span class="dv">3</span>], <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-26" title="26"><span class="st">   </span><span class="kw">geom_point</span>(<span class="dt">x =</span> twitch_analyzed<span class="op">$</span>time_relaxing_<span class="dv">90</span>, </a>
+<a class="sourceLine" id="cb9-27" title="27">              <span class="dt">y =</span> twitch_analyzed<span class="op">$</span>force_relaxing_<span class="dv">90</span>,</a>
+<a class="sourceLine" id="cb9-28" title="28">              <span class="dt">color =</span> colz[<span class="dv">5</span>], <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-29" title="29"><span class="st">   </span><span class="kw">geom_point</span>(<span class="dt">x =</span> twitch_analyzed<span class="op">$</span>time_relaxing_<span class="dv">50</span>, </a>
+<a class="sourceLine" id="cb9-30" title="30">              <span class="dt">y =</span> twitch_analyzed<span class="op">$</span>force_relaxing_<span class="dv">50</span>,</a>
+<a class="sourceLine" id="cb9-31" title="31">              <span class="dt">color =</span> colz[<span class="dv">6</span>], <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-32" title="32"><span class="st">   </span><span class="kw">theme_minimal</span>()</a>
+<a class="sourceLine" id="cb9-33" title="33"><span class="co">#&gt; Warning: Removed 2750 rows containing missing values (geom_path).</span></a></code></pre></div>
 <p><img src="Calculating-twitch-kinetics_files/figure-html/annotated_plot-1.png" width="700"></p>
 <p>The plot has dots added for each of the six time&amp;force points that the function returns by default.</p>
 </div>

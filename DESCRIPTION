@@ -1,7 +1,7 @@
 Package: workloopR
 Type: Package
 Title: Analysis of Work Loops and Other Data from Muscle Physiology Experiments
-Version: 1.0.1.9000
+Version: 1.1.0
 Authors@R: 
     c(person(given = "Vikram B.",
              family = "Baliga", 
@@ -17,12 +17,14 @@ Authors@R:
              family = "Romanowska",
              role = "rev",
              email = "Julia.Romanowska@uib.no",
-             comment = c(ORCID = "0000-0001-6733-1953")),
+             comment = "Julia reviewed the package for ropensci
+             , see <https://github.com/ropensci/software-review/issues/326>"),
       person(given = "Eric",
              family = "Brown", 
              role = "rev",
              email = "eb@ericebrown.com",
-             comment = c(ORCID = "0000-0002-1575-2606")))
+             comment = "Eric reviewed the package for ropensci
+             , see <https://github.com/ropensci/software-review/issues/326>"))
 Description: Functions for the import, transformation, and analysis of data 
     from muscle physiology experiments. The work loop technique is used to 
     evaluate the mechanical work and power output of muscle. Josephson (1985) 
