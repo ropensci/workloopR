@@ -1,3 +1,16 @@
+workloopR 1.1.0 (2019-10-24)
+=========================
+
+  * New version of package following one round of peer review at rOpenSci. See 
+  this link for details of all changes: 
+  https://github.com/ropensci/software-review/issues/326#issuecomment-545283640  
+  * `read_wl.ddf()` and `read_twitch.ddf()` have been renamed to `read_wl_ddf()`
+  and `read_twitch_ddf()`, respectively
+  * Many changes to documentation including explicit linking of vignettes
+  * Now out of a developmental phase, but awaiting further feedback from 
+  rOpenSci editors and reviewers
+
+
 workloopR 1.0.1.9000 (2019-10-17)
 =========================
 

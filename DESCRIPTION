@@ -17,13 +17,13 @@ Authors@R:
              family = "Romanowska",
              role = "rev",
              email = "Julia.Romanowska@uib.no",
-             comment = "Julia reviewed the package for ropensci
+             comment = "Julia reviewed the package for rOpenSci
              , see <https://github.com/ropensci/software-review/issues/326>"),
       person(given = "Eric",
              family = "Brown", 
              role = "rev",
              email = "eb@ericebrown.com",
-             comment = "Eric reviewed the package for ropensci
+             comment = "Eric reviewed the package for rOpenSci
              , see <https://github.com/ropensci/software-review/issues/326>"))
 Description: Functions for the import, transformation, and analysis of data 
     from muscle physiology experiments. The work loop technique is used to 

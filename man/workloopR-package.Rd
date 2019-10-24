@@ -84,9 +84,9 @@ Authors:
 
 Other contributors:
 \itemize{
-  \item Julia Romanowska \email{Julia.Romanowska@uib.no} (Julia reviewed the package for ropensci
+  \item Julia Romanowska \email{Julia.Romanowska@uib.no} (Julia reviewed the package for rOpenSci
              , see <https://github.com/ropensci/software-review/issues/326>) [reviewer]
-  \item Eric Brown \email{eb@ericebrown.com} (Eric reviewed the package for ropensci
+  \item Eric Brown \email{eb@ericebrown.com} (Eric reviewed the package for rOpenSci
              , see <https://github.com/ropensci/software-review/issues/326>) [reviewer]
 }
 
