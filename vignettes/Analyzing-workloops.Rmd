@@ -173,7 +173,7 @@ names(workloop_analyzed)
 
 This produces an `analyzed_workloop` object that is essentially a `list` that is organized by cycle. Within each of these, time-course data are stored as a `data.frame` and important metadata are stored as attributes.
 
-Users may typically want work and net power from each cycle. Within the `analyzed_workloop` object, these two values are stored as attributes: `"work"` (in W) and `"net_power"` (in J). To get them for a specific cycle:
+Users may typically want work and net power from each cycle. Within the `analyzed_workloop` object, these two values are stored as attributes: `"work"` (in J) and `"net_power"` (in W). To get them for a specific cycle:
 
 ```{r metrics_for_cycle}
 ## What is work for the second cycle?
@@ -219,7 +219,7 @@ workloop_analyzed_simple
 str(workloop_analyzed_simple)
 ```
 
-Here, work (in W) and net power (in J) are simply returned in a `data.frame` that is organized by cycle. No other attributes are stored.
+Here, work (in J) and net power (in W) are simply returned in a `data.frame` that is organized by cycle. No other attributes are stored.
 
 
 ## More on cycle definitions in `select_cycles()`

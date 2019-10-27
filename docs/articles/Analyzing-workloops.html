@@ -100,7 +100,7 @@
       <h1>Analyzing work loop experiments in workloopR</h1>
                         <h4 class="author">Vikram B. Baliga</h4>
             
-            <h4 class="date">2019-10-24</h4>
+            <h4 class="date">2019-10-27</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/vbaliga/workloopR/blob/master/vignettes/Analyzing-workloops.Rmd"><code>vignettes/Analyzing-workloops.Rmd</code></a></small>
       <div class="hidden name"><code>Analyzing-workloops.Rmd</code></div>
@@ -157,7 +157,7 @@
 <a class="sourceLine" id="cb2-14" title="14"><span class="co">#&gt; # Workloop Data: 3 channels recorded over 0.3244s</span></a>
 <a class="sourceLine" id="cb2-15" title="15"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb2-16" title="16"><span class="co">#&gt; File ID: workloop.ddf</span></a>
-<a class="sourceLine" id="cb2-17" title="17"><span class="co">#&gt; Mod Time (mtime): 2019-10-24 09:40:55</span></a>
+<a class="sourceLine" id="cb2-17" title="17"><span class="co">#&gt; Mod Time (mtime): 2019-10-27 13:53:30</span></a>
 <a class="sourceLine" id="cb2-18" title="18"><span class="co">#&gt; Sample Frequency: 10000Hz</span></a>
 <a class="sourceLine" id="cb2-19" title="19"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb2-20" title="20"><span class="co">#&gt; data.frame Columns: </span></a>
@@ -218,7 +218,7 @@
 <a class="sourceLine" id="cb4-7" title="7"><span class="co">#&gt; # Workloop Data: 4 channels recorded over 0.1086s</span></a>
 <a class="sourceLine" id="cb4-8" title="8"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb4-9" title="9"><span class="co">#&gt; File ID: workloop.ddf</span></a>
-<a class="sourceLine" id="cb4-10" title="10"><span class="co">#&gt; Mod Time (mtime): 2019-10-24 09:40:55</span></a>
+<a class="sourceLine" id="cb4-10" title="10"><span class="co">#&gt; Mod Time (mtime): 2019-10-27 13:53:30</span></a>
 <a class="sourceLine" id="cb4-11" title="11"><span class="co">#&gt; Sample Frequency: 10000Hz</span></a>
 <a class="sourceLine" id="cb4-12" title="12"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb4-13" title="13"><span class="co">#&gt; data.frame Columns: </span></a>
@@ -282,7 +282,7 @@
 <a class="sourceLine" id="cb6-15" title="15"><span class="kw"><a href="https://rdrr.io/r/base/names.html">names</a></span>(workloop_analyzed)</a>
 <a class="sourceLine" id="cb6-16" title="16"><span class="co">#&gt; [1] "cycle_a" "cycle_b" "cycle_c"</span></a></code></pre></div>
 <p>This produces an <code>analyzed_workloop</code> object that is essentially a <code>list</code> that is organized by cycle. Within each of these, time-course data are stored as a <code>data.frame</code> and important metadata are stored as attributes.</p>
-<p>Users may typically want work and net power from each cycle. Within the <code>analyzed_workloop</code> object, these two values are stored as attributes: <code>"work"</code> (in W) and <code>"net_power"</code> (in J). To get them for a specific cycle:</p>
+<p>Users may typically want work and net power from each cycle. Within the <code>analyzed_workloop</code> object, these two values are stored as attributes: <code>"work"</code> (in J) and <code>"net_power"</code> (in W). To get them for a specific cycle:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="co">## What is work for the second cycle?</span></a>
 <a class="sourceLine" id="cb7-2" title="2"><span class="kw"><a href="https://rdrr.io/r/base/attr.html">attr</a></span>(workloop_analyzed<span class="op">$</span>cycle_b, <span class="st">"work"</span>)</a>
 <a class="sourceLine" id="cb7-3" title="3"><span class="co">#&gt; [1] 0.003282334</span></a>
@@ -335,7 +335,7 @@
 <a class="sourceLine" id="cb8-42" title="42"><span class="co">#&gt;  - attr(*, "stimulus_width")= num 0.2</span></a>
 <a class="sourceLine" id="cb8-43" title="43"><span class="co">#&gt;  - attr(*, "gear_ratio")= num 2</span></a>
 <a class="sourceLine" id="cb8-44" title="44"><span class="co">#&gt;  - attr(*, "file_id")= chr "workloop.ddf"</span></a>
-<a class="sourceLine" id="cb8-45" title="45"><span class="co">#&gt;  - attr(*, "mtime")= POSIXct, format: "2019-10-24 09:40:55"</span></a>
+<a class="sourceLine" id="cb8-45" title="45"><span class="co">#&gt;  - attr(*, "mtime")= POSIXct, format: "2019-10-27 13:53:30"</span></a>
 <a class="sourceLine" id="cb8-46" title="46"><span class="co">#&gt;  - attr(*, "retained_cycles")= int  4 5 6</span></a>
 <a class="sourceLine" id="cb8-47" title="47"><span class="co">#&gt;  - attr(*, "work")= num 0.00301</span></a>
 <a class="sourceLine" id="cb8-48" title="48"><span class="co">#&gt;  - attr(*, "net_power")= num 0.0909</span></a></code></pre></div>
@@ -370,7 +370,7 @@
 <a class="sourceLine" id="cb10-13" title="13"><span class="co">#&gt;  $ Cycle    : Factor w/ 3 levels "A","B","C": 1 2 3</span></a>
 <a class="sourceLine" id="cb10-14" title="14"><span class="co">#&gt;  $ Work     : num  0.00301 0.00328 0.0036</span></a>
 <a class="sourceLine" id="cb10-15" title="15"><span class="co">#&gt;  $ Net_Power: num  0.0909 0.0987 0.0981</span></a></code></pre></div>
-<p>Here, work (in W) and net power (in J) are simply returned in a <code>data.frame</code> that is organized by cycle. No other attributes are stored.</p>
+<p>Here, work (in J) and net power (in W) are simply returned in a <code>data.frame</code> that is organized by cycle. No other attributes are stored.</p>
 </div>
 </div>
 <div id="more-on-cycle-definitions-in-select_cycles" class="section level2">
