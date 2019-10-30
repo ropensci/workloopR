@@ -24,6 +24,7 @@ Functions for the import, transformation, and analysis of data
     Although we do not provide plotting functions, all resultant objects are 
     designed to be friendly to visualization via either base-R plotting or 
     'tidyverse' functions.
+ This package has been peer-reviewed by rOpenSci (v. 1.1.0).
 }
 \details{
 Functions for the import, transformation, and analysis of muscle physiology
@@ -69,8 +70,9 @@ in expanding our data import functions to accommodate file types other than
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/vbaliga/workloopR}
-  \item Report bugs at \url{https://github.com/vbaliga/workloopR/issues}
+  \item \url{https://docs.ropensci.org/workloopR}
+  \item \url{https://github.com/ropensci/workloopR}
+  \item Report bugs at \url{https://github.com/ropensci/workloopR/issues}
 }
 
 }

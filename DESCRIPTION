@@ -43,8 +43,9 @@ Description: Functions for the import, transformation, and analysis of data
     Although we do not provide plotting functions, all resultant objects are 
     designed to be friendly to visualization via either base-R plotting or 
     'tidyverse' functions.
-URL: https://github.com/vbaliga/workloopR
-BugReports:https://github.com/vbaliga/workloopR/issues
+ This package has been peer-reviewed by rOpenSci (v. 1.1.0).
+URL: https://docs.ropensci.org/workloopR, https://github.com/ropensci/workloopR
+BugReports: https://github.com/ropensci/workloopR/issues
 Imports:
     pracma (>= 2.0.7),
     signal (>= 0.7-6)

@@ -7,4 +7,4 @@ bibentry(bibtype = "Manual",
                     person("Shreeram", "Senthivasan")),
          year = year,
          note = note,
-         url = "https://github.com/vbaliga/workloopR")
+         url = "https://github.com/ropensci/workloopR")
