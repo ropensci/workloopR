@@ -15,12 +15,12 @@ Documentation website: https://docs.ropensci.org/workloopR/
 We are not (yet) on CRAN but the package can be installed via:
 ``` r
 #install.packages("devtools") # if devtools is not installed
-devtools::install_github("vbaliga/workloopR")
+devtools::install_github("ropensci/workloopR")
 ```
 
 Please note that vignettes are not built by default. To build vignettes as well, please use the following code:
 ``` r
-devtools::install_github("vbaliga/workloopR", build_vignettes = TRUE)
+devtools::install_github("ropensci/workloopR", build_vignettes = TRUE)
 ```
 
 
@@ -160,7 +160,7 @@ Recommended functions and vignettes:
 The currently preferred way to cite (but subject to change):
 
 Baliga VB, Senthivasan S (2019). *workloopR: Analysis of Work Loops and Other Data from Muscle Physiology Experiments*. R package version
-1.1.0, <URL: https://github.com/ropensci/workloopR>.
+1.1.0, <https://github.com/ropensci/workloopR>.
 
 
 

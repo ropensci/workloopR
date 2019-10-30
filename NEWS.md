@@ -1,6 +1,14 @@
-workloopR 1.1.0 (2019-10-24)
+workloopR 1.1.0 (2019-10-29)
 =========================
+2019-10-29:
+  * Accepted by rOpenSci!! 
+  * Updated all links and documentation to work with transfer of repo to 
+  https://github.com/ropensci/
+  * No changes to code or documentation otherwise, hence no change to version
+  of package
+  
 
+2019-10-24:
   * New version of package following one round of peer review at rOpenSci. See 
   this link for details of all changes: 
   https://github.com/ropensci/software-review/issues/326#issuecomment-545283640  
