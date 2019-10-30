@@ -1,69 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://vbaliga.github.io/workloopR//index.html</loc>
+    <loc>https://docs.ropensci.org/workloopR//index.html</loc>
   </url>
   <url>
-    <loc>https://vbaliga.github.io/workloopR//reference/analyze_workloop.html</loc>
+    <loc>https://docs.ropensci.org/workloopR//reference/analyze_workloop.html</loc>
   </url>
   <url>
-    <loc>https://vbaliga.github.io/workloopR//reference/as_muscle_stim.html</loc>
+    <loc>https://docs.ropensci.org/workloopR//reference/as_muscle_stim.html</loc>
   </url>
   <url>
-    <loc>https://vbaliga.github.io/workloopR//reference/fix_GR.html</loc>
+    <loc>https://docs.ropensci.org/workloopR//reference/fix_GR.html</loc>
   </url>
   <url>
-    <loc>https://vbaliga.github.io/workloopR//reference/get_wl_metadata.html</loc>
+    <loc>https://docs.ropensci.org/workloopR//reference/get_wl_metadata.html</loc>
   </url>
   <url>
-    <loc>https://vbaliga.github.io/workloopR//reference/invert_position.html</loc>
+    <loc>https://docs.ropensci.org/workloopR//reference/invert_position.html</loc>
   </url>
   <url>
-    <loc>https://vbaliga.github.io/workloopR//reference/isometric_timing.html</loc>
+    <loc>https://docs.ropensci.org/workloopR//reference/isometric_timing.html</loc>
   </url>
   <url>
-    <loc>https://vbaliga.github.io/workloopR//reference/read_analyze_wl.html</loc>
+    <loc>https://docs.ropensci.org/workloopR//reference/read_analyze_wl.html</loc>
   </url>
   <url>
-    <loc>https://vbaliga.github.io/workloopR//reference/read_analyze_wl_dir.html</loc>
+    <loc>https://docs.ropensci.org/workloopR//reference/read_analyze_wl_dir.html</loc>
   </url>
   <url>
-    <loc>https://vbaliga.github.io/workloopR//reference/read_ddf.html</loc>
+    <loc>https://docs.ropensci.org/workloopR//reference/read_ddf.html</loc>
   </url>
   <url>
-    <loc>https://vbaliga.github.io/workloopR//reference/read_ddf_dir.html</loc>
+    <loc>https://docs.ropensci.org/workloopR//reference/read_ddf_dir.html</loc>
   </url>
   <url>
-    <loc>https://vbaliga.github.io/workloopR//reference/select_cycles.html</loc>
+    <loc>https://docs.ropensci.org/workloopR//reference/select_cycles.html</loc>
   </url>
   <url>
-    <loc>https://vbaliga.github.io/workloopR//reference/summarize_wl_trials.html</loc>
+    <loc>https://docs.ropensci.org/workloopR//reference/summarize_wl_trials.html</loc>
   </url>
   <url>
-    <loc>https://vbaliga.github.io/workloopR//reference/time_correct.html</loc>
+    <loc>https://docs.ropensci.org/workloopR//reference/time_correct.html</loc>
   </url>
   <url>
-    <loc>https://vbaliga.github.io/workloopR//reference/trapezoidal_integration.html</loc>
+    <loc>https://docs.ropensci.org/workloopR//reference/trapezoidal_integration.html</loc>
   </url>
   <url>
-    <loc>https://vbaliga.github.io/workloopR//reference/workloopR-package.html</loc>
+    <loc>https://docs.ropensci.org/workloopR//reference/workloopR-package.html</loc>
   </url>
   <url>
-    <loc>https://vbaliga.github.io/workloopR//articles/Analyzing-workloops.html</loc>
+    <loc>https://docs.ropensci.org/workloopR//articles/Analyzing-workloops.html</loc>
   </url>
   <url>
-    <loc>https://vbaliga.github.io/workloopR//articles/batch-processing.html</loc>
+    <loc>https://docs.ropensci.org/workloopR//articles/batch-processing.html</loc>
   </url>
   <url>
-    <loc>https://vbaliga.github.io/workloopR//articles/Calculating-twitch-kinetics.html</loc>
+    <loc>https://docs.ropensci.org/workloopR//articles/Calculating-twitch-kinetics.html</loc>
   </url>
   <url>
-    <loc>https://vbaliga.github.io/workloopR//articles/Introduction-to-workloopR.html</loc>
+    <loc>https://docs.ropensci.org/workloopR//articles/Introduction-to-workloopR.html</loc>
   </url>
   <url>
-    <loc>https://vbaliga.github.io/workloopR//articles/non-ddf-sources.html</loc>
+    <loc>https://docs.ropensci.org/workloopR//articles/non-ddf-sources.html</loc>
   </url>
   <url>
-    <loc>https://vbaliga.github.io/workloopR//articles/Plotting-workloopR.html</loc>
+    <loc>https://docs.ropensci.org/workloopR//articles/Plotting-workloopR.html</loc>
   </url>
 </urlset>

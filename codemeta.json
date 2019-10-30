@@ -134,7 +134,7 @@
     }
   ],
   "issueTracker": "https://github.com/ropensci/workloopR/issues",
-  "readme": "https://github.com/vbaliga/workloopR/blob/master/README.md",
+  "readme": "https://github.com/ropensci/workloopR/blob/master/README.md",
   "contIntegration": [
     "https://ci.appveyor.com/project/vbaliga/workloopR",
     "https://travis-ci.org/vbaliga/workloopR"

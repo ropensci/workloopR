@@ -9,6 +9,6 @@ articles:
   non-ddf-sources: non-ddf-sources.html
   Plotting-workloopR: Plotting-workloopR.html
 urls:
-  reference: https://vbaliga.github.io/workloopR//reference
-  article: https://vbaliga.github.io/workloopR//articles
+  reference: https://docs.ropensci.org/workloopR//reference
+  article: https://docs.ropensci.org/workloopR//articles
 
