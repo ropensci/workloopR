@@ -17,7 +17,7 @@ authors:
 affiliations:
  - name: Department of Zoology, University of British Columbia, Vancouver, British Colombia, Canada V6T 1Z4
    index: 1
-date: 22 July 2019
+date: 30 October 2019
 bibliography: paper.bib
 ---
 
@@ -27,7 +27,7 @@ The work loop technique [@Josephson:1985] is used in studies of muscle physiolog
 
 ![An example work loop analysis pipeline. (Left) Raw traces are shown for one length change cycle in blue. Stimulation is shown in grey shading and muscle force generation is shown in red. (Right) Net work is calculated as the difference between work in the (Middle) shortening and lengthening phases.\label{example-workloop}](images/fig1_workloop.png)
 
-Work loop procedures have powerful experimental value and have been used to understand the characteristics of whole muscles, fiber bundles, and/or single muscle fibers from a wide variety of organisms. Using experimental parameters (e.g. length change amplitude, frequency of stimulation) that correspond to those shown by an organism *in vivo* can help explain muscle performance in the context of natural behavior. But since these experimental parameters do not need to be constrained to those shown during *in vivo* behaviors, the work loop technique affords the ability to explore a muscle's properties beyond (some) natural physiological constraints. @Anh:2012 provides a review of the work loop technique's importance to the field of muscle physiology.
+Work loop procedures have powerful experimental value and have been used to understand the characteristics of whole muscles, fiber bundles, and/or single muscle fibers from a wide variety of organisms. Using experimental parameters (e.g. length change amplitude, frequency of stimulation) that correspond to those shown by an organism *in vivo* can help explain muscle performance in the context of natural behavior. But since these experimental parameters do not need to be constrained to those shown during *in vivo* behaviors, the work loop technique affords the ability to explore a muscle's properties beyond (some) natural physiological constraints. @Ahn:2012 provides a review of the work loop technique's importance to the field of muscle physiology.
 
 The ability to import and analyze data from work loop (or other muscle physiology ) experiments has been conspicuously absent from open-source environments. ``workloopR`` (pronounced "work looper") provides functions for the import, transformation, and analysis of muscle physiology experiments in R. As the package's title suggests, our initial motivation was to provide functions to analyze work loops to determine net work and power output from the time-course of length and force change. Over the course of developing the package, we expanded this goal to cover additional types of experiments that are often complementary to the work loop technique. Accordingly, there are three currently supported experiment types: work loop, simple twitch, and tetanus.
 
