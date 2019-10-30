@@ -2,7 +2,7 @@ workloopR <img src="images/workloopR_icon_300dpi.png" align="right" width="150px
 =======================================================================================
 
   <!-- badges: start -->
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)  [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ropensci/workloopR?branch=master&svg=true)](https://ci.appveyor.com/project/vbaliga/workloopR)  [![Travis build status](https://travis-ci.org/vbaliga/workloopR.svg?branch=master)](https://travis-ci.org/vbaliga/workloopR)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)  [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ropensci/workloopR?branch=master&svg=true)](https://ci.appveyor.com/project/ropensci/workloopR)  [![Travis build status](https://travis-ci.org/ropensci/workloopR.svg?branch=master)](https://travis-ci.org/ropensci/workloopR)
 [![](https://badges.ropensci.org/326_status.svg)](https://github.com/ropensci/software-review/issues/326)
   <!-- badges: end -->
 

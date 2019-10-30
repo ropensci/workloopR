@@ -2,6 +2,9 @@ url: https://docs.ropensci.org/workloopR/
 
 destination: docs
 
+template:
+  package: rotemplate
+
 authors:
   Vikram B. Baliga:
     href: https://www.vikram-baliga.com/
@@ -44,7 +47,7 @@ reference:
   contents:
   - analyze_workloop
   - isometric_timing
-  - trapezoidal_integration  
+  - trapezoidal_integration
   - time_correct
 - title: Batch analysis functions
   desc:  Functions for the analysis of multiple files or `muscle_stim` objects
@@ -53,5 +56,4 @@ reference:
   - read_analyze_wl_dir
   - get_wl_metadata
   - summarize_wl_trials
-  
-  
+
