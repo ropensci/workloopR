@@ -1,4 +1,4 @@
-workloopR <img src="images/workloopR_icon_300dpi.png" align="right" width="150px"/>
+workloopR <img src="https://github.com/ropensci/workloopR/raw/master/images/workloopR_icon_300dpi.png" align="right" width="150px"/>
 =======================================================================================
 
   <!-- badges: start -->
@@ -29,7 +29,7 @@ devtools::install_github("ropensci/workloopR", build_vignettes = TRUE)
 
 `workloopR` (pronounced "work looper") provides functions for the import, transformation, and analysis of muscle physiology experiments in R. As the package's title suggests, our initial motivation was to provide functions to analyze work loops. The work loop technique ([Josephson 1985](https://jeb.biologists.org/content/114/1/493)) is used in studies of muscle physiology to determine the mechanical work and power output of a muscle. Over the course of developing the package, we expanded this goal to also cover experiments that are often complementary to the work loop technique. There are three currently supported experiment types: work loop, simple twitch, and tetanus.
 
-![Figure 1](images/fig1_workloop.png)
+![Figure 1](https://github.com/ropensci/workloopR/raw/master/images/fig1_workloop.png)
 
 For more on work loops, we recommend a great review paper by Ahn ([2012](https://dx.doi.org/10.1242/jeb.062752)) as well as [this](https://en.wikipedia.org/wiki/Work_loop) Wikipedia page.
 
@@ -150,8 +150,8 @@ analyzed_wls <- read_analyze_wl_dir(system.file("extdata/wl_duration_trials",
 ## Graphical overview
 
 Recommended functions and vignettes:
-
-![Figure 2](images/fig2_flowchart.png)
+r
+![Figure 2](https://github.com/ropensci/workloopR/raw/master/images/fig2_flowchart.png)
 
 
 
