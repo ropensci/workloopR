@@ -1,10 +1,13 @@
 year <- 2019
 note <- sprintf("R package version %s", meta$Version)
 
-bibentry(bibtype = "Manual",
-         title = "workloopR: Analysis of Work Loops and Other Data from Muscle Physiology Experiments",
+bibentry(bibtype = "Article",
+         title = "workloopR: Analysis of work loops and other data from muscle physiology experiments in R",
          author = c(person("Vikram B.", "Baliga"),
                     person("Shreeram", "Senthivasan")),
-         year = year,
-         note = note,
-         url = "https://github.com/ropensci/workloopR")
+         journal = "Journal of Open Source Software",
+         year = "2019",
+         volume = "4(43)",
+         pages = "1856",
+         doi = "10.21105/joss.01856"
+         )

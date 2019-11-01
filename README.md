@@ -1,14 +1,17 @@
-workloopR <img src="https://github.com/ropensci/workloopR/raw/master/images/workloopR_icon_300dpi.png" align="right" width="150px"/>
+workloopR: Analysis of work loops and other data from muscle physiology experiments in R <img src="https://github.com/ropensci/workloopR/raw/master/images/workloopR_icon_300dpi.png" align="right" width="150px"/>
 =======================================================================================
 
   <!-- badges: start -->
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)  [![Travis build status](https://travis-ci.org/ropensci/workloopR.svg?branch=master)](https://travis-ci.org/ropensci/workloopR)
-[![](https://badges.ropensci.org/326_status.svg)](https://github.com/ropensci/software-review/issues/326)  [![status](https://joss.theoj.org/papers/f0eca1d99dde4e02b414e65271cc24ca/status.svg)](https://joss.theoj.org/papers/f0eca1d99dde4e02b414e65271cc24ca)
+[![](https://badges.ropensci.org/326_status.svg)](https://github.com/ropensci/software-review/issues/326)  [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3523384.svg)](https://doi.org/10.5281/zenodo.3523384)  [![DOI](https://joss.theoj.org/papers/10.21105/joss.01856/status.svg)](https://doi.org/10.21105/joss.01856)
+
   <!-- badges: end -->
 
-Analysis of work loops and other data from muscle physiology experiments in R
-
 Documentation website: https://docs.ropensci.org/workloopR/
+
+Accompanying paper in Journal of Open Source Software: https://doi.org/10.21105/joss.01856
+
+
 
 ## Installation
 
@@ -157,10 +160,9 @@ Recommended functions and vignettes:
 
 ## Citation
 
-The currently preferred way to cite (but subject to change):
+The preferred way to cite `workloopR` is:
 
-Baliga VB, Senthivasan S (2019). *workloopR: Analysis of Work Loops and Other Data from Muscle Physiology Experiments*. R package version
-1.1.1, <https://github.com/ropensci/workloopR>.
+Baliga VB and Senthivasan S. 2019. workloopR: Analysis of work loops and other data from muscle physiology experiments in R. *Journal of Open Source Software*, 4(43), 1856, https://doi.org/10.21105/joss.01856
 
 
 
@@ -168,7 +170,7 @@ Baliga VB, Senthivasan S (2019). *workloopR: Analysis of Work Loops and Other Da
 
 Feedback is welcome! Please feel free to get in touch with either Vikram ([@vbaliga](https://github.com/vbaliga)) or Shree ([@shreeramsenthi](https://github.com/shreeramsenthi)).
 
-We are happy to take feature requests, especially those that involve data import from non-ddf file types. Please see our Issues page for [templates](https://github.com/ropensci/workloopR/issues/new/choose) you are welcome to use.  
+We are happy to take feature requests, especially those that involve data import from non-ddf file types. Please see our Issues page for [templates](https://github.com/ropensci/workloopR/issues/new/choose) that you can use.  
 
 🐢
 

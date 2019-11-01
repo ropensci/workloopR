@@ -8,7 +8,7 @@
   "description": "Functions for the import, transformation, and analysis of data \n    from muscle physiology experiments. The work loop technique is used to \n    evaluate the mechanical work and power output of muscle. Josephson (1985) \n    <https://jeb.biologists.org/content/114/1/493> modernized the technique for\n    application in comparative biomechanics. Although our initial motivation \n    was to provide functions to analyze work loop experiment data, as we \n    developed the package we incorporated the ability to analyze data from \n    experiments that are often complementary to work loops. There are currently \n    three supported experiment types: work loops, simple twitches, and tetanus \n    trials. Data can be imported directly from .ddf files or via an object \n    constructor function. Through either method, data can then be cleaned or \n    transformed via methods typically used in studies of muscle physiology. \n    Data can then be analyzed to determine the timing and magnitude of force \n    development and relaxation (for isometric trials) or the magnitude of work, \n    net power, and instantaneous power among other things (for work loops). \n    Although we do not provide plotting functions, all resultant objects are \n    designed to be friendly to visualization via either base-R plotting or \n    'tidyverse' functions.\n This package has been peer-reviewed by rOpenSci (v. 1.1.0).",
   "name": "workloopR: Analysis of Work Loops and Other Data from Muscle Physiology Experiments",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -115,7 +115,7 @@
   "fileSize": "872.998KB",
   "citation": [
     {
-      "@type": "SoftwareSourceCode",
+      "@type": "ScholarlyArticle",
       "datePublished": "2019",
       "author": [
         {
@@ -129,8 +129,20 @@
           "familyName": "Senthivasan"
         }
       ],
-      "name": "workloopR: Analysis of Work Loops and Other Data from Muscle Physiology Experiments",
-      "url": "https://github.com/ropensci/workloopR"
+      "name": "workloopR: Analysis of work loops and other data from muscle physiology experiments in R",
+      "identifier": "10.21105/joss.01856",
+      "paginiation": "1856",
+      "@id": "https://doi.org/10.21105/joss.01856",
+      "sameAs": "https://doi.org/10.21105/joss.01856",
+      "isPartOf": {
+        "@type": "PublicationIssue",
+        "datePublished": "2019",
+        "isPartOf": {
+          "@type": ["PublicationVolume", "Periodical"],
+          "volumeNumber": "4(43)",
+          "name": "Journal of Open Source Software"
+        }
+      }
     }
   ],
   "issueTracker": "https://github.com/ropensci/workloopR/issues",

@@ -1,3 +1,12 @@
+workloopR 1.1.2 (2019-11-01)
+=========================
+
+  * Accepted by the Journal of Open Source Software!! 
+  See: https://doi.org/10.21105/joss.01856
+  * All updates relate to adding JOSS paper info throughout the package
+  * No updates to functions or other code
+
+
 workloopR 1.1.1 (2019-10-31)
 =========================
 
