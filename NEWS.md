@@ -1,3 +1,11 @@
+workloopR 1.1.1 (2019-10-31)
+=========================
+
+  * Add funding sources to `paper.md`
+  * Small fixes to language or typos
+  * Add Issues information to `README`
+
+
 workloopR 1.1.0 (2019-10-29)
 =========================
 2019-10-29:

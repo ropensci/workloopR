@@ -47,6 +47,8 @@ Please see Figure \ref{flowchart} below for an overview of the ``workloopR`` pac
 
 # Acknowledgements
 
-We thank Doug Altshuler, Jasmin Wong, and Jolan Theriault for help they provided throughout the course of this project.
+We thank Doug Altshuler, Jasmin Wong, and Jolan Theriault for help they provided throughout the course of this project. 
+
+This work was funded by the U.S. Air Force Office of Scientific Research (under grant no. FA9550-16-1-0182, titled "Avian-inspired multifunctional morphing vehicles" monitored by B. L. Lee) and also by the Natural Sciences and Engineering Research Council of Canada (NSERC, RGPIN-2016-05381). 
 
 # References

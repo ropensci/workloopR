@@ -150,7 +150,7 @@ analyzed_wls <- read_analyze_wl_dir(system.file("extdata/wl_duration_trials",
 ## Graphical overview
 
 Recommended functions and vignettes:
-r
+
 ![Figure 2](https://github.com/ropensci/workloopR/raw/master/images/fig2_flowchart.png)
 
 
@@ -160,13 +160,15 @@ r
 The currently preferred way to cite (but subject to change):
 
 Baliga VB, Senthivasan S (2019). *workloopR: Analysis of Work Loops and Other Data from Muscle Physiology Experiments*. R package version
-1.1.0, <https://github.com/ropensci/workloopR>.
+1.1.1, <https://github.com/ropensci/workloopR>.
 
 
 
 ## Issues/questions/requests
 
 Feedback is welcome! Please feel free to get in touch with either Vikram ([@vbaliga](https://github.com/vbaliga)) or Shree ([@shreeramsenthi](https://github.com/shreeramsenthi)).
+
+We are happy to take feature requests, especially those that involve data import from non-ddf file types. Please see our Issues page for [templates](https://github.com/ropensci/workloopR/issues/new/choose) you are welcome to use.  
 
 🐢
 
