@@ -109,10 +109,12 @@ str(attributes(wl_dat))
 \seealso{
 \code{\link{read_ddf}}
 
-Other data import functions: \code{\link{get_wl_metadata}},
-  \code{\link{read_analyze_wl_dir}},
-  \code{\link{read_analyze_wl}},
-  \code{\link{read_ddf_dir}}, \code{\link{read_ddf}}
+Other data import functions: 
+\code{\link{get_wl_metadata}()},
+\code{\link{read_analyze_wl_dir}()},
+\code{\link{read_analyze_wl}()},
+\code{\link{read_ddf_dir}()},
+\code{\link{read_ddf}()}
 }
 \author{
 Shreeram Senthivasan

@@ -77,11 +77,11 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Vikram B. Baliga \email{vbaliga87@gmail.com} (0000-0002-9367-8974)
+\strong{Maintainer}: Vikram B. Baliga \email{vbaliga87@gmail.com} (\href{https://orcid.org/0000-0002-9367-8974}{ORCID})
 
 Authors:
 \itemize{
-  \item Shreeram Senthivasan \email{shreeramsenthi@gmail.com} (0000-0002-7118-9547)
+  \item Shreeram Senthivasan \email{shreeramsenthi@gmail.com} (\href{https://orcid.org/0000-0002-7118-9547}{ORCID})
 }
 
 Other contributors:

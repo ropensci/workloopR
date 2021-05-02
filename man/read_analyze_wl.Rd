@@ -139,22 +139,27 @@ Josephson RK. 1985. Mechanical Power output from Striated Muscle
 \code{\link{select_cycles}}
 \code{\link{analyze_workloop}}
 
-Other data analyses: \code{\link{analyze_workloop}},
-  \code{\link{isometric_timing}},
-  \code{\link{read_analyze_wl_dir}}
+Other data analyses: 
+\code{\link{analyze_workloop}()},
+\code{\link{isometric_timing}()},
+\code{\link{read_analyze_wl_dir}()}
 
-Other data import functions: \code{\link{as_muscle_stim}},
-  \code{\link{get_wl_metadata}},
-  \code{\link{read_analyze_wl_dir}},
-  \code{\link{read_ddf_dir}}, \code{\link{read_ddf}}
+Other data import functions: 
+\code{\link{as_muscle_stim}()},
+\code{\link{get_wl_metadata}()},
+\code{\link{read_analyze_wl_dir}()},
+\code{\link{read_ddf_dir}()},
+\code{\link{read_ddf}()}
 
-Other workloop functions: \code{\link{analyze_workloop}},
-  \code{\link{fix_GR}}, \code{\link{get_wl_metadata}},
-  \code{\link{invert_position}},
-  \code{\link{read_analyze_wl_dir}},
-  \code{\link{select_cycles}},
-  \code{\link{summarize_wl_trials}},
-  \code{\link{time_correct}}
+Other workloop functions: 
+\code{\link{analyze_workloop}()},
+\code{\link{fix_GR}()},
+\code{\link{get_wl_metadata}()},
+\code{\link{invert_position}()},
+\code{\link{read_analyze_wl_dir}()},
+\code{\link{select_cycles}()},
+\code{\link{summarize_wl_trials}()},
+\code{\link{time_correct}()}
 }
 \author{
 Vikram B. Baliga

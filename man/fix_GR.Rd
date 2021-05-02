@@ -54,22 +54,26 @@ max(wl_fixed$Position) / max(wl_dat$Position) # 1.832262 / 3.664524 = 0.5
 \code{\link{read_analyze_wl}},
 \code{\link{read_analyze_wl_dir}}
 
-Other data transformations: \code{\link{invert_position}},
-  \code{\link{select_cycles}}
+Other data transformations: 
+\code{\link{invert_position}()},
+\code{\link{select_cycles}()}
 
-Other workloop functions: \code{\link{analyze_workloop}},
-  \code{\link{get_wl_metadata}},
-  \code{\link{invert_position}},
-  \code{\link{read_analyze_wl_dir}},
-  \code{\link{read_analyze_wl}},
-  \code{\link{select_cycles}},
-  \code{\link{summarize_wl_trials}},
-  \code{\link{time_correct}}
+Other workloop functions: 
+\code{\link{analyze_workloop}()},
+\code{\link{get_wl_metadata}()},
+\code{\link{invert_position}()},
+\code{\link{read_analyze_wl_dir}()},
+\code{\link{read_analyze_wl}()},
+\code{\link{select_cycles}()},
+\code{\link{summarize_wl_trials}()},
+\code{\link{time_correct}()}
 
-Other twitch functions: \code{\link{invert_position}},
-  \code{\link{isometric_timing}}
+Other twitch functions: 
+\code{\link{invert_position}()},
+\code{\link{isometric_timing}()}
 
-Other tetanus functions: \code{\link{invert_position}}
+Other tetanus functions: 
+\code{\link{invert_position}()}
 }
 \author{
 Vikram B. Baliga

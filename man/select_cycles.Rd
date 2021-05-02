@@ -4,8 +4,14 @@
 \alias{select_cycles}
 \title{Select cycles from a work loop object}
 \usage{
-select_cycles(x, cycle_def, keep_cycles = 4:6, bworth_order = 2,
-  bworth_freq = 0.05, ...)
+select_cycles(
+  x,
+  cycle_def,
+  keep_cycles = 4:6,
+  bworth_order = 2,
+  bworth_freq = 0.05,
+  ...
+)
 }
 \arguments{
 \item{x}{A \code{workloop} object (see Details for how it should be
@@ -87,16 +93,19 @@ summary(as.factor(wl_selected$Cycle))
 \code{\link{read_analyze_wl}},
 \code{\link{read_analyze_wl_dir}}
 
-Other data transformations: \code{\link{fix_GR}},
-  \code{\link{invert_position}}
+Other data transformations: 
+\code{\link{fix_GR}()},
+\code{\link{invert_position}()}
 
-Other workloop functions: \code{\link{analyze_workloop}},
-  \code{\link{fix_GR}}, \code{\link{get_wl_metadata}},
-  \code{\link{invert_position}},
-  \code{\link{read_analyze_wl_dir}},
-  \code{\link{read_analyze_wl}},
-  \code{\link{summarize_wl_trials}},
-  \code{\link{time_correct}}
+Other workloop functions: 
+\code{\link{analyze_workloop}()},
+\code{\link{fix_GR}()},
+\code{\link{get_wl_metadata}()},
+\code{\link{invert_position}()},
+\code{\link{read_analyze_wl_dir}()},
+\code{\link{read_analyze_wl}()},
+\code{\link{summarize_wl_trials}()},
+\code{\link{time_correct}()}
 }
 \author{
 Vikram B. Baliga and Shreeram Senthivasan

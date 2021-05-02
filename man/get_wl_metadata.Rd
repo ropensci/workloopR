@@ -48,22 +48,27 @@ my_meta <- get_wl_metadata("./my/file/path/")
 \seealso{
 \code{\link{summarize_wl_trials}}
 
-Other data import functions: \code{\link{as_muscle_stim}},
-  \code{\link{read_analyze_wl_dir}},
-  \code{\link{read_analyze_wl}},
-  \code{\link{read_ddf_dir}}, \code{\link{read_ddf}}
+Other data import functions: 
+\code{\link{as_muscle_stim}()},
+\code{\link{read_analyze_wl_dir}()},
+\code{\link{read_analyze_wl}()},
+\code{\link{read_ddf_dir}()},
+\code{\link{read_ddf}()}
 
-Other workloop functions: \code{\link{analyze_workloop}},
-  \code{\link{fix_GR}}, \code{\link{invert_position}},
-  \code{\link{read_analyze_wl_dir}},
-  \code{\link{read_analyze_wl}},
-  \code{\link{select_cycles}},
-  \code{\link{summarize_wl_trials}},
-  \code{\link{time_correct}}
+Other workloop functions: 
+\code{\link{analyze_workloop}()},
+\code{\link{fix_GR}()},
+\code{\link{invert_position}()},
+\code{\link{read_analyze_wl_dir}()},
+\code{\link{read_analyze_wl}()},
+\code{\link{select_cycles}()},
+\code{\link{summarize_wl_trials}()},
+\code{\link{time_correct}()}
 
-Other batch analyses: \code{\link{read_analyze_wl_dir}},
-  \code{\link{summarize_wl_trials}},
-  \code{\link{time_correct}}
+Other batch analyses: 
+\code{\link{read_analyze_wl_dir}()},
+\code{\link{summarize_wl_trials}()},
+\code{\link{time_correct}()}
 }
 \author{
 Vikram B. Baliga

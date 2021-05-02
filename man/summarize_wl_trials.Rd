@@ -66,16 +66,20 @@ Josephson RK. 1985. Mechanical Power output from Striated Muscle
 \code{\link{get_wl_metadata}},
 \code{\link{time_correct}}
 
-Other workloop functions: \code{\link{analyze_workloop}},
-  \code{\link{fix_GR}}, \code{\link{get_wl_metadata}},
-  \code{\link{invert_position}},
-  \code{\link{read_analyze_wl_dir}},
-  \code{\link{read_analyze_wl}},
-  \code{\link{select_cycles}}, \code{\link{time_correct}}
+Other workloop functions: 
+\code{\link{analyze_workloop}()},
+\code{\link{fix_GR}()},
+\code{\link{get_wl_metadata}()},
+\code{\link{invert_position}()},
+\code{\link{read_analyze_wl_dir}()},
+\code{\link{read_analyze_wl}()},
+\code{\link{select_cycles}()},
+\code{\link{time_correct}()}
 
-Other batch analyses: \code{\link{get_wl_metadata}},
-  \code{\link{read_analyze_wl_dir}},
-  \code{\link{time_correct}}
+Other batch analyses: 
+\code{\link{get_wl_metadata}()},
+\code{\link{read_analyze_wl_dir}()},
+\code{\link{time_correct}()}
 }
 \author{
 Vikram B. Baliga and Shreeram Senthivasan

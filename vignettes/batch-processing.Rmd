@@ -31,26 +31,9 @@ In broad strokes, there are three ways that batch processing has been worked int
 This vignette will rely heavily on the `purrr::map()` family of functions for recursion, though it should be mentioned that the `base::apply()` family of functions would work as well.
 
 ```{r package_loading, message=FALSE, warning=FALSE}
-## If a package is installed, it will be loaded. If any are not, the missing
-## package(s) will be installed from CRAN and then loaded.
-
-## First specify the packages of interest
-packages <-
-  c("workloopR",
-    "magrittr",
-    "purrr")
-
-## Now load or install&load all
-package.check <- lapply(
-  packages,
-  FUN = function(x) {
-    if (!require(x, character.only = TRUE)) {
-      install.packages(x, dependencies = TRUE,
-                       repos = "http://cran.us.r-project.org")
-      library(x, character.only = TRUE)
-    }
-  }
-)
+library(workloopR)
+library(magrittr)
+library(purrr)
 ```
 
 

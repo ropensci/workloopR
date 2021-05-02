@@ -6,23 +6,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Batch processing • workloopR</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><!-- ropensci --><link href="../ropensci.css" rel="stylesheet">
-<meta property="og:title" content="Batch processing">
-<meta property="og:description" content="">
-<meta name="twitter:card" content="summary">
-<!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-462421-8"></script><script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-462421-8');
-</script>
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Batch processing">
+<meta property="og:description" content="workloopR">
+<!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -33,17 +29,17 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-
-      <div class="navbar-brand-container">
-        <a href="https://ropensci.org"><img src="../hexlogo.png" id="hexlogo" alt="rOpenSci"></a>
-        <a class="navbar-brand" href="../index.html"><i>workloopR <small>v1.1.2</small></i></a>
-      </div>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">workloopR</a>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.3</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -80,9 +76,11 @@
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
-        <li>
-  <a href="https://github.com/ropensci/workloopR">
-    <span class="fab fa fab fa-github fa-lg"></span>
+      </ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/ropensci/workloopR/">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -96,13 +94,13 @@
 
       
 
-      </header><div class="row">
+      </header><script src="batch-processing_files/header-attrs-2.7.5/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>Batch processing</h1>
+      <h1 data-toc-skip>Batch processing</h1>
                         <h4 class="author">Shreeram Senthivasan</h4>
             
-            <h4 class="date">2019-11-01</h4>
+            <h4 class="date">2021-05-02</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ropensci/workloopR/blob/master/vignettes/batch-processing.Rmd"><code>vignettes/batch-processing.Rmd</code></a></small>
       <div class="hidden name"><code>batch-processing.Rmd</code></div>
@@ -122,26 +120,10 @@
 <h2 class="hasAnchor">
 <a href="#load-packages-and-data" class="anchor"></a>Load packages and data</h2>
 <p>This vignette will rely heavily on the <code><a href="https://purrr.tidyverse.org/reference/map.html">purrr::map()</a></code> family of functions for recursion, though it should be mentioned that the <code><a href="https://rdrr.io/r/base/apply.html">base::apply()</a></code> family of functions would work as well.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="co">## If a package is installed, it will be loaded. If any are not, the missing</span></a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="co">## package(s) will be installed from CRAN and then loaded.</span></a>
-<a class="sourceLine" id="cb1-3" title="3"></a>
-<a class="sourceLine" id="cb1-4" title="4"><span class="co">## First specify the packages of interest</span></a>
-<a class="sourceLine" id="cb1-5" title="5">packages &lt;-</a>
-<a class="sourceLine" id="cb1-6" title="6"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"workloopR"</span>,</a>
-<a class="sourceLine" id="cb1-7" title="7">    <span class="st">"magrittr"</span>,</a>
-<a class="sourceLine" id="cb1-8" title="8">    <span class="st">"purrr"</span>)</a>
-<a class="sourceLine" id="cb1-9" title="9"></a>
-<a class="sourceLine" id="cb1-10" title="10"><span class="co">## Now load or install&amp;load all</span></a>
-<a class="sourceLine" id="cb1-11" title="11">package.check &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span>(</a>
-<a class="sourceLine" id="cb1-12" title="12">  packages,</a>
-<a class="sourceLine" id="cb1-13" title="13">  <span class="dt">FUN =</span> <span class="cf">function</span>(x) {</a>
-<a class="sourceLine" id="cb1-14" title="14">    <span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span>(x, <span class="dt">character.only =</span> <span class="ot">TRUE</span>)) {</a>
-<a class="sourceLine" id="cb1-15" title="15">      <span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(x, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb1-16" title="16">                       <span class="dt">repos =</span> <span class="st">"http://cran.us.r-project.org"</span>)</a>
-<a class="sourceLine" id="cb1-17" title="17">      <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(x, <span class="dt">character.only =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb1-18" title="18">    }</a>
-<a class="sourceLine" id="cb1-19" title="19">  }</a>
-<a class="sourceLine" id="cb1-20" title="20">)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/workloopR">workloopR</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org">magrittr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://purrr.tidyverse.org">purrr</a></span><span class="op">)</span></code></pre></div>
 </div>
 <div id="necessarily-multi-trial-functions" class="section level2">
 <h2 class="hasAnchor">
@@ -150,78 +132,81 @@
 <h3 class="hasAnchor">
 <a href="#dir-functions" class="anchor"></a><code>*_dir()</code> functions</h3>
 <p>Both <code><a href="../reference/read_ddf.html">read_ddf()</a></code> and <code><a href="../reference/read_analyze_wl.html">read_analyze_wl()</a></code> have alternatives suffixed by <code>_dir()</code> to read in multiple files from a directory. Both take a path to the directory and an optional regular expression to filter files by and return a list of <code>muscle_stim</code> objects or <code>analyzed_workloop</code> objects, respectively.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">workloop_trials_list&lt;-</a>
-<a class="sourceLine" id="cb2-2" title="2"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(</a>
-<a class="sourceLine" id="cb2-3" title="3">    <span class="st">"extdata/wl_duration_trials"</span>,</a>
-<a class="sourceLine" id="cb2-4" title="4">    <span class="dt">package =</span> <span class="st">'workloopR'</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb2-5" title="5"><span class="st">  </span><span class="kw"><a href="../reference/read_ddf_dir.html">read_ddf_dir</a></span>(<span class="dt">phase_from_peak =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb2-6" title="6"></a>
-<a class="sourceLine" id="cb2-7" title="7">workloop_trials_list[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</a>
-<a class="sourceLine" id="cb2-8" title="8"><span class="co">#&gt; [[1]]</span></a>
-<a class="sourceLine" id="cb2-9" title="9"><span class="co">#&gt; # Workloop Data: 3 channels recorded over 0.3244s</span></a>
-<a class="sourceLine" id="cb2-10" title="10"><span class="co">#&gt; File ID: 01_4pulse.ddf</span></a>
-<a class="sourceLine" id="cb2-11" title="11"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb2-12" title="12"><span class="co">#&gt;    Time Position   Force Stim</span></a>
-<a class="sourceLine" id="cb2-13" title="13"><span class="co">#&gt; 1 1e-04 0.698128 57.2970    0</span></a>
-<a class="sourceLine" id="cb2-14" title="14"><span class="co">#&gt; 2 2e-04 0.699741 57.7805    0</span></a>
-<a class="sourceLine" id="cb2-15" title="15"><span class="co">#&gt; 3 3e-04 0.699418 58.9095    0</span></a>
-<a class="sourceLine" id="cb2-16" title="16"><span class="co">#&gt; 4 4e-04 0.697160 55.8450    0</span></a>
-<a class="sourceLine" id="cb2-17" title="17"><span class="co">#&gt; 5 5e-04 0.698773 58.2645    0</span></a>
-<a class="sourceLine" id="cb2-18" title="18"><span class="co">#&gt; 6 6e-04 0.698451 57.4580    0</span></a>
-<a class="sourceLine" id="cb2-19" title="19"><span class="co">#&gt; # … with 3238 more rows</span></a>
-<a class="sourceLine" id="cb2-20" title="20"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb2-21" title="21"><span class="co">#&gt; [[2]]</span></a>
-<a class="sourceLine" id="cb2-22" title="22"><span class="co">#&gt; # Workloop Data: 3 channels recorded over 0.3244s</span></a>
-<a class="sourceLine" id="cb2-23" title="23"><span class="co">#&gt; File ID: 02_2pulse.ddf</span></a>
-<a class="sourceLine" id="cb2-24" title="24"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb2-25" title="25"><span class="co">#&gt;    Time Position   Force Stim</span></a>
-<a class="sourceLine" id="cb2-26" title="26"><span class="co">#&gt; 1 1e-04 0.698773 47.9420    0</span></a>
-<a class="sourceLine" id="cb2-27" title="27"><span class="co">#&gt; 2 2e-04 0.698451 48.1035    0</span></a>
-<a class="sourceLine" id="cb2-28" title="28"><span class="co">#&gt; 3 3e-04 0.700064 48.2645    0</span></a>
-<a class="sourceLine" id="cb2-29" title="29"><span class="co">#&gt; 4 4e-04 0.698451 48.5875    0</span></a>
-<a class="sourceLine" id="cb2-30" title="30"><span class="co">#&gt; 5 5e-04 0.698773 48.7485    0</span></a>
-<a class="sourceLine" id="cb2-31" title="31"><span class="co">#&gt; 6 6e-04 0.699418 49.0710    0</span></a>
-<a class="sourceLine" id="cb2-32" title="32"><span class="co">#&gt; # … with 3238 more rows</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">workloop_trials_list</span><span class="op">&lt;-</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span>
+    <span class="st">"extdata/wl_duration_trials"</span>,
+    package <span class="op">=</span> <span class="st">'workloopR'</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="../reference/read_ddf_dir.html">read_ddf_dir</a></span><span class="op">(</span>phase_from_peak <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+
+<span class="va">workloop_trials_list</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span>
+<span class="co">#&gt; [[1]]</span>
+<span class="co">#&gt; # Workloop Data: 3 channels recorded over 0.3244s</span>
+<span class="co">#&gt; File ID: 01_4pulse.ddf</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;    Time Position   Force Stim</span>
+<span class="co">#&gt; 1 1e-04 0.698128 57.2970    0</span>
+<span class="co">#&gt; 2 2e-04 0.699741 57.7805    0</span>
+<span class="co">#&gt; 3 3e-04 0.699418 58.9095    0</span>
+<span class="co">#&gt; 4 4e-04 0.697160 55.8450    0</span>
+<span class="co">#&gt; 5 5e-04 0.698773 58.2645    0</span>
+<span class="co">#&gt; 6 6e-04 0.698451 57.4580    0</span>
+<span class="co">#&gt; # … with 3238 more rows</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[2]]</span>
+<span class="co">#&gt; # Workloop Data: 3 channels recorded over 0.3244s</span>
+<span class="co">#&gt; File ID: 02_2pulse.ddf</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;    Time Position   Force Stim</span>
+<span class="co">#&gt; 1 1e-04 0.698773 47.9420    0</span>
+<span class="co">#&gt; 2 2e-04 0.698451 48.1035    0</span>
+<span class="co">#&gt; 3 3e-04 0.700064 48.2645    0</span>
+<span class="co">#&gt; 4 4e-04 0.698451 48.5875    0</span>
+<span class="co">#&gt; 5 5e-04 0.698773 48.7485    0</span>
+<span class="co">#&gt; 6 6e-04 0.699418 49.0710    0</span>
+<span class="co">#&gt; # … with 3238 more rows</span></code></pre></div>
 <p>The <code>sort_by</code> argument can be used to rearrange this list by any attribute of the read-in objects. By default, the objects are sorted by their modification time. Other arguments of <code><a href="../reference/read_ddf.html">read_ddf()</a></code> and <code><a href="../reference/read_analyze_wl.html">read_analyze_wl()</a></code> can also be passed to their <code>*_dir()</code> alternatives as named arguments.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">analyzed_wl_list&lt;-</a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(</a>
-<a class="sourceLine" id="cb3-3" title="3">    <span class="st">"extdata/wl_duration_trials"</span>,</a>
-<a class="sourceLine" id="cb3-4" title="4">    <span class="dt">package =</span> <span class="st">'workloopR'</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb3-5" title="5"><span class="st">  </span><span class="kw"><a href="../reference/read_analyze_wl_dir.html">read_analyze_wl_dir</a></span>(<span class="dt">sort_by =</span> <span class="st">'file_id'</span>,</a>
-<a class="sourceLine" id="cb3-6" title="6">                      <span class="dt">phase_from_peak =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb3-7" title="7">                      <span class="dt">cycle_def =</span> <span class="st">'lo'</span>,</a>
-<a class="sourceLine" id="cb3-8" title="8">                      <span class="dt">keep_cycles =</span> <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb3-9" title="9"></a>
-<a class="sourceLine" id="cb3-10" title="10">analyzed_wl_list[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</a>
-<a class="sourceLine" id="cb3-11" title="11"><span class="co">#&gt; [[1]]</span></a>
-<a class="sourceLine" id="cb3-12" title="12"><span class="co">#&gt; File ID: 01_4pulse.ddf</span></a>
-<a class="sourceLine" id="cb3-13" title="13"><span class="co">#&gt; Cycles: 1 cycles kept out of 5</span></a>
-<a class="sourceLine" id="cb3-14" title="14"><span class="co">#&gt; Mean Work: 0.00274 J</span></a>
-<a class="sourceLine" id="cb3-15" title="15"><span class="co">#&gt; Mean Power: 0.07843 W</span></a>
-<a class="sourceLine" id="cb3-16" title="16"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb3-17" title="17"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb3-18" title="18"><span class="co">#&gt; [[2]]</span></a>
-<a class="sourceLine" id="cb3-19" title="19"><span class="co">#&gt; File ID: 02_2pulse.ddf</span></a>
-<a class="sourceLine" id="cb3-20" title="20"><span class="co">#&gt; Cycles: 1 cycles kept out of 5</span></a>
-<a class="sourceLine" id="cb3-21" title="21"><span class="co">#&gt; Mean Work: 0.00098 J</span></a>
-<a class="sourceLine" id="cb3-22" title="22"><span class="co">#&gt; Mean Power: 0.02783 W</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">analyzed_wl_list</span><span class="op">&lt;-</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span>
+    <span class="st">"extdata/wl_duration_trials"</span>,
+    package <span class="op">=</span> <span class="st">'workloopR'</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="../reference/read_analyze_wl_dir.html">read_analyze_wl_dir</a></span><span class="op">(</span>sort_by <span class="op">=</span> <span class="st">'file_id'</span>,
+                      phase_from_peak <span class="op">=</span> <span class="cn">TRUE</span>,
+                      cycle_def <span class="op">=</span> <span class="st">'lo'</span>,
+                      keep_cycles <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
+
+<span class="va">analyzed_wl_list</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span>
+<span class="co">#&gt; [[1]]</span>
+<span class="co">#&gt; File ID: 01_4pulse.ddf</span>
+<span class="co">#&gt; Cycles: 1 cycles kept out of 5</span>
+<span class="co">#&gt; Mean Work: 0.00274 J</span>
+<span class="co">#&gt; Mean Power: 0.07843 W</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[2]]</span>
+<span class="co">#&gt; File ID: 02_2pulse.ddf</span>
+<span class="co">#&gt; Cycles: 1 cycles kept out of 5</span>
+<span class="co">#&gt; Mean Work: 0.00098 J</span>
+<span class="co">#&gt; Mean Power: 0.02783 W</span></code></pre></div>
 </div>
 <div id="summarizing-workloop-trials" class="section level3">
 <h3 class="hasAnchor">
 <a href="#summarizing-workloop-trials" class="anchor"></a>Summarizing workloop trials</h3>
 <p>In a series of workloop trials, it can useful to see how mean power and work change as you vary different experimental parameters. To facilitate this, <code><a href="../reference/summarize_wl_trials.html">summarize_wl_trials()</a></code> specifically takes a list of <code>analyzed_workloop</code> objects and returns a <code>data.frame</code> of this information. We will explore ways of generating lists of analyzed workloops without using <code><a href="../reference/read_analyze_wl_dir.html">read_analyze_wl_dir()</a></code> in the following section.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">analyzed_wl_list <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb4-2" title="2"><span class="st">  </span>summarize_wl_trials</a>
-<a class="sourceLine" id="cb4-3" title="3"><span class="co">#&gt;         File_ID Cycle_Frequency Amplitude  Phase Stimulus_Pulses</span></a>
-<a class="sourceLine" id="cb4-4" title="4"><span class="co">#&gt; 1 01_4pulse.ddf              28      3.15 -24.36               4</span></a>
-<a class="sourceLine" id="cb4-5" title="5"><span class="co">#&gt; 2 02_2pulse.ddf              28      3.15 -24.64               2</span></a>
-<a class="sourceLine" id="cb4-6" title="6"><span class="co">#&gt; 3 03_6pulse.ddf              28      3.15 -24.92               6</span></a>
-<a class="sourceLine" id="cb4-7" title="7"><span class="co">#&gt; 4 04_4pulse.ddf              28      3.15 -24.64               4</span></a>
-<a class="sourceLine" id="cb4-8" title="8"><span class="co">#&gt;   Stimulus_Frequency      mtime     Mean_Work  Mean_Power</span></a>
-<a class="sourceLine" id="cb4-9" title="9"><span class="co">#&gt; 1                300 1572637647  0.0027387056 0.078427135</span></a>
-<a class="sourceLine" id="cb4-10" title="10"><span class="co">#&gt; 2                300 1572637647  0.0009849216 0.027832717</span></a>
-<a class="sourceLine" id="cb4-11" title="11"><span class="co">#&gt; 3                300 1572637647 -0.0002192395 0.004323004</span></a>
-<a class="sourceLine" id="cb4-12" title="12"><span class="co">#&gt; 4                300 1572637647  0.0022793831 0.065468837</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">analyzed_wl_list</span> <span class="op">%&gt;%</span>
+  <span class="va">summarize_wl_trials</span>
+<span class="co">#&gt;         File_ID Cycle_Frequency Amplitude  Phase Stimulus_Pulses</span>
+<span class="co">#&gt; 1 01_4pulse.ddf              28      3.15 -24.36               4</span>
+<span class="co">#&gt; 2 02_2pulse.ddf              28      3.15 -24.64               2</span>
+<span class="co">#&gt; 3 03_6pulse.ddf              28      3.15 -24.92               6</span>
+<span class="co">#&gt; 4 04_4pulse.ddf              28      3.15 -24.64               4</span>
+<span class="co">#&gt;   Stimulus_Frequency      mtime     Mean_Work  Mean_Power</span>
+<span class="co">#&gt; 1                300 1619995107  0.0027387056 0.078427135</span>
+<span class="co">#&gt; 2                300 1619995107  0.0009849216 0.027832717</span>
+<span class="co">#&gt; 3                300 1619995107 -0.0002192395 0.004323004</span>
+<span class="co">#&gt; 4                300 1619995107  0.0022793831 0.065468837</span></code></pre></div>
 </div>
 </div>
 <div id="manual-recursion-examples" class="section level2">
@@ -231,140 +216,133 @@
 <h3 class="hasAnchor">
 <a href="#batch-import-for-non-ddf-data" class="anchor"></a>Batch import for non-ddf data</h3>
 <p>One of the more realistic use cases for manual recursion is for importing data from multiple related trials that are not stored in ddf format. As with importing individual non-ddf data sources, we start by reading the data into a data.frame, only now we want a list of data.frames. In this example, we will read in csv files and stitch them into a list using <code><a href="https://purrr.tidyverse.org/reference/map.html">purrr::map()</a></code></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">non_ddf_list&lt;-</a>
-<a class="sourceLine" id="cb5-2" title="2"><span class="st">  </span><span class="co"># Generate a vector of file names</span></a>
-<a class="sourceLine" id="cb5-3" title="3"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(</a>
-<a class="sourceLine" id="cb5-4" title="4">    <span class="st">"extdata/twitch_csv"</span>,</a>
-<a class="sourceLine" id="cb5-5" title="5">    <span class="dt">package =</span> <span class="st">'workloopR'</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb5-6" title="6"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span>(<span class="dt">full.names =</span> T) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb5-7" title="7"><span class="st">  </span><span class="co"># Read into a list of data.frames</span></a>
-<a class="sourceLine" id="cb5-8" title="8"><span class="st">  </span><span class="kw">map</span>(read.csv) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb5-9" title="9"><span class="st">  </span><span class="co"># Coerce into a workloop object</span></a>
-<a class="sourceLine" id="cb5-10" title="10"><span class="st">  </span><span class="kw">map</span>(as_muscle_stim, <span class="dt">type =</span> <span class="st">"twitch"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">non_ddf_list</span><span class="op">&lt;-</span>
+  <span class="co"># Generate a vector of file names</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span>
+    <span class="st">"extdata/twitch_csv"</span>,
+    package <span class="op">=</span> <span class="st">'workloopR'</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span><span class="op">(</span>full.names <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="co"># Read into a list of data.frames</span>
+  <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">read.csv</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="co"># Coerce into a workloop object</span>
+  <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">as_muscle_stim</span>, type <span class="op">=</span> <span class="st">"twitch"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="data-transformation-and-analysis" class="section level3">
 <h3 class="hasAnchor">
 <a href="#data-transformation-and-analysis" class="anchor"></a>Data transformation and analysis</h3>
 <p>Applying a constant transformation to a list of <code>muscle_stim</code> objects is fairly straightforward using <code><a href="https://purrr.tidyverse.org/reference/map.html">purrr::map()</a></code>.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">non_ddf_list&lt;-</a>
-<a class="sourceLine" id="cb6-2" title="2"><span class="st">  </span>non_ddf_list <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb6-3" title="3"><span class="st">  </span><span class="kw">map</span>(<span class="op">~</span>{</a>
-<a class="sourceLine" id="cb6-4" title="4">    <span class="kw"><a href="https://rdrr.io/r/base/attr.html">attr</a></span>(.x,<span class="st">"stimulus_width"</span>)&lt;-<span class="fl">0.2</span></a>
-<a class="sourceLine" id="cb6-5" title="5">    <span class="kw"><a href="https://rdrr.io/r/base/attr.html">attr</a></span>(.x,<span class="st">"stimulus_offset"</span>)&lt;-<span class="fl">0.1</span></a>
-<a class="sourceLine" id="cb6-6" title="6">    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span>(.x)</a>
-<a class="sourceLine" id="cb6-7" title="7">  }) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb6-8" title="8"><span class="st">  </span><span class="kw">map</span>(fix_GR,<span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">non_ddf_list</span><span class="op">&lt;-</span>
+  <span class="va">non_ddf_list</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="op">~</span><span class="op">{</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/attr.html">attr</a></span><span class="op">(</span><span class="va">.x</span>,<span class="st">"stimulus_width"</span><span class="op">)</span><span class="op">&lt;-</span><span class="fl">0.2</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/attr.html">attr</a></span><span class="op">(</span><span class="va">.x</span>,<span class="st">"stimulus_offset"</span><span class="op">)</span><span class="op">&lt;-</span><span class="fl">0.1</span>
+    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span>
+  <span class="op">}</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">fix_GR</span>,<span class="fl">2</span><span class="op">)</span></code></pre></div>
 <p>Applying a non-constant transformation like setting a unique file ID can be done using <code><a href="https://purrr.tidyverse.org/reference/map2.html">purrr::map2()</a></code>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">file_ids&lt;-<span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="st">"0"</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,<span class="st">"-"</span>,<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>,<span class="st">"mA-twitch.csv"</span>)</a>
-<a class="sourceLine" id="cb7-2" title="2"></a>
-<a class="sourceLine" id="cb7-3" title="3">non_ddf_list&lt;-</a>
-<a class="sourceLine" id="cb7-4" title="4"><span class="st">  </span>non_ddf_list <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb7-5" title="5"><span class="st">  </span><span class="kw">map2</span>(file_ids, <span class="op">~</span>{</a>
-<a class="sourceLine" id="cb7-6" title="6">    <span class="kw"><a href="https://rdrr.io/r/base/attr.html">attr</a></span>(.x,<span class="st">"file_id"</span>)&lt;-.y</a>
-<a class="sourceLine" id="cb7-7" title="7">    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span>(.x)</a>
-<a class="sourceLine" id="cb7-8" title="8">  })</a>
-<a class="sourceLine" id="cb7-9" title="9"></a>
-<a class="sourceLine" id="cb7-10" title="10">non_ddf_list</a>
-<a class="sourceLine" id="cb7-11" title="11"><span class="co">#&gt; [[1]]</span></a>
-<a class="sourceLine" id="cb7-12" title="12"><span class="co">#&gt; # Twitch Data: 3 channels recorded over 0.4001s</span></a>
-<a class="sourceLine" id="cb7-13" title="13"><span class="co">#&gt; File ID: 01-2mA-twitch.csv</span></a>
-<a class="sourceLine" id="cb7-14" title="14"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-15" title="15"><span class="co">#&gt;    Time  Position   Force Stim</span></a>
-<a class="sourceLine" id="cb7-16" title="16"><span class="co">#&gt; 1 1e-04 -3.002651 474.262    0</span></a>
-<a class="sourceLine" id="cb7-17" title="17"><span class="co">#&gt; 2 2e-04 -3.001682 471.682    0</span></a>
-<a class="sourceLine" id="cb7-18" title="18"><span class="co">#&gt; 3 3e-04 -3.001360 472.650    0</span></a>
-<a class="sourceLine" id="cb7-19" title="19"><span class="co">#&gt; 4 4e-04 -3.000554 471.037    0</span></a>
-<a class="sourceLine" id="cb7-20" title="20"><span class="co">#&gt; 5 5e-04 -3.001199 472.004    0</span></a>
-<a class="sourceLine" id="cb7-21" title="21"><span class="co">#&gt; 6 6e-04 -3.001360 472.327    0</span></a>
-<a class="sourceLine" id="cb7-22" title="22"><span class="co">#&gt; # … with 3995 more rows</span></a>
-<a class="sourceLine" id="cb7-23" title="23"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-24" title="24"><span class="co">#&gt; [[2]]</span></a>
-<a class="sourceLine" id="cb7-25" title="25"><span class="co">#&gt; # Twitch Data: 3 channels recorded over 0.4001s</span></a>
-<a class="sourceLine" id="cb7-26" title="26"><span class="co">#&gt; File ID: 02-3mA-twitch.csv</span></a>
-<a class="sourceLine" id="cb7-27" title="27"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-28" title="28"><span class="co">#&gt;    Time  Position   Force Stim</span></a>
-<a class="sourceLine" id="cb7-29" title="29"><span class="co">#&gt; 1 1e-04 -3.002489 476.520    0</span></a>
-<a class="sourceLine" id="cb7-30" title="30"><span class="co">#&gt; 2 2e-04 -3.001199 475.553    0</span></a>
-<a class="sourceLine" id="cb7-31" title="31"><span class="co">#&gt; 3 3e-04 -3.000876 474.585    0</span></a>
-<a class="sourceLine" id="cb7-32" title="32"><span class="co">#&gt; 4 4e-04 -3.001199 473.940    0</span></a>
-<a class="sourceLine" id="cb7-33" title="33"><span class="co">#&gt; 5 5e-04 -3.001199 474.262    0</span></a>
-<a class="sourceLine" id="cb7-34" title="34"><span class="co">#&gt; 6 6e-04 -3.001360 474.262    0</span></a>
-<a class="sourceLine" id="cb7-35" title="35"><span class="co">#&gt; # … with 3995 more rows</span></a>
-<a class="sourceLine" id="cb7-36" title="36"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-37" title="37"><span class="co">#&gt; [[3]]</span></a>
-<a class="sourceLine" id="cb7-38" title="38"><span class="co">#&gt; # Twitch Data: 3 channels recorded over 0.4001s</span></a>
-<a class="sourceLine" id="cb7-39" title="39"><span class="co">#&gt; File ID: 03-4mA-twitch.csv</span></a>
-<a class="sourceLine" id="cb7-40" title="40"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-41" title="41"><span class="co">#&gt;    Time  Position   Force Stim</span></a>
-<a class="sourceLine" id="cb7-42" title="42"><span class="co">#&gt; 1 1e-04 -3.002651 451.037    0</span></a>
-<a class="sourceLine" id="cb7-43" title="43"><span class="co">#&gt; 2 2e-04 -3.001360 449.747    0</span></a>
-<a class="sourceLine" id="cb7-44" title="44"><span class="co">#&gt; 3 3e-04 -3.000715 449.747    0</span></a>
-<a class="sourceLine" id="cb7-45" title="45"><span class="co">#&gt; 4 4e-04 -3.001037 449.424    0</span></a>
-<a class="sourceLine" id="cb7-46" title="46"><span class="co">#&gt; 5 5e-04 -3.000876 449.424    0</span></a>
-<a class="sourceLine" id="cb7-47" title="47"><span class="co">#&gt; 6 6e-04 -3.001521 450.069    0</span></a>
-<a class="sourceLine" id="cb7-48" title="48"><span class="co">#&gt; # … with 3995 more rows</span></a>
-<a class="sourceLine" id="cb7-49" title="49"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-50" title="50"><span class="co">#&gt; [[4]]</span></a>
-<a class="sourceLine" id="cb7-51" title="51"><span class="co">#&gt; # Twitch Data: 3 channels recorded over 0.4001s</span></a>
-<a class="sourceLine" id="cb7-52" title="52"><span class="co">#&gt; File ID: 04-5mA-twitch.csv</span></a>
-<a class="sourceLine" id="cb7-53" title="53"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb7-54" title="54"><span class="co">#&gt;    Time  Position   Force Stim</span></a>
-<a class="sourceLine" id="cb7-55" title="55"><span class="co">#&gt; 1 1e-04 -3.002327 446.521    0</span></a>
-<a class="sourceLine" id="cb7-56" title="56"><span class="co">#&gt; 2 2e-04 -3.001521 445.876    0</span></a>
-<a class="sourceLine" id="cb7-57" title="57"><span class="co">#&gt; 3 3e-04 -3.001199 445.876    0</span></a>
-<a class="sourceLine" id="cb7-58" title="58"><span class="co">#&gt; 4 4e-04 -3.001199 445.876    0</span></a>
-<a class="sourceLine" id="cb7-59" title="59"><span class="co">#&gt; 5 5e-04 -3.001360 445.553    0</span></a>
-<a class="sourceLine" id="cb7-60" title="60"><span class="co">#&gt; 6 6e-04 -3.001037 446.199    0</span></a>
-<a class="sourceLine" id="cb7-61" title="61"><span class="co">#&gt; # … with 3995 more rows</span></a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">file_ids</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"0"</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span>,<span class="st">"-"</span>,<span class="fl">2</span><span class="op">:</span><span class="fl">5</span>,<span class="st">"mA-twitch.csv"</span><span class="op">)</span>
+
+<span class="va">non_ddf_list</span><span class="op">&lt;-</span>
+  <span class="va">non_ddf_list</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://purrr.tidyverse.org/reference/map2.html">map2</a></span><span class="op">(</span><span class="va">file_ids</span>, <span class="op">~</span><span class="op">{</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/attr.html">attr</a></span><span class="op">(</span><span class="va">.x</span>,<span class="st">"file_id"</span><span class="op">)</span><span class="op">&lt;-</span><span class="va">.y</span>
+    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span>
+  <span class="op">}</span><span class="op">)</span>
+
+<span class="va">non_ddf_list</span>
+<span class="co">#&gt; [[1]]</span>
+<span class="co">#&gt; # Twitch Data: 3 channels recorded over 0.4001s</span>
+<span class="co">#&gt; File ID: 01-2mA-twitch.csv</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;    Time  Position   Force Stim</span>
+<span class="co">#&gt; 1 1e-04 -3.002651 474.262    0</span>
+<span class="co">#&gt; 2 2e-04 -3.001682 471.682    0</span>
+<span class="co">#&gt; 3 3e-04 -3.001360 472.650    0</span>
+<span class="co">#&gt; 4 4e-04 -3.000554 471.037    0</span>
+<span class="co">#&gt; 5 5e-04 -3.001199 472.004    0</span>
+<span class="co">#&gt; 6 6e-04 -3.001360 472.327    0</span>
+<span class="co">#&gt; # … with 3995 more rows</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[2]]</span>
+<span class="co">#&gt; # Twitch Data: 3 channels recorded over 0.4001s</span>
+<span class="co">#&gt; File ID: 02-3mA-twitch.csv</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;    Time  Position   Force Stim</span>
+<span class="co">#&gt; 1 1e-04 -3.002489 476.520    0</span>
+<span class="co">#&gt; 2 2e-04 -3.001199 475.553    0</span>
+<span class="co">#&gt; 3 3e-04 -3.000876 474.585    0</span>
+<span class="co">#&gt; 4 4e-04 -3.001199 473.940    0</span>
+<span class="co">#&gt; 5 5e-04 -3.001199 474.262    0</span>
+<span class="co">#&gt; 6 6e-04 -3.001360 474.262    0</span>
+<span class="co">#&gt; # … with 3995 more rows</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[3]]</span>
+<span class="co">#&gt; # Twitch Data: 3 channels recorded over 0.4001s</span>
+<span class="co">#&gt; File ID: 03-4mA-twitch.csv</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;    Time  Position   Force Stim</span>
+<span class="co">#&gt; 1 1e-04 -3.002651 451.037    0</span>
+<span class="co">#&gt; 2 2e-04 -3.001360 449.747    0</span>
+<span class="co">#&gt; 3 3e-04 -3.000715 449.747    0</span>
+<span class="co">#&gt; 4 4e-04 -3.001037 449.424    0</span>
+<span class="co">#&gt; 5 5e-04 -3.000876 449.424    0</span>
+<span class="co">#&gt; 6 6e-04 -3.001521 450.069    0</span>
+<span class="co">#&gt; # … with 3995 more rows</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[4]]</span>
+<span class="co">#&gt; # Twitch Data: 3 channels recorded over 0.4001s</span>
+<span class="co">#&gt; File ID: 04-5mA-twitch.csv</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;    Time  Position   Force Stim</span>
+<span class="co">#&gt; 1 1e-04 -3.002327 446.521    0</span>
+<span class="co">#&gt; 2 2e-04 -3.001521 445.876    0</span>
+<span class="co">#&gt; 3 3e-04 -3.001199 445.876    0</span>
+<span class="co">#&gt; 4 4e-04 -3.001199 445.876    0</span>
+<span class="co">#&gt; 5 5e-04 -3.001360 445.553    0</span>
+<span class="co">#&gt; 6 6e-04 -3.001037 446.199    0</span>
+<span class="co">#&gt; # … with 3995 more rows</span></code></pre></div>
 <p>Analysis can similarly be run recursively. <code><a href="../reference/isometric_timing.html">isometric_timing()</a></code> in particular returns a single row of a data.frame with timings and forces for key points in an isometric dataset. Here we can use <code><a href="https://purrr.tidyverse.org/reference/map.html">purrr::map_dfr()</a></code> to bind the rows together for neatness.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">non_ddf_list <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb8-2" title="2"><span class="st">  </span><span class="kw">map_dfr</span>(isometric_timing)</a>
-<a class="sourceLine" id="cb8-3" title="3"><span class="co">#&gt;             file_id time_stim force_stim time_peak force_peak</span></a>
-<a class="sourceLine" id="cb8-4" title="4"><span class="co">#&gt; 1 01-2mA-twitch.csv    0.1002    480.391    0.1153    654.258</span></a>
-<a class="sourceLine" id="cb8-5" title="5"><span class="co">#&gt; 2 02-3mA-twitch.csv    0.1002    461.682    0.1149    748.772</span></a>
-<a class="sourceLine" id="cb8-6" title="6"><span class="co">#&gt; 3 03-4mA-twitch.csv    0.1002    450.069    0.1145    799.416</span></a>
-<a class="sourceLine" id="cb8-7" title="7"><span class="co">#&gt; 4 04-5mA-twitch.csv    0.1002    448.134    0.1141    824.899</span></a>
-<a class="sourceLine" id="cb8-8" title="8"><span class="co">#&gt;   time_rising_10 force_rising_10 time_rising_90 force_rising_90</span></a>
-<a class="sourceLine" id="cb8-9" title="9"><span class="co">#&gt; 1         0.1049         497.810         0.1118         637.484</span></a>
-<a class="sourceLine" id="cb8-10" title="10"><span class="co">#&gt; 2         0.1050         492.326         0.1109         720.708</span></a>
-<a class="sourceLine" id="cb8-11" title="11"><span class="co">#&gt; 3         0.1049         488.778         0.1106         764.901</span></a>
-<a class="sourceLine" id="cb8-12" title="12"><span class="co">#&gt; 4         0.1048         488.778         0.1107         787.803</span></a>
-<a class="sourceLine" id="cb8-13" title="13"><span class="co">#&gt;   time_relaxing_90 force_relaxing_90 time_relaxing_50 force_relaxing_50</span></a>
-<a class="sourceLine" id="cb8-14" title="14"><span class="co">#&gt; 1           0.1216           637.807           0.1348           567.486</span></a>
-<a class="sourceLine" id="cb8-15" title="15"><span class="co">#&gt; 2           0.1207           721.031           0.1325           605.872</span></a>
-<a class="sourceLine" id="cb8-16" title="16"><span class="co">#&gt; 3           0.1201           764.901           0.1314           624.904</span></a>
-<a class="sourceLine" id="cb8-17" title="17"><span class="co">#&gt; 4           0.1198           788.126           0.1311           636.517</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">non_ddf_list</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map_dfr</a></span><span class="op">(</span><span class="va">isometric_timing</span><span class="op">)</span>
+<span class="co">#&gt;             file_id time_stim force_stim time_peak force_peak time_rising_10</span>
+<span class="co">#&gt; 1 01-2mA-twitch.csv    0.1002    480.391    0.1153    654.258         0.1049</span>
+<span class="co">#&gt; 2 02-3mA-twitch.csv    0.1002    461.682    0.1149    748.772         0.1050</span>
+<span class="co">#&gt; 3 03-4mA-twitch.csv    0.1002    450.069    0.1145    799.416         0.1049</span>
+<span class="co">#&gt; 4 04-5mA-twitch.csv    0.1002    448.134    0.1141    824.899         0.1048</span>
+<span class="co">#&gt;   force_rising_10 time_rising_90 force_rising_90 time_relaxing_90</span>
+<span class="co">#&gt; 1         497.810         0.1118         637.484           0.1216</span>
+<span class="co">#&gt; 2         492.326         0.1109         720.708           0.1207</span>
+<span class="co">#&gt; 3         488.778         0.1106         764.901           0.1201</span>
+<span class="co">#&gt; 4         488.778         0.1107         787.803           0.1198</span>
+<span class="co">#&gt;   force_relaxing_90 time_relaxing_50 force_relaxing_50</span>
+<span class="co">#&gt; 1           637.807           0.1348           567.486</span>
+<span class="co">#&gt; 2           721.031           0.1325           605.872</span>
+<span class="co">#&gt; 3           764.901           0.1314           624.904</span>
+<span class="co">#&gt; 4           788.126           0.1311           636.517</span></code></pre></div>
 </div>
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-        <div id="tocnav">
-      <h2 class="hasAnchor">
-<a href="#tocnav" class="anchor"></a>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-<li><a href="#conceptual-overview">Conceptual overview</a></li>
-      <li><a href="#load-packages-and-data">Load packages and data</a></li>
-      <li><a href="#necessarily-multi-trial-functions">Necessarily-multi-trial functions</a></li>
-      <li><a href="#manual-recursion-examples">Manual recursion examples</a></li>
-      </ul>
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
 </div>
-      </div>
 
 </div>
 
 
 
-      <footer><div style="margin-top:-9px">
-  <p>workloopR is a part of <img src="https://github.com/ropensci/logos/raw/master/icon_lettering_color.png" height="40" alt="rOpenSci">. Learn more at <a href="https://ropensci.org">ropensci.org</a>.</p>
+      <footer><div class="copyright">
+  <p>Developed by <a href="https://www.vikram-baliga.com/">Vikram B. Baliga</a>, <a href="https://www.zoology.ubc.ca/person/shreeram-senthivasan/">Shreeram Senthivasan</a>.</p>
 </div>
 
-<div class="author">
-  <p>
-    Developed by <a href="https://www.vikram-baliga.com/">Vikram B. Baliga</a>, <a href="https://www.zoology.ubc.ca/person/shreeram-senthivasan/">Shreeram Senthivasan</a>.
-    Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a> &amp; <a href="https://docs.ropensci.org/rotemplate/">rotemplate</a>.
-  </p>
+<div class="pkgdown">
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

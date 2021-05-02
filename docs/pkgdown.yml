@@ -1,6 +1,6 @@
-pandoc: 2.7.2
-pkgdown: 1.4.1.9000
-pkgdown_sha: 90572181f1ac83b56089ab14c16f4d9e063f216b
+pandoc: 2.11.4
+pkgdown: 1.6.1
+pkgdown_sha: ~
 articles:
   Analyzing-workloops: Analyzing-workloops.html
   batch-processing: batch-processing.html
@@ -8,6 +8,7 @@ articles:
   Introduction-to-workloopR: Introduction-to-workloopR.html
   non-ddf-sources: non-ddf-sources.html
   Plotting-workloopR: Plotting-workloopR.html
+last_built: 2021-05-02T22:38Z
 urls:
   reference: https://docs.ropensci.org/workloopR//reference
   article: https://docs.ropensci.org/workloopR//articles

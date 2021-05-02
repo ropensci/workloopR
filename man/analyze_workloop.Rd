@@ -4,8 +4,7 @@
 \alias{analyze_workloop}
 \title{Analyze work loop object to compute work and power output}
 \usage{
-analyze_workloop(x, simplify = FALSE, GR = 1, M = -1,
-  vel_bf = 0.05, ...)
+analyze_workloop(x, simplify = FALSE, GR = 1, M = -1, vel_bf = 0.05, ...)
 }
 \arguments{
 \item{x}{A \code{workloop} object of class \code{muscle_stim} that has been
@@ -154,18 +153,20 @@ Josephson RK. 1985. Mechanical Power output from Striated Muscle
 \code{\link{read_analyze_wl}},
 \code{\link{select_cycles}}
 
-Other data analyses: \code{\link{isometric_timing}},
-  \code{\link{read_analyze_wl_dir}},
-  \code{\link{read_analyze_wl}}
+Other data analyses: 
+\code{\link{isometric_timing}()},
+\code{\link{read_analyze_wl_dir}()},
+\code{\link{read_analyze_wl}()}
 
-Other workloop functions: \code{\link{fix_GR}},
-  \code{\link{get_wl_metadata}},
-  \code{\link{invert_position}},
-  \code{\link{read_analyze_wl_dir}},
-  \code{\link{read_analyze_wl}},
-  \code{\link{select_cycles}},
-  \code{\link{summarize_wl_trials}},
-  \code{\link{time_correct}}
+Other workloop functions: 
+\code{\link{fix_GR}()},
+\code{\link{get_wl_metadata}()},
+\code{\link{invert_position}()},
+\code{\link{read_analyze_wl_dir}()},
+\code{\link{read_analyze_wl}()},
+\code{\link{select_cycles}()},
+\code{\link{summarize_wl_trials}()},
+\code{\link{time_correct}()}
 }
 \author{
 Vikram B. Baliga and Shreeram Senthivasan

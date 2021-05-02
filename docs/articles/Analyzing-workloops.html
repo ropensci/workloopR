@@ -6,23 +6,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Analyzing work loop experiments in workloopR • workloopR</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><!-- ropensci --><link href="../ropensci.css" rel="stylesheet">
-<meta property="og:title" content="Analyzing work loop experiments in workloopR">
-<meta property="og:description" content="">
-<meta name="twitter:card" content="summary">
-<!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-462421-8"></script><script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-462421-8');
-</script>
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Analyzing work loop experiments in workloopR">
+<meta property="og:description" content="workloopR">
+<!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -33,17 +29,17 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-
-      <div class="navbar-brand-container">
-        <a href="https://ropensci.org"><img src="../hexlogo.png" id="hexlogo" alt="rOpenSci"></a>
-        <a class="navbar-brand" href="../index.html"><i>workloopR <small>v1.1.2</small></i></a>
-      </div>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">workloopR</a>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.3</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -80,9 +76,11 @@
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
-        <li>
-  <a href="https://github.com/ropensci/workloopR">
-    <span class="fab fa fab fa-github fa-lg"></span>
+      </ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/ropensci/workloopR/">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -96,13 +94,13 @@
 
       
 
-      </header><div class="row">
+      </header><script src="Analyzing-workloops_files/header-attrs-2.7.5/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>Analyzing work loop experiments in workloopR</h1>
+      <h1 data-toc-skip>Analyzing work loop experiments in workloopR</h1>
                         <h4 class="author">Vikram B. Baliga</h4>
             
-            <h4 class="date">2019-11-01</h4>
+            <h4 class="date">2021-05-02</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ropensci/workloopR/blob/master/vignettes/Analyzing-workloops.Rmd"><code>vignettes/Analyzing-workloops.Rmd</code></a></small>
       <div class="hidden name"><code>Analyzing-workloops.Rmd</code></div>
@@ -116,90 +114,76 @@
 <div id="load-packages-and-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#load-packages-and-data" class="anchor"></a>Load packages and data</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="co">## If a package is installed, it will be loaded. If any are not, the missing</span></a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="co">## package(s) will be installed from CRAN and then loaded.</span></a>
-<a class="sourceLine" id="cb1-3" title="3"></a>
-<a class="sourceLine" id="cb1-4" title="4"><span class="co">## First specify the packages of interest</span></a>
-<a class="sourceLine" id="cb1-5" title="5">packages &lt;-</a>
-<a class="sourceLine" id="cb1-6" title="6"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"workloopR"</span>,</a>
-<a class="sourceLine" id="cb1-7" title="7">    <span class="st">"magrittr"</span>,</a>
-<a class="sourceLine" id="cb1-8" title="8">    <span class="st">"ggplot2"</span>,</a>
-<a class="sourceLine" id="cb1-9" title="9">    <span class="st">"dplyr"</span>)</a>
-<a class="sourceLine" id="cb1-10" title="10"></a>
-<a class="sourceLine" id="cb1-11" title="11"><span class="co">## Now load or install&amp;load all</span></a>
-<a class="sourceLine" id="cb1-12" title="12">package.check &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span>(</a>
-<a class="sourceLine" id="cb1-13" title="13">  packages,</a>
-<a class="sourceLine" id="cb1-14" title="14">  <span class="dt">FUN =</span> <span class="cf">function</span>(x) {</a>
-<a class="sourceLine" id="cb1-15" title="15">    <span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span>(x, <span class="dt">character.only =</span> <span class="ot">TRUE</span>)) {</a>
-<a class="sourceLine" id="cb1-16" title="16">      <span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(x, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb1-17" title="17">                       <span class="dt">repos =</span> <span class="st">"http://cran.us.r-project.org"</span>)</a>
-<a class="sourceLine" id="cb1-18" title="18">      <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(x, <span class="dt">character.only =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb1-19" title="19">    }</a>
-<a class="sourceLine" id="cb1-20" title="20">  }</a>
-<a class="sourceLine" id="cb1-21" title="21">)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/workloopR">workloopR</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org">magrittr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></code></pre></div>
 </div>
 <div id="visualize" class="section level2">
 <h2 class="hasAnchor">
 <a href="#visualize" class="anchor"></a>Visualize</h2>
 <p>We’ll now import the <code>workloop.ddf</code> file included with <code>workloopR</code>. Because this experiment involved using a gear ratio of 2, we’ll use <code><a href="../reference/fix_GR.html">fix_GR()</a></code> to also implement this correction.</p>
 <p>Ultimately, an object of classes <code>workloop</code>, <code>muscle_stim</code>, and <code>data.frame</code> is produced. <code>muscle_stim</code> objects are used throughout <code>workloopR</code> to help with data formatting and error checking across functions. Additionally setting the class to <code>workloop</code> allows our functions to understand that the data have properties that other experiment types (twitch, tetanus) do not.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="co">## The file workloop.ddf is included and therefore can be accessed via</span></a>
-<a class="sourceLine" id="cb2-2" title="2"><span class="co">## system.file("subdirectory","file_name","package") . We'll then use</span></a>
-<a class="sourceLine" id="cb2-3" title="3"><span class="co">## read_ddf() to import it, creating an object of class "muscle_stim".</span></a>
-<a class="sourceLine" id="cb2-4" title="4"><span class="co">## fix_GR() multiplies Force by 2 and divides Position by 2</span></a>
-<a class="sourceLine" id="cb2-5" title="5">workloop_dat &lt;-</a>
-<a class="sourceLine" id="cb2-6" title="6"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(</a>
-<a class="sourceLine" id="cb2-7" title="7">    <span class="st">"extdata"</span>,</a>
-<a class="sourceLine" id="cb2-8" title="8">    <span class="st">"workloop.ddf"</span>,</a>
-<a class="sourceLine" id="cb2-9" title="9">    <span class="dt">package =</span> <span class="st">'workloopR'</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb2-10" title="10"><span class="st">  </span><span class="kw"><a href="../reference/read_ddf.html">read_ddf</a></span>(<span class="dt">phase_from_peak =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb2-11" title="11"><span class="st">  </span><span class="kw"><a href="../reference/fix_GR.html">fix_GR</a></span>(<span class="dt">GR =</span> <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb2-12" title="12"></a>
-<a class="sourceLine" id="cb2-13" title="13"><span class="kw"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(workloop_dat)</a>
-<a class="sourceLine" id="cb2-14" title="14"><span class="co">#&gt; # Workloop Data: 3 channels recorded over 0.3244s</span></a>
-<a class="sourceLine" id="cb2-15" title="15"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb2-16" title="16"><span class="co">#&gt; File ID: workloop.ddf</span></a>
-<a class="sourceLine" id="cb2-17" title="17"><span class="co">#&gt; Mod Time (mtime): 2019-11-01 12:47:26</span></a>
-<a class="sourceLine" id="cb2-18" title="18"><span class="co">#&gt; Sample Frequency: 10000Hz</span></a>
-<a class="sourceLine" id="cb2-19" title="19"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb2-20" title="20"><span class="co">#&gt; data.frame Columns: </span></a>
-<a class="sourceLine" id="cb2-21" title="21"><span class="co">#&gt;   Position (mm)</span></a>
-<a class="sourceLine" id="cb2-22" title="22"><span class="co">#&gt;   Force (mN)</span></a>
-<a class="sourceLine" id="cb2-23" title="23"><span class="co">#&gt;   Stim (TTL)</span></a>
-<a class="sourceLine" id="cb2-24" title="24"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb2-25" title="25"><span class="co">#&gt; Stimulus Offset: 0.012s</span></a>
-<a class="sourceLine" id="cb2-26" title="26"><span class="co">#&gt; Stimulus Frequency: 300Hz</span></a>
-<a class="sourceLine" id="cb2-27" title="27"><span class="co">#&gt; Stimulus Width: 0.2ms</span></a>
-<a class="sourceLine" id="cb2-28" title="28"><span class="co">#&gt; Stimulus Pulses: 4</span></a>
-<a class="sourceLine" id="cb2-29" title="29"><span class="co">#&gt; Gear Ratio: 2</span></a>
-<a class="sourceLine" id="cb2-30" title="30"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb2-31" title="31"><span class="co">#&gt; Cycle Frequency: 28Hz</span></a>
-<a class="sourceLine" id="cb2-32" title="32"><span class="co">#&gt; Total Cycles (L0-to-L0): 6</span></a>
-<a class="sourceLine" id="cb2-33" title="33"><span class="co">#&gt; Amplitude: 1.575mm</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## The file workloop.ddf is included and therefore can be accessed via</span>
+<span class="co">## system.file("subdirectory","file_name","package") . We'll then use</span>
+<span class="co">## read_ddf() to import it, creating an object of class "muscle_stim".</span>
+<span class="co">## fix_GR() multiplies Force by 2 and divides Position by 2</span>
+<span class="va">workloop_dat</span> <span class="op">&lt;-</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span>
+    <span class="st">"extdata"</span>,
+    <span class="st">"workloop.ddf"</span>,
+    package <span class="op">=</span> <span class="st">'workloopR'</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="../reference/read_ddf.html">read_ddf</a></span><span class="op">(</span>phase_from_peak <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="../reference/fix_GR.html">fix_GR</a></span><span class="op">(</span>GR <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">workloop_dat</span><span class="op">)</span>
+<span class="co">#&gt; # Workloop Data: 3 channels recorded over 0.3244s</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; File ID: workloop.ddf</span>
+<span class="co">#&gt; Mod Time (mtime): 2021-05-02 15:38:27</span>
+<span class="co">#&gt; Sample Frequency: 10000Hz</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; data.frame Columns: </span>
+<span class="co">#&gt;   Position (mm)</span>
+<span class="co">#&gt;   Force (mN)</span>
+<span class="co">#&gt;   Stim (TTL)</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Stimulus Offset: 0.012s</span>
+<span class="co">#&gt; Stimulus Frequency: 300Hz</span>
+<span class="co">#&gt; Stimulus Width: 0.2ms</span>
+<span class="co">#&gt; Stimulus Pulses: 4</span>
+<span class="co">#&gt; Gear Ratio: 2</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Cycle Frequency: 28Hz</span>
+<span class="co">#&gt; Total Cycles (L0-to-L0): 6</span>
+<span class="co">#&gt; Amplitude: 1.575mm</span></code></pre></div>
 <p>Running <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> on a `muscle_stim shows a handy summary of file properties, data, and experimental parameters.</p>
 <p>Let’s plot Time against Force, Position, and Stimulus (Stim) to visualize the time course of the work loop experiment.</p>
 <p>To get them all plotted in the same figure, we’ll transform the data as they are being plotted. Please note that this is for aesthetic purposes only - the underlying data will not be changed after the plotting is complete.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">scale_position_to_force &lt;-<span class="st"> </span><span class="dv">3000</span></a>
-<a class="sourceLine" id="cb3-2" title="2"></a>
-<a class="sourceLine" id="cb3-3" title="3">workloop_dat <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb3-4" title="4"><span class="st">  </span><span class="co"># Set the x axis for the whole plot</span></a>
-<a class="sourceLine" id="cb3-5" title="5"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Time)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-6" title="6"><span class="st">  </span><span class="co"># Add a line for force</span></a>
-<a class="sourceLine" id="cb3-7" title="7"><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Force, <span class="dt">color =</span> <span class="st">"Force"</span>), </a>
-<a class="sourceLine" id="cb3-8" title="8">            <span class="dt">lwd =</span> <span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-9" title="9"><span class="st">  </span><span class="co"># Add a line for Position, scaled to approximately the same range as Force</span></a>
-<a class="sourceLine" id="cb3-10" title="10"><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Position <span class="op">*</span><span class="st"> </span>scale_position_to_force, <span class="dt">color =</span> <span class="st">"Position"</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-11" title="11"><span class="st">  </span><span class="co"># For stim, we only want to plot where stimulation happens, so we filter the data</span></a>
-<a class="sourceLine" id="cb3-12" title="12"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> <span class="dv">0</span>, <span class="dt">color =</span> <span class="st">"Stim"</span>), <span class="dt">size =</span> <span class="dv">1</span>, </a>
-<a class="sourceLine" id="cb3-13" title="13">             <span class="dt">data =</span> <span class="kw"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span>(workloop_dat, Stim <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-14" title="14"><span class="st">  </span><span class="co"># Next we add the second y-axis with the corrected units</span></a>
-<a class="sourceLine" id="cb3-15" title="15"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">sec.axis =</span> <span class="kw">sec_axis</span>(<span class="op">~</span><span class="st"> </span>. <span class="op">/</span><span class="st"> </span>scale_position_to_force, <span class="dt">name =</span> <span class="st">"Position (mm)"</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-16" title="16"><span class="st">  </span><span class="co"># Finally set colours, labels, and themes</span></a>
-<a class="sourceLine" id="cb3-17" title="17"><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"#FC4E2A"</span>, <span class="st">"#4292C6"</span>, <span class="st">"#373737"</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-18" title="18"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">"Force (mN)"</span>, <span class="dt">x =</span> <span class="st">"Time (secs)"</span>, <span class="dt">color =</span> <span class="st">"Parameter:"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-19" title="19"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Time course of </span><span class="ch">\n</span><span class="st"> work loop experiment"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-20" title="20"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-21" title="21"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"bottom"</span>, <span class="dt">legend.direction =</span> <span class="st">"horizontal"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">scale_position_to_force</span> <span class="op">&lt;-</span> <span class="fl">3000</span>
+
+<span class="va">workloop_dat</span> <span class="op">%&gt;%</span>
+  <span class="co"># Set the x axis for the whole plot</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Time</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="co"># Add a line for force</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">Force</span>, color <span class="op">=</span> <span class="st">"Force"</span><span class="op">)</span>, 
+            lwd <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span>
+  <span class="co"># Add a line for Position, scaled to approximately the same range as Force</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">Position</span> <span class="op">*</span> <span class="va">scale_position_to_force</span>, color <span class="op">=</span> <span class="st">"Position"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="co"># For stim, we only want to plot where stimulation happens, so we filter the data</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="fl">0</span>, color <span class="op">=</span> <span class="st">"Stim"</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">1</span>, 
+             data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">workloop_dat</span>, <span class="va">Stim</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="co"># Next we add the second y-axis with the corrected units</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>sec.axis <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/sec_axis.html">sec_axis</a></span><span class="op">(</span><span class="op">~</span> <span class="va">.</span> <span class="op">/</span> <span class="va">scale_position_to_force</span>, name <span class="op">=</span> <span class="st">"Position (mm)"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="co"># Finally set colours, labels, and themes</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#FC4E2A"</span>, <span class="st">"#4292C6"</span>, <span class="st">"#373737"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>y <span class="op">=</span> <span class="st">"Force (mN)"</span>, x <span class="op">=</span> <span class="st">"Time (secs)"</span>, color <span class="op">=</span> <span class="st">"Parameter:"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Time course of \n work loop experiment"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span>, legend.direction <span class="op">=</span> <span class="st">"horizontal"</span><span class="op">)</span></code></pre></div>
 <p><img src="Analyzing-workloops_files/figure-html/intial_plot-1.png" width="700"></p>
 <p>There’s a lot to digest here. The blue trace shows the change in length of the muscle via cyclical, sinusoidal changes to Position. The dark gray Stim dots show stimulation on a off vs. on basis. Stimulus onset is close to when the muscle is at L0 and the stimulator zapped the muscle four times in pulses of 0.2 ms width at 300 Hz. The resulting force development is shown in red. These cycles of length change and stimulation occurred a total of 6 times (measuring L0-to-L0).</p>
 </div>
@@ -211,49 +195,51 @@
 <p>One thing to pay heed to is the cycle definition, encoded as <code>cycle_def</code> within the arguments of <code><a href="../reference/select_cycles.html">select_cycles()</a></code>. There are three options for how cycles can be defined and are named based on the starting (and ending) points of the cycle. We’ll use the L0-to-L0 option, which is encoded as <code>lo</code>.</p>
 <p>The function internally performs butterworth filtering of the Position data via <code><a href="https://rdrr.io/pkg/signal/man/butter.html">signal::butter()</a></code>. This is because Position data are often noisy, which makes assessing true peak values difficult. The default values of <code>bworth_order = 2</code> and <code>bworth_freq = 0.05</code> work well in most cases, but we recommend you please plot your data and assess this yourself.</p>
 <p>We will keep things straightforward for now so that we can proceed to the analytical stage. Please see the final section of this vignette for more details on using <code><a href="../reference/select_cycles.html">select_cycles()</a></code>.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="co">## Select cycles</span></a>
-<a class="sourceLine" id="cb4-2" title="2">workloop_selected &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb4-3" title="3"><span class="st">  </span>workloop_dat <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb4-4" title="4"><span class="st">  </span><span class="kw"><a href="../reference/select_cycles.html">select_cycles</a></span>(<span class="dt">cycle_def=</span><span class="st">"lo"</span>, <span class="dt">keep_cycles =</span> <span class="dv">4</span><span class="op">:</span><span class="dv">6</span>)</a>
-<a class="sourceLine" id="cb4-5" title="5"></a>
-<a class="sourceLine" id="cb4-6" title="6"><span class="kw"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(workloop_selected)</a>
-<a class="sourceLine" id="cb4-7" title="7"><span class="co">#&gt; # Workloop Data: 4 channels recorded over 0.1086s</span></a>
-<a class="sourceLine" id="cb4-8" title="8"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-9" title="9"><span class="co">#&gt; File ID: workloop.ddf</span></a>
-<a class="sourceLine" id="cb4-10" title="10"><span class="co">#&gt; Mod Time (mtime): 2019-11-01 12:47:26</span></a>
-<a class="sourceLine" id="cb4-11" title="11"><span class="co">#&gt; Sample Frequency: 10000Hz</span></a>
-<a class="sourceLine" id="cb4-12" title="12"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-13" title="13"><span class="co">#&gt; data.frame Columns: </span></a>
-<a class="sourceLine" id="cb4-14" title="14"><span class="co">#&gt;   Position (mm)</span></a>
-<a class="sourceLine" id="cb4-15" title="15"><span class="co">#&gt;   Force (mN)</span></a>
-<a class="sourceLine" id="cb4-16" title="16"><span class="co">#&gt;   Stim (TTL)</span></a>
-<a class="sourceLine" id="cb4-17" title="17"><span class="co">#&gt;   Cycle (letters)</span></a>
-<a class="sourceLine" id="cb4-18" title="18"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-19" title="19"><span class="co">#&gt; Stimulus Offset: 0.012s</span></a>
-<a class="sourceLine" id="cb4-20" title="20"><span class="co">#&gt; Stimulus Frequency: 300Hz</span></a>
-<a class="sourceLine" id="cb4-21" title="21"><span class="co">#&gt; Stimulus Width: 0.2ms</span></a>
-<a class="sourceLine" id="cb4-22" title="22"><span class="co">#&gt; Stimulus Pulses: 4</span></a>
-<a class="sourceLine" id="cb4-23" title="23"><span class="co">#&gt; Gear Ratio: 2</span></a>
-<a class="sourceLine" id="cb4-24" title="24"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-25" title="25"><span class="co">#&gt; Cycle Frequency: 28Hz</span></a>
-<a class="sourceLine" id="cb4-26" title="26"><span class="co">#&gt; Total Cycles (L0-to-L0): 6</span></a>
-<a class="sourceLine" id="cb4-27" title="27"><span class="co">#&gt; Cycles Retained: 3</span></a>
-<a class="sourceLine" id="cb4-28" title="28"><span class="co">#&gt; Amplitude: 1.575mm</span></a>
-<a class="sourceLine" id="cb4-29" title="29"></a>
-<a class="sourceLine" id="cb4-30" title="30"><span class="kw"><a href="https://rdrr.io/r/base/attr.html">attr</a></span>(workloop_selected, <span class="st">"retained_cycles"</span>)</a>
-<a class="sourceLine" id="cb4-31" title="31"><span class="co">#&gt; [1] 4 5 6</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Select cycles</span>
+<span class="va">workloop_selected</span> <span class="op">&lt;-</span> 
+  <span class="va">workloop_dat</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="../reference/select_cycles.html">select_cycles</a></span><span class="op">(</span>cycle_def<span class="op">=</span><span class="st">"lo"</span>, keep_cycles <span class="op">=</span> <span class="fl">4</span><span class="op">:</span><span class="fl">6</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">workloop_selected</span><span class="op">)</span>
+<span class="co">#&gt; # Workloop Data: 4 channels recorded over 0.1086s</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; File ID: workloop.ddf</span>
+<span class="co">#&gt; Mod Time (mtime): 2021-05-02 15:38:27</span>
+<span class="co">#&gt; Sample Frequency: 10000Hz</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; data.frame Columns: </span>
+<span class="co">#&gt;   Position (mm)</span>
+<span class="co">#&gt;   Force (mN)</span>
+<span class="co">#&gt;   Stim (TTL)</span>
+<span class="co">#&gt;   Cycle (letters)</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Stimulus Offset: 0.012s</span>
+<span class="co">#&gt; Stimulus Frequency: 300Hz</span>
+<span class="co">#&gt; Stimulus Width: 0.2ms</span>
+<span class="co">#&gt; Stimulus Pulses: 4</span>
+<span class="co">#&gt; Gear Ratio: 2</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Cycle Frequency: 28Hz</span>
+<span class="co">#&gt; Total Cycles (L0-to-L0): 6</span>
+<span class="co">#&gt; Cycles Retained: 3</span>
+<span class="co">#&gt; Amplitude: 1.575mm</span>
+
+<span class="fu"><a href="https://rdrr.io/r/base/attr.html">attr</a></span><span class="op">(</span><span class="va">workloop_selected</span>, <span class="st">"retained_cycles"</span><span class="op">)</span>
+<span class="co">#&gt; [1] 4 5 6</span></code></pre></div>
 <p>The <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function now reflects that 3 cycles of the original 6 have been retained, and getting the <code>"retained_cycles"</code> attribute shows that these cycles are 4, 5, and 6 from the original data.</p>
 <p>To avoid confusion in numbering schemes between the original data and the new object, once <code><a href="../reference/select_cycles.html">select_cycles()</a></code> has been used we label cycles by letter. So, cycle 4 is now “a”, 5 is “b” and 6 is “c”.</p>
 </div>
 <div id="plot-the-work-loop-cycles" class="section level2">
 <h2 class="hasAnchor">
 <a href="#plot-the-work-loop-cycles" class="anchor"></a>Plot the work loop cycles</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">workloop_selected <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb5-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Position, <span class="dt">y =</span> Force)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size=</span><span class="fl">0.3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-4" title="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">"Force (mN)"</span>, <span class="dt">x =</span> <span class="st">"Position (mm)"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-5" title="5"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Work loop"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-6" title="6"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">workloop_selected</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Position</span>, y <span class="op">=</span> <span class="va">Force</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">0.3</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>y <span class="op">=</span> <span class="st">"Force (mN)"</span>, x <span class="op">=</span> <span class="st">"Position (mm)"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Work loop"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="Analyzing-workloops_files/figure-html/work_loop_fig-1.png" width="700"></p>
 </div>
 <div id="basics-of-analyze_workloop" class="section level2">
@@ -267,111 +253,116 @@
 <h3 class="hasAnchor">
 <a href="#using-the-default-simplify-false-version" class="anchor"></a>Using the default <code>simplify = FALSE</code> version</h3>
 <p>The argument <code>simplify =</code> affects the output of the <code><a href="../reference/analyze_workloop.html">analyze_workloop()</a></code> function. We’ll first take a look at the organization of the “full” version, i.e. keeping the default <code>simplify = FALSE</code>.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="co">## Run the analyze_workloop() function</span></a>
-<a class="sourceLine" id="cb6-2" title="2">workloop_analyzed &lt;-</a>
-<a class="sourceLine" id="cb6-3" title="3"><span class="st">  </span>workloop_selected <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb6-4" title="4"><span class="st">  </span><span class="kw"><a href="../reference/analyze_workloop.html">analyze_workloop</a></span>(<span class="dt">GR =</span> <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb6-5" title="5"></a>
-<a class="sourceLine" id="cb6-6" title="6"><span class="co">## Produces a list of objects. </span></a>
-<a class="sourceLine" id="cb6-7" title="7"><span class="co">## The print method gives a simple output:</span></a>
-<a class="sourceLine" id="cb6-8" title="8">workloop_analyzed</a>
-<a class="sourceLine" id="cb6-9" title="9"><span class="co">#&gt; File ID: workloop.ddf</span></a>
-<a class="sourceLine" id="cb6-10" title="10"><span class="co">#&gt; Cycles: 3 cycles kept out of 6</span></a>
-<a class="sourceLine" id="cb6-11" title="11"><span class="co">#&gt; Mean Work: 0.0033 J</span></a>
-<a class="sourceLine" id="cb6-12" title="12"><span class="co">#&gt; Mean Power: 0.09589 W</span></a>
-<a class="sourceLine" id="cb6-13" title="13"></a>
-<a class="sourceLine" id="cb6-14" title="14"><span class="co">## How is the list organized?</span></a>
-<a class="sourceLine" id="cb6-15" title="15"><span class="kw"><a href="https://rdrr.io/r/base/names.html">names</a></span>(workloop_analyzed)</a>
-<a class="sourceLine" id="cb6-16" title="16"><span class="co">#&gt; [1] "cycle_a" "cycle_b" "cycle_c"</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Run the analyze_workloop() function</span>
+<span class="va">workloop_analyzed</span> <span class="op">&lt;-</span>
+  <span class="va">workloop_selected</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="../reference/analyze_workloop.html">analyze_workloop</a></span><span class="op">(</span>GR <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
+
+<span class="co">## Produces a list of objects. </span>
+<span class="co">## The print method gives a simple output:</span>
+<span class="va">workloop_analyzed</span>
+<span class="co">#&gt; File ID: workloop.ddf</span>
+<span class="co">#&gt; Cycles: 3 cycles kept out of 6</span>
+<span class="co">#&gt; Mean Work: 0.0033 J</span>
+<span class="co">#&gt; Mean Power: 0.09589 W</span>
+
+<span class="co">## How is the list organized?</span>
+<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">workloop_analyzed</span><span class="op">)</span>
+<span class="co">#&gt; [1] "cycle_a" "cycle_b" "cycle_c"</span></code></pre></div>
 <p>This produces an <code>analyzed_workloop</code> object that is essentially a <code>list</code> that is organized by cycle. Within each of these, time-course data are stored as a <code>data.frame</code> and important metadata are stored as attributes.</p>
 <p>Users may typically want work and net power from each cycle. Within the <code>analyzed_workloop</code> object, these two values are stored as attributes: <code>"work"</code> (in J) and <code>"net_power"</code> (in W). To get them for a specific cycle:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="co">## What is work for the second cycle?</span></a>
-<a class="sourceLine" id="cb7-2" title="2"><span class="kw"><a href="https://rdrr.io/r/base/attr.html">attr</a></span>(workloop_analyzed<span class="op">$</span>cycle_b, <span class="st">"work"</span>)</a>
-<a class="sourceLine" id="cb7-3" title="3"><span class="co">#&gt; [1] 0.003282334</span></a>
-<a class="sourceLine" id="cb7-4" title="4"></a>
-<a class="sourceLine" id="cb7-5" title="5"><span class="co">## What is net power for the third cycle?</span></a>
-<a class="sourceLine" id="cb7-6" title="6"><span class="kw"><a href="https://rdrr.io/r/base/attr.html">attr</a></span>(workloop_analyzed<span class="op">$</span>cycle_c, <span class="st">"net_power"</span>)</a>
-<a class="sourceLine" id="cb7-7" title="7"><span class="co">#&gt; [1] 0.09812219</span></a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## What is work for the second cycle?</span>
+<span class="fu"><a href="https://rdrr.io/r/base/attr.html">attr</a></span><span class="op">(</span><span class="va">workloop_analyzed</span><span class="op">$</span><span class="va">cycle_b</span>, <span class="st">"work"</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0.003282334</span>
+
+<span class="co">## What is net power for the third cycle?</span>
+<span class="fu"><a href="https://rdrr.io/r/base/attr.html">attr</a></span><span class="op">(</span><span class="va">workloop_analyzed</span><span class="op">$</span><span class="va">cycle_c</span>, <span class="st">"net_power"</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0.09812219</span></code></pre></div>
 <p>To see how e.g. the first cycle is organized:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw"><a href="https://rdrr.io/r/utils/str.html">str</a></span>(workloop_analyzed<span class="op">$</span>cycle_a)</a>
-<a class="sourceLine" id="cb8-2" title="2"><span class="co">#&gt; Classes 'workloop', 'muscle_stim' and 'data.frame':  357 obs. of  9 variables:</span></a>
-<a class="sourceLine" id="cb8-3" title="3"><span class="co">#&gt;  $ Time            : num  0.119 0.119 0.119 0.12 0.12 ...</span></a>
-<a class="sourceLine" id="cb8-4" title="4"><span class="co">#&gt;  $ Position        : num  0.33 0.359 0.389 0.414 0.441 ...</span></a>
-<a class="sourceLine" id="cb8-5" title="5"><span class="co">#&gt;  $ Force           : num  1708 1718 1725 1734 1744 ...</span></a>
-<a class="sourceLine" id="cb8-6" title="6"><span class="co">#&gt;  $ Stim            : int  1 1 0 0 0 0 0 0 0 0 ...</span></a>
-<a class="sourceLine" id="cb8-7" title="7"><span class="co">#&gt;  $ Cycle           : chr  "a" "a" "a" "a" ...</span></a>
-<a class="sourceLine" id="cb8-8" title="8"><span class="co">#&gt;  $ Inst_Velocity   : num  NA -0.292 -0.292 -0.252 -0.271 ...</span></a>
-<a class="sourceLine" id="cb8-9" title="9"><span class="co">#&gt;  $ Filt_Velocity   : num  NA -0.143 -0.158 -0.172 -0.185 ...</span></a>
-<a class="sourceLine" id="cb8-10" title="10"><span class="co">#&gt;  $ Inst_Power      : num  NA -0.246 -0.272 -0.298 -0.322 ...</span></a>
-<a class="sourceLine" id="cb8-11" title="11"><span class="co">#&gt;  $ Percent_of_Cycle: num  0 0.281 0.562 0.843 1.124 ...</span></a>
-<a class="sourceLine" id="cb8-12" title="12"><span class="co">#&gt;  - attr(*, "stimulus_frequency")= int 300</span></a>
-<a class="sourceLine" id="cb8-13" title="13"><span class="co">#&gt;  - attr(*, "cycle_frequency")= int 28</span></a>
-<a class="sourceLine" id="cb8-14" title="14"><span class="co">#&gt;  - attr(*, "total_cycles")= num 6</span></a>
-<a class="sourceLine" id="cb8-15" title="15"><span class="co">#&gt;  - attr(*, "cycle_def")= chr "lo"</span></a>
-<a class="sourceLine" id="cb8-16" title="16"><span class="co">#&gt;  - attr(*, "amplitude")= num 1.57</span></a>
-<a class="sourceLine" id="cb8-17" title="17"><span class="co">#&gt;  - attr(*, "phase")= num -24.9</span></a>
-<a class="sourceLine" id="cb8-18" title="18"><span class="co">#&gt;  - attr(*, "position_inverted")= logi FALSE</span></a>
-<a class="sourceLine" id="cb8-19" title="19"><span class="co">#&gt;  - attr(*, "units")= chr  "s" "mm" "mN" "TTL" ...</span></a>
-<a class="sourceLine" id="cb8-20" title="20"><span class="co">#&gt;  - attr(*, "sample_frequency")= num 10000</span></a>
-<a class="sourceLine" id="cb8-21" title="21"><span class="co">#&gt;  - attr(*, "header")= chr  "Sample Frequency (Hz): 10000" "Reference Area: NaN sq. mm" "Reference Force: NaN mN" "Reference Length: NaN mm"</span></a>
-<a class="sourceLine" id="cb8-22" title="22"><span class="co">#&gt;  - attr(*, "units_table")='data.frame':  10 obs. of  5 variables:</span></a>
-<a class="sourceLine" id="cb8-23" title="23"><span class="co">#&gt;   ..$ Channel: chr  "AI0" "AI1" "AI2" "AI3" ...</span></a>
-<a class="sourceLine" id="cb8-24" title="24"><span class="co">#&gt;   ..$ Units  : chr  "mm" "mN" "TTL" "" ...</span></a>
-<a class="sourceLine" id="cb8-25" title="25"><span class="co">#&gt;   ..$ Scale  : num  1 500 0.2 0 0 0 0 0 1 500</span></a>
-<a class="sourceLine" id="cb8-26" title="26"><span class="co">#&gt;   ..$ Offset : num  0 0 0 0 0 0 0 0 0 0</span></a>
-<a class="sourceLine" id="cb8-27" title="27"><span class="co">#&gt;   ..$ TADs   : num  0 0 0 0 0 0 0 0 0 0</span></a>
-<a class="sourceLine" id="cb8-28" title="28"><span class="co">#&gt;  - attr(*, "protocol_table")='data.frame':   4 obs. of  5 variables:</span></a>
-<a class="sourceLine" id="cb8-29" title="29"><span class="co">#&gt;   ..$ Wait.s     : num  0 0.01 0 0.1</span></a>
-<a class="sourceLine" id="cb8-30" title="30"><span class="co">#&gt;   ..$ Then.action: chr  "Stimulus-Train" "Sine Wave" "Stimulus-Train" "Stop"</span></a>
-<a class="sourceLine" id="cb8-31" title="31"><span class="co">#&gt;   ..$ On.port    : chr  "Stimulator" "Length Out" "Stimulator" ""</span></a>
-<a class="sourceLine" id="cb8-32" title="32"><span class="co">#&gt;   ..$ Units      : chr  ".012, 300, 0.2, 4, 28" "28,3.15,6" "0,0,0,0,0" ""</span></a>
-<a class="sourceLine" id="cb8-33" title="33"><span class="co">#&gt;   ..$ Parameters : logi  NA NA NA NA</span></a>
-<a class="sourceLine" id="cb8-34" title="34"><span class="co">#&gt;  - attr(*, "stim_table")='data.frame':   2 obs. of  5 variables:</span></a>
-<a class="sourceLine" id="cb8-35" title="35"><span class="co">#&gt;   ..$ offset         : num  0.012 0</span></a>
-<a class="sourceLine" id="cb8-36" title="36"><span class="co">#&gt;   ..$ frequency      : int  300 0</span></a>
-<a class="sourceLine" id="cb8-37" title="37"><span class="co">#&gt;   ..$ width          : num  0.2 0</span></a>
-<a class="sourceLine" id="cb8-38" title="38"><span class="co">#&gt;   ..$ pulses         : int  4 0</span></a>
-<a class="sourceLine" id="cb8-39" title="39"><span class="co">#&gt;   ..$ cycle_frequency: int  28 0</span></a>
-<a class="sourceLine" id="cb8-40" title="40"><span class="co">#&gt;  - attr(*, "stimulus_pulses")= int 4</span></a>
-<a class="sourceLine" id="cb8-41" title="41"><span class="co">#&gt;  - attr(*, "stimulus_offset")= num 0.012</span></a>
-<a class="sourceLine" id="cb8-42" title="42"><span class="co">#&gt;  - attr(*, "stimulus_width")= num 0.2</span></a>
-<a class="sourceLine" id="cb8-43" title="43"><span class="co">#&gt;  - attr(*, "gear_ratio")= num 2</span></a>
-<a class="sourceLine" id="cb8-44" title="44"><span class="co">#&gt;  - attr(*, "file_id")= chr "workloop.ddf"</span></a>
-<a class="sourceLine" id="cb8-45" title="45"><span class="co">#&gt;  - attr(*, "mtime")= POSIXct, format: "2019-11-01 12:47:26"</span></a>
-<a class="sourceLine" id="cb8-46" title="46"><span class="co">#&gt;  - attr(*, "retained_cycles")= int  4 5 6</span></a>
-<a class="sourceLine" id="cb8-47" title="47"><span class="co">#&gt;  - attr(*, "work")= num 0.00301</span></a>
-<a class="sourceLine" id="cb8-48" title="48"><span class="co">#&gt;  - attr(*, "net_power")= num 0.0909</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">workloop_analyzed</span><span class="op">$</span><span class="va">cycle_a</span><span class="op">)</span>
+<span class="co">#&gt; Classes 'workloop', 'muscle_stim' and 'data.frame':  357 obs. of  9 variables:</span>
+<span class="co">#&gt;  $ Time            : num  0.119 0.119 0.119 0.12 0.12 ...</span>
+<span class="co">#&gt;  $ Position        : num  0.33 0.359 0.389 0.414 0.441 ...</span>
+<span class="co">#&gt;  $ Force           : num  1708 1718 1725 1734 1744 ...</span>
+<span class="co">#&gt;  $ Stim            : int  1 1 0 0 0 0 0 0 0 0 ...</span>
+<span class="co">#&gt;  $ Cycle           : chr  "a" "a" "a" "a" ...</span>
+<span class="co">#&gt;  $ Inst_Velocity   : num  NA -0.292 -0.292 -0.252 -0.271 ...</span>
+<span class="co">#&gt;  $ Filt_Velocity   : num  NA -0.143 -0.158 -0.172 -0.185 ...</span>
+<span class="co">#&gt;  $ Inst_Power      : num  NA -0.246 -0.272 -0.298 -0.322 ...</span>
+<span class="co">#&gt;  $ Percent_of_Cycle: num  0 0.281 0.562 0.843 1.124 ...</span>
+<span class="co">#&gt;  - attr(*, "stimulus_frequency")= int 300</span>
+<span class="co">#&gt;  - attr(*, "cycle_frequency")= int 28</span>
+<span class="co">#&gt;  - attr(*, "total_cycles")= num 6</span>
+<span class="co">#&gt;  - attr(*, "cycle_def")= chr "lo"</span>
+<span class="co">#&gt;  - attr(*, "amplitude")= num 1.57</span>
+<span class="co">#&gt;  - attr(*, "phase")= num -24.9</span>
+<span class="co">#&gt;  - attr(*, "position_inverted")= logi FALSE</span>
+<span class="co">#&gt;  - attr(*, "units")= chr [1:8] "s" "mm" "mN" "TTL" ...</span>
+<span class="co">#&gt;  - attr(*, "sample_frequency")= num 10000</span>
+<span class="co">#&gt;  - attr(*, "header")= chr [1:4] "Sample Frequency (Hz): 10000" "Reference Area: NaN sq. mm" "Reference Force: NaN mN" "Reference Length: NaN mm"</span>
+<span class="co">#&gt;  - attr(*, "units_table")='data.frame':  10 obs. of  5 variables:</span>
+<span class="co">#&gt;   ..$ Channel: chr [1:10] "AI0" "AI1" "AI2" "AI3" ...</span>
+<span class="co">#&gt;   ..$ Units  : chr [1:10] "mm" "mN" "TTL" "" ...</span>
+<span class="co">#&gt;   ..$ Scale  : num [1:10] 1 500 0.2 0 0 0 0 0 1 500</span>
+<span class="co">#&gt;   ..$ Offset : num [1:10] 0 0 0 0 0 0 0 0 0 0</span>
+<span class="co">#&gt;   ..$ TADs   : num [1:10] 0 0 0 0 0 0 0 0 0 0</span>
+<span class="co">#&gt;  - attr(*, "protocol_table")='data.frame':   4 obs. of  5 variables:</span>
+<span class="co">#&gt;   ..$ Wait.s     : num [1:4] 0 0.01 0 0.1</span>
+<span class="co">#&gt;   ..$ Then.action: chr [1:4] "Stimulus-Train" "Sine Wave" "Stimulus-Train" "Stop"</span>
+<span class="co">#&gt;   ..$ On.port    : chr [1:4] "Stimulator" "Length Out" "Stimulator" ""</span>
+<span class="co">#&gt;   ..$ Units      : chr [1:4] ".012, 300, 0.2, 4, 28" "28,3.15,6" "0,0,0,0,0" ""</span>
+<span class="co">#&gt;   ..$ Parameters : logi [1:4] NA NA NA NA</span>
+<span class="co">#&gt;  - attr(*, "stim_table")='data.frame':   2 obs. of  5 variables:</span>
+<span class="co">#&gt;   ..$ offset         : num [1:2] 0.012 0</span>
+<span class="co">#&gt;   ..$ frequency      : int [1:2] 300 0</span>
+<span class="co">#&gt;   ..$ width          : num [1:2] 0.2 0</span>
+<span class="co">#&gt;   ..$ pulses         : int [1:2] 4 0</span>
+<span class="co">#&gt;   ..$ cycle_frequency: int [1:2] 28 0</span>
+<span class="co">#&gt;  - attr(*, "stimulus_pulses")= int 4</span>
+<span class="co">#&gt;  - attr(*, "stimulus_offset")= num 0.012</span>
+<span class="co">#&gt;  - attr(*, "stimulus_width")= num 0.2</span>
+<span class="co">#&gt;  - attr(*, "gear_ratio")= num 2</span>
+<span class="co">#&gt;  - attr(*, "file_id")= chr "workloop.ddf"</span>
+<span class="co">#&gt;  - attr(*, "mtime")= POSIXct[1:1], format: "2021-05-02 15:38:27"</span>
+<span class="co">#&gt;  - attr(*, "retained_cycles")= int [1:3] 4 5 6</span>
+<span class="co">#&gt;  - attr(*, "work")= num 0.00301</span>
+<span class="co">#&gt;  - attr(*, "net_power")= num 0.0909</span></code></pre></div>
 <p>Within each cycle’s <code>data.frame</code>, the usual <code>Time</code>, <code>Position</code>, <code>Force</code>, and <code>Stim</code> are stored. <code>Cycle</code>, added via <code><a href="../reference/select_cycles.html">select_cycles()</a></code>, denotes cycle identity and <code>Percent_of_Cycle</code> displays time as a percentage of that particular cycle.</p>
 <p><code><a href="../reference/analyze_workloop.html">analyze_workloop()</a></code> also computes instantaneous velocity (<code>Inst_Velocity</code>) which can sometimes be noisy, leading us to also apply a butterworth filter to this velocity (<code>Filt_Velocity</code>). See the function’s help file for more details on how to tweak filtering. The time course of power (instantaneous power) is also provided as <code>Inst_Power</code>.</p>
 <p>Each of these variables can be plot against Time to see the time-course of that variable’s change over the cycle. For example, we will plot instantaneous force in cycle b:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">workloop_analyzed<span class="op">$</span>cycle_b <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb9-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Percent_of_Cycle, <span class="dt">y =</span> Inst_Power)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-3" title="3"><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">lwd =</span> <span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-4" title="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">"Instantaneous Power (W)"</span>, <span class="dt">x =</span> <span class="st">"Percent cycle"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-5" title="5"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Instantaneous power </span><span class="ch">\n</span><span class="st"> during cycle b"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-6" title="6"><span class="st">  </span><span class="kw">theme_bw</span>()</a>
-<a class="sourceLine" id="cb9-7" title="7"><span class="co">#&gt; Warning: Removed 1 rows containing missing values (geom_path).</span></a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">workloop_analyzed</span><span class="op">$</span><span class="va">cycle_b</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Percent_of_Cycle</span>, y <span class="op">=</span> <span class="va">Inst_Power</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>lwd <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>y <span class="op">=</span> <span class="st">"Instantaneous Power (W)"</span>, x <span class="op">=</span> <span class="st">"Percent cycle"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Instantaneous power \n during cycle b"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; Warning: Removed 1 row(s) containing missing values (geom_path).</span></code></pre></div>
 <p><img src="Analyzing-workloops_files/figure-html/instant_power_plot-1.png" width="700"></p>
 </div>
 <div id="setting-simpilfy-true-in-the-analyze_workloop-function" class="section level3">
 <h3 class="hasAnchor">
 <a href="#setting-simpilfy-true-in-the-analyze_workloop-function" class="anchor"></a>Setting <code>simpilfy = TRUE</code> in the <code>analyze_workloop()</code> function</h3>
 <p>If you simply want work and net power for each cycle without retaining any of the time-course data, set <code>simplify = TRUE</code> within <code><a href="../reference/analyze_workloop.html">analyze_workloop()</a></code>.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">workloop_analyzed_simple &lt;-</a>
-<a class="sourceLine" id="cb10-2" title="2"><span class="st">  </span>workloop_selected <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb10-3" title="3"><span class="st">  </span><span class="kw"><a href="../reference/analyze_workloop.html">analyze_workloop</a></span>(<span class="dt">GR =</span> <span class="dv">1</span>, <span class="dt">simplify =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb10-4" title="4"></a>
-<a class="sourceLine" id="cb10-5" title="5"><span class="co">## Produces a simple data.frame:</span></a>
-<a class="sourceLine" id="cb10-6" title="6">workloop_analyzed_simple</a>
-<a class="sourceLine" id="cb10-7" title="7"><span class="co">#&gt;   Cycle        Work  Net_Power</span></a>
-<a class="sourceLine" id="cb10-8" title="8"><span class="co">#&gt; a     A 0.003007098 0.09085517</span></a>
-<a class="sourceLine" id="cb10-9" title="9"><span class="co">#&gt; b     B 0.003282334 0.09870268</span></a>
-<a class="sourceLine" id="cb10-10" title="10"><span class="co">#&gt; c     C 0.003601049 0.09812219</span></a>
-<a class="sourceLine" id="cb10-11" title="11"><span class="kw"><a href="https://rdrr.io/r/utils/str.html">str</a></span>(workloop_analyzed_simple)</a>
-<a class="sourceLine" id="cb10-12" title="12"><span class="co">#&gt; 'data.frame':    3 obs. of  3 variables:</span></a>
-<a class="sourceLine" id="cb10-13" title="13"><span class="co">#&gt;  $ Cycle    : Factor w/ 3 levels "A","B","C": 1 2 3</span></a>
-<a class="sourceLine" id="cb10-14" title="14"><span class="co">#&gt;  $ Work     : num  0.00301 0.00328 0.0036</span></a>
-<a class="sourceLine" id="cb10-15" title="15"><span class="co">#&gt;  $ Net_Power: num  0.0909 0.0987 0.0981</span></a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">workloop_analyzed_simple</span> <span class="op">&lt;-</span>
+  <span class="va">workloop_selected</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="../reference/analyze_workloop.html">analyze_workloop</a></span><span class="op">(</span>GR <span class="op">=</span> <span class="fl">1</span>, simplify <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+
+<span class="co">## Produces a simple data.frame:</span>
+<span class="va">workloop_analyzed_simple</span>
+<span class="co">#&gt;   Cycle        Work  Net_Power</span>
+<span class="co">#&gt; a     A 0.003007098 0.09085517</span>
+<span class="co">#&gt; b     B 0.003282334 0.09870268</span>
+<span class="co">#&gt; c     C 0.003601049 0.09812219</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">workloop_analyzed_simple</span><span class="op">)</span>
+<span class="co">#&gt; 'data.frame':    3 obs. of  3 variables:</span>
+<span class="co">#&gt;  $ Cycle    : chr  "A" "B" "C"</span>
+<span class="co">#&gt;  $ Work     : num  0.00301 0.00328 0.0036</span>
+<span class="co">#&gt;  $ Net_Power: num  0.0909 0.0987 0.0981</span></code></pre></div>
 <p>Here, work (in J) and net power (in W) are simply returned in a <code>data.frame</code> that is organized by cycle. No other attributes are stored.</p>
 </div>
 </div>
@@ -383,71 +374,62 @@
 <p>We highly recommend that you plot your Position data after using <code><a href="../reference/select_cycles.html">select_cycles()</a></code>. The <code><a href="https://rdrr.io/pkg/pracma/man/findpeaks.html">pracma::findpeaks()</a></code> function work for most data (especially sine waves), but it is conceivable that small, local ‘peaks’ may be misinterpreted as a cycle’s true minimum or maximum.</p>
 <p>We also note that edge cases (i.e. the first cycle or the final cycle) may also be subject to issues in which the cycles are not super well defined via an automated algorithm.</p>
 <p>Below, we will plot a couple case examples to show what we generally expect. We recommend plotting your data in a similar fashion to verify that <code><a href="../reference/select_cycles.html">select_cycles()</a></code> is behaving in the way you expect.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="co">## Select cycles 4:6 using lo</span></a>
-<a class="sourceLine" id="cb11-2" title="2">workloop_dat <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb11-3" title="3"><span class="st">  </span><span class="kw"><a href="../reference/select_cycles.html">select_cycles</a></span>(<span class="dt">cycle_def=</span><span class="st">"lo"</span>, <span class="dt">keep_cycles =</span> <span class="dv">4</span><span class="op">:</span><span class="dv">6</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb11-4" title="4"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Time, <span class="dt">y =</span> Position)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-5" title="5"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-6" title="6"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Select cycles 4:6 using lo</span>
+<span class="va">workloop_dat</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="../reference/select_cycles.html">select_cycles</a></span><span class="op">(</span>cycle_def<span class="op">=</span><span class="st">"lo"</span>, keep_cycles <span class="op">=</span> <span class="fl">4</span><span class="op">:</span><span class="fl">6</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Time</span>, y <span class="op">=</span> <span class="va">Position</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="Analyzing-workloops_files/figure-html/select_cycles_defintions-1.png" width="700"></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"></a>
-<a class="sourceLine" id="cb12-2" title="2"><span class="co">## Select cycles 4:6 using p2p</span></a>
-<a class="sourceLine" id="cb12-3" title="3">workloop_dat <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb12-4" title="4"><span class="st">  </span><span class="kw"><a href="../reference/select_cycles.html">select_cycles</a></span>(<span class="dt">cycle_def=</span><span class="st">"p2p"</span>, <span class="dt">keep_cycles =</span> <span class="dv">4</span><span class="op">:</span><span class="dv">6</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb12-5" title="5"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Time, <span class="dt">y =</span> Position)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb12-6" title="6"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb12-7" title="7"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="co">## Select cycles 4:6 using p2p</span>
+<span class="va">workloop_dat</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="../reference/select_cycles.html">select_cycles</a></span><span class="op">(</span>cycle_def<span class="op">=</span><span class="st">"p2p"</span>, keep_cycles <span class="op">=</span> <span class="fl">4</span><span class="op">:</span><span class="fl">6</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Time</span>, y <span class="op">=</span> <span class="va">Position</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="Analyzing-workloops_files/figure-html/select_cycles_defintions-2.png" width="700"></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="co">## here we see that via 'p2p' the final cycle is ill-defined because the return</span></a>
-<a class="sourceLine" id="cb13-2" title="2"><span class="co">## to L0 is considered a cycle. Using a p2p definition, what we actually want is</span></a>
-<a class="sourceLine" id="cb13-3" title="3"><span class="co">## to use cycles 3:5 to get the final 3 full cycles:</span></a>
-<a class="sourceLine" id="cb13-4" title="4">workloop_dat <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb13-5" title="5"><span class="st">  </span><span class="kw"><a href="../reference/select_cycles.html">select_cycles</a></span>(<span class="dt">cycle_def=</span><span class="st">"p2p"</span>, <span class="dt">keep_cycles =</span> <span class="dv">3</span><span class="op">:</span><span class="dv">5</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb13-6" title="6"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Time, <span class="dt">y =</span> Position)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-7" title="7"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-8" title="8"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## here we see that via 'p2p' the final cycle is ill-defined because the return</span>
+<span class="co">## to L0 is considered a cycle. Using a p2p definition, what we actually want is</span>
+<span class="co">## to use cycles 3:5 to get the final 3 full cycles:</span>
+<span class="va">workloop_dat</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="../reference/select_cycles.html">select_cycles</a></span><span class="op">(</span>cycle_def<span class="op">=</span><span class="st">"p2p"</span>, keep_cycles <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Time</span>, y <span class="op">=</span> <span class="va">Position</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="Analyzing-workloops_files/figure-html/select_cycles_defintions-3.png" width="700"></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"></a>
-<a class="sourceLine" id="cb14-2" title="2"><span class="co">## this difficulty in defining cycles may be more apparent by first plotting the </span></a>
-<a class="sourceLine" id="cb14-3" title="3"><span class="co">## cycles 1:6, e.g.</span></a>
-<a class="sourceLine" id="cb14-4" title="4">workloop_dat <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb14-5" title="5"><span class="st">  </span><span class="kw"><a href="../reference/select_cycles.html">select_cycles</a></span>(<span class="dt">cycle_def=</span><span class="st">"p2p"</span>, <span class="dt">keep_cycles =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb14-6" title="6"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Time, <span class="dt">y =</span> Position)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb14-7" title="7"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb14-8" title="8"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="co">## this difficulty in defining cycles may be more apparent by first plotting the </span>
+<span class="co">## cycles 1:6, e.g.</span>
+<span class="va">workloop_dat</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="../reference/select_cycles.html">select_cycles</a></span><span class="op">(</span>cycle_def<span class="op">=</span><span class="st">"p2p"</span>, keep_cycles <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">6</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Time</span>, y <span class="op">=</span> <span class="va">Position</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="Analyzing-workloops_files/figure-html/select_cycles_defintions-4.png" width="700"></p>
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-        <div id="tocnav">
-      <h2 class="hasAnchor">
-<a href="#tocnav" class="anchor"></a>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-<li><a href="#load-packages-and-data">Load packages and data</a></li>
-      <li><a href="#visualize">Visualize</a></li>
-      <li><a href="#select-cycles">Select cycles</a></li>
-      <li><a href="#plot-the-work-loop-cycles">Plot the work loop cycles</a></li>
-      <li><a href="#basics-of-analyze_workloop">Basics of <code>analyze_workloop()</code></a></li>
-      <li><a href="#more-on-cycle-definitions-in-select_cycles">More on cycle definitions in <code>select_cycles()</code></a></li>
-      </ul>
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
 </div>
-      </div>
 
 </div>
 
 
 
-      <footer><div style="margin-top:-9px">
-  <p>workloopR is a part of <img src="https://github.com/ropensci/logos/raw/master/icon_lettering_color.png" height="40" alt="rOpenSci">. Learn more at <a href="https://ropensci.org">ropensci.org</a>.</p>
+      <footer><div class="copyright">
+  <p>Developed by <a href="https://www.vikram-baliga.com/">Vikram B. Baliga</a>, <a href="https://www.zoology.ubc.ca/person/shreeram-senthivasan/">Shreeram Senthivasan</a>.</p>
 </div>
 
-<div class="author">
-  <p>
-    Developed by <a href="https://www.vikram-baliga.com/">Vikram B. Baliga</a>, <a href="https://www.zoology.ubc.ca/person/shreeram-senthivasan/">Shreeram Senthivasan</a>.
-    Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a> &amp; <a href="https://docs.ropensci.org/rotemplate/">rotemplate</a>.
-  </p>
+<div class="pkgdown">
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

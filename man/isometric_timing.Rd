@@ -77,12 +77,14 @@ muscles acting at the same joint manage energy differently in a running
 insect. Journal of Experimental Biology 205, 379-389.
 }
 \seealso{
-Other data analyses: \code{\link{analyze_workloop}},
-  \code{\link{read_analyze_wl_dir}},
-  \code{\link{read_analyze_wl}}
+Other data analyses: 
+\code{\link{analyze_workloop}()},
+\code{\link{read_analyze_wl_dir}()},
+\code{\link{read_analyze_wl}()}
 
-Other twitch functions: \code{\link{fix_GR}},
-  \code{\link{invert_position}}
+Other twitch functions: 
+\code{\link{fix_GR}()},
+\code{\link{invert_position}()}
 }
 \author{
 Vikram B. Baliga

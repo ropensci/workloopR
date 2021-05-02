@@ -6,23 +6,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Working with isometric experiments in workloopR • workloopR</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><!-- ropensci --><link href="../ropensci.css" rel="stylesheet">
-<meta property="og:title" content="Working with isometric experiments in workloopR">
-<meta property="og:description" content="">
-<meta name="twitter:card" content="summary">
-<!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-462421-8"></script><script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-462421-8');
-</script>
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Working with isometric experiments in workloopR">
+<meta property="og:description" content="workloopR">
+<!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -33,17 +29,17 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-
-      <div class="navbar-brand-container">
-        <a href="https://ropensci.org"><img src="../hexlogo.png" id="hexlogo" alt="rOpenSci"></a>
-        <a class="navbar-brand" href="../index.html"><i>workloopR <small>v1.1.2</small></i></a>
-      </div>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">workloopR</a>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.3</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -80,9 +76,11 @@
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
-        <li>
-  <a href="https://github.com/ropensci/workloopR">
-    <span class="fab fa fab fa-github fa-lg"></span>
+      </ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/ropensci/workloopR/">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -96,13 +94,13 @@
 
       
 
-      </header><div class="row">
+      </header><script src="Calculating-twitch-kinetics_files/header-attrs-2.7.5/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>Working with isometric experiments in workloopR</h1>
+      <h1 data-toc-skip>Working with isometric experiments in workloopR</h1>
                         <h4 class="author">Vikram B. Baliga</h4>
             
-            <h4 class="date">2019-11-01</h4>
+            <h4 class="date">2021-05-02</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ropensci/workloopR/blob/master/vignettes/Calculating-twitch-kinetics.Rmd"><code>vignettes/Calculating-twitch-kinetics.Rmd</code></a></small>
       <div class="hidden name"><code>Calculating-twitch-kinetics.Rmd</code></div>
@@ -116,60 +114,47 @@
 <div id="load-packages-and-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#load-packages-and-data" class="anchor"></a>Load packages and data</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="co">## If a package is installed, it will be loaded. If any are not, the missing</span></a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="co">## package(s) will be installed from CRAN and then loaded.</span></a>
-<a class="sourceLine" id="cb1-3" title="3"></a>
-<a class="sourceLine" id="cb1-4" title="4"><span class="co">## First specify the packages of interest</span></a>
-<a class="sourceLine" id="cb1-5" title="5">packages &lt;-</a>
-<a class="sourceLine" id="cb1-6" title="6"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"workloopR"</span>,</a>
-<a class="sourceLine" id="cb1-7" title="7">    <span class="st">"magrittr"</span>,</a>
-<a class="sourceLine" id="cb1-8" title="8">    <span class="st">"ggplot2"</span>)</a>
-<a class="sourceLine" id="cb1-9" title="9"></a>
-<a class="sourceLine" id="cb1-10" title="10"><span class="co">## Now load or install&amp;load all</span></a>
-<a class="sourceLine" id="cb1-11" title="11">package.check &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span>(</a>
-<a class="sourceLine" id="cb1-12" title="12">  packages,</a>
-<a class="sourceLine" id="cb1-13" title="13">  <span class="dt">FUN =</span> <span class="cf">function</span>(x) {</a>
-<a class="sourceLine" id="cb1-14" title="14">    <span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span>(x, <span class="dt">character.only =</span> <span class="ot">TRUE</span>)) {</a>
-<a class="sourceLine" id="cb1-15" title="15">      <span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(x, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb1-16" title="16">                       <span class="dt">repos =</span> <span class="st">"http://cran.us.r-project.org"</span>)</a>
-<a class="sourceLine" id="cb1-17" title="17">      <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(x, <span class="dt">character.only =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb1-18" title="18">    }</a>
-<a class="sourceLine" id="cb1-19" title="19">  }</a>
-<a class="sourceLine" id="cb1-20" title="20">)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/workloopR">workloopR</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org">magrittr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></code></pre></div>
 </div>
 <div id="visualize" class="section level2">
 <h2 class="hasAnchor">
 <a href="#visualize" class="anchor"></a>Visualize</h2>
 <p>We’ll now import the <code>twitch.ddf</code> file included with <code>workloopR</code>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="co">## The file twitch.ddf is included and therefore can be accessed via</span></a>
-<a class="sourceLine" id="cb2-2" title="2"><span class="co">## system.file("subdirectory","file_name","package") . We'll then use</span></a>
-<a class="sourceLine" id="cb2-3" title="3"><span class="co">## read_ddf() to import it, creating an object of class "muscle_stim".</span></a>
-<a class="sourceLine" id="cb2-4" title="4">twitch_dat &lt;-</a>
-<a class="sourceLine" id="cb2-5" title="5"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(</a>
-<a class="sourceLine" id="cb2-6" title="6">    <span class="st">"extdata"</span>,</a>
-<a class="sourceLine" id="cb2-7" title="7">    <span class="st">"twitch.ddf"</span>,</a>
-<a class="sourceLine" id="cb2-8" title="8">    <span class="dt">package =</span> <span class="st">'workloopR'</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb2-9" title="9"><span class="st">  </span><span class="kw"><a href="../reference/read_ddf.html">read_ddf</a></span>()</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## The file twitch.ddf is included and therefore can be accessed via</span>
+<span class="co">## system.file("subdirectory","file_name","package") . We'll then use</span>
+<span class="co">## read_ddf() to import it, creating an object of class "muscle_stim".</span>
+<span class="va">twitch_dat</span> <span class="op">&lt;-</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span>
+    <span class="st">"extdata"</span>,
+    <span class="st">"twitch.ddf"</span>,
+    package <span class="op">=</span> <span class="st">'workloopR'</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="../reference/read_ddf.html">read_ddf</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>Let’s plot Force vs. Time to visualize the time course of force development and relaxation.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">twitch_dat <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Time, <span class="dt">y =</span> Force)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-3" title="3"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-4" title="4"><span class="st">    </span><span class="kw">ylab</span>(<span class="st">"Force (mN)"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-5" title="5"><span class="st">    </span><span class="kw">xlab</span>(<span class="st">"Time (sec)"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-6" title="6"><span class="st">    </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">twitch_dat</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Time</span>, y <span class="op">=</span> <span class="va">Force</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Force (mN)"</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Time (sec)"</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="Calculating-twitch-kinetics_files/figure-html/intial_plot-1.png" width="700"></p>
 <p>This plot reveals that the final row of the data has Force = 0 and is likely an artifact. We can also see that the most salient parts of the twitch occur between ~ 0.075 and ~ 0.2 seconds.</p>
 <p>We’ll just re-plot the salient parts of the twitch by setting new limits on the axes via <code><a href="https://ggplot2.tidyverse.org/reference/lims.html">ggplot2::xlim()</a></code> and <code><a href="https://ggplot2.tidyverse.org/reference/lims.html">ggplot2::ylim()</a></code>. Please note that this will not change any analyses - we are simply doing it for ease of visualizing patterns.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="co">## Re-plot</span></a>
-<a class="sourceLine" id="cb4-2" title="2">twitch_dat <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb4-3" title="3"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Time, <span class="dt">y =</span> Force)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-4" title="4"><span class="st">    </span><span class="kw">geom_line</span>(<span class="dt">lwd =</span> <span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-5" title="5"><span class="st">    </span><span class="kw"><a href="https://rdrr.io/r/graphics/plot.window.html">xlim</a></span>(<span class="fl">0.075</span>, <span class="fl">0.2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-6" title="6"><span class="st">    </span><span class="kw"><a href="https://rdrr.io/r/graphics/plot.window.html">ylim</a></span>(<span class="dv">200</span>, <span class="dv">450</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-7" title="7"><span class="st">    </span><span class="kw">xlab</span>(<span class="st">"Time (sec)"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-8" title="8"><span class="st">    </span><span class="kw">ylab</span>(<span class="st">"Force (mN)"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-9" title="9"><span class="st">    </span><span class="kw">theme_minimal</span>()</a>
-<a class="sourceLine" id="cb4-10" title="10"><span class="co">#&gt; Warning: Removed 2750 rows containing missing values (geom_path).</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Re-plot</span>
+<span class="va">twitch_dat</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Time</span>, y <span class="op">=</span> <span class="va">Force</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>lwd <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">xlim</a></span><span class="op">(</span><span class="fl">0.075</span>, <span class="fl">0.2</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">ylim</a></span><span class="op">(</span><span class="fl">200</span>, <span class="fl">450</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Time (sec)"</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Force (mN)"</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; Warning: Removed 2750 row(s) containing missing values (geom_path).</span></code></pre></div>
 <p><img src="Calculating-twitch-kinetics_files/figure-html/data_cleaning-1.png" width="700"></p>
 <p>Looks better!</p>
 </div>
@@ -178,61 +163,62 @@
 <a href="#basics-of-isometric_timing" class="anchor"></a>Basics of <code>isometric_timing()</code>
 </h2>
 <p>Now we’re ready to use <code><a href="../reference/isometric_timing.html">isometric_timing()</a></code>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="co">## Run the isometric_timing() function</span></a>
-<a class="sourceLine" id="cb5-2" title="2">twitch_analyzed &lt;-</a>
-<a class="sourceLine" id="cb5-3" title="3"><span class="st">  </span>twitch_dat <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb5-4" title="4"><span class="st">  </span><span class="kw"><a href="../reference/isometric_timing.html">isometric_timing</a></span>()</a>
-<a class="sourceLine" id="cb5-5" title="5"></a>
-<a class="sourceLine" id="cb5-6" title="6">twitch_analyzed</a>
-<a class="sourceLine" id="cb5-7" title="7"><span class="co">#&gt;      file_id time_stim force_stim time_peak force_peak time_rising_10</span></a>
-<a class="sourceLine" id="cb5-8" title="8"><span class="co">#&gt; 1 twitch.ddf    0.1002    224.067    0.1141   412.4495         0.1048</span></a>
-<a class="sourceLine" id="cb5-9" title="9"><span class="co">#&gt;   force_rising_10 time_rising_90 force_rising_90 time_relaxing_90</span></a>
-<a class="sourceLine" id="cb5-10" title="10"><span class="co">#&gt; 1         244.389         0.1107        393.9015           0.1198</span></a>
-<a class="sourceLine" id="cb5-11" title="11"><span class="co">#&gt;   force_relaxing_90 time_relaxing_50 force_relaxing_50</span></a>
-<a class="sourceLine" id="cb5-12" title="12"><span class="co">#&gt; 1           394.063           0.1311          318.2585</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Run the isometric_timing() function</span>
+<span class="va">twitch_analyzed</span> <span class="op">&lt;-</span>
+  <span class="va">twitch_dat</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="../reference/isometric_timing.html">isometric_timing</a></span><span class="op">(</span><span class="op">)</span>
+
+<span class="va">twitch_analyzed</span>
+<span class="co">#&gt;      file_id time_stim force_stim time_peak force_peak time_rising_10</span>
+<span class="co">#&gt; 1 twitch.ddf    0.1002    224.067    0.1141   412.4495         0.1048</span>
+<span class="co">#&gt;   force_rising_10 time_rising_90 force_rising_90 time_relaxing_90</span>
+<span class="co">#&gt; 1         244.389         0.1107        393.9015           0.1198</span>
+<span class="co">#&gt;   force_relaxing_90 time_relaxing_50 force_relaxing_50</span>
+<span class="co">#&gt; 1           394.063           0.1311          318.2585</span></code></pre></div>
 <p>The function returns a new <code>data.frame</code> that provides information about the timing and magnitude of force at various intervals within the twitch. All returned values are absolute; in other words, time is measured from the beginning of the file and forces are returned in their actual magnitudes.</p>
 <p>The first five columns of this <code>data.frame</code> are fixed. They will return (in this order): 1) the ID of the file, 2) the time at which stimulation occurs, 3) magnitude of force when stimulation occurs, 4) time at which peak force occurs, and 5) magnitude of peak force.</p>
 <p>The function also provides data that help describe the rising and the relaxation phases of the twitch at certain “set points”. By default, in the rising phase the set points are at 10% and at 90% of peak force development. Timing and force magnitudes at these points are returned as columns in the <code>data.frame</code>. And for the relaxation phase, the time and magnitude of force when force has relaxed to 90% and 50% of peak force are given.</p>
 <p>The user has some flexibility in specifying how data are grabbed from the rising and falling phases. There are two arguments: <code>rising = c()</code> and <code>falling = c()</code>. Each of these arguments can be filled with a vector of any length. Within the vector, each of these “set points” must be a vector between 0 and 100, signifying the % of peak force development that is to be described.</p>
 <p>For example, if we’d like to describe the rising phase at six points (e.g. 5%, 10%, 25%, 50%, 75%, and 95% of peak force development):</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="co">## Change rising supply a custom set of force development set points</span></a>
-<a class="sourceLine" id="cb6-2" title="2">twitch_rising_custom &lt;-</a>
-<a class="sourceLine" id="cb6-3" title="3"><span class="st">  </span>twitch_dat <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb6-4" title="4"><span class="st">  </span><span class="kw"><a href="../reference/isometric_timing.html">isometric_timing</a></span>(<span class="dt">rising =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">95</span>))</a>
-<a class="sourceLine" id="cb6-5" title="5"></a>
-<a class="sourceLine" id="cb6-6" title="6"><span class="co">## The returned `data.frame` contains the timing and force magnitudes</span></a>
-<a class="sourceLine" id="cb6-7" title="7"><span class="co">## of these set points in the "..._rising_..." columns</span></a>
-<a class="sourceLine" id="cb6-8" title="8">twitch_rising_custom</a>
-<a class="sourceLine" id="cb6-9" title="9"><span class="co">#&gt;      file_id time_stim force_stim time_peak force_peak time_rising_5</span></a>
-<a class="sourceLine" id="cb6-10" title="10"><span class="co">#&gt; 1 twitch.ddf    0.1002    224.067    0.1141   412.4495        0.1044</span></a>
-<a class="sourceLine" id="cb6-11" title="11"><span class="co">#&gt;   force_rising_5 time_rising_10 force_rising_10 time_rising_25</span></a>
-<a class="sourceLine" id="cb6-12" title="12"><span class="co">#&gt; 1        234.712         0.1048         244.389         0.1057</span></a>
-<a class="sourceLine" id="cb6-13" title="13"><span class="co">#&gt;   force_rising_25 time_rising_50 force_rising_50 time_rising_75</span></a>
-<a class="sourceLine" id="cb6-14" title="14"><span class="co">#&gt; 1         273.743          0.107             321         0.1087</span></a>
-<a class="sourceLine" id="cb6-15" title="15"><span class="co">#&gt;   force_rising_75 time_rising_95 force_rising_95 time_relaxing_90</span></a>
-<a class="sourceLine" id="cb6-16" title="16"><span class="co">#&gt; 1        366.1605         0.1118         403.579           0.1198</span></a>
-<a class="sourceLine" id="cb6-17" title="17"><span class="co">#&gt;   force_relaxing_90 time_relaxing_50 force_relaxing_50</span></a>
-<a class="sourceLine" id="cb6-18" title="18"><span class="co">#&gt; 1           394.063           0.1311          318.2585</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Change rising supply a custom set of force development set points</span>
+<span class="va">twitch_rising_custom</span> <span class="op">&lt;-</span>
+  <span class="va">twitch_dat</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="../reference/isometric_timing.html">isometric_timing</a></span><span class="op">(</span>rising <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">10</span>, <span class="fl">25</span>, <span class="fl">50</span>, <span class="fl">75</span>, <span class="fl">95</span><span class="op">)</span><span class="op">)</span>
+
+<span class="co">## The returned `data.frame` contains the timing and force magnitudes</span>
+<span class="co">## of these set points in the "..._rising_..." columns</span>
+<span class="va">twitch_rising_custom</span>
+<span class="co">#&gt;      file_id time_stim force_stim time_peak force_peak time_rising_5</span>
+<span class="co">#&gt; 1 twitch.ddf    0.1002    224.067    0.1141   412.4495        0.1044</span>
+<span class="co">#&gt;   force_rising_5 time_rising_10 force_rising_10 time_rising_25 force_rising_25</span>
+<span class="co">#&gt; 1        234.712         0.1048         244.389         0.1057         273.743</span>
+<span class="co">#&gt;   time_rising_50 force_rising_50 time_rising_75 force_rising_75 time_rising_95</span>
+<span class="co">#&gt; 1          0.107             321         0.1087        366.1605         0.1118</span>
+<span class="co">#&gt;   force_rising_95 time_relaxing_90 force_relaxing_90 time_relaxing_50</span>
+<span class="co">#&gt; 1         403.579           0.1198           394.063           0.1311</span>
+<span class="co">#&gt;   force_relaxing_50</span>
+<span class="co">#&gt; 1          318.2585</span></code></pre></div>
 <div id="tetanus-trials" class="section level3">
 <h3 class="hasAnchor">
 <a href="#tetanus-trials" class="anchor"></a>Tetanus trials</h3>
 <p>The <code><a href="../reference/isometric_timing.html">isometric_timing()</a></code> function can also work on <code>tetanus</code> objects that have been imported via <code><a href="../reference/read_ddf.html">read_ddf()</a></code>. Should a <code>tetanus</code> object be used, the set points for relaxing are automatically set to <code>relaxing = c()</code>, which excludes this argument from producing anything. Instead, the timing &amp; magnitude of force at stimulation, peak force, and specified points of the rising phase are returned. The idea of ‘relaxation’ is simply ignored.</p>
 <p>To demonstrate, we’ll use an example tetanus trial included in <code>workloopR</code>:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">tetanus_analyzed &lt;-</a>
-<a class="sourceLine" id="cb7-2" title="2"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(</a>
-<a class="sourceLine" id="cb7-3" title="3">    <span class="st">"extdata"</span>,</a>
-<a class="sourceLine" id="cb7-4" title="4">    <span class="st">"tetanus.ddf"</span>,</a>
-<a class="sourceLine" id="cb7-5" title="5">    <span class="dt">package =</span> <span class="st">'workloopR'</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb7-6" title="6"><span class="st">  </span><span class="kw"><a href="../reference/read_ddf.html">read_ddf</a></span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb7-7" title="7"><span class="st">  </span><span class="kw"><a href="../reference/isometric_timing.html">isometric_timing</a></span>(<span class="dt">rising =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>))</a>
-<a class="sourceLine" id="cb7-8" title="8"></a>
-<a class="sourceLine" id="cb7-9" title="9">tetanus_analyzed</a>
-<a class="sourceLine" id="cb7-10" title="10"><span class="co">#&gt;       file_id time_stim force_stim time_peak force_peak time_rising_25</span></a>
-<a class="sourceLine" id="cb7-11" title="11"><span class="co">#&gt; 1 tetanus.ddf    0.1002   141.0045    0.1364   2626.289         0.1135</span></a>
-<a class="sourceLine" id="cb7-12" title="12"><span class="co">#&gt;   force_rising_25 time_rising_50 force_rising_50 time_rising_75</span></a>
-<a class="sourceLine" id="cb7-13" title="13"><span class="co">#&gt; 1        763.4095         0.1184        1391.462         0.1236</span></a>
-<a class="sourceLine" id="cb7-14" title="14"><span class="co">#&gt;   force_rising_75</span></a>
-<a class="sourceLine" id="cb7-15" title="15"><span class="co">#&gt; 1        2013.873</span></a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">tetanus_analyzed</span> <span class="op">&lt;-</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span>
+    <span class="st">"extdata"</span>,
+    <span class="st">"tetanus.ddf"</span>,
+    package <span class="op">=</span> <span class="st">'workloopR'</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="../reference/read_ddf.html">read_ddf</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="../reference/isometric_timing.html">isometric_timing</a></span><span class="op">(</span>rising <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">25</span>, <span class="fl">50</span>, <span class="fl">75</span><span class="op">)</span><span class="op">)</span>
+
+<span class="va">tetanus_analyzed</span>
+<span class="co">#&gt;       file_id time_stim force_stim time_peak force_peak time_rising_25</span>
+<span class="co">#&gt; 1 tetanus.ddf    0.1002   141.0045    0.1364   2626.289         0.1135</span>
+<span class="co">#&gt;   force_rising_25 time_rising_50 force_rising_50 time_rising_75 force_rising_75</span>
+<span class="co">#&gt; 1        763.4095         0.1184        1391.462         0.1236        2013.873</span></code></pre></div>
 </div>
 </div>
 <div id="computing-intervals" class="section level2">
@@ -240,81 +226,71 @@
 <a href="#computing-intervals" class="anchor"></a>Computing intervals</h2>
 <p>The returned <code>data.frame</code> provides all timing and force magnitudes in absolute terms, i.e. time since the start of the file and actual force magnitudes. Often, we’d like to report characteristics of the twitch as intervals.</p>
 <p>To calculate, e.g. the interval between stimulation and peak force (often reported as “time to peak force”):</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="co">## Time to peak force from stimulation</span></a>
-<a class="sourceLine" id="cb8-2" title="2">twitch_analyzed<span class="op">$</span>time_peak <span class="op">-</span><span class="st"> </span>twitch_analyzed<span class="op">$</span>time_stim</a>
-<a class="sourceLine" id="cb8-3" title="3"><span class="co">#&gt; [1] 0.0139</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Time to peak force from stimulation</span>
+<span class="va">twitch_analyzed</span><span class="op">$</span><span class="va">time_peak</span> <span class="op">-</span> <span class="va">twitch_analyzed</span><span class="op">$</span><span class="va">time_stim</span>
+<span class="co">#&gt; [1] 0.0139</span></code></pre></div>
 </div>
 <div id="annotate-the-twitch-plot" class="section level2">
 <h2 class="hasAnchor">
 <a href="#annotate-the-twitch-plot" class="anchor"></a>Annotate the twitch plot</h2>
 <p>It is also good to plot some of these metrics and see if they pass the eye-test.</p>
 <p>We’ll use our analyzed twitch and the <code>viridis</code> package to supply colors to dots at key points.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="co">## Create a color pallete</span></a>
-<a class="sourceLine" id="cb9-2" title="2"><span class="co">## Generated using `viridis::viridis(6)`</span></a>
-<a class="sourceLine" id="cb9-3" title="3"><span class="co">## We use hard-coded values here just to avoid extra dependencies </span></a>
-<a class="sourceLine" id="cb9-4" title="4">colz &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"#440154FF"</span>,<span class="st">"#414487FF"</span>,<span class="st">"#2A788EFF"</span>,</a>
-<a class="sourceLine" id="cb9-5" title="5">          <span class="st">"#22A884FF"</span>,<span class="st">"#7AD151FF"</span>,<span class="st">"#FDE725FF"</span>)</a>
-<a class="sourceLine" id="cb9-6" title="6"></a>
-<a class="sourceLine" id="cb9-7" title="7">twitch_dat <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb9-8" title="8"><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Time, <span class="dt">y =</span> Force)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-9" title="9"><span class="st">   </span><span class="kw">geom_line</span>(<span class="dt">lwd =</span> <span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-10" title="10"><span class="st">   </span><span class="kw"><a href="https://rdrr.io/r/graphics/plot.window.html">xlim</a></span>(<span class="fl">0.075</span>, <span class="fl">0.2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-11" title="11"><span class="st">   </span><span class="kw"><a href="https://rdrr.io/r/graphics/plot.window.html">ylim</a></span>(<span class="dv">200</span>, <span class="dv">450</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-12" title="12"><span class="st">   </span><span class="kw">xlab</span>(<span class="st">"Time (sec)"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-13" title="13"><span class="st">   </span><span class="kw">ylab</span>(<span class="st">"Force (mN)"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-14" title="14"><span class="st">   </span><span class="kw">geom_point</span>(<span class="dt">x =</span> twitch_analyzed<span class="op">$</span>time_stim, </a>
-<a class="sourceLine" id="cb9-15" title="15">              <span class="dt">y =</span> twitch_analyzed<span class="op">$</span>force_stim,</a>
-<a class="sourceLine" id="cb9-16" title="16">              <span class="dt">color =</span> colz[<span class="dv">1</span>], <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-17" title="17"><span class="st">   </span><span class="kw">geom_point</span>(<span class="dt">x =</span> twitch_analyzed<span class="op">$</span>time_peak, </a>
-<a class="sourceLine" id="cb9-18" title="18">              <span class="dt">y =</span> twitch_analyzed<span class="op">$</span>force_peak,</a>
-<a class="sourceLine" id="cb9-19" title="19">              <span class="dt">color =</span> colz[<span class="dv">4</span>], <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-20" title="20"><span class="st">   </span><span class="kw">geom_point</span>(<span class="dt">x =</span> twitch_analyzed<span class="op">$</span>time_rising_<span class="dv">10</span>, </a>
-<a class="sourceLine" id="cb9-21" title="21">              <span class="dt">y =</span> twitch_analyzed<span class="op">$</span>force_rising_<span class="dv">10</span>,</a>
-<a class="sourceLine" id="cb9-22" title="22">              <span class="dt">color =</span> colz[<span class="dv">2</span>], <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-23" title="23"><span class="st">   </span><span class="kw">geom_point</span>(<span class="dt">x =</span> twitch_analyzed<span class="op">$</span>time_rising_<span class="dv">90</span>, </a>
-<a class="sourceLine" id="cb9-24" title="24">              <span class="dt">y =</span> twitch_analyzed<span class="op">$</span>force_rising_<span class="dv">90</span>,</a>
-<a class="sourceLine" id="cb9-25" title="25">              <span class="dt">color =</span> colz[<span class="dv">3</span>], <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-26" title="26"><span class="st">   </span><span class="kw">geom_point</span>(<span class="dt">x =</span> twitch_analyzed<span class="op">$</span>time_relaxing_<span class="dv">90</span>, </a>
-<a class="sourceLine" id="cb9-27" title="27">              <span class="dt">y =</span> twitch_analyzed<span class="op">$</span>force_relaxing_<span class="dv">90</span>,</a>
-<a class="sourceLine" id="cb9-28" title="28">              <span class="dt">color =</span> colz[<span class="dv">5</span>], <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-29" title="29"><span class="st">   </span><span class="kw">geom_point</span>(<span class="dt">x =</span> twitch_analyzed<span class="op">$</span>time_relaxing_<span class="dv">50</span>, </a>
-<a class="sourceLine" id="cb9-30" title="30">              <span class="dt">y =</span> twitch_analyzed<span class="op">$</span>force_relaxing_<span class="dv">50</span>,</a>
-<a class="sourceLine" id="cb9-31" title="31">              <span class="dt">color =</span> colz[<span class="dv">6</span>], <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-32" title="32"><span class="st">   </span><span class="kw">theme_minimal</span>()</a>
-<a class="sourceLine" id="cb9-33" title="33"><span class="co">#&gt; Warning: Removed 2750 rows containing missing values (geom_path).</span></a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Create a color pallete</span>
+<span class="co">## Generated using `viridis::viridis(6)`</span>
+<span class="co">## We use hard-coded values here just to avoid extra dependencies </span>
+<span class="va">colz</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#440154FF"</span>,<span class="st">"#414487FF"</span>,<span class="st">"#2A788EFF"</span>,
+          <span class="st">"#22A884FF"</span>,<span class="st">"#7AD151FF"</span>,<span class="st">"#FDE725FF"</span><span class="op">)</span>
+
+<span class="va">twitch_dat</span> <span class="op">%&gt;%</span>
+ <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Time</span>, y <span class="op">=</span> <span class="va">Force</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>lwd <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span>
+   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">xlim</a></span><span class="op">(</span><span class="fl">0.075</span>, <span class="fl">0.2</span><span class="op">)</span> <span class="op">+</span>
+   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">ylim</a></span><span class="op">(</span><span class="fl">200</span>, <span class="fl">450</span><span class="op">)</span> <span class="op">+</span>
+   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Time (sec)"</span><span class="op">)</span> <span class="op">+</span>
+   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Force (mN)"</span><span class="op">)</span> <span class="op">+</span>
+   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">twitch_analyzed</span><span class="op">$</span><span class="va">time_stim</span>, 
+              y <span class="op">=</span> <span class="va">twitch_analyzed</span><span class="op">$</span><span class="va">force_stim</span>,
+              color <span class="op">=</span> <span class="va">colz</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span>
+   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">twitch_analyzed</span><span class="op">$</span><span class="va">time_peak</span>, 
+              y <span class="op">=</span> <span class="va">twitch_analyzed</span><span class="op">$</span><span class="va">force_peak</span>,
+              color <span class="op">=</span> <span class="va">colz</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span>
+   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">twitch_analyzed</span><span class="op">$</span><span class="va">time_rising_10</span>, 
+              y <span class="op">=</span> <span class="va">twitch_analyzed</span><span class="op">$</span><span class="va">force_rising_10</span>,
+              color <span class="op">=</span> <span class="va">colz</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span>
+   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">twitch_analyzed</span><span class="op">$</span><span class="va">time_rising_90</span>, 
+              y <span class="op">=</span> <span class="va">twitch_analyzed</span><span class="op">$</span><span class="va">force_rising_90</span>,
+              color <span class="op">=</span> <span class="va">colz</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span>
+   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">twitch_analyzed</span><span class="op">$</span><span class="va">time_relaxing_90</span>, 
+              y <span class="op">=</span> <span class="va">twitch_analyzed</span><span class="op">$</span><span class="va">force_relaxing_90</span>,
+              color <span class="op">=</span> <span class="va">colz</span><span class="op">[</span><span class="fl">5</span><span class="op">]</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span>
+   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">twitch_analyzed</span><span class="op">$</span><span class="va">time_relaxing_50</span>, 
+              y <span class="op">=</span> <span class="va">twitch_analyzed</span><span class="op">$</span><span class="va">force_relaxing_50</span>,
+              color <span class="op">=</span> <span class="va">colz</span><span class="op">[</span><span class="fl">6</span><span class="op">]</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span>
+   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; Warning: Removed 2750 row(s) containing missing values (geom_path).</span></code></pre></div>
 <p><img src="Calculating-twitch-kinetics_files/figure-html/annotated_plot-1.png" width="700"></p>
 <p>The plot has dots added for each of the six time&amp;force points that the function returns by default.</p>
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-        <div id="tocnav">
-      <h2 class="hasAnchor">
-<a href="#tocnav" class="anchor"></a>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-<li><a href="#load-packages-and-data">Load packages and data</a></li>
-      <li><a href="#visualize">Visualize</a></li>
-      <li><a href="#basics-of-isometric_timing">Basics of <code>isometric_timing()</code></a></li>
-      <li><a href="#computing-intervals">Computing intervals</a></li>
-      <li><a href="#annotate-the-twitch-plot">Annotate the twitch plot</a></li>
-      </ul>
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
 </div>
-      </div>
 
 </div>
 
 
 
-      <footer><div style="margin-top:-9px">
-  <p>workloopR is a part of <img src="https://github.com/ropensci/logos/raw/master/icon_lettering_color.png" height="40" alt="rOpenSci">. Learn more at <a href="https://ropensci.org">ropensci.org</a>.</p>
+      <footer><div class="copyright">
+  <p>Developed by <a href="https://www.vikram-baliga.com/">Vikram B. Baliga</a>, <a href="https://www.zoology.ubc.ca/person/shreeram-senthivasan/">Shreeram Senthivasan</a>.</p>
 </div>
 
-<div class="author">
-  <p>
-    Developed by <a href="https://www.vikram-baliga.com/">Vikram B. Baliga</a>, <a href="https://www.zoology.ubc.ca/person/shreeram-senthivasan/">Shreeram Senthivasan</a>.
-    Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a> &amp; <a href="https://docs.ropensci.org/rotemplate/">rotemplate</a>.
-  </p>
+<div class="pkgdown">
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -42,21 +42,26 @@ max(wl_fixed$Position) / min(wl_dat$Position) # -1
 
 }
 \seealso{
-Other data transformations: \code{\link{fix_GR}},
-  \code{\link{select_cycles}}
+Other data transformations: 
+\code{\link{fix_GR}()},
+\code{\link{select_cycles}()}
 
-Other workloop functions: \code{\link{analyze_workloop}},
-  \code{\link{fix_GR}}, \code{\link{get_wl_metadata}},
-  \code{\link{read_analyze_wl_dir}},
-  \code{\link{read_analyze_wl}},
-  \code{\link{select_cycles}},
-  \code{\link{summarize_wl_trials}},
-  \code{\link{time_correct}}
+Other workloop functions: 
+\code{\link{analyze_workloop}()},
+\code{\link{fix_GR}()},
+\code{\link{get_wl_metadata}()},
+\code{\link{read_analyze_wl_dir}()},
+\code{\link{read_analyze_wl}()},
+\code{\link{select_cycles}()},
+\code{\link{summarize_wl_trials}()},
+\code{\link{time_correct}()}
 
-Other twitch functions: \code{\link{fix_GR}},
-  \code{\link{isometric_timing}}
+Other twitch functions: 
+\code{\link{fix_GR}()},
+\code{\link{isometric_timing}()}
 
-Other tetanus functions: \code{\link{fix_GR}}
+Other tetanus functions: 
+\code{\link{fix_GR}()}
 }
 \author{
 Vikram B. Baliga

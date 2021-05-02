@@ -4,9 +4,14 @@
 \alias{read_ddf}
 \title{Import work loop or isometric data from .ddf files}
 \usage{
-read_ddf(file_name, file_id = NA, rename_cols = list(c(2, 3),
-  c("Position", "Force")), skip_cols = 4:11, phase_from_peak = FALSE,
-  ...)
+read_ddf(
+  file_name,
+  file_id = NA,
+  rename_cols = list(c(2, 3), c("Position", "Force")),
+  skip_cols = 4:11,
+  phase_from_peak = FALSE,
+  ...
+)
 }
 \arguments{
 \item{file_name}{A .ddf file that contains data from a single workloop,
@@ -94,10 +99,12 @@ my_dat <- read_ddf("./my/file/path/myfile.ddf")
 
 }
 \seealso{
-Other data import functions: \code{\link{as_muscle_stim}},
-  \code{\link{get_wl_metadata}},
-  \code{\link{read_analyze_wl_dir}},
-  \code{\link{read_analyze_wl}}, \code{\link{read_ddf_dir}}
+Other data import functions: 
+\code{\link{as_muscle_stim}()},
+\code{\link{get_wl_metadata}()},
+\code{\link{read_analyze_wl_dir}()},
+\code{\link{read_analyze_wl}()},
+\code{\link{read_ddf_dir}()}
 }
 \author{
 Vikram B. Baliga and Shreeram Senthivasan

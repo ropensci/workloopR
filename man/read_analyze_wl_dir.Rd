@@ -4,8 +4,7 @@
 \alias{read_analyze_wl_dir}
 \title{Read and analyze work loop files from a directory}
 \usage{
-read_analyze_wl_dir(file_path, pattern = "*.ddf", sort_by = "mtime",
-  ...)
+read_analyze_wl_dir(file_path, pattern = "*.ddf", sort_by = "mtime", ...)
 }
 \arguments{
 \item{file_path}{Directory in which files are located}
@@ -74,26 +73,32 @@ Josephson RK. 1985. Mechanical Power output from Striated Muscle
 \code{\link{summarize_wl_trials}},
 \code{\link{time_correct}}
 
-Other data analyses: \code{\link{analyze_workloop}},
-  \code{\link{isometric_timing}},
-  \code{\link{read_analyze_wl}}
+Other data analyses: 
+\code{\link{analyze_workloop}()},
+\code{\link{isometric_timing}()},
+\code{\link{read_analyze_wl}()}
 
-Other data import functions: \code{\link{as_muscle_stim}},
-  \code{\link{get_wl_metadata}},
-  \code{\link{read_analyze_wl}},
-  \code{\link{read_ddf_dir}}, \code{\link{read_ddf}}
+Other data import functions: 
+\code{\link{as_muscle_stim}()},
+\code{\link{get_wl_metadata}()},
+\code{\link{read_analyze_wl}()},
+\code{\link{read_ddf_dir}()},
+\code{\link{read_ddf}()}
 
-Other workloop functions: \code{\link{analyze_workloop}},
-  \code{\link{fix_GR}}, \code{\link{get_wl_metadata}},
-  \code{\link{invert_position}},
-  \code{\link{read_analyze_wl}},
-  \code{\link{select_cycles}},
-  \code{\link{summarize_wl_trials}},
-  \code{\link{time_correct}}
+Other workloop functions: 
+\code{\link{analyze_workloop}()},
+\code{\link{fix_GR}()},
+\code{\link{get_wl_metadata}()},
+\code{\link{invert_position}()},
+\code{\link{read_analyze_wl}()},
+\code{\link{select_cycles}()},
+\code{\link{summarize_wl_trials}()},
+\code{\link{time_correct}()}
 
-Other batch analyses: \code{\link{get_wl_metadata}},
-  \code{\link{summarize_wl_trials}},
-  \code{\link{time_correct}}
+Other batch analyses: 
+\code{\link{get_wl_metadata}()},
+\code{\link{summarize_wl_trials}()},
+\code{\link{time_correct}()}
 }
 \author{
 Shreeram Senthivasan

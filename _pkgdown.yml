@@ -2,8 +2,6 @@ url: https://docs.ropensci.org/workloopR/
 
 destination: docs
 
-template:
-  package: rotemplate
 
 authors:
   Vikram B. Baliga:
