@@ -5,7 +5,6 @@
 .*\.bib
 .*\.git
 images
-NEWS.md
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^appveyor\.yml$
