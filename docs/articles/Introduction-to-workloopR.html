@@ -100,7 +100,7 @@
       <h1 data-toc-skip>Introduction to workloopR</h1>
                         <h4 class="author">Vikram B. Baliga</h4>
             
-            <h4 class="date">2021-05-02</h4>
+            <h4 class="date">2021-05-03</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ropensci/workloopR/blob/master/vignettes/Introduction-to-workloopR.Rmd"><code>vignettes/Introduction-to-workloopR.Rmd</code></a></small>
       <div class="hidden name"><code>Introduction-to-workloopR.Rmd</code></div>
@@ -120,7 +120,7 @@
 <a href="#analytical-pipelines" class="anchor"></a>Analytical pipelines</h2>
 <p>To cut to the chase, <code>workloopR</code> offers the ability to import, transform, and then analyze a data file. For example, with a work loop file:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/workloopR">workloopR</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/workloopR/">workloopR</a></span><span class="op">)</span>
 
 <span class="co">## import the workloop.ddf file included in workloopR</span>
 <span class="va">wl_dat</span> <span class="op">&lt;-</span><span class="fu"><a href="../reference/read_ddf.html">read_ddf</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"workloop.ddf"</span>, 
@@ -167,10 +167,10 @@
 <span class="co">#&gt; 3 03_6pulse.ddf              28      3.15 -24.92               6</span>
 <span class="co">#&gt; 4 04_4pulse.ddf              28      3.15 -24.64               4</span>
 <span class="co">#&gt;   Stimulus_Frequency      mtime     Mean_Work   Mean_Power</span>
-<span class="co">#&gt; 1                300 1619996859  0.0028362363  0.078967198</span>
-<span class="co">#&gt; 2                300 1619996859  0.0009686570  0.026247519</span>
-<span class="co">#&gt; 3                300 1619996859 -0.0001310863 -0.004017894</span>
-<span class="co">#&gt; 4                300 1619996859  0.0024082708  0.066959552</span></code></pre></div>
+<span class="co">#&gt; 1                300 1620063714  0.0028362363  0.078967198</span>
+<span class="co">#&gt; 2                300 1620063714  0.0009686570  0.026247519</span>
+<span class="co">#&gt; 3                300 1620063714 -0.0001310863 -0.004017894</span>
+<span class="co">#&gt; 4                300 1620063714  0.0024082708  0.066959552</span></code></pre></div>
 <p>Sections below will give more specific overviews.</p>
 </div>
 <div id="data-import" class="section level2">
@@ -180,7 +180,7 @@
 <p>Importing via these functions generates objects of class <code>muscle_stim</code>, which are formatted to work nicely with <code>workloopR</code>’s core functions and help with error checking procedures throughout the package. <code>muscle_stim</code> objects are organized to store time-series data for Time, Position, Force, and Stimulation in a <code>data.frame</code> and also store core metadata and experimental parameters as Attributes.</p>
 <p>We’ll provide a quick example using data that are included within the package.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/workloopR">workloopR</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/workloopR/">workloopR</a></span><span class="op">)</span>
 
 <span class="co">## import the workloop.ddf file included in workloopR</span>
 <span class="va">wl_dat</span> <span class="op">&lt;-</span><span class="fu"><a href="../reference/read_ddf.html">read_ddf</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"workloop.ddf"</span>, 
@@ -193,7 +193,7 @@
 <span class="co">#&gt; # Workloop Data: 3 channels recorded over 0.3244s</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; File ID: workloop.ddf</span>
-<span class="co">#&gt; Mod Time (mtime): 2021-05-02 16:07:39</span>
+<span class="co">#&gt; Mod Time (mtime): 2021-05-03 10:41:53</span>
 <span class="co">#&gt; Sample Frequency: 10000Hz</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; data.frame Columns: </span>

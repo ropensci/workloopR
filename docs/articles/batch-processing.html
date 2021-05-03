@@ -100,7 +100,7 @@
       <h1 data-toc-skip>Batch processing</h1>
                         <h4 class="author">Shreeram Senthivasan</h4>
             
-            <h4 class="date">2021-05-02</h4>
+            <h4 class="date">2021-05-03</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ropensci/workloopR/blob/master/vignettes/batch-processing.Rmd"><code>vignettes/batch-processing.Rmd</code></a></small>
       <div class="hidden name"><code>batch-processing.Rmd</code></div>
@@ -121,7 +121,7 @@
 <a href="#load-packages-and-data" class="anchor"></a>Load packages and data</h2>
 <p>This vignette will rely heavily on the <code><a href="https://purrr.tidyverse.org/reference/map.html">purrr::map()</a></code> family of functions for recursion, though it should be mentioned that the <code><a href="https://rdrr.io/r/base/apply.html">base::apply()</a></code> family of functions would work as well.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/workloopR">workloopR</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/workloopR/">workloopR</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org">magrittr</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://purrr.tidyverse.org">purrr</a></span><span class="op">)</span></code></pre></div>
 </div>
@@ -203,10 +203,10 @@
 <span class="co">#&gt; 3 03_6pulse.ddf              28      3.15 -24.92               6</span>
 <span class="co">#&gt; 4 04_4pulse.ddf              28      3.15 -24.64               4</span>
 <span class="co">#&gt;   Stimulus_Frequency      mtime     Mean_Work  Mean_Power</span>
-<span class="co">#&gt; 1                300 1619996859  0.0027387056 0.078427135</span>
-<span class="co">#&gt; 2                300 1619996859  0.0009849216 0.027832717</span>
-<span class="co">#&gt; 3                300 1619996859 -0.0002192395 0.004323004</span>
-<span class="co">#&gt; 4                300 1619996859  0.0022793831 0.065468837</span></code></pre></div>
+<span class="co">#&gt; 1                300 1620063714  0.0027387056 0.078427135</span>
+<span class="co">#&gt; 2                300 1620063714  0.0009849216 0.027832717</span>
+<span class="co">#&gt; 3                300 1620063714 -0.0002192395 0.004323004</span>
+<span class="co">#&gt; 4                300 1620063714  0.0022793831 0.065468837</span></code></pre></div>
 </div>
 </div>
 <div id="manual-recursion-examples" class="section level2">
