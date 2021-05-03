@@ -9,7 +9,7 @@
 Functions for the import, transformation, and analysis of data 
     from muscle physiology experiments. The work loop technique is used to 
     evaluate the mechanical work and power output of muscle. Josephson (1985) 
-    <https://jeb.biologists.org/content/114/1/493> modernized the technique for
+    <https://jeb.biologists.org/content/114/1/493/> modernized the technique for
     application in comparative biomechanics. Although our initial motivation 
     was to provide functions to analyze work loop experiment data, as we 
     developed the package we incorporated the ability to analyze data from 
@@ -70,9 +70,9 @@ in expanding our data import functions to accommodate file types other than
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://docs.ropensci.org/workloopR}
-  \item \url{https://github.com/ropensci/workloopR}
-  \item Report bugs at \url{https://github.com/ropensci/workloopR/issues}
+  \item \url{https://docs.ropensci.org/workloopR/}
+  \item \url{https://github.com/ropensci/workloopR/}
+  \item Report bugs at \url{https://github.com/ropensci/workloopR/issues/}
 }
 
 }
@@ -87,9 +87,9 @@ Authors:
 Other contributors:
 \itemize{
   \item Julia Romanowska \email{Julia.Romanowska@uib.no} (Julia reviewed the package for rOpenSci
-             , see <https://github.com/ropensci/software-review/issues/326>) [reviewer]
+             , see <https://github.com/ropensci/software-review/issues/326/>) [reviewer]
   \item Eric Brown \email{eb@ericebrown.com} (Eric reviewed the package for rOpenSci
-             , see <https://github.com/ropensci/software-review/issues/326>) [reviewer]
+             , see <https://github.com/ropensci/software-review/issues/326/>) [reviewer]
 }
 
 }
