@@ -95,15 +95,6 @@ library(workloopR)
 wl_dat <-read_ddf(system.file("extdata", "workloop.ddf",
                               package = 'workloopR'))
 
-# see how this object is organized - this will give you a sense
-# of how your inputs to `as_muscle_stim()` should be arranged:
-\dontrun{
-head(wl_dat)
-str(wl_dat)
-# formatting of attributes:
-names(attributes(wl_dat))
-str(attributes(wl_dat))
-}
 
 }
 \seealso{

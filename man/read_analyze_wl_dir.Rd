@@ -57,11 +57,6 @@ analyzed_wls <- read_analyze_wl_dir(system.file("extdata/wl_duration_trials",
                                     phase_from_peak = TRUE,
                                     cycle_def = "p2p", keep_cycles = 2:4)
 
-# or on your own directory
-\dontrun{
-my_analyzed_wls <- read_analyze_wl_dir("./my/file/path/")
-}
-
 }
 \references{
 Josephson RK. 1985. Mechanical Power output from Striated Muscle

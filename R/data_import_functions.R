@@ -68,15 +68,6 @@
 #' wl_dat <-read_ddf(system.file("extdata", "workloop.ddf",
 #'                               package = 'workloopR'))
 #'
-#' # see how this object is organized - this will give you a sense
-#' # of how your inputs to `as_muscle_stim()` should be arranged:
-#' \dontrun{
-#' head(wl_dat)
-#' str(wl_dat)
-#' # formatting of attributes:
-#' names(attributes(wl_dat))
-#' str(attributes(wl_dat))
-#' }
 #'
 #' @author Shreeram Senthivasan
 #'
@@ -259,10 +250,6 @@ as_muscle_stim <- function(x,
 #'                               package = 'workloopR'),
 #'                   phase_from_peak = TRUE)
 #'
-#' # or import your own file
-#' \dontrun{
-#' my_dat <- read_ddf("./my/file/path/myfile.ddf")
-#' }
 #'
 #' @export
 read_ddf <-

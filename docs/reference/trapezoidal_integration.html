@@ -74,7 +74,7 @@ class muscle_stim." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">workloopR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.4</span>
       </span>
     </div>
 
@@ -166,6 +166,9 @@ class <code>muscle_stim</code>.</p>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A numerical value indicating the value of the integral.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>In the functions <code><a href='analyze_workloop.html'>analyze_workloop()</a></code>, <code><a href='read_analyze_wl.html'>read_analyze_wl()</a></code>
@@ -191,10 +194,6 @@ Analysis (2nd ed.), New York: John Wiley &amp; Sons</p>
 <span class='va'>t</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>2</span> <span class='op'>*</span> <span class='va'>pi</span>, length <span class='op'>=</span> <span class='fl'>1000</span><span class='op'>)</span>
 <span class='va'>coords</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>rbind</a></span><span class='op'>(</span><span class='fl'>10</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span><span class='op'>(</span><span class='va'>t</span><span class='op'>)</span> <span class='op'>*</span> <span class='fl'>2</span>, <span class='fl'>20</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>cos</a></span><span class='op'>(</span><span class='va'>t</span><span class='op'>)</span> <span class='op'>*</span> <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='co'># sanity check: does it look like a circle?</span>
-<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>coords</span>, asp <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
-<span class='op'>}</span>
 
 <span class='co'># use the function to get the area</span>
 <span class='fu'>trapezoidal_integration</span><span class='op'>(</span><span class='va'>coords</span><span class='op'>[</span>, <span class='fl'>1</span><span class='op'>]</span>, <span class='va'>coords</span><span class='op'>[</span>, <span class='fl'>2</span><span class='op'>]</span><span class='op'>)</span>

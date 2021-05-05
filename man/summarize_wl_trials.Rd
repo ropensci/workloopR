@@ -50,12 +50,6 @@ analyzed_wls <- read_analyze_wl_dir(system.file("extdata/wl_duration_trials",
 # now summarize
 summarized_wls <- summarize_wl_trials(analyzed_wls)
 
-# or on your own directory
-\dontrun{
-my_meta <- read_analyze_wl_dir("./my/file/path/")
-my_summaries <- summarize_wl_trials(my_meta)
-}
-
 }
 \references{
 Josephson RK. 1985. Mechanical Power output from Striated Muscle

@@ -58,11 +58,6 @@
 #' workloop_dat <-read_ddf_dir(system.file("extdata/wl_duration_trials",
 #'                  package = 'workloopR'))
 #'
-#' # or import your own file
-#' \dontrun{
-#' my_dat <- read_ddf_dir("./my/file/path/")
-#' }
-#'
 #' @export
 read_ddf_dir <- function(file_path,
                          pattern = "*.ddf",
@@ -104,7 +99,7 @@ read_ddf_dir <- function(file_path,
 #'
 #' @details If several files (e.g. successive trials from one experiment) are
 #' stored in one folder, use this function to obtain metadata in a list
-#' format. Runs \code{file.info} from base R to extract info from files.
+#' format. Runs \code{file.info()} from base R to extract info from files.
 #'
 #' This function is not truly considered to be part of the batch analysis
 #' pipeline;
@@ -116,6 +111,10 @@ read_ddf_dir <- function(file_path,
 #' Unlike \code{read_analyze_wl_dir()}, this function does not necessarily need
 #' files to all be work loops. Any file type is welcome (as long as the Regex
 #' \code{pattern} argument makes sense).
+#'
+#' @return Either a \code{data.frame} (if a single file is supplied) or a
+#' \code{list} of \code{data.frame}s (if a list of files is supplied), with
+#' information as supplied from \code{file.info()}.
 #'
 #' @family data import functions
 #' @family workloop functions
@@ -133,11 +132,6 @@ read_ddf_dir <- function(file_path,
 #' # get file info for files included with workloopR
 #' wl_meta <- get_wl_metadata(system.file("extdata/wl_duration_trials",
 #'                                        package = 'workloopR'))
-#'
-#' # or on your own directory
-#' \dontrun{
-#' my_meta <- get_wl_metadata("./my/file/path/")
-#' }
 #'
 #' @export
 get_wl_metadata <- function(file_path,
@@ -208,11 +202,6 @@ get_wl_metadata <- function(file_path,
 #'                                                 package = 'workloopR'),
 #'                                     phase_from_peak = TRUE,
 #'                                     cycle_def = "p2p", keep_cycles = 2:4)
-#'
-#' # or on your own directory
-#' \dontrun{
-#' my_analyzed_wls <- read_analyze_wl_dir("./my/file/path/")
-#' }
 #'
 #' @export
 read_analyze_wl_dir <- function(file_path,
@@ -298,12 +287,6 @@ read_analyze_wl_dir <- function(file_path,
 #'
 #' # now summarize
 #' summarized_wls <- summarize_wl_trials(analyzed_wls)
-#'
-#' # or on your own directory
-#' \dontrun{
-#' my_meta <- read_analyze_wl_dir("./my/file/path/")
-#' my_summaries <- summarize_wl_trials(my_meta)
-#' }
 #'
 #' @export
 summarize_wl_trials <- function(wl_list) {

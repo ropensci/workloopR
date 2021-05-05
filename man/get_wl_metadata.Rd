@@ -11,6 +11,11 @@ get_wl_metadata(file_path, pattern = "*.ddf")
 
 \item{pattern}{Regex pattern for identifying relevant files in the file_path.}
 }
+\value{
+Either a \code{data.frame} (if a single file is supplied) or a
+\code{list} of \code{data.frame}s (if a list of files is supplied), with
+information as supplied from \code{file.info()}.
+}
 \description{
 Grab metadata from files stored in the same folder (e.g. a sequence of trials
  in an experiment).
@@ -18,7 +23,7 @@ Grab metadata from files stored in the same folder (e.g. a sequence of trials
 \details{
 If several files (e.g. successive trials from one experiment) are
 stored in one folder, use this function to obtain metadata in a list
-format. Runs \code{file.info} from base R to extract info from files.
+format. Runs \code{file.info()} from base R to extract info from files.
 
 This function is not truly considered to be part of the batch analysis
 pipeline;
@@ -38,11 +43,6 @@ library(workloopR)
 # get file info for files included with workloopR
 wl_meta <- get_wl_metadata(system.file("extdata/wl_duration_trials",
                                        package = 'workloopR'))
-
-# or on your own directory
-\dontrun{
-my_meta <- get_wl_metadata("./my/file/path/")
-}
 
 }
 \seealso{

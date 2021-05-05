@@ -11,6 +11,9 @@ trapezoidal_integration(x, f)
 
 \item{f}{integrand, e.g. vector of forces}
 }
+\value{
+A numerical value indicating the value of the integral.
+}
 \description{
 Mostly meant for internal use in our analysis functions, but made available
 for other use cases. Accordingly, it does not strictly rely on objects of
@@ -28,10 +31,6 @@ of a work loop.
 t <- seq(0, 2 * pi, length = 1000)
 coords <- t(rbind(10 + sin(t) * 2, 20 + cos(t) * 2))
 
-# sanity check: does it look like a circle?
-\dontrun{
-plot(coords, asp = 1)
-}
 
 # use the function to get the area
 trapezoidal_integration(coords[, 1], coords[, 2])
