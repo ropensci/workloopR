@@ -2,10 +2,12 @@ workloopR: Analysis of work loops and other data from muscle physiology experime
 =======================================================================================
 
   <!-- badges: start -->
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)  
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![R build status](https://github.com/ropensci/workloopR/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/workloopR/actions)
-[![](https://badges.ropensci.org/326_status.svg)](https://github.com/ropensci/software-review/issues/326)  [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3523384.svg)](https://doi.org/10.5281/zenodo.3523384)  [![DOI](https://joss.theoj.org/papers/10.21105/joss.01856/status.svg)](https://doi.org/10.21105/joss.01856)
-
+[![](https://badges.ropensci.org/326_status.svg)](https://github.com/ropensci/software-review/issues/326)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3523384.svg)](https://doi.org/10.5281/zenodo.3523384)
+[![DOI](https://joss.theoj.org/papers/10.21105/joss.01856/status.svg)](https://doi.org/10.21105/joss.01856)
+[![CRAN status](https://www.r-pkg.org/badges/version/workloopR)](https://CRAN.R-project.org/package=workloopR)
   <!-- badges: end -->
 
 Documentation website: https://docs.ropensci.org/workloopR/
@@ -16,7 +18,13 @@ Accompanying paper in Journal of Open Source Software: https://doi.org/10.21105/
 
 ## Installation
 
-We are not (yet) on CRAN but the package can be installed via:
+You can install `workloopR` from CRAN via:
+
+``` {r install_cran, eval = FALSE}
+install.packages("workloopR")
+```
+
+Or to get the latest (developmental) version through GitHub, use:
 ``` r
 #install.packages("devtools") # if devtools is not installed
 devtools::install_github("ropensci/workloopR")

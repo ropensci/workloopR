@@ -171,7 +171,7 @@
     }
   ],
   "codeRepository": "https://github.com/ropensci/workloopR/",
-  "fileSize": "6076.721KB",
+  "fileSize": "6077.218KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
@@ -221,11 +221,18 @@
   ],
   "relatedLink": [
     "https://docs.ropensci.org/workloopR",
-    "https://docs.ropensci.org/workloopR/"
+    "https://docs.ropensci.org/workloopR/",
+    "https://CRAN.R-project.org/package=workloopR"
   ],
   "review": {
     "@type": "Review",
     "url": "https://github.com/ropensci/software-review/issues/326",
     "provider": "https://ropensci.org"
+  },
+  "provider": {
+    "@id": "https://cran.r-project.org",
+    "@type": "Organization",
+    "name": "Comprehensive R Archive Network (CRAN)",
+    "url": "https://cran.r-project.org"
   }
 }
