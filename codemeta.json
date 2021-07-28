@@ -171,7 +171,7 @@
     }
   ],
   "codeRepository": "https://github.com/ropensci/workloopR/",
-  "fileSize": "6077.218KB",
+  "fileSize": "6077.658KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
@@ -205,7 +205,6 @@
     }
   ],
   "issueTracker": "https://github.com/ropensci/workloopR/issues/",
-  "readme": "https://github.com/ropensci/workloopR/blob/master/README.md",
   "developmentStatus": "https://www.repostatus.org/#active",
   "releaseNotes": "https://github.com/ropensci/workloopR/blob/master/NEWS.md",
   "keywords": [
