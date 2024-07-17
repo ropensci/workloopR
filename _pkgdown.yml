@@ -9,23 +9,6 @@ authors:
   Shreeram Senthivasan:
     href: https://www.zoology.ubc.ca/person/shreeram-senthivasan/
 
-navbar:
-  components:
-    articles:
-      text: Vignettes
-      menu:
-      - text: 'Introduction to workloopR'
-        href: articles/Introduction-to-workloopR.html
-      - text: 'Importing data from non .ddf sources'
-        href: articles/non-ddf-sources.html
-      - text: 'Working with isometric experiments'
-        href: articles/Calculating-twitch-kinetics.html
-      - text: 'Analyzing work loop experiments'
-        href: articles/Analyzing-workloops.html
-      - text: 'Batch processing'
-        href: articles/batch-processing.html
-      - text: 'Plotting data in workloopR'
-        href: articles/Plotting-workloopR.html
 
 reference:
 - title: Data import functions
